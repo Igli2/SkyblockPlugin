@@ -1,0 +1,17 @@
+.vscode
+server/world
+server/world_nether
+server/world_the_end
+server/logs
+server/crash-reports
+skyblock/.settings
+skyblock/target
+server/Bukkit
+server/CraftBukkit
+server/Spigot
+server/banned-ips.json
+server/banned-players.json
+server/help.yml
+server/ops.json
+server/whitelist.json
+server/usercache.json
