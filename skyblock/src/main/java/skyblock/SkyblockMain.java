@@ -16,7 +16,7 @@ public class SkyblockMain extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        // getLogger().info("INFO");
+        this.getLogger().info("TEST PLUGIN");
         getServer().getPluginManager().registerEvents(new InventoryClickListener(this), this);
         getServer().getPluginManager().registerEvents(new EntityChangeBlockListener(this), this);
         getServer().getPluginManager().registerEvents(new CraftItemListener(this), this);
