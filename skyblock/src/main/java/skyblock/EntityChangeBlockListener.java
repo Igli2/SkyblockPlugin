@@ -15,9 +15,9 @@ public class EntityChangeBlockListener implements Listener {
     @EventHandler
     public void entityChangeBlockEvent(EntityChangeBlockEvent event) {
         //disable endermen picking up blocks
+        plugin.getLogger().info(event.getEntityType().toString());
         if (event.getEntity() != null && event.getEntityType() == EntityType.ENDERMAN) {
             event.setCancelled(true);
         }
-        //TODO: disable creeper damage
     }
 }
