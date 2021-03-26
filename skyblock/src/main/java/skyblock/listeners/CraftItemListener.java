@@ -1,9 +1,11 @@
-package skyblock;
+package skyblock.listeners;
 
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.CraftItemEvent;
 import org.bukkit.inventory.meta.ItemMeta;
+
+import skyblock.App;
 
 public class CraftItemListener implements Listener {
     App plugin;

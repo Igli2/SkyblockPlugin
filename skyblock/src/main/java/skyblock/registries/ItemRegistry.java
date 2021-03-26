@@ -1,12 +1,17 @@
-package skyblock;
+package skyblock.registries;
 
 import java.util.HashMap;
 
 import org.bukkit.Material;
+import org.bukkit.OfflinePlayer;
+import org.bukkit.block.Skull;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.inventory.meta.SkullMeta;
+
+import skyblock.App;
 
 public class ItemRegistry {
     public static final int ARCHEOLOGISTS_PICKAXE = 1024;
@@ -27,7 +32,7 @@ public class ItemRegistry {
         setItemName(archeologistsPickaxe, "Archeologist's Pickaxe");
         specialItems.put(ARCHEOLOGISTS_PICKAXE, archeologistsPickaxe);
 
-        ItemStack geode = new ItemStack(Material.STONE);
+        ItemStack geode = new ItemStack(Material.PLAYER_HEAD);
         addEnchantEffect(geode);
         setItemName(geode, "Geode");
         specialItems.put(GEODE, geode);
@@ -50,6 +55,10 @@ public class ItemRegistry {
         itemMeta.addEnchant(Enchantment.DURABILITY, 1, true);
         itemMeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         item.setItemMeta(itemMeta);
+    }
+
+    private void setSkullTexture(ItemStack item) {
+        SkullMeta skullMeta = (SkullMeta) item.getItemMeta();
     }
 
     public boolean isItem(int id, ItemStack item) {

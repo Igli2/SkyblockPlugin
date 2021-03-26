@@ -8,8 +8,11 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.ShapedRecipe;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import skyblock.listeners.*;
+import skyblock.registries.ItemRegistry;
+
 public class App extends JavaPlugin {
-    ItemRegistry itemRegistry = new ItemRegistry(this);
+    public ItemRegistry itemRegistry = new ItemRegistry(this);
 
     @Override
     public void onEnable() {
@@ -18,7 +21,9 @@ public class App extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new EntityChangeBlockListener(this), this);
         getServer().getPluginManager().registerEvents(new CraftItemListener(this), this);
         getServer().getPluginManager().registerEvents(new BlockBreakListener(this), this);
+        getServer().getPluginManager().registerEvents(new PrepareItemCraftListener(this), this);
 
+        // TODO!!!!!!!!
         ItemStack ingredient = itemRegistry.getItemStack(ItemRegistry.GEODE);
         ItemStack result = itemRegistry.getItemStack(ItemRegistry.ARCHEOLOGISTS_PICKAXE);
         ShapedRecipe recipe = new ShapedRecipe(new NamespacedKey(this, "archeologists_pickaxe"), result);
