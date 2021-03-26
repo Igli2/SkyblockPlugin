@@ -4,12 +4,12 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.PrepareItemCraftEvent;
 
-import skyblock.App;
+import skyblock.SkyblockMain;
 
 public class PrepareItemCraftListener implements Listener {
-    App plugin;
+    SkyblockMain plugin;
 
-    public PrepareItemCraftListener(App plugin) {
+    public PrepareItemCraftListener(SkyblockMain plugin) {
         this.plugin = plugin;
     }
 

@@ -3,24 +3,22 @@ package skyblock.registries;
 import java.util.HashMap;
 
 import org.bukkit.Material;
-import org.bukkit.OfflinePlayer;
-import org.bukkit.block.Skull;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.SkullMeta;
 
-import skyblock.App;
+import skyblock.SkyblockMain;
 
 public class ItemRegistry {
     public static final int ARCHEOLOGISTS_PICKAXE = 1024;
     public static final int GEODE = 1025;
     HashMap<Integer, ItemStack> specialItems = new HashMap<Integer, ItemStack>();
 
-    App plugin;
+    SkyblockMain plugin;
 
-    public ItemRegistry(App plugin) {
+    public ItemRegistry(SkyblockMain plugin) {
         this.plugin = plugin;
 
         registerSpecialItems();

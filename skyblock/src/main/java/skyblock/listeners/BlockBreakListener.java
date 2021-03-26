@@ -6,13 +6,13 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.inventory.ItemStack;
 
-import skyblock.App;
+import skyblock.SkyblockMain;
 import skyblock.registries.ItemRegistry;
 
 public class BlockBreakListener implements Listener {
-    App plugin;
+    SkyblockMain plugin;
 
-    public BlockBreakListener(App plugin) {
+    public BlockBreakListener(SkyblockMain plugin) {
         this.plugin = plugin;
     }
 

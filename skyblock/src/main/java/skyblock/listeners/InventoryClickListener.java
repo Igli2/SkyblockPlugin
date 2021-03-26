@@ -5,12 +5,12 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryType;
 
-import skyblock.App;
+import skyblock.SkyblockMain;
 
 public class InventoryClickListener implements Listener {
-    App plugin;
+    SkyblockMain plugin;
 
-    public InventoryClickListener(App plugin) {
+    public InventoryClickListener(SkyblockMain plugin) {
         this.plugin = plugin;
     }
 

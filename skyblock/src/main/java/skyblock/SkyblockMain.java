@@ -11,7 +11,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import skyblock.listeners.*;
 import skyblock.registries.ItemRegistry;
 
-public class App extends JavaPlugin {
+public class SkyblockMain extends JavaPlugin {
     public ItemRegistry itemRegistry = new ItemRegistry(this);
 
     @Override
