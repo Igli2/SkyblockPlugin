@@ -7,7 +7,7 @@ import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
-import org.bukkit.inventory.meta.SkullMeta;
+//import org.bukkit.inventory.meta.SkullMeta;
 
 import skyblock.SkyblockMain;
 
@@ -55,9 +55,11 @@ public class ItemRegistry {
         item.setItemMeta(itemMeta);
     }
 
-    private void setSkullTexture(ItemStack item) {
-        SkullMeta skullMeta = (SkullMeta) item.getItemMeta();
-    }
+    // TODO
+    /*
+     * private void setSkullTexture(ItemStack item) { SkullMeta skullMeta =
+     * (SkullMeta) item.getItemMeta(); }
+     */
 
     public boolean isItem(int id, ItemStack item) {
         if (specialItems.get(id).getItemMeta().getDisplayName().equals(item.getItemMeta().getDisplayName())) {

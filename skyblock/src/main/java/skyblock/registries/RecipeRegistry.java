@@ -26,6 +26,7 @@ public class RecipeRegistry {
         }
 
         RecipeRegistry.recipes.add(recipe);
+        plugin.getServer().addRecipe(recipe);
     }
 
     public static void addShapelessRecipe(JavaPlugin plugin, String key, Material[] ingredients, ItemStack result) {
@@ -36,11 +37,5 @@ public class RecipeRegistry {
         }
 
         RecipeRegistry.recipes.add(recipe);
-    }
-
-    public static void register(JavaPlugin plugin) {
-        for(Recipe recipe : RecipeRegistry.recipes) {
-            plugin.getServer().addRecipe(recipe);
-        }
     }
 }
