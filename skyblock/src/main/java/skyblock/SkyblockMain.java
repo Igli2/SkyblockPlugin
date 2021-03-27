@@ -52,7 +52,7 @@ public class SkyblockMain extends JavaPlugin {
     }
 
     public void registerRecipes() {
-        RecipeRegistry.addShapedRecipe(SkyblockMain.instance, "archeologists_pickaxe",
+        RecipeRegistry.addShapedRecipe(this, "archeologists_pickaxe",
                 Arrays.asList(new Ingredient(Material.GOLD_BLOCK, 'G'), new Ingredient(Material.STICK, 'S')),
                 itemRegistry.getItemStack(ItemRegistry.ARCHEOLOGISTS_PICKAXE), new String[] { "GGG", " S ", " S " });
 

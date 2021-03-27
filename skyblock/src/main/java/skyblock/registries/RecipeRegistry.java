@@ -37,5 +37,6 @@ public class RecipeRegistry {
         }
 
         RecipeRegistry.recipes.add(recipe);
+        plugin.getServer().addRecipe(recipe);
     }
 }
