@@ -14,8 +14,9 @@ import java.util.List;
 
 public class RecipeRegistry {
 
+    private static ArrayList<Recipe> recipes = new ArrayList<>();
+
     public static void addShapedRecipe(JavaPlugin plugin, String key, List<Ingredient> ingredients, ItemStack result, String[] shape) {
-        System.out.println(plugin + "!!!");
         ShapedRecipe recipe = new ShapedRecipe(new NamespacedKey(plugin, key), result);
 
         recipe.shape(shape[0], shape[1], shape[2]);
@@ -24,6 +25,7 @@ public class RecipeRegistry {
             recipe.setIngredient(ingredient.getKey(), ingredient.getMaterial());
         }
 
+        RecipeRegistry.recipes.add(recipe);
         plugin.getServer().addRecipe(recipe);
     }
 
@@ -34,6 +36,7 @@ public class RecipeRegistry {
             recipe.addIngredient(ingredient);
         }
 
+        RecipeRegistry.recipes.add(recipe);
         plugin.getServer().addRecipe(recipe);
     }
 }
