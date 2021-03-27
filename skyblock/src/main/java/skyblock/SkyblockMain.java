@@ -6,6 +6,8 @@ import org.bukkit.Material;
 
 import org.bukkit.plugin.java.JavaPlugin;
 
+import skyblock.commands.CreateSkyblockCommand;
+import skyblock.commands.JoinWorldCommand;
 import skyblock.listeners.*;
 import skyblock.registries.ItemRegistry;
 import skyblock.registries.RecipeRegistry;
@@ -25,6 +27,7 @@ public class SkyblockMain extends JavaPlugin {
         // init
         SkyblockMain.itemRegistry = new ItemRegistry(this);
         SkyblockMain.recipeRegistry = new RecipeRegistry();
+        SkyblockMain.instance = this;
 
         // listeners
         this.getServer().getPluginManager().registerEvents(new InventoryClickListener(this), this);
@@ -32,6 +35,10 @@ public class SkyblockMain extends JavaPlugin {
         this.getServer().getPluginManager().registerEvents(new CraftItemListener(this), this);
         this.getServer().getPluginManager().registerEvents(new BlockBreakListener(this), this);
         this.getServer().getPluginManager().registerEvents(new PrepareItemCraftListener(this), this);
+
+        // commands
+        this.getCommand("create_skyblock").setExecutor(new CreateSkyblockCommand());
+        this.getCommand("join").setExecutor(new JoinWorldCommand());
 
         this.registerRecipes();
 
@@ -52,9 +59,8 @@ public class SkyblockMain extends JavaPlugin {
     }
 
     public void registerRecipes() {
-        RecipeRegistry.addShapedRecipe(SkyblockMain.instance, "archeologists_pickaxe",
+        RecipeRegistry.addShapedRecipe(this, "archeologists_pickaxe",
                 Arrays.asList(new Ingredient(Material.GOLD_BLOCK, 'G'), new Ingredient(Material.STICK, 'S')),
-                itemRegistry.getItemStack(ItemRegistry.ARCHEOLOGISTS_PICKAXE), new String[] { "GGG", " S ", " S " });
-
+                itemRegistry.getItemStack(ItemRegistry.GEODE), new String[] { "GGG", " S ", " S " });
     }
 }

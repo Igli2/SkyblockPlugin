@@ -1,17 +1,27 @@
 package skyblock.registries;
 
 import java.util.HashMap;
+import java.util.UUID;
 
+import com.mojang.authlib.GameProfile;
+import com.mojang.authlib.properties.Property;
+import com.mojang.authlib.properties.PropertyMap;
+import net.minecraft.server.v1_16_R3.NBTTagCompound;
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
+import org.bukkit.craftbukkit.v1_16_R3.inventory.CraftItemStack;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 //import org.bukkit.inventory.meta.SkullMeta;
 
+import org.bukkit.inventory.meta.SkullMeta;
 import skyblock.SkyblockMain;
 
 public class ItemRegistry {
+    private static final String TEXTURE_URL = "http://textures.minecraft.net/texture/";
+
     public static final int ARCHEOLOGISTS_PICKAXE = 1024;
     public static final int GEODE = 1025;
     HashMap<Integer, ItemStack> specialItems = new HashMap<Integer, ItemStack>();
@@ -30,7 +40,9 @@ public class ItemRegistry {
         setItemName(archeologistsPickaxe, "Archeologist's Pickaxe");
         specialItems.put(ARCHEOLOGISTS_PICKAXE, archeologistsPickaxe);
 
+      //  ItemStack geode = getHead(new ItemStack(Material.PLAYER_HEAD));
         ItemStack geode = new ItemStack(Material.PLAYER_HEAD);
+
         addEnchantEffect(geode);
         setItemName(geode, "Geode");
         specialItems.put(GEODE, geode);

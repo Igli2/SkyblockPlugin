@@ -2,3 +2,10 @@ main: skyblock.SkyblockMain
 name: SkyblockPlugin
 version: 0.1
 api-version: 1.16
+commands:
+  create_skyblock:
+    description: Create a new skyblock world
+    usage: /<command>
+  join:
+    description: Join a world
+    usage: /<command>
