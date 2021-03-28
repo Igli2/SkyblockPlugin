@@ -6,8 +6,7 @@ import org.bukkit.Material;
 
 import org.bukkit.plugin.java.JavaPlugin;
 
-import skyblock.commands.CreateSkyblockCommand;
-import skyblock.commands.JoinWorldCommand;
+import skyblock.commands.JoinSkyblockCommand;
 import skyblock.listeners.*;
 import skyblock.registries.ItemRegistry;
 import skyblock.registries.RecipeRegistry;
@@ -37,8 +36,7 @@ public class SkyblockMain extends JavaPlugin {
         this.getServer().getPluginManager().registerEvents(new PrepareItemCraftListener(this), this);
 
         // commands
-        this.getCommand("create_skyblock").setExecutor(new CreateSkyblockCommand());
-        this.getCommand("join").setExecutor(new JoinWorldCommand());
+        this.getCommand("skyblock").setExecutor(new JoinSkyblockCommand());
 
         this.registerRecipes();
 

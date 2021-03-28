@@ -3,9 +3,6 @@ name: SkyblockPlugin
 version: 0.1
 api-version: 1.16
 commands:
-  create_skyblock:
-    description: Create a new skyblock world
-    usage: /<command>
-  join:
-    description: Join a world
+  skyblock:
+    description: Teleports you to your skyblock. If you don't already have one, one will be created for you.
     usage: /<command>
