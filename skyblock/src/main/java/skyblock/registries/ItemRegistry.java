@@ -7,6 +7,7 @@ import com.mojang.authlib.GameProfile;
 import com.mojang.authlib.properties.Property;
 import com.mojang.authlib.properties.PropertyMap;
 import net.minecraft.server.v1_16_R3.NBTTagCompound;
+import net.minecraft.server.v1_16_R3.NBTTagList;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.craftbukkit.v1_16_R3.inventory.CraftItemStack;
@@ -40,8 +41,9 @@ public class ItemRegistry {
         setItemName(archeologistsPickaxe, "Archeologist's Pickaxe");
         specialItems.put(ARCHEOLOGISTS_PICKAXE, archeologistsPickaxe);
 
-      //  ItemStack geode = getHead(new ItemStack(Material.PLAYER_HEAD));
-        ItemStack geode = new ItemStack(Material.PLAYER_HEAD);
+        ItemStack geode = createTexturedSkull(
+                "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvY2FiYjUxZjU5NDgxMTMyNTQ1YjUwZTQ3NWU3NjYyMzljNzljNjI0ZTliOTZhYjNhMGFjYjJhZjMwMWQ5NmM3OSJ9fX0=",
+                new int[]{-1136006473, 240537101, -1791113915, -2037819923});
 
         addEnchantEffect(geode);
         setItemName(geode, "Geode");
@@ -66,12 +68,28 @@ public class ItemRegistry {
         itemMeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         item.setItemMeta(itemMeta);
     }
+    private ItemStack createTexturedSkull(String textureStr, int[] id) {
+        net.minecraft.server.v1_16_R3.ItemStack head = CraftItemStack.asNMSCopy(new ItemStack(Material.PLAYER_HEAD));
+        NBTTagCompound tag = head.getOrCreateTag();
+        NBTTagCompound skullOwner = new NBTTagCompound();
 
-    // TODO
-    /*
-     * private void setSkullTexture(ItemStack item) { SkullMeta skullMeta =
-     * (SkullMeta) item.getItemMeta(); }
-     */
+        //Texture
+        NBTTagCompound properties = new NBTTagCompound();
+        NBTTagList textures = new NBTTagList();
+        NBTTagCompound texture = new NBTTagCompound();
+        texture.setString("Value", textureStr);
+        textures.add(texture);
+        properties.set("textures", textures);
+        skullOwner.set("Properties", properties);
+
+        //ID
+        skullOwner.setIntArray("Id", id);
+
+        tag.set("SkullOwner", skullOwner);
+        head.setTag(tag);
+
+        return CraftItemStack.asBukkitCopy(head);
+    }
 
     public boolean isItem(int id, ItemStack item) {
         if (specialItems.get(id).getItemMeta().getDisplayName().equals(item.getItemMeta().getDisplayName())) {
