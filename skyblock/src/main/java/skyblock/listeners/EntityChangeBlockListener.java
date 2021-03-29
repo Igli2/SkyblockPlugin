@@ -8,11 +8,6 @@ import org.bukkit.event.entity.EntityChangeBlockEvent;
 import skyblock.SkyblockMain;
 
 public class EntityChangeBlockListener implements Listener {
-    SkyblockMain plugin;
-
-    public EntityChangeBlockListener(SkyblockMain plugin) {
-        this.plugin = plugin;
-    }
 
     @EventHandler
     public void entityChangeBlockEvent(EntityChangeBlockEvent event) {

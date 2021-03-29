@@ -8,11 +8,6 @@ import org.bukkit.event.inventory.InventoryType;
 import skyblock.SkyblockMain;
 
 public class InventoryClickListener implements Listener {
-    SkyblockMain plugin;
-
-    public InventoryClickListener(SkyblockMain plugin) {
-        this.plugin = plugin;
-    }
 
     @EventHandler
     public void inventoryClickEvent(InventoryClickEvent event) {

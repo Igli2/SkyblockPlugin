@@ -10,11 +10,6 @@ import skyblock.SkyblockMain;
 import skyblock.registries.ItemRegistry;
 
 public class BlockBreakListener implements Listener {
-    SkyblockMain plugin;
-
-    public BlockBreakListener(SkyblockMain plugin) {
-        this.plugin = plugin;
-    }
 
     @EventHandler
     public void blockBreakEvent(BlockBreakEvent event) {
@@ -24,7 +19,7 @@ public class BlockBreakListener implements Listener {
             if (itemHeld.getType() != Material.AIR && !itemHeld.getItemMeta().hasDisplayName() && itemHeld.getType() == Material.STONE_PICKAXE) {
                 if (event.getBlock().getType() == Material.COBBLESTONE || event.getBlock().getType() == Material.STONE) {
                     if (Math.random() > 0.995) {
-                        plugin.getServer().getWorld("World").dropItem(event.getPlayer().getLocation(), SkyblockMain.itemRegistry.getItemStack(ItemRegistry.GEODE));
+                        SkyblockMain.instance.getServer().getWorld("World").dropItem(event.getPlayer().getLocation(), SkyblockMain.itemRegistry.getItemStack(ItemRegistry.GEODE));
                     }
                 }
             }

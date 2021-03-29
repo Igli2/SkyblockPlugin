@@ -29,11 +29,11 @@ public class SkyblockMain extends JavaPlugin {
         SkyblockMain.instance = this;
 
         // listeners
-        this.getServer().getPluginManager().registerEvents(new InventoryClickListener(this), this);
-        this.getServer().getPluginManager().registerEvents(new EntityChangeBlockListener(this), this);
-        this.getServer().getPluginManager().registerEvents(new CraftItemListener(this), this);
-        this.getServer().getPluginManager().registerEvents(new BlockBreakListener(this), this);
-        this.getServer().getPluginManager().registerEvents(new PrepareItemCraftListener(this), this);
+        this.getServer().getPluginManager().registerEvents(new InventoryClickListener(), this);
+        this.getServer().getPluginManager().registerEvents(new EntityChangeBlockListener(), this);
+        this.getServer().getPluginManager().registerEvents(new CraftItemListener(), this);
+        this.getServer().getPluginManager().registerEvents(new BlockBreakListener(), this);
+        this.getServer().getPluginManager().registerEvents(new PrepareItemCraftListener(), this);
 
         // commands
         this.getCommand("skyblock").setExecutor(new JoinSkyblockCommand());
