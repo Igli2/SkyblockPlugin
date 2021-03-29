@@ -7,11 +7,13 @@ import org.bukkit.Material;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import skyblock.commands.JoinSkyblockCommand;
+import skyblock.commands.WarpCommand;
 import skyblock.listeners.*;
 import skyblock.registries.ItemRegistry;
 import skyblock.registries.RecipeRegistry;
 import skyblock.registries.WorldRegistry;
 import skyblock.utils.Ingredient;
+import skyblock.utils.WorldInfo;
 
 import java.util.Arrays;
 
@@ -30,6 +32,7 @@ public class SkyblockMain extends JavaPlugin {
         SkyblockMain.itemRegistry = new ItemRegistry(this);
         SkyblockMain.recipeRegistry = new RecipeRegistry();
         SkyblockMain.worldRegistry = WorldRegistry.loadFromConfig(this.getDataFolder().getAbsolutePath() + "/world_registry.yaml");
+        if(!SkyblockMain.worldRegistry.hasWorld("world")) SkyblockMain.worldRegistry.addWorld(new WorldInfo(WorldInfo.WorldType.PUBLIC_WORLD, "world", true));
 
         // listeners
         this.getServer().getPluginManager().registerEvents(new InventoryClickListener(), this);
@@ -37,9 +40,13 @@ public class SkyblockMain extends JavaPlugin {
         this.getServer().getPluginManager().registerEvents(new CraftItemListener(), this);
         this.getServer().getPluginManager().registerEvents(new BlockBreakListener(), this);
         this.getServer().getPluginManager().registerEvents(new PrepareItemCraftListener(), this);
+        this.getServer().getPluginManager().registerEvents(new WorldRegistryListener(), this);
+
 
         // commands
         this.getCommand("skyblock").setExecutor(new JoinSkyblockCommand());
+        this.getCommand("warp").setExecutor(new WarpCommand());
+
 
         this.registerRecipes();
 
@@ -57,6 +64,7 @@ public class SkyblockMain extends JavaPlugin {
 
     @Override
     public void onDisable() {
+        SkyblockMain.worldRegistry.unloadAll();
         SkyblockMain.worldRegistry.saveToConfig(this.getDataFolder().getAbsolutePath() + "/world_registry.yaml");
     }
 

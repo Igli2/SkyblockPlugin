@@ -1,6 +1,8 @@
 package skyblock.registries;
 
+import org.bukkit.Bukkit;
 import org.bukkit.World;
+import org.bukkit.WorldCreator;
 import org.bukkit.configuration.file.YamlConfiguration;
 import skyblock.utils.WorldInfo;
 
@@ -46,6 +48,32 @@ public class WorldRegistry {
             return this.worlds.get(world).isLoaded();
         } else {
             return false;
+        }
+    }
+
+    public boolean unloadWorld(String world) {
+        if(this.isWorldLoaded(world)) {
+            Bukkit.unloadWorld(world, true);
+            this.worlds.get(world).setStatus(false);
+            return true;
+        }
+
+        return false;
+    }
+
+    public boolean loadWorld(String world) {
+        if(!this.isWorldLoaded(world)) {
+            Bukkit.createWorld(new WorldCreator(world));
+            this.worlds.get(world).setStatus(true);
+            return true;
+        }
+
+        return false;
+    }
+
+    public void unloadAll() {
+        for(WorldInfo world : this.worlds.values()) {
+            Bukkit.unloadWorld(world.getWorldName(), true);
         }
     }
 

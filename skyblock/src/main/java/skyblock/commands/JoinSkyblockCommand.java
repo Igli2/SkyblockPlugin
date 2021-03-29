@@ -20,14 +20,12 @@ public class JoinSkyblockCommand implements CommandExecutor {
 
             String worldName = player.getUniqueId().toString();
 
-            if(!SkyblockMain.worldRegistry.isWorldLoaded(worldName)) {
+            if(!SkyblockMain.worldRegistry.hasWorld(worldName)) {
                 WorldCreator wc = new WorldCreator(worldName);
                 wc.generator(new SkyblockChunkGenerator());
                 wc.createWorld();
 
-                if(!SkyblockMain.worldRegistry.hasWorld(worldName)) {
-                    SkyblockMain.worldRegistry.addWorld(new WorldInfo(WorldInfo.WorldType.PLAYER_WORLD, worldName));
-                }
+                SkyblockMain.worldRegistry.addWorld(new WorldInfo(WorldInfo.WorldType.PLAYER_WORLD, worldName, true));
             }
 
             player.teleport(new Location(Bukkit.getWorld(worldName), 0, 100, 0));

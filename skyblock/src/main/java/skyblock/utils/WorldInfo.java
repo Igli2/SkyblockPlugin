@@ -10,9 +10,9 @@ public class WorldInfo {
     private boolean loaded;
     private String worldName;
 
-    public WorldInfo(WorldType type, String worldName) {
+    public WorldInfo(WorldType type, String worldName, boolean loaded) {
         this.type = type;
-        this.loaded = false;
+        this.loaded = loaded;
         this.worldName = worldName;
     }
 
@@ -40,6 +40,6 @@ public class WorldInfo {
     public static WorldInfo fromString(String worldInfoStr) {
         String[] components = worldInfoStr.split(";");
 
-        return new WorldInfo(WorldType.valueOf(components[1]), components[0]);
+        return new WorldInfo(WorldType.valueOf(components[1]), components[0], false);
     }
 }
