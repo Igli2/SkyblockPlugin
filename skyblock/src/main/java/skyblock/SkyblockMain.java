@@ -32,8 +32,10 @@ public class SkyblockMain extends JavaPlugin {
         SkyblockMain.instance = this;
         SkyblockMain.itemRegistry = new ItemRegistry(this);
         SkyblockMain.recipeRegistry = new RecipeRegistry();
+
         SkyblockMain.worldRegistry = WorldRegistry.loadFromConfig(this.getDataFolder().getAbsolutePath() + "/world_registry.yaml");
         if(!SkyblockMain.worldRegistry.hasWorld("world")) SkyblockMain.worldRegistry.addWorld(new WorldInfo(WorldInfo.WorldType.PUBLIC_WORLD, "world", true));
+        SkyblockMain.worldRegistry.loadPublicWorlds();
 
         // listeners
         this.getServer().getPluginManager().registerEvents(new InventoryClickListener(), this);

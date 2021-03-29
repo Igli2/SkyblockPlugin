@@ -77,6 +77,14 @@ public class WorldRegistry {
         }
     }
 
+    public void loadPublicWorlds() {
+        for(WorldInfo world : this.worlds.values()) {
+            if(this.getWorldType(world.getWorldName()) == WorldInfo.WorldType.PUBLIC_WORLD) {
+                this.loadWorld(world.getWorldName());
+            }
+        }
+    }
+
     public static WorldRegistry loadFromConfig(String filePath) {
         YamlConfiguration config = new YamlConfiguration();
 

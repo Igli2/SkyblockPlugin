@@ -25,10 +25,6 @@ public class WarpCommand implements CommandExecutor {
                     return true;
                 }
 
-                if(!SkyblockMain.worldRegistry.isWorldLoaded(strings[0])) {
-                    SkyblockMain.worldRegistry.loadWorld(strings[0]);
-                }
-
                 player.teleport(new Location(Bukkit.getWorld(strings[0]), 0, 100, 0));
             } else {
                 player.sendMessage(ChatColor.RED + "/warp <world_name>");
