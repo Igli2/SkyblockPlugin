@@ -9,3 +9,6 @@ commands:
   warp:
     description: Warps you into a specific world
     usage: /<command>
+  create_world:
+    description: Creates a new void world you can warp to
+    usage: /<command>

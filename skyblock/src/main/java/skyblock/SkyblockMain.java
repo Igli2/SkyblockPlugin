@@ -6,6 +6,7 @@ import org.bukkit.Material;
 
 import org.bukkit.plugin.java.JavaPlugin;
 
+import skyblock.commands.CreateWorldCommand;
 import skyblock.commands.JoinSkyblockCommand;
 import skyblock.commands.WarpCommand;
 import skyblock.listeners.*;
@@ -46,6 +47,7 @@ public class SkyblockMain extends JavaPlugin {
         // commands
         this.getCommand("skyblock").setExecutor(new JoinSkyblockCommand());
         this.getCommand("warp").setExecutor(new WarpCommand());
+        this.getCommand("create_world").setExecutor(new CreateWorldCommand());
 
 
         this.registerRecipes();
