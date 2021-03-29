@@ -7,7 +7,9 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import skyblock.SkyblockMain;
 import skyblock.generators.SkyblockChunkGenerator;
+import skyblock.utils.WorldInfo;
 
 public class JoinSkyblockCommand implements CommandExecutor {
 
@@ -15,11 +17,20 @@ public class JoinSkyblockCommand implements CommandExecutor {
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
         if(commandSender instanceof Player) {
             Player player = (Player) commandSender;
-            WorldCreator wc = new WorldCreator(player.getUniqueId().toString());
-            wc.generator(new SkyblockChunkGenerator());
-            wc.createWorld();
 
-            player.teleport(new Location(Bukkit.getWorld(player.getUniqueId().toString()), 0, 100, 0));
+            String worldName = player.getUniqueId().toString();
+
+            if(!SkyblockMain.worldRegistry.isWorldLoaded(worldName)) {
+                WorldCreator wc = new WorldCreator(worldName);
+                wc.generator(new SkyblockChunkGenerator());
+                wc.createWorld();
+
+                if(!SkyblockMain.worldRegistry.hasWorld(worldName)) {
+                    SkyblockMain.worldRegistry.addWorld(new WorldInfo(WorldInfo.WorldType.PLAYER_WORLD, worldName));
+                }
+            }
+
+            player.teleport(new Location(Bukkit.getWorld(worldName), 0, 100, 0));
 
             return true;
         }

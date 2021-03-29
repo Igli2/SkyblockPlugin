@@ -10,6 +10,7 @@ import skyblock.commands.JoinSkyblockCommand;
 import skyblock.listeners.*;
 import skyblock.registries.ItemRegistry;
 import skyblock.registries.RecipeRegistry;
+import skyblock.registries.WorldRegistry;
 import skyblock.utils.Ingredient;
 
 import java.util.Arrays;
@@ -20,13 +21,15 @@ public class SkyblockMain extends JavaPlugin {
     // registries
     public static ItemRegistry itemRegistry;
     public static RecipeRegistry recipeRegistry;
+    public static WorldRegistry worldRegistry;
 
     @Override
     public void onEnable() {
         // init
+        SkyblockMain.instance = this;
         SkyblockMain.itemRegistry = new ItemRegistry(this);
         SkyblockMain.recipeRegistry = new RecipeRegistry();
-        SkyblockMain.instance = this;
+        SkyblockMain.worldRegistry = WorldRegistry.loadFromConfig(this.getDataFolder().getAbsolutePath() + "/world_registry.yaml");
 
         // listeners
         this.getServer().getPluginManager().registerEvents(new InventoryClickListener(), this);
@@ -54,6 +57,7 @@ public class SkyblockMain extends JavaPlugin {
 
     @Override
     public void onDisable() {
+        SkyblockMain.worldRegistry.saveToConfig(this.getDataFolder().getAbsolutePath() + "/world_registry.yaml");
     }
 
     public void registerRecipes() {
