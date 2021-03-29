@@ -4,11 +4,13 @@ package skyblock;
 
 import org.bukkit.Material;
 
+import org.bukkit.generator.ChunkGenerator;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import skyblock.commands.CreateWorldCommand;
 import skyblock.commands.JoinSkyblockCommand;
 import skyblock.commands.WarpCommand;
+import skyblock.generators.SkyblockChunkGenerator;
 import skyblock.listeners.*;
 import skyblock.registries.ItemRegistry;
 import skyblock.registries.RecipeRegistry;

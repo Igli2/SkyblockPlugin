@@ -23,8 +23,7 @@ public class JoinSkyblockCommand implements CommandExecutor {
             if(!SkyblockMain.worldRegistry.hasWorld(worldName)) {
                 WorldCreator wc = new WorldCreator(worldName);
                 wc.generator(new SkyblockChunkGenerator());
-                wc.createWorld();
-
+                Bukkit.createWorld(wc);
                 SkyblockMain.worldRegistry.addWorld(new WorldInfo(WorldInfo.WorldType.PLAYER_WORLD, worldName, true));
             }
 

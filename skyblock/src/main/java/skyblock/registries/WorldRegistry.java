@@ -1,9 +1,9 @@
 package skyblock.registries;
 
 import org.bukkit.Bukkit;
-import org.bukkit.World;
 import org.bukkit.WorldCreator;
 import org.bukkit.configuration.file.YamlConfiguration;
+import skyblock.generators.SkyblockChunkGenerator;
 import skyblock.utils.WorldInfo;
 
 import java.io.File;
@@ -63,7 +63,9 @@ public class WorldRegistry {
 
     public boolean loadWorld(String world) {
         if(!this.isWorldLoaded(world)) {
-            Bukkit.createWorld(new WorldCreator(world));
+            WorldCreator wc = new WorldCreator(world);
+            wc.generator(new SkyblockChunkGenerator());
+            Bukkit.createWorld(wc);
             this.worlds.get(world).setStatus(true);
             return true;
         }
