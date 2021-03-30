@@ -29,4 +29,9 @@ public class Ingredient {
     public char getKey() {
         return key;
     }
+
+    // debug method
+    public String toString() {
+        return "Ingredient{" + this.key + "," + this.item.getType() + "}";
+    }
 }

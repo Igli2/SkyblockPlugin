@@ -3,6 +3,7 @@ package skyblock.utils;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
+import javax.annotation.Nonnull;
 import java.util.List;
 
 public class Recipe {
@@ -25,18 +26,18 @@ public class Recipe {
     public boolean equals(ItemStack[] matrixOther) {
         for (int i = 0; i < 9; i++) {
             ItemStack itemStackOther = matrixOther[i];
-            //get ingredient for key at position i in matrix
             ItemStack itemStack = new ItemStack(Material.AIR);
             for (Ingredient ingredient : this.ingredients) {
                 if (ingredient.getKey() == this.matrix[i]) {
                     itemStack = ingredient.getItem();
                 }
             }
+
             if (itemStackOther == null && itemStack.getType() != Material.AIR || itemStackOther != null && itemStack.getType() == Material.AIR) {
                 //System.out.println(i + " not null and air");
                 return false;
             }
-            if (itemStackOther != null && itemStackOther.hasItemMeta() && itemStack.hasItemMeta()) {
+            if (itemStackOther != null) {
                 if (itemStackOther.getItemMeta().hasDisplayName() && itemStack.getItemMeta().hasDisplayName()) {
                     if (!itemStackOther.getItemMeta().getDisplayName().equals(itemStack.getItemMeta().getDisplayName())) {
                         //System.out.println(i + " no equal display names");

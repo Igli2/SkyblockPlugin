@@ -44,7 +44,7 @@ public class InventoryClickListener implements Listener {
                 // craft the item if there is a valid recipe
                 if (event.getRawSlot() == CraftingTable.RESULT) {
                     event.setCancelled(true);
-                    CraftingTable.onCraft(event.getInventory());
+                    CraftingTable.onCraft(event.getInventory(), event.getWhoClicked(), event.isShiftClick());
                 }
             }
         }

@@ -1,7 +1,5 @@
 package skyblock;
 
-import org.bukkit.Material;
-
 import org.bukkit.plugin.java.JavaPlugin;
 
 import skyblock.commands.CreateWorldCommand;
@@ -11,10 +9,8 @@ import skyblock.listeners.*;
 import skyblock.registries.ItemRegistry;
 import skyblock.registries.RecipeRegistry;
 import skyblock.registries.WorldRegistry;
-import skyblock.utils.Ingredient;
 import skyblock.utils.WorldInfo;
 
-import java.util.Arrays;
 
 public class SkyblockMain extends JavaPlugin {
     public static SkyblockMain instance;
@@ -51,18 +47,13 @@ public class SkyblockMain extends JavaPlugin {
         this.getCommand("warp").setExecutor(new WarpCommand());
         this.getCommand("create_world").setExecutor(new CreateWorldCommand());
 
-
-        this.registerRecipes();
+        RecipeRegistry.registerCustomRecipes();
+        RecipeRegistry.registerVanillaRecipes();
     }
 
     @Override
     public void onDisable() {
         SkyblockMain.worldRegistry.unloadAll();
         SkyblockMain.worldRegistry.saveToConfig(this.getDataFolder().getAbsolutePath() + "/world_registry.yaml");
-    }
-
-    public void registerRecipes() {
-        RecipeRegistry.addShapedRecipe(Arrays.asList(new Ingredient(itemRegistry.getItemStack(ItemRegistry.GEODE), 'G'), new Ingredient(Material.STICK, 1, 'S')),
-                itemRegistry.getItemStack(ItemRegistry.ARCHEOLOGISTS_PICKAXE), new String[]{"GGG", " S ", " S "});
     }
 }
