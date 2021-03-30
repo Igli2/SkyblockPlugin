@@ -42,6 +42,8 @@ public class SkyblockMain extends JavaPlugin {
         this.getServer().getPluginManager().registerEvents(new WorldRegistryListener(), this);
         this.getServer().getPluginManager().registerEvents(new EntityExplodeListener(), this);
         this.getServer().getPluginManager().registerEvents(new PlayerInteractListener(), this);
+        this.getServer().getPluginManager().registerEvents(new InventoryCloseListener(), this);
+        this.getServer().getPluginManager().registerEvents(new InventoryDragListener(), this);
 
 
         // commands

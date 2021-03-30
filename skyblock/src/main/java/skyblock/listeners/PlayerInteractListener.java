@@ -14,8 +14,7 @@ public class PlayerInteractListener implements Listener {
             if (event.getClickedBlock() != null && event.getClickedBlock().getType() == Material.CRAFTING_TABLE) {
                 event.setCancelled(true);
                 // open own crafing menu
-                CraftingTable craftingTable = new CraftingTable();
-                event.getPlayer().openInventory(craftingTable.getInventory());
+                event.getPlayer().openInventory(CraftingTable.getInventory());
             }
         }
     }

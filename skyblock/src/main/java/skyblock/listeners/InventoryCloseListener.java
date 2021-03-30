@@ -9,7 +9,7 @@ public class InventoryCloseListener implements Listener {
     @EventHandler
     public void inventoryCloseEvent(InventoryCloseEvent event) {
         if (event.getView().getTitle().equals("Crafting Table")) {
-            CraftingTable.onInventoryClosed();
+            CraftingTable.onInventoryClosed(event.getInventory(), event.getPlayer());
         }
     }
 }
