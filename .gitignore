@@ -15,3 +15,6 @@ server/help.yml
 server/ops.json
 server/whitelist.json
 server/usercache.json
+server/apache-maven-3.6.0
+server/work
+server/BuildTools.log.txt

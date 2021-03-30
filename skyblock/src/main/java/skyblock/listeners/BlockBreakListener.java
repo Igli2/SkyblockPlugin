@@ -19,7 +19,7 @@ public class BlockBreakListener implements Listener {
             if (itemHeld.getType() != Material.AIR && !itemHeld.getItemMeta().hasDisplayName() && itemHeld.getType() == Material.STONE_PICKAXE) {
                 if (event.getBlock().getType() == Material.COBBLESTONE || event.getBlock().getType() == Material.STONE) {
                     if (Math.random() > 0.995) {
-                        SkyblockMain.instance.getServer().getWorld("World").dropItem(event.getPlayer().getLocation(), SkyblockMain.itemRegistry.getItemStack(ItemRegistry.GEODE));
+                        event.getPlayer().getWorld().dropItem(event.getPlayer().getLocation(), SkyblockMain.itemRegistry.getItemStack(ItemRegistry.GEODE));
                     }
                 }
             }

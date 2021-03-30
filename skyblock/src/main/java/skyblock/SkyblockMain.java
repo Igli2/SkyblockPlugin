@@ -1,9 +1,8 @@
-//TODO: disable creeper damage
-
 package skyblock;
 
 import org.bukkit.Material;
 
+import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import skyblock.commands.CreateWorldCommand;
@@ -16,6 +15,7 @@ import skyblock.registries.WorldRegistry;
 import skyblock.utils.Ingredient;
 import skyblock.utils.WorldInfo;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class SkyblockMain extends JavaPlugin {
@@ -34,7 +34,8 @@ public class SkyblockMain extends JavaPlugin {
         SkyblockMain.recipeRegistry = new RecipeRegistry();
 
         SkyblockMain.worldRegistry = WorldRegistry.loadFromConfig(this.getDataFolder().getAbsolutePath() + "/world_registry.yaml");
-        if(!SkyblockMain.worldRegistry.hasWorld("world")) SkyblockMain.worldRegistry.addWorld(new WorldInfo(WorldInfo.WorldType.PUBLIC_WORLD, "world", true));
+        if (!SkyblockMain.worldRegistry.hasWorld("world"))
+            SkyblockMain.worldRegistry.addWorld(new WorldInfo(WorldInfo.WorldType.PUBLIC_WORLD, "world", true));
         SkyblockMain.worldRegistry.loadPublicWorlds();
 
         // listeners
@@ -44,6 +45,7 @@ public class SkyblockMain extends JavaPlugin {
         this.getServer().getPluginManager().registerEvents(new BlockBreakListener(), this);
         this.getServer().getPluginManager().registerEvents(new PrepareItemCraftListener(), this);
         this.getServer().getPluginManager().registerEvents(new WorldRegistryListener(), this);
+        this.getServer().getPluginManager().registerEvents(new EntityExplodeListener(), this);
 
 
         // commands
@@ -73,8 +75,7 @@ public class SkyblockMain extends JavaPlugin {
     }
 
     public void registerRecipes() {
-        RecipeRegistry.addShapedRecipe(this, "archeologists_pickaxe",
-                Arrays.asList(new Ingredient(Material.GOLD_BLOCK, 'G'), new Ingredient(Material.STICK, 'S')),
-                itemRegistry.getItemStack(ItemRegistry.GEODE), new String[] { "GGG", " S ", " S " });
+        RecipeRegistry.addShapedRecipe(Arrays.asList(new Ingredient(itemRegistry.getItemStack(ItemRegistry.GEODE), 'G'), new Ingredient(Material.STICK, 1, 'S')),
+                itemRegistry.getItemStack(ItemRegistry.ARCHEOLOGISTS_PICKAXE), new String[]{"GGG", " S ", " S "});
     }
 }
