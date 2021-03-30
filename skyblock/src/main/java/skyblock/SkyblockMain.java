@@ -2,14 +2,11 @@ package skyblock;
 
 import org.bukkit.Material;
 
-import org.bukkit.generator.ChunkGenerator;
-import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import skyblock.commands.CreateWorldCommand;
 import skyblock.commands.JoinSkyblockCommand;
 import skyblock.commands.WarpCommand;
-import skyblock.generators.SkyblockChunkGenerator;
 import skyblock.listeners.*;
 import skyblock.registries.ItemRegistry;
 import skyblock.registries.RecipeRegistry;
@@ -17,7 +14,6 @@ import skyblock.registries.WorldRegistry;
 import skyblock.utils.Ingredient;
 import skyblock.utils.WorldInfo;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 
 public class SkyblockMain extends JavaPlugin {
@@ -25,7 +21,6 @@ public class SkyblockMain extends JavaPlugin {
 
     // registries
     public static ItemRegistry itemRegistry;
-    public static RecipeRegistry recipeRegistry;
     public static WorldRegistry worldRegistry;
 
     @Override
@@ -33,7 +28,6 @@ public class SkyblockMain extends JavaPlugin {
         // init
         SkyblockMain.instance = this;
         SkyblockMain.itemRegistry = new ItemRegistry(this);
-        SkyblockMain.recipeRegistry = new RecipeRegistry();
 
         SkyblockMain.worldRegistry = WorldRegistry.loadFromConfig(this.getDataFolder().getAbsolutePath() + "/world_registry.yaml");
         if(!SkyblockMain.worldRegistry.hasWorld("world")) SkyblockMain.worldRegistry.addWorld(new WorldInfo(WorldInfo.WorldType.PUBLIC_WORLD, "world", true));
@@ -47,6 +41,7 @@ public class SkyblockMain extends JavaPlugin {
         this.getServer().getPluginManager().registerEvents(new PrepareItemCraftListener(), this);
         this.getServer().getPluginManager().registerEvents(new WorldRegistryListener(), this);
         this.getServer().getPluginManager().registerEvents(new EntityExplodeListener(), this);
+        this.getServer().getPluginManager().registerEvents(new PlayerInteractListener(), this);
 
 
         // commands
@@ -56,17 +51,6 @@ public class SkyblockMain extends JavaPlugin {
 
 
         this.registerRecipes();
-
-        // TODO!!!!!!!!
-        /*
-         * ItemStack ingredient = itemRegistry.getItemStack(ItemRegistry.GEODE);
-         * ItemStack result =
-         * itemRegistry.getItemStack(ItemRegistry.ARCHEOLOGISTS_PICKAXE); ShapedRecipe
-         * recipe = new ShapedRecipe(new NamespacedKey(this, "archeologists_pickaxe"),
-         * result); recipe.shape("GGG", " S ", " S "); recipe.setIngredient('G',
-         * ingredient.getType()); recipe.setIngredient('S', Material.STICK);
-         * this.getServer().addRecipe(recipe);
-         */
     }
 
     @Override
