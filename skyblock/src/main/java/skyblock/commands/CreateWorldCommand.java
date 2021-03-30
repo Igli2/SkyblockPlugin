@@ -1,5 +1,6 @@
 package skyblock.commands;
 
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.WorldCreator;
 import org.bukkit.command.Command;
@@ -21,7 +22,7 @@ public class CreateWorldCommand implements CommandExecutor {
 
                 WorldCreator wc = new WorldCreator(strings[0]);
                 wc.generator(new SkyblockChunkGenerator());
-                wc.createWorld();
+                Bukkit.createWorld(wc);
 
                 SkyblockMain.worldRegistry.addWorld(new WorldInfo(WorldInfo.WorldType.PUBLIC_WORLD, strings[0], true));
 

@@ -2,12 +2,14 @@ package skyblock;
 
 import org.bukkit.Material;
 
+import org.bukkit.generator.ChunkGenerator;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import skyblock.commands.CreateWorldCommand;
 import skyblock.commands.JoinSkyblockCommand;
 import skyblock.commands.WarpCommand;
+import skyblock.generators.SkyblockChunkGenerator;
 import skyblock.listeners.*;
 import skyblock.registries.ItemRegistry;
 import skyblock.registries.RecipeRegistry;
@@ -34,8 +36,7 @@ public class SkyblockMain extends JavaPlugin {
         SkyblockMain.recipeRegistry = new RecipeRegistry();
 
         SkyblockMain.worldRegistry = WorldRegistry.loadFromConfig(this.getDataFolder().getAbsolutePath() + "/world_registry.yaml");
-        if (!SkyblockMain.worldRegistry.hasWorld("world"))
-            SkyblockMain.worldRegistry.addWorld(new WorldInfo(WorldInfo.WorldType.PUBLIC_WORLD, "world", true));
+        if(!SkyblockMain.worldRegistry.hasWorld("world")) SkyblockMain.worldRegistry.addWorld(new WorldInfo(WorldInfo.WorldType.PUBLIC_WORLD, "world", true));
         SkyblockMain.worldRegistry.loadPublicWorlds();
 
         // listeners
