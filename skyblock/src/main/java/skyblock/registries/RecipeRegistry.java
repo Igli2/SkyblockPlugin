@@ -50,19 +50,16 @@ public class RecipeRegistry {
                         ingredients.add(newIngredient);
                     } else {
                         for (String line : newShape) {
-                            int counter = 0;
                             for (int i = 0; i < 3; i++) {
                                 char key = line.charAt(i);
                                 if (key == c) {
                                     line = line.replace(key, ' ');
                                 }
-                                counter += 1;
                             }
                         }
                     }
                 }
 
-                //System.out.println("'" + newShape[0] + "'" + newShape[1] + "'" + newShape[2] + "'");
                 RecipeRegistry.addShapedRecipe(ingredients, recipe.getResult(), newShape);
             }
         }

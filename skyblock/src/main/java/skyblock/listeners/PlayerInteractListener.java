@@ -10,7 +10,7 @@ import skyblock.utils.CraftingTable;
 public class PlayerInteractListener implements Listener {
     @EventHandler
     public void playerInteractEvent(PlayerInteractEvent event) {
-        if (event.getAction() == Action.RIGHT_CLICK_BLOCK) {
+        if (event.getAction() == Action.RIGHT_CLICK_BLOCK && !(event.getPlayer().isSneaking() && event.getPlayer().getInventory().getItemInMainHand().getType() != Material.AIR)) {
             if (event.getClickedBlock() != null && event.getClickedBlock().getType() == Material.CRAFTING_TABLE) {
                 event.setCancelled(true);
                 // open own crafing menu
