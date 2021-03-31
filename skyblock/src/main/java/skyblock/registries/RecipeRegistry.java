@@ -19,11 +19,16 @@ public class RecipeRegistry {
     }
 
     public static void registerCustomRecipes() {
-        RecipeRegistry.addShapedRecipe(Arrays.asList(new Ingredient(SkyblockMain.itemRegistry.getItemStack(ItemRegistry.GEODE), 'G'), new Ingredient(Material.STICK, 1, 'S')),
-                SkyblockMain.itemRegistry.getItemStack(ItemRegistry.ARCHEOLOGISTS_PICKAXE), new String[]{"GGG", " S ", " S "});
+        RecipeRegistry.addShapedRecipe(Arrays.asList(new Ingredient(SkyblockMain.itemRegistry.getItemStack(ItemRegistry.GEODE), 'G'), new Ingredient(Material.STICK, 'S')),
+                SkyblockMain.itemRegistry.getItemStack(ItemRegistry.ARCHEOLOGISTS_PICKAXE),
+                new String[]{"GGG", " S ", " S "});
+        RecipeRegistry.addShapedRecipe(Arrays.asList(new Ingredient(Material.SUGAR, 64, 'S')),
+                SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SUGAR_CUBE),
+                new String[]{"SSS", "SSS", "SSS"});
     }
 
     public static void registerVanillaRecipes() {
+        //TODO: add vanilla recipes
         Iterator<org.bukkit.inventory.Recipe> recipeIterator = Bukkit.recipeIterator();
         while (recipeIterator.hasNext()) {
             org.bukkit.inventory.Recipe recipe = recipeIterator.next();

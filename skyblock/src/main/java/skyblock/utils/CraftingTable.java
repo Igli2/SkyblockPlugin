@@ -3,9 +3,11 @@ package skyblock.utils;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.HumanEntity;
+import org.bukkit.entity.Item;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import skyblock.registries.ItemRegistry;
 import skyblock.registries.RecipeRegistry;
 
 import java.util.HashMap;
@@ -49,6 +51,10 @@ public class CraftingTable {
         // get recipe
         Recipe recipe = CraftingTable.getRecipe(CraftingTable.getMatrix(inventory));
         if (recipe != null) {
+            ItemStack recipeResult = recipe.getResult();
+            if (recipeResult.getType().getMaxDurability() > 0) {
+                ItemRegistry.makeUnbreakable(recipeResult);
+            }
             // give crafting result to player
             if (isShiftClick) {
                 boolean sameRecipe = true;
@@ -56,26 +62,30 @@ public class CraftingTable {
                     HashMap<Integer, ItemStack> excess = humanEntity.getInventory().addItem(recipe.getResult());
                     if (excess.size() == 0) { // check if inventory is full
                         CraftingTable.removeRecipeFromMatrix(CraftingTable.getMatrix(inventory), recipe);
+                    } else {
+                        break;
                     }
+
                     // check if formed recipe is still the same
                     sameRecipe = false;
                     Recipe newRecipe = CraftingTable.getRecipe(CraftingTable.getMatrix(inventory));
                     if (newRecipe != null) {
+                        ItemStack result = recipe.getResult();
                         ItemStack newResult = newRecipe.getResult();
-                        if (!newResult.getItemMeta().hasDisplayName() &&
-                                !recipe.getResult().getItemMeta().hasDisplayName() &&
-                                newResult.getType() == recipe.getResult().getType()) {
-                            sameRecipe = true;
-                        } else if (newResult.getItemMeta().hasDisplayName() &&
-                                recipe.getResult().getItemMeta().hasDisplayName() &&
-                                newResult.getItemMeta().getDisplayName().equals(recipe.getResult().getItemMeta().getDisplayName())) {
+                        if (ItemRegistry.isItemStackEqual(result, newResult)) {
                             sameRecipe = true;
                         }
                     }
                 }
             } else {
-                if (humanEntity.getItemOnCursor().getType() == Material.AIR) {
+                if (humanEntity.getItemOnCursor().getType() == Material.AIR) { // non-stackable items
                     humanEntity.setItemOnCursor(recipe.getResult());
+                    CraftingTable.removeRecipeFromMatrix(CraftingTable.getMatrix(inventory), recipe);
+                } else if (ItemRegistry.isItemStackEqual(humanEntity.getItemOnCursor(), recipe.getResult()) &&
+                        humanEntity.getItemOnCursor().getAmount() + recipe.getResult().getAmount() <= recipe.getResult().getMaxStackSize()) { // stackable items with non-full item stack
+                    ItemStack onCursor = humanEntity.getItemOnCursor();
+                    onCursor.setAmount(onCursor.getAmount() + recipe.getResult().getAmount());
+                    humanEntity.setItemOnCursor(onCursor);
                     CraftingTable.removeRecipeFromMatrix(CraftingTable.getMatrix(inventory), recipe);
                 }
             }
@@ -110,7 +120,11 @@ public class CraftingTable {
         // set recipe result
         Recipe recipe = CraftingTable.getRecipe(matrix);
         if (recipe != null) {
-            inventory.setItem(CraftingTable.RESULT, recipe.getResult());
+            ItemStack recipeResult = recipe.getResult();
+            if (recipeResult.getType().getMaxDurability() > 0) {
+                ItemRegistry.makeUnbreakable(recipeResult);
+            }
+            inventory.setItem(CraftingTable.RESULT, recipeResult);
         } else {
             inventory.setItem(CraftingTable.RESULT, CraftingTable.INVALID);
         }

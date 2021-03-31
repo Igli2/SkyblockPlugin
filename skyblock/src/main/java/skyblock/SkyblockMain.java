@@ -23,7 +23,7 @@ public class SkyblockMain extends JavaPlugin {
     public void onEnable() {
         // init
         SkyblockMain.instance = this;
-        SkyblockMain.itemRegistry = new ItemRegistry(this);
+        SkyblockMain.itemRegistry = new ItemRegistry();
 
         SkyblockMain.worldRegistry = WorldRegistry.loadFromConfig(this.getDataFolder().getAbsolutePath() + "/world_registry.yaml");
         if(!SkyblockMain.worldRegistry.hasWorld("world")) SkyblockMain.worldRegistry.addWorld(new WorldInfo(WorldInfo.WorldType.PUBLIC_WORLD, "world", true));
@@ -32,7 +32,6 @@ public class SkyblockMain extends JavaPlugin {
         // listeners
         this.getServer().getPluginManager().registerEvents(new InventoryClickListener(), this);
         this.getServer().getPluginManager().registerEvents(new EntityChangeBlockListener(), this);
-        this.getServer().getPluginManager().registerEvents(new CraftItemListener(), this);
         this.getServer().getPluginManager().registerEvents(new BlockBreakListener(), this);
         this.getServer().getPluginManager().registerEvents(new PrepareItemCraftListener(), this);
         this.getServer().getPluginManager().registerEvents(new WorldRegistryListener(), this);
