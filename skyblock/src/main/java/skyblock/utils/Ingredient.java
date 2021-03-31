@@ -12,6 +12,12 @@ public class Ingredient {
         this.key = key;
     }
 
+    public Ingredient(ItemStack item, int amount, char key) {
+        item.setAmount(amount);
+        this.item = item;
+        this.key = key;
+    }
+
     public Ingredient(Material material, int amount, char key) {
         this.item = new ItemStack(material, amount);
         this.key = key;

@@ -1,20 +1,29 @@
 package skyblock.registries;
 
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 
 import net.minecraft.server.v1_16_R3.NBTTagCompound;
 import net.minecraft.server.v1_16_R3.NBTTagList;
+import org.bukkit.ChatColor;
+import org.bukkit.Color;
 import org.bukkit.Material;
 import org.bukkit.craftbukkit.v1_16_R3.inventory.CraftItemStack;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.inventory.meta.LeatherArmorMeta;
 
 public class ItemRegistry {
     public static final int ARCHEOLOGISTS_PICKAXE = 1024;
     public static final int GEODE = 1025;
     public static final int SUGAR_CUBE = 1026;
+    public static final int SPEEDY_HELMET = 1027;
+    public static final int SPEEDY_CHESTPLATE = 1028;
+    public static final int SPEEDY_LEGGINGS = 1029;
+    public static final int SPEEDY_BOOTS = 1030;
     HashMap<Integer, ItemStack> specialItems = new HashMap<>();
 
     public ItemRegistry() {
@@ -40,6 +49,55 @@ public class ItemRegistry {
         addEnchantEffect(sugarCube);
         setItemName(sugarCube, "Sugar Cube");
         specialItems.put(SUGAR_CUBE, sugarCube);
+
+        ItemStack speedyHelmet = new ItemStack(Material.LEATHER_HELMET);
+        makeUnbreakable(speedyHelmet);
+        addEnchantEffect(speedyHelmet);
+        setArmorColor(speedyHelmet, 180, 220, 140);
+        setItemName(speedyHelmet, "Speedy Helmet");
+        setLore(speedyHelmet, Arrays.asList(ChatColor.GOLD + "Armor Set Bonus:", "Gives you permanent speed I"));
+        specialItems.put(SPEEDY_HELMET, speedyHelmet);
+
+        ItemStack speedyChestplate = new ItemStack(Material.LEATHER_CHESTPLATE);
+        makeUnbreakable(speedyChestplate);
+        addEnchantEffect(speedyChestplate);
+        setArmorColor(speedyChestplate, 180, 220, 140);
+        setItemName(speedyChestplate, "Speedy Chestplate");
+        setLore(speedyChestplate, Arrays.asList(ChatColor.GOLD + "Armor Set Bonus:", "Gives you permanent speed I"));
+        specialItems.put(SPEEDY_CHESTPLATE, speedyChestplate);
+
+        ItemStack speedyLeggings = new ItemStack(Material.LEATHER_LEGGINGS);
+        makeUnbreakable(speedyLeggings);
+        addEnchantEffect(speedyLeggings);
+        setArmorColor(speedyLeggings, 180, 220, 140);
+        setItemName(speedyLeggings, "Speedy Leggings");
+        setLore(speedyLeggings, Arrays.asList(ChatColor.GOLD + "Armor Set Bonus:", "Gives you permanent speed I"));
+        specialItems.put(SPEEDY_LEGGINGS, speedyLeggings);
+
+        ItemStack speedyBoots = new ItemStack(Material.LEATHER_BOOTS);
+        makeUnbreakable(speedyBoots);
+        addEnchantEffect(speedyBoots);
+        setArmorColor(speedyBoots, 180, 220, 140);
+        setItemName(speedyBoots, "Speedy Boots");
+        setLore(speedyBoots, Arrays.asList(ChatColor.GOLD + "Armor Set Bonus:", "Gives you permanent speed I"));
+        specialItems.put(SPEEDY_BOOTS, speedyBoots);
+    }
+
+    public static void setLore(ItemStack itemStack, List<String> lore) {
+        ItemMeta itemMeta = itemStack.getItemMeta();
+        if (itemMeta != null) {
+            itemMeta.setLore(lore);
+        }
+        itemStack.setItemMeta(itemMeta);
+    }
+
+    public static void setArmorColor(ItemStack itemStack, int r, int g, int b) {
+        LeatherArmorMeta itemMeta = (LeatherArmorMeta) itemStack.getItemMeta();
+        if (itemMeta != null) {
+            itemMeta.setColor(Color.fromRGB(r, g, b));
+            itemMeta.addItemFlags(ItemFlag.HIDE_DYE);
+        }
+        itemStack.setItemMeta(itemMeta);
     }
 
     public static void makeUnbreakable(ItemStack item) {

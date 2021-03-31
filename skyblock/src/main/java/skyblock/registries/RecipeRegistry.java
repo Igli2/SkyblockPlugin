@@ -25,6 +25,18 @@ public class RecipeRegistry {
         RecipeRegistry.addShapedRecipe(Arrays.asList(new Ingredient(Material.SUGAR, 64, 'S')),
                 SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SUGAR_CUBE),
                 new String[]{"SSS", "SSS", "SSS"});
+        RecipeRegistry.addShapedRecipe(Arrays.asList(new Ingredient(SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SUGAR_CUBE), 10, 'S')),
+                SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SPEEDY_HELMET),
+                new String[]{"SSS", "S S", "   "});
+        RecipeRegistry.addShapedRecipe(Arrays.asList(new Ingredient(SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SUGAR_CUBE), 10, 'S')),
+                SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SPEEDY_CHESTPLATE),
+                new String[]{"S S", "SSS", "SSS"});
+        RecipeRegistry.addShapedRecipe(Arrays.asList(new Ingredient(SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SUGAR_CUBE), 10, 'S')),
+                SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SPEEDY_LEGGINGS),
+                new String[]{"SSS", "S S", "S S"});
+        RecipeRegistry.addShapedRecipe(Arrays.asList(new Ingredient(SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SUGAR_CUBE), 10, 'S')),
+                SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SPEEDY_BOOTS),
+                new String[]{"S S", "S S", "   "});
     }
 
     public static void registerVanillaRecipes() {
