@@ -2,6 +2,7 @@ main: skyblock.SkyblockMain
 name: SkyblockPlugin
 version: 0.1
 api-version: 1.16
+depend: [ProtocolLib]
 commands:
   skyblock:
     description: Teleports you to your skyblock. If you don't already have one, one will be created for you.
@@ -11,4 +12,7 @@ commands:
     usage: /<command>
   create_world:
     description: Creates a new void world you can warp to
+    usage: /<command>
+  fp_test:
+    description: Fake player test
     usage: /<command>
