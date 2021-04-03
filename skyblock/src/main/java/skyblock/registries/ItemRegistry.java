@@ -24,6 +24,7 @@ public class ItemRegistry {
     public static final int SPEEDY_CHESTPLATE = 1028;
     public static final int SPEEDY_LEGGINGS = 1029;
     public static final int SPEEDY_BOOTS = 1030;
+    public static final int SHINY_PEBBLE = 1031;
     HashMap<Integer, ItemStack> specialItems = new HashMap<>();
 
     public ItemRegistry() {
@@ -81,6 +82,12 @@ public class ItemRegistry {
         setItemName(speedyBoots, "Speedy Boots");
         setLore(speedyBoots, Arrays.asList(ChatColor.GOLD + "Armor Set Bonus:", "Gives you permanent speed I"));
         specialItems.put(SPEEDY_BOOTS, speedyBoots);
+
+        ItemStack shinyPebble = new ItemStack(Material.STONE_BUTTON);
+        addEnchantEffect(shinyPebble);
+        setItemName(shinyPebble, "Shiny Pebble");
+        setLore(shinyPebble, Arrays.asList("A very special rock that's super rare"));
+        specialItems.put(SHINY_PEBBLE, shinyPebble);
     }
 
     public static void setLore(ItemStack itemStack, List<String> lore) {
