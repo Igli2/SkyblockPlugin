@@ -9,8 +9,10 @@ import org.bukkit.inventory.ItemStack;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import skyblock.SkyblockMain;
+import skyblock.registries.ItemRegistry;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class ShopNPCEntity extends NPCEntity {
 
@@ -26,8 +28,15 @@ public class ShopNPCEntity extends NPCEntity {
         JSONArray shop_items = (JSONArray) json.get("shop");
         for(int i = 0; i < shop_items.size(); i++) {
             JSONArray item = (JSONArray) shop_items.get(i);
-            this.items.add(new ShopItem(new ItemStack(Material.DIAMOND), (int)(long) item.get(1), (int)(long) item.get(3), (int)(long) item.get(2), (int)(long) item.get(4),
-                                        (boolean) item.get(5), (boolean) item.get(6)));
+            String itemName = (String) item.get(0);
+            String[] comp = itemName.split(":");
+            if(comp[0].equals("skyblock")) {
+                this.items.add(new ShopItem(SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.valueOf(comp[1].toUpperCase())), (int)(long) item.get(1), (int)(long) item.get(3), (int)(long) item.get(2), (int)(long) item.get(4),
+                        (boolean) item.get(5), (boolean) item.get(6)));
+            } else if(comp[0].equals("minecraft")) {
+                this.items.add(new ShopItem(new ItemStack(Material.valueOf(comp[1].toUpperCase())), (int)(long) item.get(1), (int)(long) item.get(3), (int)(long) item.get(2), (int)(long) item.get(4),
+                        (boolean) item.get(5), (boolean) item.get(6)));
+            }
         }
     }
 
