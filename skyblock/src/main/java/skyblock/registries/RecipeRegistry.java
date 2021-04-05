@@ -3,19 +3,25 @@ package skyblock.registries;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.ShapedRecipe;
+import org.bukkit.inventory.ShapelessRecipe;
 import skyblock.SkyblockMain;
 import skyblock.utils.Ingredient;
-import skyblock.utils.Recipe;
+import skyblock.utils.ShapedRecipe;
 
 import java.util.*;
 
 public class RecipeRegistry {
-    public static ArrayList<Recipe> recipes = new ArrayList<>();
+    public static ArrayList<ShapedRecipe> recipes = new ArrayList<>();
+    public static ArrayList<skyblock.utils.ShapelessRecipe> shapelessRecipes = new ArrayList<>();
 
     public static void addShapedRecipe(List<Ingredient> ingredients, ItemStack result, String[] shape) {
-        Recipe recipe = new Recipe(ingredients, result, shape);
+        ShapedRecipe recipe = new ShapedRecipe(ingredients, result, shape);
         RecipeRegistry.recipes.add(recipe);
+    }
+
+    public static void addShapelessRecipe(List<ItemStack> ingredients, ItemStack result) {
+        skyblock.utils.ShapelessRecipe recipe = new skyblock.utils.ShapelessRecipe(ingredients, result);
+        RecipeRegistry.shapelessRecipes.add(recipe);
     }
 
     public static void registerCustomRecipes() {
@@ -27,7 +33,7 @@ public class RecipeRegistry {
                 new String[]{"SSS", "SSS", "SSS"});
         RecipeRegistry.addShapedRecipe(Arrays.asList(new Ingredient(SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SUGAR_CUBE), 5, 'S')),
                 SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SPEEDY_HELMET),
-                new String[]{"SSS", "S S", "   "});
+                new String[]{"SSS", "S S"});
         RecipeRegistry.addShapedRecipe(Arrays.asList(new Ingredient(SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SUGAR_CUBE), 5, 'S')),
                 SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SPEEDY_CHESTPLATE),
                 new String[]{"S S", "SSS", "SSS"});
@@ -36,7 +42,7 @@ public class RecipeRegistry {
                 new String[]{"SSS", "S S", "S S"});
         RecipeRegistry.addShapedRecipe(Arrays.asList(new Ingredient(SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SUGAR_CUBE), 5, 'S')),
                 SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SPEEDY_BOOTS),
-                new String[]{"S S", "S S", "   "});
+                new String[]{"S S", "S S"});
         RecipeRegistry.addShapedRecipe(Arrays.asList(new Ingredient(Material.STONE, 64, 'S'), new Ingredient(Material.GOLD_INGOT, 64, 'G'), new Ingredient(Material.LAPIS_LAZULI, 64, 'L')),
                 SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SHINY_PEBBLE),
                 new String[]{"SLS", "LGL", "SLS"});
@@ -47,31 +53,20 @@ public class RecipeRegistry {
         Iterator<org.bukkit.inventory.Recipe> recipeIterator = Bukkit.recipeIterator();
         while (recipeIterator.hasNext()) {
             org.bukkit.inventory.Recipe recipe = recipeIterator.next();
-            if (recipe instanceof ShapedRecipe) {
+            if (recipe instanceof org.bukkit.inventory.ShapedRecipe) {
+                org.bukkit.inventory.ShapedRecipe shapedRecipe = (org.bukkit.inventory.ShapedRecipe) recipe;
                 List<Ingredient> ingredients = new ArrayList<>();
-
-                // convert shape
-                String[] oldShape = ((ShapedRecipe) recipe).getShape();
-                String[] newShape = new String[]{"   ", "   ", "   "};
-                int index = 0;
-                for (String s : oldShape) {
-                    while (s.length() < 3) {
-                        s += " ";
-                    }
-                    newShape[index] = s;
-                    index += 1;
-                }
+                String[] shape = shapedRecipe.getShape();
 
                 // convert ingredients
-                Map<Character, ItemStack> ingredientMap = ((ShapedRecipe) recipe).getIngredientMap();
+                Map<Character, ItemStack> ingredientMap = shapedRecipe.getIngredientMap();
                 for (char c : ingredientMap.keySet()) {
                     if (ingredientMap.get(c) != null) {
                         Ingredient newIngredient = new Ingredient(ingredientMap.get(c), c);
                         ingredients.add(newIngredient);
                     } else {
-                        for (String line : newShape) {
-                            for (int i = 0; i < 3; i++) {
-                                char key = line.charAt(i);
+                        for (String line : shape) {
+                            for (char key : line.toCharArray()) {
                                 if (key == c) {
                                     line = line.replace(key, ' ');
                                 }
@@ -80,7 +75,10 @@ public class RecipeRegistry {
                     }
                 }
 
-                RecipeRegistry.addShapedRecipe(ingredients, recipe.getResult(), newShape);
+                RecipeRegistry.addShapedRecipe(ingredients, recipe.getResult(), shape);
+            } else if (recipe instanceof ShapelessRecipe) {
+                ShapelessRecipe shapelessRecipe = (ShapelessRecipe) recipe;
+                RecipeRegistry.addShapelessRecipe(shapelessRecipe.getIngredientList(), shapelessRecipe.getResult());
             }
         }
     }

@@ -3,14 +3,15 @@ package skyblock.utils;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.HumanEntity;
-import org.bukkit.entity.Item;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import skyblock.registries.ItemRegistry;
 import skyblock.registries.RecipeRegistry;
 
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 
 public class CraftingTable {
     public static final int[] MATRIX = new int[]{10, 11, 12, 19, 20, 21, 28, 29, 30};
@@ -42,7 +43,10 @@ public class CraftingTable {
         // drop items from crafting table inventory after it was closed
         for (int slot : CraftingTable.MATRIX) {
             if (inventory.getItem(slot) != null) {
-                player.getWorld().dropItem(player.getLocation(), inventory.getItem(slot));
+                ItemStack drop = inventory.getItem(slot);
+                if (drop != null) {
+                    player.getWorld().dropItem(player.getLocation(), drop);
+                }
             }
         }
     }
@@ -50,8 +54,9 @@ public class CraftingTable {
     public static void onCraft(Inventory inventory, HumanEntity humanEntity, boolean isShiftClick) {
         // get recipe
         Recipe recipe = CraftingTable.getRecipe(CraftingTable.getMatrix(inventory));
-        if (recipe != null) {
-            ItemStack recipeResult = recipe.getResult();
+        if (recipe instanceof ShapedRecipe) {
+            ShapedRecipe shapedRecipe = (ShapedRecipe) recipe;
+            ItemStack recipeResult = shapedRecipe.getResult();
             if (recipeResult.getType().getMaxDurability() > 0) {
                 ItemRegistry.makeUnbreakable(recipeResult);
             }
@@ -59,9 +64,9 @@ public class CraftingTable {
             if (isShiftClick) {
                 boolean sameRecipe = true;
                 while (sameRecipe) {
-                    HashMap<Integer, ItemStack> excess = humanEntity.getInventory().addItem(recipe.getResult());
+                    HashMap<Integer, ItemStack> excess = humanEntity.getInventory().addItem(shapedRecipe.getResult());
                     if (excess.size() == 0) { // check if inventory is full
-                        CraftingTable.removeRecipeFromMatrix(CraftingTable.getMatrix(inventory), recipe);
+                        CraftingTable.removeRecipeFromMatrix(CraftingTable.getMatrix(inventory), shapedRecipe);
                     } else {
                         break;
                     }
@@ -69,8 +74,8 @@ public class CraftingTable {
                     // check if formed recipe is still the same
                     sameRecipe = false;
                     Recipe newRecipe = CraftingTable.getRecipe(CraftingTable.getMatrix(inventory));
-                    if (newRecipe != null) {
-                        ItemStack result = recipe.getResult();
+                    if (newRecipe instanceof ShapedRecipe) {
+                        ItemStack result = shapedRecipe.getResult();
                         ItemStack newResult = newRecipe.getResult();
                         if (ItemRegistry.isItemStackEqual(result, newResult)) {
                             sameRecipe = true;
@@ -79,43 +84,123 @@ public class CraftingTable {
                 }
             } else {
                 if (humanEntity.getItemOnCursor().getType() == Material.AIR) { // non-stackable items
-                    humanEntity.setItemOnCursor(recipe.getResult());
-                    CraftingTable.removeRecipeFromMatrix(CraftingTable.getMatrix(inventory), recipe);
-                } else if (ItemRegistry.isItemStackEqual(humanEntity.getItemOnCursor(), recipe.getResult()) &&
-                        humanEntity.getItemOnCursor().getAmount() + recipe.getResult().getAmount() <= recipe.getResult().getMaxStackSize()) { // stackable items with non-full item stack
+                    humanEntity.setItemOnCursor(shapedRecipe.getResult());
+                    CraftingTable.removeRecipeFromMatrix(CraftingTable.getMatrix(inventory), shapedRecipe);
+                } else if (ItemRegistry.isItemStackEqual(humanEntity.getItemOnCursor(), shapedRecipe.getResult()) &&
+                        humanEntity.getItemOnCursor().getAmount() + shapedRecipe.getResult().getAmount() <= shapedRecipe.getResult().getMaxStackSize()) { // stackable items with non-full item stack
                     ItemStack onCursor = humanEntity.getItemOnCursor();
-                    onCursor.setAmount(onCursor.getAmount() + recipe.getResult().getAmount());
+                    onCursor.setAmount(onCursor.getAmount() + shapedRecipe.getResult().getAmount());
                     humanEntity.setItemOnCursor(onCursor);
-                    CraftingTable.removeRecipeFromMatrix(CraftingTable.getMatrix(inventory), recipe);
+                    CraftingTable.removeRecipeFromMatrix(CraftingTable.getMatrix(inventory), shapedRecipe);
+                }
+            }
+        } else if (recipe instanceof ShapelessRecipe) {
+            ShapelessRecipe shapelessRecipe = (ShapelessRecipe) recipe;
+            ItemStack recipeResult = shapelessRecipe.getResult();
+            if (recipeResult.getType().getMaxDurability() > 0) {
+                ItemRegistry.makeUnbreakable(recipeResult);
+            }
+            // give crafting result to player
+            if (isShiftClick) {
+                boolean sameRecipe = true;
+                while (sameRecipe) {
+                    HashMap<Integer, ItemStack> excess = humanEntity.getInventory().addItem(shapelessRecipe.getResult());
+                    if (excess.size() == 0) { // check if inventory is full
+                        CraftingTable.removeRecipeFromMatrix(CraftingTable.getMatrix(inventory), shapelessRecipe);
+                    } else {
+                        break;
+                    }
+
+                    // check if formed recipe is still the same
+                    sameRecipe = false;
+                    Recipe newRecipe = CraftingTable.getRecipe(CraftingTable.getMatrix(inventory));
+                    if (newRecipe instanceof ShapelessRecipe) {
+                        ItemStack result = shapelessRecipe.getResult();
+                        ItemStack newResult = newRecipe.getResult();
+                        if (ItemRegistry.isItemStackEqual(result, newResult)) {
+                            sameRecipe = true;
+                        }
+                    }
+                }
+            } else {
+                if (humanEntity.getItemOnCursor().getType() == Material.AIR) { // non-stackable items
+                    humanEntity.setItemOnCursor(shapelessRecipe.getResult());
+                    CraftingTable.removeRecipeFromMatrix(CraftingTable.getMatrix(inventory), shapelessRecipe);
+                } else if (ItemRegistry.isItemStackEqual(humanEntity.getItemOnCursor(), shapelessRecipe.getResult()) &&
+                        humanEntity.getItemOnCursor().getAmount() + shapelessRecipe.getResult().getAmount() <= shapelessRecipe.getResult().getMaxStackSize()) { // stackable items with non-full item stack
+                    ItemStack onCursor = humanEntity.getItemOnCursor();
+                    onCursor.setAmount(onCursor.getAmount() + shapelessRecipe.getResult().getAmount());
+                    humanEntity.setItemOnCursor(onCursor);
+                    CraftingTable.removeRecipeFromMatrix(CraftingTable.getMatrix(inventory), shapelessRecipe);
                 }
             }
         }
     }
 
-    private static void removeRecipeFromMatrix(ItemStack[] matrix, Recipe recipe) {
-        for (int i = 0; i < 9; i++) {
-            char c = recipe.getMatrix()[i];
-            for (Ingredient ingredient : recipe.getIngredients()) {
-                if (ingredient.getKey() == c) {
-                    ItemStack consumed = ingredient.getItem();
-                    matrix[i].setAmount(matrix[i].getAmount() - consumed.getAmount());
+    private static void removeRecipeFromMatrix(ItemStack[][] matrix, ShapelessRecipe recipe) {
+        List<ItemStack> ingredients = recipe.getIngredients();
+        for (ItemStack ingredient : ingredients) {
+            // find itemstack in matrix and reduce amount
+            label: for (ItemStack[] itemStacks : matrix) {
+                for (ItemStack itemStack : itemStacks) {
+                    if (ItemRegistry.isItemStackEqual(itemStack, ingredient) && ShapelessRecipe.isItem(itemStack)) {
+                        itemStack.setAmount(itemStack.getAmount() - ingredient.getAmount());
+                        break label;
+                    }
                 }
             }
         }
     }
 
-    private static ItemStack[] getMatrix(Inventory inventory) {
-        ItemStack[] matrix = new ItemStack[9];
+    private static void removeRecipeFromMatrix(ItemStack[][] matrix, ShapedRecipe recipe) {
+        // non-trimmed matrix
+        ItemStack[][] trimmedMatrix = CraftingTable.trimMatrix(matrix);
+        for (int row = 0; row <= (3 - trimmedMatrix.length); row++) {
+            for (int col = 0; col <= (3 - trimmedMatrix[0].length); col++) {
+                // check recipe
+                boolean match = true;
+                label:
+                for (int i = 0; i < recipe.getShape().length; i++) {
+                    for (int j = 0; j < recipe.getShape()[0].length(); j++) {
+                        char c = recipe.getShape()[i].charAt(j);
+                        Ingredient ingredient = recipe.getIngredient(c);
+                        if (ingredient != null) {
+                            if (!ItemRegistry.isItemStackEqual(matrix[row + i][col + j], ingredient.getItem())) {
+                                match = false;
+                                break label;
+                            }
+                        }
+                    }
+                }
+
+                if (match) {
+                    for (int i = 0; i < recipe.getShape().length; i++) {
+                        for (int j = 0; j < recipe.getShape()[0].length(); j++) {
+                            char c = recipe.getShape()[i].charAt(j);
+                            Ingredient ingredient = recipe.getIngredient(c);
+                            if (ingredient != null) {
+                                matrix[row + i][col + j].setAmount(matrix[row + i][col + j].getAmount() - ingredient.getItem().getAmount());
+                            }
+                        }
+                    }
+                    return;
+                }
+            }
+        }
+    }
+
+    private static ItemStack[][] getMatrix(Inventory inventory) {
+        ItemStack[][] matrix = new ItemStack[3][3];
         int counter = 0;
         for (int slot : CraftingTable.MATRIX) {
-            matrix[counter] = inventory.getItem(slot);
+            matrix[counter / 3][counter % 3] = inventory.getItem(slot);
             counter += 1;
         }
         return matrix;
     }
 
     public static void updateContents(Inventory inventory) {
-        ItemStack[] matrix = CraftingTable.getMatrix(inventory);
+        ItemStack[][] matrix = CraftingTable.getMatrix(inventory);
 
         // set recipe result
         Recipe recipe = CraftingTable.getRecipe(matrix);
@@ -130,12 +215,101 @@ public class CraftingTable {
         }
     }
 
-    private static Recipe getRecipe(ItemStack[] matrix) {
-        for (Recipe recipe : RecipeRegistry.recipes) {
+    private static Recipe getRecipe(ItemStack[][] matrix) {
+        ItemStack[][] trimmedMatrix = CraftingTable.trimMatrix(matrix);
+        for (ShapedRecipe recipe : RecipeRegistry.recipes) {
+            if (recipe.equals(trimmedMatrix)) {
+                return recipe;
+            }
+        }
+        for (ShapelessRecipe recipe : RecipeRegistry.shapelessRecipes) {
             if (recipe.equals(matrix)) {
                 return recipe;
             }
         }
         return null;
+    }
+
+    public static ItemStack[][] trimMatrix(ItemStack[][] matrix) {
+        // columns
+        int width = matrix[0].length;
+        int height = matrix.length;
+
+        boolean[] toTrim = new boolean[width];
+        Arrays.fill(toTrim, true);
+        for (int i = 0; i < width; i++) {
+            for (ItemStack[] itemStacks : matrix) {
+                if (itemStacks[i] != null && itemStacks[i].getType() != Material.AIR) {
+                    toTrim[i] = false;
+                }
+            }
+        }
+
+        int widthNew = 0;
+        for (boolean b : toTrim) {
+            if (!b) {
+                widthNew++;
+            }
+        }
+
+        ItemStack[][] matrixNew = new ItemStack[height][widthNew];
+        int removed = 0;
+        for (int i = 0; i < width; i++) {
+            for (int j = 0; j < height; j++) {
+                if (!toTrim[i]) {
+                    ItemStack itemStack = matrix[j][i];
+                    matrixNew[j][i - removed] = itemStack;
+                }
+            }
+            if (toTrim[i]) {
+                removed++;
+            }
+        }
+
+        // rows
+        toTrim = new boolean[height];
+        Arrays.fill(toTrim, true);
+        for (int i = 0; i < matrixNew.length; i++) {
+            for (ItemStack itemStack : matrixNew[i]) {
+                if (itemStack != null && itemStack.getType() != Material.AIR) {
+                    toTrim[i] = false;
+                }
+            }
+        }
+
+        int heightNew = 0;
+        for (boolean b : toTrim) {
+            if (!b) {
+                heightNew++;
+            }
+        }
+
+        matrix = new ItemStack[heightNew][widthNew];
+        removed = 0;
+        for (int i = 0; i < height; i++) {
+            if (!toTrim[i]) {
+                matrix[i - removed] = matrixNew[i];
+            } else {
+                removed++;
+            }
+        }
+
+        return matrix;
+    }
+
+    public static String arrayArrayToString(ItemStack[][] array) { // debug method
+        StringBuilder s = new StringBuilder();
+        for (ItemStack[] itemStacks : array) {
+            for (ItemStack itemStack : itemStacks) {
+                if (itemStack != null) {
+                    s.append(itemStack.getType().toString()).append(",");
+                } else {
+                    s.append("   ,");
+                }
+            }
+            s.append("\n");
+        }
+        s.append("------------");
+        return s.toString();
     }
 }

@@ -6,8 +6,6 @@ import skyblock.SkyblockMain;
 
 import java.sql.*;
 import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
 import java.util.UUID;
 
 public class MoneyHandler {

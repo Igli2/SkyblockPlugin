@@ -1,7 +1,6 @@
 package skyblock.utils;
 
 import java.sql.*;
-import java.util.UUID;
 
 public class DatabaseHandler {
     private static final String dbPath = "jdbc:sqlite:player_data.db";
