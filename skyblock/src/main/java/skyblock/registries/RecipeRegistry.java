@@ -25,26 +25,26 @@ public class RecipeRegistry {
     }
 
     public static void registerCustomRecipes() {
-        RecipeRegistry.addShapedRecipe(Arrays.asList(new Ingredient(SkyblockMain.itemRegistry.getItemStack(ItemRegistry.GEODE), 'G'), new Ingredient(Material.STICK, 'S')),
-                SkyblockMain.itemRegistry.getItemStack(ItemRegistry.ARCHEOLOGISTS_PICKAXE),
+        RecipeRegistry.addShapedRecipe(Arrays.asList(new Ingredient(SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.GEODE), 'G'), new Ingredient(Material.STICK, 'S')),
+                SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.ARCHEOLOGISTS_PICKAXE),
                 new String[]{"GGG", " S ", " S "});
         RecipeRegistry.addShapedRecipe(Arrays.asList(new Ingredient(Material.SUGAR, 64, 'S')),
-                SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SUGAR_CUBE),
+                SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.SUGAR_CUBE),
                 new String[]{"SSS", "SSS", "SSS"});
-        RecipeRegistry.addShapedRecipe(Arrays.asList(new Ingredient(SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SUGAR_CUBE), 5, 'S')),
-                SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SPEEDY_HELMET),
+        RecipeRegistry.addShapedRecipe(Arrays.asList(new Ingredient(SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.SUGAR_CUBE), 5, 'S')),
+                SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.SPEEDY_HELMET),
                 new String[]{"SSS", "S S"});
-        RecipeRegistry.addShapedRecipe(Arrays.asList(new Ingredient(SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SUGAR_CUBE), 5, 'S')),
-                SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SPEEDY_CHESTPLATE),
+        RecipeRegistry.addShapedRecipe(Arrays.asList(new Ingredient(SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.SUGAR_CUBE), 5, 'S')),
+                SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.SPEEDY_CHESTPLATE),
                 new String[]{"S S", "SSS", "SSS"});
-        RecipeRegistry.addShapedRecipe(Arrays.asList(new Ingredient(SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SUGAR_CUBE), 5, 'S')),
-                SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SPEEDY_LEGGINGS),
+        RecipeRegistry.addShapedRecipe(Arrays.asList(new Ingredient(SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.SUGAR_CUBE), 5, 'S')),
+                SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.SPEEDY_LEGGINGS),
                 new String[]{"SSS", "S S", "S S"});
-        RecipeRegistry.addShapedRecipe(Arrays.asList(new Ingredient(SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SUGAR_CUBE), 5, 'S')),
-                SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SPEEDY_BOOTS),
+        RecipeRegistry.addShapedRecipe(Arrays.asList(new Ingredient(SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.SUGAR_CUBE), 5, 'S')),
+                SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.SPEEDY_BOOTS),
                 new String[]{"S S", "S S"});
         RecipeRegistry.addShapedRecipe(Arrays.asList(new Ingredient(Material.STONE, 64, 'S'), new Ingredient(Material.GOLD_INGOT, 64, 'G'), new Ingredient(Material.LAPIS_LAZULI, 64, 'L')),
-                SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SHINY_PEBBLE),
+                SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.SHINY_PEBBLE),
                 new String[]{"SLS", "LGL", "SLS"});
     }
 

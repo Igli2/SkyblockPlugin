@@ -17,15 +17,18 @@ import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.LeatherArmorMeta;
 
 public class ItemRegistry {
-    public static final int ARCHEOLOGISTS_PICKAXE = 1024;
-    public static final int GEODE = 1025;
-    public static final int SUGAR_CUBE = 1026;
-    public static final int SPEEDY_HELMET = 1027;
-    public static final int SPEEDY_CHESTPLATE = 1028;
-    public static final int SPEEDY_LEGGINGS = 1029;
-    public static final int SPEEDY_BOOTS = 1030;
-    public static final int SHINY_PEBBLE = 1031;
-    HashMap<Integer, ItemStack> specialItems = new HashMap<>();
+    public enum  SkyblockItems {
+        ARCHEOLOGISTS_PICKAXE,
+        GEODE,
+        SUGAR_CUBE,
+        SPEEDY_HELMET,
+        SPEEDY_CHESTPLATE,
+        SPEEDY_LEGGINGS,
+        SPEEDY_BOOTS,
+        SHINY_PEBBLE
+    }
+
+    public HashMap<SkyblockItems, ItemStack> specialItems = new HashMap<>();
 
     public ItemRegistry() {
         registerSpecialItems();
@@ -36,20 +39,20 @@ public class ItemRegistry {
         makeUnbreakable(archeologistsPickaxe);
         addEnchantEffect(archeologistsPickaxe);
         setItemName(archeologistsPickaxe, "Archeologist's Pickaxe");
-        specialItems.put(ARCHEOLOGISTS_PICKAXE, archeologistsPickaxe);
+        specialItems.put(SkyblockItems.ARCHEOLOGISTS_PICKAXE, archeologistsPickaxe);
 
         ItemStack geode = createTexturedSkull(
                 "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvY2FiYjUxZjU5NDgxMTMyNTQ1YjUwZTQ3NWU3NjYyMzljNzljNjI0ZTliOTZhYjNhMGFjYjJhZjMwMWQ5NmM3OSJ9fX0=",
                 new int[]{-1136006473, 240537101, -1791113915, -2037819923});
         addEnchantEffect(geode);
         setItemName(geode, "Geode");
-        specialItems.put(GEODE, geode);
+        specialItems.put(SkyblockItems.GEODE, geode);
 
         ItemStack sugarCube = createTexturedSkull("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvM2E2YWE0MGRiNzQxYTZjYmVkYjExOWEzZTVjYmE4YTg3ZjdlYzhmNzRkMjY4YWQ4MjgyYTQ2ZTVlMDU0ZmNiOSJ9fX0=",
                 new int[]{-1171650357, -2028255289, -1780378138, 1576325737});
         addEnchantEffect(sugarCube);
         setItemName(sugarCube, "Sugar Cube");
-        specialItems.put(SUGAR_CUBE, sugarCube);
+        specialItems.put(SkyblockItems.SUGAR_CUBE, sugarCube);
 
         ItemStack speedyHelmet = new ItemStack(Material.LEATHER_HELMET);
         makeUnbreakable(speedyHelmet);
@@ -57,7 +60,7 @@ public class ItemRegistry {
         setArmorColor(speedyHelmet, 180, 220, 140);
         setItemName(speedyHelmet, "Speedy Helmet");
         setLore(speedyHelmet, Arrays.asList(ChatColor.GOLD + "Armor Set Bonus:", "Gives you permanent speed I"));
-        specialItems.put(SPEEDY_HELMET, speedyHelmet);
+        specialItems.put(SkyblockItems.SPEEDY_HELMET, speedyHelmet);
 
         ItemStack speedyChestplate = new ItemStack(Material.LEATHER_CHESTPLATE);
         makeUnbreakable(speedyChestplate);
@@ -65,7 +68,7 @@ public class ItemRegistry {
         setArmorColor(speedyChestplate, 180, 220, 140);
         setItemName(speedyChestplate, "Speedy Chestplate");
         setLore(speedyChestplate, Arrays.asList(ChatColor.GOLD + "Armor Set Bonus:", "Gives you permanent speed I"));
-        specialItems.put(SPEEDY_CHESTPLATE, speedyChestplate);
+        specialItems.put(SkyblockItems.SPEEDY_CHESTPLATE, speedyChestplate);
 
         ItemStack speedyLeggings = new ItemStack(Material.LEATHER_LEGGINGS);
         makeUnbreakable(speedyLeggings);
@@ -73,7 +76,7 @@ public class ItemRegistry {
         setArmorColor(speedyLeggings, 180, 220, 140);
         setItemName(speedyLeggings, "Speedy Leggings");
         setLore(speedyLeggings, Arrays.asList(ChatColor.GOLD + "Armor Set Bonus:", "Gives you permanent speed I"));
-        specialItems.put(SPEEDY_LEGGINGS, speedyLeggings);
+        specialItems.put(SkyblockItems.SPEEDY_LEGGINGS, speedyLeggings);
 
         ItemStack speedyBoots = new ItemStack(Material.LEATHER_BOOTS);
         makeUnbreakable(speedyBoots);
@@ -81,13 +84,13 @@ public class ItemRegistry {
         setArmorColor(speedyBoots, 180, 220, 140);
         setItemName(speedyBoots, "Speedy Boots");
         setLore(speedyBoots, Arrays.asList(ChatColor.GOLD + "Armor Set Bonus:", "Gives you permanent speed I"));
-        specialItems.put(SPEEDY_BOOTS, speedyBoots);
+        specialItems.put(SkyblockItems.SPEEDY_BOOTS, speedyBoots);
 
         ItemStack shinyPebble = new ItemStack(Material.STONE_BUTTON);
         addEnchantEffect(shinyPebble);
         setItemName(shinyPebble, "Shiny Pebble");
         setLore(shinyPebble, Arrays.asList("A very special rock that's super rare"));
-        specialItems.put(SHINY_PEBBLE, shinyPebble);
+        specialItems.put(SkyblockItems.SHINY_PEBBLE, shinyPebble);
     }
 
     public static void setLore(ItemStack itemStack, List<String> lore) {
@@ -177,7 +180,7 @@ public class ItemRegistry {
         return itemStackName.equals(otherName);
     }
 
-    public ItemStack getItemStack(int id) {
-        return specialItems.get(id);
+    public ItemStack getItemStack(SkyblockItems id) {
+        return this.specialItems.get(id);
     }
 }
