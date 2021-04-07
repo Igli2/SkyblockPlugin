@@ -27,6 +27,11 @@ public class CraftingTable {
             itemMeta.setDisplayName(" ");
         }
         PLACEHOLDER.setItemMeta(itemMeta);
+        itemMeta = INVALID.getItemMeta();
+        if (itemMeta != null) {
+            itemMeta.setDisplayName("Invalid Recipe");
+        }
+        INVALID.setItemMeta(itemMeta);
     }
 
     public static Inventory getInventory() {
