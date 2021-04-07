@@ -44,6 +44,11 @@ public class NPCEntity {
             connection.sendPacket(new PacketPlayOutPlayerInfo(PacketPlayOutPlayerInfo.EnumPlayerInfoAction.ADD_PLAYER, this.entity));
             connection.sendPacket(new PacketPlayOutNamedEntitySpawn(this.entity));
             connection.sendPacket(new PacketPlayOutEntityHeadRotation(this.entity, (byte) (this.entity.yaw * 256.0f / 360.0f)));
+
+            DataWatcher watcher = this.entity.getDataWatcher();
+            watcher.set(new DataWatcherObject<>(16, DataWatcherRegistry.a), (byte) 255);
+
+            connection.sendPacket(new PacketPlayOutEntityMetadata(this.entity.getId(), watcher, true));
         }
     }
 
