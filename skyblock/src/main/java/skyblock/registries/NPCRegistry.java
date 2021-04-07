@@ -4,6 +4,7 @@ import org.bukkit.entity.Player;
 import skyblock.SkyblockMain;
 import skyblock.utils.NPCEntity;
 
+import java.util.Collection;
 import java.util.HashMap;
 
 public class NPCRegistry {
@@ -35,9 +36,12 @@ public class NPCRegistry {
         return this.npcs.get(npcID);
     }
 
+    public Collection<NPCEntity> getNPCs() {
+        return this.npcs.values();
+    }
+
     public void showNPCs(Player player) {
         for(NPCEntity npc : this.npcs.values()) {
-            SkyblockMain.instance.getLogger().info(npc.getEntity().getWorld().toString() + " <-> " + player.getWorld().toString());
             if(npc.getEntity().getWorld().getWorld().getName().equals(player.getWorld().getName())) {
                 npc.show(player);
             }

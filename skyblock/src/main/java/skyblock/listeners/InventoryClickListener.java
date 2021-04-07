@@ -1,5 +1,6 @@
 package skyblock.listeners;
 
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
@@ -7,6 +8,8 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryType;
 import skyblock.SkyblockMain;
 import skyblock.utils.CraftingTable;
+import skyblock.utils.NPCEntity;
+import skyblock.utils.ShopNPCEntity;
 
 public class InventoryClickListener implements Listener {
     @EventHandler(priority = EventPriority.HIGHEST)
@@ -45,6 +48,25 @@ public class InventoryClickListener implements Listener {
                 if (event.getRawSlot() == CraftingTable.RESULT) {
                     event.setCancelled(true);
                     CraftingTable.onCraft(event.getInventory(), event.getWhoClicked(), event.isShiftClick());
+                }
+            }
+        }
+
+        //shop npc handling
+        if(event.getWhoClicked() instanceof Player) {
+            for(NPCEntity npc : SkyblockMain.npcRegistry.getNPCs()) {
+                if(npc instanceof ShopNPCEntity) {
+                    if(event.getView().getTitle().equals(npc.getEntity().getName())) {
+                        if(event.getClickedInventory() != null && !event.getClickedInventory().equals(event.getWhoClicked().getInventory())) {
+                            ((ShopNPCEntity) npc).buyOffer((Player) event.getWhoClicked(), event.getCurrentItem(), event.isShiftClick());
+                            event.setCancelled(true);
+                        } else {
+                            if(event.isShiftClick()) {
+                                event.setCancelled(true);
+                            }
+                        }
+                        break;
+                    }
                 }
             }
         }

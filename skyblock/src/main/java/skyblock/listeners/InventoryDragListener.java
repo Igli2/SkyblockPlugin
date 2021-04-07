@@ -1,10 +1,17 @@
 package skyblock.listeners;
 
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryDragEvent;
+import org.bukkit.event.inventory.InventoryType;
+import org.bukkit.inventory.ItemStack;
 import skyblock.SkyblockMain;
 import skyblock.utils.CraftingTable;
+import skyblock.utils.NPCEntity;
+import skyblock.utils.ShopNPCEntity;
+
+import java.util.Map;
 
 public class InventoryDragListener implements Listener {
     @EventHandler
@@ -17,6 +24,23 @@ public class InventoryDragListener implements Listener {
                     CraftingTable.updateContents(event.getInventory());
                 }
             });
+        }
+
+        //shop npc handling
+        if(event.getWhoClicked() instanceof Player) {
+            for(NPCEntity npc : SkyblockMain.npcRegistry.getNPCs()) {
+                if(npc instanceof ShopNPCEntity) {
+                    if(event.getView().getTitle().equals(npc.getEntity().getName())) {
+                        for(int slotID : event.getRawSlots()) {
+                            if(slotID < event.getInventory().getSize()) {
+                                event.setCancelled(true);
+                                break;
+                            }
+                        }
+                        break;
+                    }
+                }
+            }
         }
     }
 }
