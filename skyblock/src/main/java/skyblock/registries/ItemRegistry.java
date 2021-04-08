@@ -5,10 +5,14 @@ import java.util.HashMap;
 import java.util.List;
 
 import net.minecraft.server.v1_16_R3.NBTTagCompound;
+import net.minecraft.server.v1_16_R3.NBTTagInt;
 import net.minecraft.server.v1_16_R3.NBTTagList;
+import net.minecraft.server.v1_16_R3.NBTTagString;
 import org.bukkit.ChatColor;
 import org.bukkit.Color;
 import org.bukkit.Material;
+import org.bukkit.attribute.Attribute;
+import org.bukkit.attribute.AttributeModifier;
 import org.bukkit.craftbukkit.v1_16_R3.inventory.CraftItemStack;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemFlag;
@@ -59,7 +63,7 @@ public class ItemRegistry {
         addEnchantEffect(speedyHelmet);
         setArmorColor(speedyHelmet, 180, 220, 140);
         setItemName(speedyHelmet, "Speedy Helmet");
-        setLore(speedyHelmet, Arrays.asList(ChatColor.GOLD + "Armor Set Bonus:", "Gives you permanent speed I"));
+        speedyHelmet = setMovementSpeed(speedyHelmet, 0.02, "head", new int[]{457456, 546435345, -45346352, 5432678});
         specialItems.put(SkyblockItems.SPEEDY_HELMET, speedyHelmet);
 
         ItemStack speedyChestplate = new ItemStack(Material.LEATHER_CHESTPLATE);
@@ -67,7 +71,7 @@ public class ItemRegistry {
         addEnchantEffect(speedyChestplate);
         setArmorColor(speedyChestplate, 180, 220, 140);
         setItemName(speedyChestplate, "Speedy Chestplate");
-        setLore(speedyChestplate, Arrays.asList(ChatColor.GOLD + "Armor Set Bonus:", "Gives you permanent speed I"));
+        speedyChestplate = setMovementSpeed(speedyChestplate, 0.02, "chest", new int[]{564547564, 342324, -34, 342534676});
         specialItems.put(SkyblockItems.SPEEDY_CHESTPLATE, speedyChestplate);
 
         ItemStack speedyLeggings = new ItemStack(Material.LEATHER_LEGGINGS);
@@ -75,7 +79,7 @@ public class ItemRegistry {
         addEnchantEffect(speedyLeggings);
         setArmorColor(speedyLeggings, 180, 220, 140);
         setItemName(speedyLeggings, "Speedy Leggings");
-        setLore(speedyLeggings, Arrays.asList(ChatColor.GOLD + "Armor Set Bonus:", "Gives you permanent speed I"));
+        speedyLeggings = setMovementSpeed(speedyLeggings, 0.02, "legs", new int[]{43, 46723, -46, 335745524});
         specialItems.put(SkyblockItems.SPEEDY_LEGGINGS, speedyLeggings);
 
         ItemStack speedyBoots = new ItemStack(Material.LEATHER_BOOTS);
@@ -83,7 +87,8 @@ public class ItemRegistry {
         addEnchantEffect(speedyBoots);
         setArmorColor(speedyBoots, 180, 220, 140);
         setItemName(speedyBoots, "Speedy Boots");
-        setLore(speedyBoots, Arrays.asList(ChatColor.GOLD + "Armor Set Bonus:", "Gives you permanent speed I"));
+        //setLore(speedyBoots, Arrays.asList(ChatColor.GOLD + "Armor Set Bonus:", "Gives you permanent speed I"));
+        speedyBoots = setMovementSpeed(speedyBoots, 0.02, "feet", new int[]{353634, 35346544, -336768756, 2017473902});
         specialItems.put(SkyblockItems.SPEEDY_BOOTS, speedyBoots);
 
         ItemStack shinyPebble = new ItemStack(Material.STONE_BUTTON);
@@ -135,6 +140,25 @@ public class ItemRegistry {
         item.setItemMeta(itemMeta);
     }
 
+    public static ItemStack setMovementSpeed(ItemStack itemStack, double speed, String slot, int[] uuid) {
+        net.minecraft.server.v1_16_R3.ItemStack nmsItemStack = CraftItemStack.asNMSCopy(itemStack);
+        NBTTagCompound tag = nmsItemStack.hasTag() ? nmsItemStack.getTag() : new NBTTagCompound();
+
+        NBTTagList tagList = new NBTTagList();
+        NBTTagCompound speedCompound = new NBTTagCompound();
+        speedCompound.setString("AttributeName", "generic.movement_speed");
+        speedCompound.setString("Name", "generic.movement_speed");
+        speedCompound.setDouble("Amount", speed);
+        speedCompound.setInt("Operation", 0);
+        speedCompound.setString("Slot", slot);
+        speedCompound.setIntArray("UUID", uuid);
+        tagList.add(speedCompound);
+        tag.set("AttributeModifiers", tagList);
+
+        nmsItemStack.setTag(tag);
+        return CraftItemStack.asBukkitCopy(nmsItemStack);
+    }
+
     public static ItemStack createTexturedSkull(String textureStr, int[] id) {
         net.minecraft.server.v1_16_R3.ItemStack head = CraftItemStack.asNMSCopy(new ItemStack(Material.PLAYER_HEAD));
         NBTTagCompound tag = head.getOrCreateTag();
@@ -181,6 +205,6 @@ public class ItemRegistry {
     }
 
     public ItemStack getItemStack(SkyblockItems id) {
-        return this.specialItems.get(id);
+        return this.specialItems.get(id).clone();
     }
 }

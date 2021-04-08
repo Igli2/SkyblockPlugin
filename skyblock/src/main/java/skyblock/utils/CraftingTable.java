@@ -256,6 +256,10 @@ public class CraftingTable {
                 widthNew++;
             }
         }
+        if (!toTrim[0] && !toTrim[2]) {
+            widthNew = 3;
+            toTrim[1] = false;
+        }
 
         ItemStack[][] matrixNew = new ItemStack[height][widthNew];
         int removed = 0;
@@ -287,6 +291,10 @@ public class CraftingTable {
             if (!b) {
                 heightNew++;
             }
+        }
+        if (!toTrim[0] && !toTrim[2]) {
+            heightNew = 3;
+            toTrim[1] = false;
         }
 
         matrix = new ItemStack[heightNew][widthNew];

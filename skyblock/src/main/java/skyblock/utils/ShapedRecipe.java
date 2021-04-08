@@ -3,6 +3,7 @@ package skyblock.utils;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 import skyblock.registries.ItemRegistry;
+import skyblock.registries.RecipeRegistry;
 
 import java.util.Arrays;
 import java.util.List;

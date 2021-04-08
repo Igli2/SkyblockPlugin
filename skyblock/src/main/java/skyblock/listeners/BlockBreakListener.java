@@ -1,6 +1,10 @@
 package skyblock.listeners;
 
+import org.bukkit.GameMode;
+import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.World;
+import org.bukkit.block.Block;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
@@ -22,6 +26,19 @@ public class BlockBreakListener implements Listener {
                         event.getPlayer().getWorld().dropItem(event.getPlayer().getLocation(), SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.GEODE));
                     }
                 }
+            }
+
+            // get special blocks from extra file
+            Location location = event.getBlock().getLocation();
+            ItemStack specialBlock = BlockPlaceListener.specialBlocks.get(location);
+            if (specialBlock != null) {
+                event.setDropItems(false);
+                // drop special item instead
+                if (!(event.getPlayer().getGameMode() == GameMode.CREATIVE)) {
+                    event.getBlock().getWorld().dropItem(location, specialBlock);
+                }
+                // remove special item from hashmap
+                BlockPlaceListener.specialBlocks.remove(location);
             }
         }
     }
