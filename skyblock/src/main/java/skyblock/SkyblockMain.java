@@ -4,17 +4,18 @@ import com.comphenix.protocol.PacketType;
 import com.comphenix.protocol.ProtocolLibrary;
 import com.comphenix.protocol.events.PacketAdapter;
 import com.comphenix.protocol.events.PacketEvent;
-import com.comphenix.protocol.events.PacketListener;
 import com.comphenix.protocol.wrappers.EnumWrappers;
 import com.mojang.authlib.properties.Property;
-import net.minecraft.server.v1_16_R3.Items;
+import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.World;
+import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.configuration.file.YamlConfiguration;
+import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import org.bukkit.util.Vector;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
 import skyblock.commands.CreateWorldCommand;
 import skyblock.commands.FakePlayerTestCommand;
 import skyblock.commands.JoinSkyblockCommand;
@@ -26,8 +27,17 @@ import skyblock.registries.RecipeRegistry;
 import skyblock.registries.WorldRegistry;
 import skyblock.utils.*;
 
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 
 public class SkyblockMain extends JavaPlugin {
@@ -39,6 +49,8 @@ public class SkyblockMain extends JavaPlugin {
     public static MoneyHandler moneyHandler;
     public static DatabaseHandler databaseHandler;
     public static NPCRegistry npcRegistry;
+
+    public static File worldDataPath = Paths.get("plugins", "SkyblockPlugin", "special_blocks.yaml").toFile();
 
     @Override
     public void onEnable() {
@@ -53,6 +65,7 @@ public class SkyblockMain extends JavaPlugin {
         if(!SkyblockMain.worldRegistry.hasWorld("world")) SkyblockMain.worldRegistry.addWorld(new WorldInfo(WorldInfo.WorldType.PUBLIC_WORLD, "world", true));
         SkyblockMain.worldRegistry.loadPublicWorlds();
         SkyblockMain.moneyHandler.loadData();
+        this.loadWorldData();
 
         // listeners
         this.getServer().getPluginManager().registerEvents(new InventoryClickListener(), this);
@@ -112,5 +125,57 @@ public class SkyblockMain extends JavaPlugin {
         SkyblockMain.worldRegistry.saveToConfig(this.getDataFolder().getAbsolutePath() + "/world_registry.yaml");
         SkyblockMain.moneyHandler.saveData();
         SkyblockMain.databaseHandler.closeConnection();
+        this.saveWorldData();
+    }
+
+    public void saveWorldData() {
+        try {
+            Files.deleteIfExists(SkyblockMain.worldDataPath.toPath());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        FileConfiguration fileConfig = YamlConfiguration.loadConfiguration(SkyblockMain.worldDataPath);
+
+        for (Location location : BlockPlaceListener.specialBlocks.keySet()) {
+            fileConfig.set(this.locationToString(location), BlockPlaceListener.specialBlocks.get(location));
+        }
+
+        try {
+            fileConfig.save(SkyblockMain.worldDataPath);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void loadWorldData() {
+        FileConfiguration fileConfig = YamlConfiguration.loadConfiguration(SkyblockMain.worldDataPath);
+
+        for (String s : fileConfig.getKeys(false)) {
+            Location location = this.locationFromString(s);
+            ItemStack itemStack = fileConfig.getItemStack(s);
+            BlockPlaceListener.specialBlocks.put(location, itemStack);
+        }
+    }
+
+    public String locationToString(Location location) {
+        String s = "";
+        s += location.getWorld().getName();
+        s += ",";
+        s += (int) location.getX();
+        s += ",";
+        s += (int) location.getY();
+        s += ",";
+        s += (int) location.getZ();
+        return s;
+    }
+
+    public Location locationFromString(String string) {
+        String[] values = string.split(",");
+        World world = getServer().getWorld(values[0]);
+        double x = Double.parseDouble(values[1]);
+        double y = Double.parseDouble(values[2]);
+        double z = Double.parseDouble(values[3]);
+        return new Location(world, x, y, z);
     }
 }

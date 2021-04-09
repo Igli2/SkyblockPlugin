@@ -11,7 +11,6 @@ import java.util.HashMap;
 
 public class BlockPlaceListener implements Listener {
     public static HashMap<Location, ItemStack> specialBlocks = new HashMap<>();
-    // todo save to file
 
     @EventHandler
     public void blockPlaceEvent(BlockPlaceEvent event) {
