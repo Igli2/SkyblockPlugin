@@ -7,13 +7,11 @@ import com.comphenix.protocol.events.PacketEvent;
 import com.comphenix.protocol.wrappers.EnumWrappers;
 import com.mojang.authlib.properties.Property;
 import org.bukkit.Location;
-import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
-
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import skyblock.commands.CreateWorldCommand;
@@ -25,19 +23,16 @@ import skyblock.registries.ItemRegistry;
 import skyblock.registries.NPCRegistry;
 import skyblock.registries.RecipeRegistry;
 import skyblock.registries.WorldRegistry;
-import skyblock.utils.*;
+import skyblock.utils.DatabaseHandler;
+import skyblock.utils.MoneyHandler;
+import skyblock.utils.ShopNPCEntity;
+import skyblock.utils.WorldInfo;
 
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 
 public class SkyblockMain extends JavaPlugin {

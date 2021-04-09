@@ -1,7 +1,6 @@
 package skyblock.registries;
 
 import org.bukkit.entity.Player;
-import skyblock.SkyblockMain;
 import skyblock.utils.NPCEntity;
 
 import java.util.Collection;

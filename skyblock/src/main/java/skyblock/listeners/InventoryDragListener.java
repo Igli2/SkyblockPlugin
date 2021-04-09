@@ -4,14 +4,10 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryDragEvent;
-import org.bukkit.event.inventory.InventoryType;
-import org.bukkit.inventory.ItemStack;
 import skyblock.SkyblockMain;
 import skyblock.utils.CraftingTable;
 import skyblock.utils.NPCEntity;
 import skyblock.utils.ShopNPCEntity;
-
-import java.util.Map;
 
 public class InventoryDragListener implements Listener {
     @EventHandler
