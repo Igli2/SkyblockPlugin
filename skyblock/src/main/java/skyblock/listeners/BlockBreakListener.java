@@ -8,6 +8,8 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.inventory.ItemStack;
 import skyblock.SkyblockMain;
+import skyblock.enchantments.EnchantmentBase;
+import skyblock.enchantments.EnchantmentRegistry;
 import skyblock.registries.ItemRegistry;
 
 import java.util.HashMap;
@@ -46,6 +48,8 @@ public class BlockBreakListener implements Listener {
                         double dropChance = oreDropChances.get(m);
                         if (random < (dropChance + counter)) {
                             event.getPlayer().getWorld().dropItem(event.getBlock().getLocation(), new ItemStack(m));
+                            event.setExpToDrop(event.getExpToDrop() + 3);
+                            event.setDropItems(false);
                             break;
                         }
                         counter += dropChance;
@@ -64,6 +68,17 @@ public class BlockBreakListener implements Listener {
                 }
                 // remove special item from hashmap
                 BlockPlaceListener.specialBlocks.remove(location);
+            }
+
+            this.applyEnchantments(event);
+        }
+    }
+
+    private void applyEnchantments(BlockBreakEvent event) {
+        for (EnchantmentBase enchantment : EnchantmentRegistry.enchantments) {
+            ItemStack tool = event.getPlayer().getInventory().getItemInMainHand();
+            if (EnchantmentBase.hasEnchantment(tool, enchantment)) {
+                enchantment.onBlockBreak(event, EnchantmentBase.getEnchantmentLevel(tool, enchantment));
             }
         }
     }

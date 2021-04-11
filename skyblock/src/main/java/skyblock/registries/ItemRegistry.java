@@ -50,7 +50,6 @@ public class ItemRegistry {
 
     private void registerSpecialItems() {
         ItemStack archeologistsPickaxe = new ItemStack(Material.GOLDEN_PICKAXE);
-        addEnchantEffect(archeologistsPickaxe);
         setItemName(archeologistsPickaxe, "Archeologist's Pickaxe");
         specialItems.put(SkyblockItems.ARCHEOLOGISTS_PICKAXE, archeologistsPickaxe);
 

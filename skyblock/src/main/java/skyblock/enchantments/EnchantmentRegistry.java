@@ -7,5 +7,7 @@ public class EnchantmentRegistry {
 
     public static void registerAllEnchantments() {
         EnchantmentRegistry.enchantments.add(new VenomousEnchantment());
+        EnchantmentRegistry.enchantments.add(new ExperienceEnchantment());
+        EnchantmentRegistry.enchantments.add(new AutosmeltEnchantment());
     }
 }

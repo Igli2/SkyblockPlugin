@@ -2,7 +2,9 @@ package skyblock.enchantments;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
+import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
+import org.bukkit.event.entity.EntityDeathEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
@@ -10,11 +12,15 @@ import java.util.List;
 
 public abstract class EnchantmentBase {
     public static final Material[] swords = new Material[]{Material.DIAMOND_SWORD, Material.STONE_SWORD, Material.IRON_SWORD, Material.GOLDEN_SWORD, Material.NETHERITE_SWORD, Material.WOODEN_SWORD};
+    public static final Material[] pickaxes = new Material[]{Material.DIAMOND_PICKAXE, Material.STONE_PICKAXE, Material.IRON_PICKAXE, Material.GOLDEN_PICKAXE, Material.NETHERITE_PICKAXE, Material.WOODEN_PICKAXE};
+    public static final Material[] axes = new Material[]{Material.DIAMOND_AXE, Material.STONE_AXE, Material.IRON_AXE, Material.GOLDEN_AXE, Material.NETHERITE_AXE, Material.WOODEN_AXE};
 
     public double getChance() {return 0.0;} // return chance that enchantment is applied when enchanting
     public String getName() {return "";} // return plain name without level
     public int getMaxLevel() {return 0;} // return max enchant level
     public void onAttack(EntityDamageByEntityEvent event, int level) {}
+    public void onKill(EntityDeathEvent event, int level) {}
+    public void onBlockBreak(BlockBreakEvent event, int level) {}
 
     public boolean appliesOn(ItemStack itemStack) {
         return itemStack.getType() == Material.BOOK;
@@ -61,6 +67,28 @@ public abstract class EnchantmentBase {
             }
         }
         return false;
+    }
+
+    public static boolean isPickaxe(ItemStack itemStack) {
+        for (Material m : pickaxes) {
+            if (itemStack.getType() == m) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static boolean isAxe(ItemStack itemStack) {
+        for (Material m : axes) {
+            if (itemStack.getType() == m) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static boolean isBow(ItemStack itemStack) {
+        return itemStack.getType() == Material.BOW;
     }
 
     public static boolean hasEnchantment(ItemStack itemStack, EnchantmentBase enchantment) {
