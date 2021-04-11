@@ -46,6 +46,38 @@ public class RecipeRegistry {
         RecipeRegistry.addShapedRecipe(Arrays.asList(new Ingredient(Material.STONE, 64, 'S'), new Ingredient(Material.GOLD_INGOT, 64, 'G'), new Ingredient(Material.LAPIS_LAZULI, 64, 'L')),
                 SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.SHINY_PEBBLE),
                 new String[]{"SLS", "LGL", "SLS"});
+        RecipeRegistry.addShapedRecipe(Arrays.asList(new Ingredient(SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.SHINY_PEBBLE), 'P'), new Ingredient(Material.STICK, 'S')),
+                SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.GUARDS_DEFENDER),
+                new String[]{"P", "P", "S"});
+        RecipeRegistry.addShapelessRecipe(Arrays.asList(new ItemStack(Material.OAK_LOG, 64), new ItemStack(Material.BIRCH_LOG, 64), new ItemStack(Material.SPRUCE_LOG, 64), new ItemStack(Material.DARK_OAK_LOG, 64), new ItemStack(Material.JUNGLE_LOG, 64), new ItemStack(Material.ACACIA_LOG, 64)),
+                SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.FOSSILIZED_LOG));
+        RecipeRegistry.addShapedRecipe(Arrays.asList(new Ingredient(Material.STICK, 'S'), new Ingredient(SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.FOSSILIZED_LOG), 5, 'L')),
+                SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.TREE_CAPITATOR),
+                new String[]{"LL", "LS", " S"});
+        RecipeRegistry.addShapedRecipe(Arrays.asList(new Ingredient(Material.STICK, 'S'), new Ingredient(SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.FOSSILIZED_LOG), 5, 'L')),
+                SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.TREE_CAPITATOR),
+                new String[]{"LL", "SL", "S "});
+        RecipeRegistry.addShapedRecipe(Arrays.asList(new Ingredient(Material.IRON_BLOCK, 16, 'I'), new Ingredient(Material.COAL_BLOCK, 32, 'C'), new Ingredient(Material.BASALT, 64, 'B')),
+                SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.SHADOWSTEEL_INGOT),
+                new String[]{"BCB", "CIC", "BCB"});
+        RecipeRegistry.addShapedRecipe(Arrays.asList(new Ingredient(Material.YELLOW_WOOL, 64, 'W'), new Ingredient(SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.FOSSILIZED_LOG), 'L')),
+                SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.SPOOL_OF_THREAD),
+                new String[]{"WWW", "WLW", "WWW"});
+        RecipeRegistry.addShapedRecipe(Arrays.asList(new Ingredient(Material.STICK, 'S'), new Ingredient(SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.SPOOL_OF_THREAD), 'T')),
+                SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.GRAPPLING_HOOK),
+                new String[]{"  S", " ST", "S T"});
+        RecipeRegistry.addShapedRecipe(Arrays.asList(new Ingredient(SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.SHADOWSTEEL_INGOT), 'S')),
+                SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.SHADOWSTEEL_HELMET),
+                new String[]{"SSS", "S S"});
+        RecipeRegistry.addShapedRecipe(Arrays.asList(new Ingredient(SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.SHADOWSTEEL_INGOT), 'S')),
+                SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.SHADOWSTEEL_CHESTPLATE),
+                new String[]{"S S", "SSS", "SSS"});
+        RecipeRegistry.addShapedRecipe(Arrays.asList(new Ingredient(SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.SHADOWSTEEL_INGOT), 'S')),
+                SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.SHADOWSTEEL_LEGGINGS),
+                new String[]{"SSS", "S S", "S S"});
+        RecipeRegistry.addShapedRecipe(Arrays.asList(new Ingredient(SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.SHADOWSTEEL_INGOT), 'S')),
+                SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.SHADOWSTEEL_BOOTS),
+                new String[]{"S S", "S S"});
     }
 
     public static void registerVanillaRecipes() {

@@ -18,6 +18,7 @@ import skyblock.commands.CreateWorldCommand;
 import skyblock.commands.FakePlayerTestCommand;
 import skyblock.commands.JoinSkyblockCommand;
 import skyblock.commands.WarpCommand;
+import skyblock.enchantments.EnchantmentRegistry;
 import skyblock.listeners.*;
 import skyblock.registries.ItemRegistry;
 import skyblock.registries.NPCRegistry;
@@ -75,8 +76,8 @@ public class SkyblockMain extends JavaPlugin {
         this.getServer().getPluginManager().registerEvents(new PlayerJoinListener(), this);
         this.getServer().getPluginManager().registerEvents(new BlockPlaceListener(), this);
         this.getServer().getPluginManager().registerEvents(new BlockFromToListener(), this);
-
-        this.getServer().getPluginManager().registerEvents(new PlayerInteractListener(), this);
+        this.getServer().getPluginManager().registerEvents(new EnchantItemListener(), this);
+        this.getServer().getPluginManager().registerEvents(new EntityDamageByEntityListener(), this);
         this.getServer().getPluginManager().registerEvents(new ChangeWorldListener(), this);
 
         // commands
@@ -87,14 +88,15 @@ public class SkyblockMain extends JavaPlugin {
 
         RecipeRegistry.registerCustomRecipes();
         RecipeRegistry.registerVanillaRecipes();
+        EnchantmentRegistry.registerAllEnchantments();
 
         ProtocolLibrary.getProtocolManager().addPacketListener(new PacketAdapter(SkyblockMain.instance, PacketType.Play.Client.USE_ENTITY) {
             @Override
             public void onPacketReceiving(PacketEvent event) {
                 int npcID = event.getPacket().getIntegers().read(0);
 
-                if(event.getPacket().getEntityUseActions().read(0) == EnumWrappers.EntityUseAction.INTERACT) {
-                    if(SkyblockMain.npcRegistry.isEntityRegistered(npcID)) {
+                if (event.getPacket().getEntityUseActions().read(0) == EnumWrappers.EntityUseAction.INTERACT) {
+                    if (SkyblockMain.npcRegistry.isEntityRegistered(npcID)) {
                         SkyblockMain.npcRegistry.getNPC(npcID).interact(event.getPlayer());
                     }
                 }

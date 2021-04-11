@@ -1,30 +1,45 @@
 package skyblock.registries;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-
 import net.minecraft.server.v1_16_R3.NBTTagCompound;
 import net.minecraft.server.v1_16_R3.NBTTagList;
+import org.bukkit.ChatColor;
 import org.bukkit.Color;
 import org.bukkit.Material;
+import org.bukkit.attribute.Attribute;
+import org.bukkit.attribute.AttributeModifier;
 import org.bukkit.craftbukkit.v1_16_R3.inventory.CraftItemStack;
 import org.bukkit.enchantments.Enchantment;
+import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.LeatherArmorMeta;
 
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.UUID;
+
 public class ItemRegistry {
     public enum  SkyblockItems {
         ARCHEOLOGISTS_PICKAXE,
+        FOSSILIZED_LOG,
         GEODE,
+        GRAPPLING_HOOK,
+        GUARDS_DEFENDER,
+        SHADOWSTEEL_INGOT,
+        SHADOWSTEEL_HELMET,
+        SHADOWSTEEL_CHESTPLATE,
+        SHADOWSTEEL_LEGGINGS,
+        SHADOWSTEEL_BOOTS,
         SUGAR_CUBE,
         SPEEDY_HELMET,
         SPEEDY_CHESTPLATE,
         SPEEDY_LEGGINGS,
         SPEEDY_BOOTS,
-        SHINY_PEBBLE
+        SPOOL_OF_THREAD,
+        SHINY_PEBBLE,
+        TREE_CAPITATOR
     }
 
     public HashMap<SkyblockItems, ItemStack> specialItems = new HashMap<>();
@@ -35,7 +50,6 @@ public class ItemRegistry {
 
     private void registerSpecialItems() {
         ItemStack archeologistsPickaxe = new ItemStack(Material.GOLDEN_PICKAXE);
-        makeUnbreakable(archeologistsPickaxe);
         addEnchantEffect(archeologistsPickaxe);
         setItemName(archeologistsPickaxe, "Archeologist's Pickaxe");
         specialItems.put(SkyblockItems.ARCHEOLOGISTS_PICKAXE, archeologistsPickaxe);
@@ -43,47 +57,48 @@ public class ItemRegistry {
         ItemStack geode = createTexturedSkull(
                 "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvY2FiYjUxZjU5NDgxMTMyNTQ1YjUwZTQ3NWU3NjYyMzljNzljNjI0ZTliOTZhYjNhMGFjYjJhZjMwMWQ5NmM3OSJ9fX0=",
                 new int[]{-1136006473, 240537101, -1791113915, -2037819923});
-        addEnchantEffect(geode);
         setItemName(geode, "Geode");
         specialItems.put(SkyblockItems.GEODE, geode);
 
         ItemStack sugarCube = createTexturedSkull("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvM2E2YWE0MGRiNzQxYTZjYmVkYjExOWEzZTVjYmE4YTg3ZjdlYzhmNzRkMjY4YWQ4MjgyYTQ2ZTVlMDU0ZmNiOSJ9fX0=",
                 new int[]{-1171650357, -2028255289, -1780378138, 1576325737});
-        addEnchantEffect(sugarCube);
         setItemName(sugarCube, "Sugar Cube");
         specialItems.put(SkyblockItems.SUGAR_CUBE, sugarCube);
 
         ItemStack speedyHelmet = new ItemStack(Material.LEATHER_HELMET);
-        makeUnbreakable(speedyHelmet);
         addEnchantEffect(speedyHelmet);
         setArmorColor(speedyHelmet, 180, 220, 140);
         setItemName(speedyHelmet, "Speedy Helmet");
-        speedyHelmet = setMovementSpeed(speedyHelmet, 0.02, "head", new int[]{457456, 546435345, -45346352, 5432678});
+        setLore(speedyHelmet, Arrays.asList(ChatColor.GOLD + "Gives you permanent speed"));
+        setAttrModifier(speedyHelmet, Attribute.GENERIC_ARMOR, "generic.armor", 1.0, EquipmentSlot.HEAD);
+        setAttrModifier(speedyHelmet, Attribute.GENERIC_MOVEMENT_SPEED, "generic.movement_speed", 0.02, EquipmentSlot.HEAD);
         specialItems.put(SkyblockItems.SPEEDY_HELMET, speedyHelmet);
 
         ItemStack speedyChestplate = new ItemStack(Material.LEATHER_CHESTPLATE);
-        makeUnbreakable(speedyChestplate);
         addEnchantEffect(speedyChestplate);
         setArmorColor(speedyChestplate, 180, 220, 140);
         setItemName(speedyChestplate, "Speedy Chestplate");
-        speedyChestplate = setMovementSpeed(speedyChestplate, 0.02, "chest", new int[]{564547564, 342324, -34, 342534676});
+        setLore(speedyChestplate, Arrays.asList(ChatColor.GOLD + "Gives you permanent speed"));
+        setAttrModifier(speedyChestplate, Attribute.GENERIC_ARMOR, "generic.armor", 3.0, EquipmentSlot.CHEST);
+        setAttrModifier(speedyChestplate, Attribute.GENERIC_MOVEMENT_SPEED, "generic.movement_speed", 0.02, EquipmentSlot.CHEST);
         specialItems.put(SkyblockItems.SPEEDY_CHESTPLATE, speedyChestplate);
 
         ItemStack speedyLeggings = new ItemStack(Material.LEATHER_LEGGINGS);
-        makeUnbreakable(speedyLeggings);
         addEnchantEffect(speedyLeggings);
         setArmorColor(speedyLeggings, 180, 220, 140);
         setItemName(speedyLeggings, "Speedy Leggings");
-        speedyLeggings = setMovementSpeed(speedyLeggings, 0.02, "legs", new int[]{43, 46723, -46, 335745524});
+        setLore(speedyLeggings, Arrays.asList(ChatColor.GOLD + "Gives you permanent speed"));
+        setAttrModifier(speedyLeggings, Attribute.GENERIC_ARMOR, "generic.armor", 2.0, EquipmentSlot.LEGS);
+        setAttrModifier(speedyLeggings, Attribute.GENERIC_MOVEMENT_SPEED, "generic.movement_speed", 0.02, EquipmentSlot.LEGS);
         specialItems.put(SkyblockItems.SPEEDY_LEGGINGS, speedyLeggings);
 
         ItemStack speedyBoots = new ItemStack(Material.LEATHER_BOOTS);
-        makeUnbreakable(speedyBoots);
         addEnchantEffect(speedyBoots);
         setArmorColor(speedyBoots, 180, 220, 140);
         setItemName(speedyBoots, "Speedy Boots");
-        //setLore(speedyBoots, Arrays.asList(ChatColor.GOLD + "Armor Set Bonus:", "Gives you permanent speed I"));
-        speedyBoots = setMovementSpeed(speedyBoots, 0.02, "feet", new int[]{353634, 35346544, -336768756, 2017473902});
+        setLore(speedyBoots, Arrays.asList(ChatColor.GOLD + "Gives you permanent speed"));
+        setAttrModifier(speedyBoots, Attribute.GENERIC_ARMOR, "generic.armor", 1.0, EquipmentSlot.FEET);
+        setAttrModifier(speedyBoots, Attribute.GENERIC_MOVEMENT_SPEED, "generic.movement_speed", 0.02, EquipmentSlot.FEET);
         specialItems.put(SkyblockItems.SPEEDY_BOOTS, speedyBoots);
 
         ItemStack shinyPebble = new ItemStack(Material.STONE_BUTTON);
@@ -91,6 +106,75 @@ public class ItemRegistry {
         setItemName(shinyPebble, "Shiny Pebble");
         setLore(shinyPebble, Arrays.asList("A very special rock that's super rare"));
         specialItems.put(SkyblockItems.SHINY_PEBBLE, shinyPebble);
+
+        ItemStack guardsDefender = new ItemStack(Material.STONE_SWORD);
+        setItemName(guardsDefender, "Guard's Defender");
+        setLore(guardsDefender, Arrays.asList("The legendary sword of the temple guardians"));
+        setAttrModifier(guardsDefender, Attribute.GENERIC_ARMOR, "generic.armor", 4.0, EquipmentSlot.HAND);
+        setAttrModifier(guardsDefender, Attribute.GENERIC_ATTACK_DAMAGE, "generic.attack_damage", 3.0, EquipmentSlot.HAND);
+        setAttrModifier(guardsDefender, Attribute.GENERIC_ATTACK_SPEED, "generic.attack_speed", -2.4, EquipmentSlot.HAND);
+        specialItems.put(SkyblockItems.GUARDS_DEFENDER, guardsDefender);
+
+        ItemStack fossilizedLog = createTexturedSkull("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYWU4ZmU4NDAzMTFmMTI2MzlhOGVlNmFkN2VkNjMyNWIyMmI3OTBkODEyNzg4YzlhZGExMTI4NDE3NzVhZSJ9fX0=",
+                new int[]{-34234234, 436345413, 5346534, 55});
+        setItemName(fossilizedLog, "Fossilized Log");
+        specialItems.put(SkyblockItems.FOSSILIZED_LOG, fossilizedLog);
+
+        ItemStack treeCapitator = new ItemStack(Material.WOODEN_AXE);
+        setItemName(treeCapitator, "Tree Capitator");
+        setLore(treeCapitator, Arrays.asList("Cut down whole trees in a single hit!"));
+        specialItems.put(SkyblockItems.TREE_CAPITATOR, treeCapitator);
+
+        ItemStack shadowsteelIngot = new ItemStack(Material.NETHER_BRICK);
+        setItemName(shadowsteelIngot, "Shadowsteel Ingot");
+        setLore(shadowsteelIngot, Arrays.asList("A very old metal created by ancient shadow creatures"));
+        addEnchantEffect(shadowsteelIngot);
+        specialItems.put(SkyblockItems.SHADOWSTEEL_INGOT, shadowsteelIngot);
+
+        ItemStack spoolOfThread = createTexturedSkull("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNmI5YTRkZmNjNzE1M2MzMTc2ZGM4Y2YzODg4N2QyZDgzODU1NDVmYTRjNWY4YzJmZjEzZjlkNjllOThlOSJ9fX0=",
+                new int[]{-436457567, -3456763, -1, 349875349});
+        setItemName(spoolOfThread, "Spool Of Thread");
+        specialItems.put(SkyblockItems.SPOOL_OF_THREAD, spoolOfThread);
+
+        ItemStack grapplingHook = new ItemStack(Material.FISHING_ROD);
+        setItemName(grapplingHook, "Grappling Hook");
+        specialItems.put(SkyblockItems.GRAPPLING_HOOK, grapplingHook);
+
+        ItemStack shadowsteelHelmet = new ItemStack(Material.LEATHER_HELMET);
+        setArmorColor(shadowsteelHelmet, 50, 0, 64);
+        setItemName(shadowsteelHelmet, "Shadowsteel Helmet");
+        setAttrModifier(shadowsteelHelmet, Attribute.GENERIC_ARMOR, "generic.armor", 5.0, EquipmentSlot.HEAD);
+        setAttrModifier(shadowsteelHelmet, Attribute.GENERIC_KNOCKBACK_RESISTANCE, "generic.knockback_resistance", 0.05, EquipmentSlot.HEAD);
+        setAttrModifier(shadowsteelHelmet, Attribute.GENERIC_ARMOR_TOUGHNESS, "generic.armor_toughness", 2.0, EquipmentSlot.HEAD);
+        setAttrModifier(shadowsteelHelmet, Attribute.GENERIC_MAX_HEALTH, "generic.max_health", 2.0, EquipmentSlot.HEAD);
+        specialItems.put(SkyblockItems.SHADOWSTEEL_HELMET, shadowsteelHelmet);
+
+        ItemStack shadowsteelChestplate = new ItemStack(Material.LEATHER_CHESTPLATE);
+        setArmorColor(shadowsteelChestplate, 50, 0, 64);
+        setItemName(shadowsteelChestplate, "Shadowsteel Chestplate");
+        setAttrModifier(shadowsteelChestplate, Attribute.GENERIC_ARMOR, "generic.armor", 10.0, EquipmentSlot.CHEST);
+        setAttrModifier(shadowsteelChestplate, Attribute.GENERIC_KNOCKBACK_RESISTANCE, "generic.knockback_resistance", 0.05, EquipmentSlot.CHEST);
+        setAttrModifier(shadowsteelChestplate, Attribute.GENERIC_ARMOR_TOUGHNESS, "generic.armor_toughness", 2.0, EquipmentSlot.CHEST);
+        setAttrModifier(shadowsteelChestplate, Attribute.GENERIC_MAX_HEALTH, "generic.max_health", 4.0, EquipmentSlot.CHEST);
+        specialItems.put(SkyblockItems.SHADOWSTEEL_CHESTPLATE, shadowsteelChestplate);
+
+        ItemStack shadowsteelLeggings = new ItemStack(Material.LEATHER_LEGGINGS);
+        setArmorColor(shadowsteelLeggings, 50, 0, 64);
+        setItemName(shadowsteelLeggings, "Shadowsteel Leggings");
+        setAttrModifier(shadowsteelLeggings, Attribute.GENERIC_ARMOR, "generic.armor", 8.0, EquipmentSlot.LEGS);
+        setAttrModifier(shadowsteelLeggings, Attribute.GENERIC_KNOCKBACK_RESISTANCE, "generic.knockback_resistance", 0.05, EquipmentSlot.LEGS);
+        setAttrModifier(shadowsteelLeggings, Attribute.GENERIC_ARMOR_TOUGHNESS, "generic.armor_toughness", 2.0, EquipmentSlot.LEGS);
+        setAttrModifier(shadowsteelLeggings, Attribute.GENERIC_MAX_HEALTH, "generic.max_health", 2.0, EquipmentSlot.LEGS);
+        specialItems.put(SkyblockItems.SHADOWSTEEL_LEGGINGS, shadowsteelLeggings);
+
+        ItemStack shadowsteelBoots = new ItemStack(Material.LEATHER_BOOTS);
+        setArmorColor(shadowsteelBoots, 50, 0, 64);
+        setItemName(shadowsteelBoots, "Shadowsteel Boots");
+        setAttrModifier(shadowsteelBoots, Attribute.GENERIC_ARMOR, "generic.armor", 5.0, EquipmentSlot.FEET);
+        setAttrModifier(shadowsteelBoots, Attribute.GENERIC_KNOCKBACK_RESISTANCE, "generic.knockback_resistance", 0.05, EquipmentSlot.FEET);
+        setAttrModifier(shadowsteelBoots, Attribute.GENERIC_ARMOR_TOUGHNESS, "generic.armor_toughness", 2.0, EquipmentSlot.FEET);
+        setAttrModifier(shadowsteelBoots, Attribute.GENERIC_MAX_HEALTH, "generic.max_health", 2.0, EquipmentSlot.FEET);
+        specialItems.put(SkyblockItems.SHADOWSTEEL_BOOTS, shadowsteelBoots);
     }
 
     public static void setLore(ItemStack itemStack, List<String> lore) {
@@ -110,14 +194,6 @@ public class ItemRegistry {
         itemStack.setItemMeta(itemMeta);
     }
 
-    public static void makeUnbreakable(ItemStack item) {
-        ItemMeta itemMeta = item.getItemMeta();
-        if (itemMeta != null) {
-            itemMeta.setUnbreakable(true);
-        }
-        item.setItemMeta(itemMeta);
-    }
-
     public static void setItemName(ItemStack item, String name) {
         ItemMeta itemMeta = item.getItemMeta();
         if (itemMeta != null) {
@@ -135,23 +211,12 @@ public class ItemRegistry {
         item.setItemMeta(itemMeta);
     }
 
-    public static ItemStack setMovementSpeed(ItemStack itemStack, double speed, String slot, int[] uuid) {
-        net.minecraft.server.v1_16_R3.ItemStack nmsItemStack = CraftItemStack.asNMSCopy(itemStack);
-        NBTTagCompound tag = nmsItemStack.hasTag() ? nmsItemStack.getTag() : new NBTTagCompound();
-
-        NBTTagList tagList = new NBTTagList();
-        NBTTagCompound speedCompound = new NBTTagCompound();
-        speedCompound.setString("AttributeName", "generic.movement_speed");
-        speedCompound.setString("Name", "generic.movement_speed");
-        speedCompound.setDouble("Amount", speed);
-        speedCompound.setInt("Operation", 0);
-        speedCompound.setString("Slot", slot);
-        speedCompound.setIntArray("UUID", uuid);
-        tagList.add(speedCompound);
-        tag.set("AttributeModifiers", tagList);
-
-        nmsItemStack.setTag(tag);
-        return CraftItemStack.asBukkitCopy(nmsItemStack);
+    public static void setAttrModifier(ItemStack itemStack, Attribute attr, String attrName, double value, EquipmentSlot slot) {
+        ItemMeta itemMeta = itemStack.getItemMeta();
+        if (itemMeta != null) {
+            itemMeta.addAttributeModifier(attr, new AttributeModifier(UUID.randomUUID(), attrName, value, AttributeModifier.Operation.ADD_NUMBER, slot));
+        }
+        itemStack.setItemMeta(itemMeta);
     }
 
     public static ItemStack createTexturedSkull(String textureStr, int[] id) {
@@ -175,6 +240,14 @@ public class ItemRegistry {
         head.setTag(tag);
 
         return CraftItemStack.asBukkitCopy(head);
+    }
+
+    public static void makeUnbreakable(ItemStack item) {
+        ItemMeta itemMeta = item.getItemMeta();
+        if (itemMeta != null) {
+            itemMeta.setUnbreakable(true);
+        }
+        item.setItemMeta(itemMeta);
     }
 
     public static boolean isItemStackEqual(ItemStack itemStack, ItemStack other) {
