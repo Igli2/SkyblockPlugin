@@ -2,7 +2,6 @@ package skyblock.listeners;
 
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
-import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryType;
@@ -12,29 +11,13 @@ import skyblock.utils.NPCEntity;
 import skyblock.utils.ShopNPCEntity;
 
 public class InventoryClickListener implements Listener {
-    @EventHandler(priority = EventPriority.HIGHEST)
+    @EventHandler()
     public void inventoryClickEvent(InventoryClickEvent event) {
-        // disable renaming of items
-        if (event.getView().getType() == InventoryType.ANVIL) {
-            if (event.getRawSlot() == 2) {
-                if (event.getInventory().getItem(0) != null && event.getInventory().getItem(2) != null) {
-                    if (event.getInventory().getItem(0).getItemMeta().getDisplayName() != event.getInventory()
-                            .getItem(2).getItemMeta().getDisplayName()) {
-                        event.setCancelled(true);
-                    }
-                }
-            }
-        }
+        this.cancelAnvilRenaming(event);
+
         // crafting table handling
         if (event.getView().getTitle().equals("Crafting Table")) {
-            // TODO: FUCKING BUKKIT IS TRASH BECAUSE IT'S NOT UPDATING THE DAMN FUCKING INVENTORY
-            // TODO: THAT'S WHY YOU HAVE TO WRITE UGLY CODE LIKE THIS:
-            SkyblockMain.instance.getServer().getScheduler().scheduleSyncDelayedTask(SkyblockMain.instance, new Runnable() {
-                @Override
-                public void run() {
-                    CraftingTable.updateContents(event.getInventory());
-                }
-            });
+            SkyblockMain.instance.getServer().getScheduler().scheduleSyncDelayedTask(SkyblockMain.instance, () -> CraftingTable.updateContents(event.getInventory()));
 
             if (event.getRawSlot() < 45) {
                 // make glass pane placeholders not obtainable
@@ -66,6 +49,20 @@ public class InventoryClickListener implements Listener {
                             }
                         }
                         break;
+                    }
+                }
+            }
+        }
+    }
+
+    @SuppressWarnings("ConstantConditions")
+    private void cancelAnvilRenaming(InventoryClickEvent event) {
+        if (event.getView().getType() == InventoryType.ANVIL) {
+            if (event.getRawSlot() == 2) {
+                if (event.getInventory().getItem(0) != null && event.getInventory().getItem(2) != null) {
+                    if (!event.getInventory().getItem(0).getItemMeta().getDisplayName().equals(event.getInventory()
+                            .getItem(2).getItemMeta().getDisplayName())) {
+                        event.setCancelled(true);
                     }
                 }
             }

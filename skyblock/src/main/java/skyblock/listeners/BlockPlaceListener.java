@@ -15,7 +15,7 @@ public class BlockPlaceListener implements Listener {
     @EventHandler
     public void blockPlaceEvent(BlockPlaceEvent event) {
         // save special blocks extra
-        if (event.getItemInHand().getItemMeta().hasDisplayName()) { // check if item is a special item
+        if (event.getItemInHand().getItemMeta() != null && event.getItemInHand().getItemMeta().hasDisplayName()) { // check if item is a special item
             if (event.getItemInHand().getType() == Material.PLAYER_HEAD) { // check if placing it makes sence
                 ItemStack placed = event.getItemInHand().clone();
                 placed.setAmount(1);

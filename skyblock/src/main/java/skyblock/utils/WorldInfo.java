@@ -6,9 +6,9 @@ public class WorldInfo {
         PUBLIC_WORLD
     }
 
-    private WorldType type;
+    private final WorldType type;
     private boolean loaded;
-    private String worldName;
+    private final String worldName;
 
     public WorldInfo(WorldType type, String worldName, boolean loaded) {
         this.type = type;

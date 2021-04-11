@@ -15,7 +15,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.LeatherArmorMeta;
 
-import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
@@ -69,7 +69,7 @@ public class ItemRegistry {
         addEnchantEffect(speedyHelmet);
         setArmorColor(speedyHelmet, 180, 220, 140);
         setItemName(speedyHelmet, "Speedy Helmet");
-        setLore(speedyHelmet, Arrays.asList(ChatColor.GOLD + "Gives you permanent speed"));
+        setLore(speedyHelmet, Collections.singletonList(ChatColor.GOLD + "Gives you permanent speed"));
         setAttrModifier(speedyHelmet, Attribute.GENERIC_ARMOR, "generic.armor", 1.0, EquipmentSlot.HEAD);
         setAttrModifier(speedyHelmet, Attribute.GENERIC_MOVEMENT_SPEED, "generic.movement_speed", 0.02, EquipmentSlot.HEAD);
         specialItems.put(SkyblockItems.SPEEDY_HELMET, speedyHelmet);
@@ -78,7 +78,7 @@ public class ItemRegistry {
         addEnchantEffect(speedyChestplate);
         setArmorColor(speedyChestplate, 180, 220, 140);
         setItemName(speedyChestplate, "Speedy Chestplate");
-        setLore(speedyChestplate, Arrays.asList(ChatColor.GOLD + "Gives you permanent speed"));
+        setLore(speedyChestplate, Collections.singletonList(ChatColor.GOLD + "Gives you permanent speed"));
         setAttrModifier(speedyChestplate, Attribute.GENERIC_ARMOR, "generic.armor", 3.0, EquipmentSlot.CHEST);
         setAttrModifier(speedyChestplate, Attribute.GENERIC_MOVEMENT_SPEED, "generic.movement_speed", 0.02, EquipmentSlot.CHEST);
         specialItems.put(SkyblockItems.SPEEDY_CHESTPLATE, speedyChestplate);
@@ -87,7 +87,7 @@ public class ItemRegistry {
         addEnchantEffect(speedyLeggings);
         setArmorColor(speedyLeggings, 180, 220, 140);
         setItemName(speedyLeggings, "Speedy Leggings");
-        setLore(speedyLeggings, Arrays.asList(ChatColor.GOLD + "Gives you permanent speed"));
+        setLore(speedyLeggings, Collections.singletonList(ChatColor.GOLD + "Gives you permanent speed"));
         setAttrModifier(speedyLeggings, Attribute.GENERIC_ARMOR, "generic.armor", 2.0, EquipmentSlot.LEGS);
         setAttrModifier(speedyLeggings, Attribute.GENERIC_MOVEMENT_SPEED, "generic.movement_speed", 0.02, EquipmentSlot.LEGS);
         specialItems.put(SkyblockItems.SPEEDY_LEGGINGS, speedyLeggings);
@@ -96,7 +96,7 @@ public class ItemRegistry {
         addEnchantEffect(speedyBoots);
         setArmorColor(speedyBoots, 180, 220, 140);
         setItemName(speedyBoots, "Speedy Boots");
-        setLore(speedyBoots, Arrays.asList(ChatColor.GOLD + "Gives you permanent speed"));
+        setLore(speedyBoots, Collections.singletonList(ChatColor.GOLD + "Gives you permanent speed"));
         setAttrModifier(speedyBoots, Attribute.GENERIC_ARMOR, "generic.armor", 1.0, EquipmentSlot.FEET);
         setAttrModifier(speedyBoots, Attribute.GENERIC_MOVEMENT_SPEED, "generic.movement_speed", 0.02, EquipmentSlot.FEET);
         specialItems.put(SkyblockItems.SPEEDY_BOOTS, speedyBoots);
@@ -104,12 +104,12 @@ public class ItemRegistry {
         ItemStack shinyPebble = new ItemStack(Material.STONE_BUTTON);
         addEnchantEffect(shinyPebble);
         setItemName(shinyPebble, "Shiny Pebble");
-        setLore(shinyPebble, Arrays.asList("A very special rock that's super rare"));
+        setLore(shinyPebble, Collections.singletonList("A very special rock that's super rare"));
         specialItems.put(SkyblockItems.SHINY_PEBBLE, shinyPebble);
 
         ItemStack guardsDefender = new ItemStack(Material.STONE_SWORD);
         setItemName(guardsDefender, "Guard's Defender");
-        setLore(guardsDefender, Arrays.asList("The legendary sword of the temple guardians"));
+        setLore(guardsDefender, Collections.singletonList("The legendary sword of the temple guardians"));
         setAttrModifier(guardsDefender, Attribute.GENERIC_ARMOR, "generic.armor", 4.0, EquipmentSlot.HAND);
         setAttrModifier(guardsDefender, Attribute.GENERIC_ATTACK_DAMAGE, "generic.attack_damage", 3.0, EquipmentSlot.HAND);
         setAttrModifier(guardsDefender, Attribute.GENERIC_ATTACK_SPEED, "generic.attack_speed", -2.4, EquipmentSlot.HAND);
@@ -122,12 +122,12 @@ public class ItemRegistry {
 
         ItemStack treeCapitator = new ItemStack(Material.WOODEN_AXE);
         setItemName(treeCapitator, "Tree Capitator");
-        setLore(treeCapitator, Arrays.asList("Cut down whole trees in a single hit!"));
+        setLore(treeCapitator, Collections.singletonList("Cut down whole trees in a single hit!"));
         specialItems.put(SkyblockItems.TREE_CAPITATOR, treeCapitator);
 
         ItemStack shadowsteelIngot = new ItemStack(Material.NETHER_BRICK);
         setItemName(shadowsteelIngot, "Shadowsteel Ingot");
-        setLore(shadowsteelIngot, Arrays.asList("A very old metal created by ancient shadow creatures"));
+        setLore(shadowsteelIngot, Collections.singletonList("A very old metal created by ancient shadow creatures"));
         addEnchantEffect(shadowsteelIngot);
         specialItems.put(SkyblockItems.SHADOWSTEEL_INGOT, shadowsteelIngot);
 
@@ -265,7 +265,10 @@ public class ItemRegistry {
         }
 
         ItemMeta itemStackMeta = itemStack.getItemMeta();
+        if (itemStackMeta == null) {return false;}
         ItemMeta otherMeta = other.getItemMeta();
+        if (otherMeta == null) {return false;}
+
         String itemStackName = (itemStackMeta.hasDisplayName()) ? itemStackMeta.getDisplayName().toLowerCase() : itemStack.getType().toString().toLowerCase();
         String otherName = (otherMeta.hasDisplayName()) ? otherMeta.getDisplayName().toLowerCase() : other.getType().toString().toLowerCase();
 

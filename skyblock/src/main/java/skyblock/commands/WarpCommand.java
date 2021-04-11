@@ -10,9 +10,11 @@ import org.bukkit.entity.Player;
 import skyblock.SkyblockMain;
 import skyblock.utils.WorldInfo;
 
+import javax.annotation.Nonnull;
+
 public class WarpCommand implements CommandExecutor {
     @Override
-    public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
+    public boolean onCommand(@Nonnull CommandSender commandSender, @Nonnull Command command, @Nonnull String s, @Nonnull String[] strings) {
         if(commandSender instanceof Player) {
             Player player = (Player) commandSender;
             if(strings.length == 1) {

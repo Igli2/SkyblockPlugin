@@ -13,7 +13,6 @@ import org.bukkit.entity.Player;
 import java.util.UUID;
 
 public class NPCEntity {
-
     private EntityPlayer entity;
     private boolean alive;
 

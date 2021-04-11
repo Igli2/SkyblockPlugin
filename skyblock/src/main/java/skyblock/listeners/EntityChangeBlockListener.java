@@ -10,7 +10,7 @@ public class EntityChangeBlockListener implements Listener {
     @EventHandler
     public void entityChangeBlockEvent(EntityChangeBlockEvent event) {
         //disable endermen picking up blocks
-        if (event.getEntity() != null && event.getEntityType() == EntityType.ENDERMAN) {
+        if (event.getEntityType() == EntityType.ENDERMAN) {
             event.setCancelled(true);
         }
     }

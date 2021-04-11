@@ -8,7 +8,7 @@ import java.util.HashMap;
 
 public class NPCRegistry {
 
-    private HashMap<Integer, NPCEntity> npcs = new HashMap<>();
+    private final HashMap<Integer, NPCEntity> npcs = new HashMap<>();
 
     public NPCRegistry() {
 

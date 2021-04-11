@@ -10,9 +10,11 @@ import skyblock.SkyblockMain;
 import skyblock.generators.SkyblockChunkGenerator;
 import skyblock.utils.WorldInfo;
 
+import javax.annotation.Nonnull;
+
 public class CreateWorldCommand implements CommandExecutor {
     @Override
-    public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
+    public boolean onCommand(CommandSender commandSender, @Nonnull Command command, @Nonnull String s, @Nonnull String[] strings) {
         if(commandSender.isOp()) {
             if(strings.length == 1) {
                 if(SkyblockMain.worldRegistry.hasWorld(strings[0])) {

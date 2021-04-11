@@ -81,10 +81,7 @@ public class SkyblockMain extends JavaPlugin {
         this.getServer().getPluginManager().registerEvents(new ChangeWorldListener(), this);
 
         // commands
-        this.getCommand("skyblock").setExecutor(new JoinSkyblockCommand());
-        this.getCommand("warp").setExecutor(new WarpCommand());
-        this.getCommand("create_world").setExecutor(new CreateWorldCommand());
-        this.getCommand("fp_test").setExecutor(new FakePlayerTestCommand());
+        this.setCommandExecutors();
 
         RecipeRegistry.registerCustomRecipes();
         RecipeRegistry.registerVanillaRecipes();
@@ -114,6 +111,14 @@ public class SkyblockMain extends JavaPlugin {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    @SuppressWarnings("ConstantConditions")
+    private void setCommandExecutors() {
+        this.getCommand("skyblock").setExecutor(new JoinSkyblockCommand());
+        this.getCommand("warp").setExecutor(new WarpCommand());
+        this.getCommand("create_world").setExecutor(new CreateWorldCommand());
+        this.getCommand("fp_test").setExecutor(new FakePlayerTestCommand());
     }
 
     @Override
@@ -155,6 +160,7 @@ public class SkyblockMain extends JavaPlugin {
         }
     }
 
+    @SuppressWarnings("ConstantConditions")
     public String locationToString(Location location) {
         String s = "";
         s += location.getWorld().getName();

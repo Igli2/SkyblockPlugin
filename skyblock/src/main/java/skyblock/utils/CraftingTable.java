@@ -310,6 +310,7 @@ public class CraftingTable {
         return matrix;
     }
 
+    @SuppressWarnings("unused")
     public static String arrayArrayToString(ItemStack[][] array) { // debug method
         StringBuilder s = new StringBuilder();
         for (ItemStack[] itemStacks : array) {

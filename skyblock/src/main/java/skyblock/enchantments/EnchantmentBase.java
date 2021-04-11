@@ -65,7 +65,7 @@ public abstract class EnchantmentBase {
 
     public static boolean hasEnchantment(ItemStack itemStack, EnchantmentBase enchantment) {
         ItemMeta itemMeta = itemStack.getItemMeta();
-        if (itemMeta != null && itemMeta.hasLore()) {
+        if (itemMeta != null && itemMeta.getLore() != null) {
             List<String> lore = itemMeta.getLore();
             for (String s : lore) {
                 s = ChatColor.stripColor(s);
@@ -79,7 +79,7 @@ public abstract class EnchantmentBase {
 
     public static int getEnchantmentLevel(ItemStack itemStack, EnchantmentBase enchantment) {
         ItemMeta itemMeta = itemStack.getItemMeta();
-        if (itemMeta != null && itemMeta.hasLore()) {
+        if (itemMeta != null && itemMeta.getLore() != null) {
             List<String> lore = itemMeta.getLore();
             for (String s : lore) {
                 s = ChatColor.stripColor(s);

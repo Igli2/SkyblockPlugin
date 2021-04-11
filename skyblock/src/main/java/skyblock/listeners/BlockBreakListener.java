@@ -13,7 +13,7 @@ import skyblock.registries.ItemRegistry;
 import java.util.HashMap;
 
 public class BlockBreakListener implements Listener {
-    private static HashMap<Material, Double> oreDropChances = new HashMap<Material, Double>() {{
+    private static final HashMap<Material, Double> oreDropChances = new HashMap<Material, Double>() {{
         put(Material.COAL, 0.05);
         put(Material.IRON_ORE, 0.025);
         put(Material.GOLD_ORE, 0.01);
