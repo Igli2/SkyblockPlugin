@@ -11,6 +11,6 @@
   "shop": [
     ["minecraft:oak_sapling", 16, 1],
     ["minecraft:spruce_sapling", 32, 1],
-    ["minecraft:tree_capitator", 1, 1]
+    ["skyblock:tree_capitator", 1, 1],
   ]
 }

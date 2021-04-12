@@ -121,7 +121,7 @@ public class ItemRegistry {
 
         ItemStack treeCapitator = new ItemStack(Material.WOODEN_AXE);
         setItemName(treeCapitator, "Tree Capitator");
-        setLore(treeCapitator, Collections.singletonList("Cut down whole trees in a single hit!"));
+       // setLore(treeCapitator, Collections.singletonList("Cut down whole trees in a single hit!"));
         specialItems.put(SkyblockItems.TREE_CAPITATOR, treeCapitator);
 
         ItemStack shadowsteelIngot = new ItemStack(Material.NETHER_BRICK);
