@@ -71,6 +71,10 @@ public class BlockBreakListener implements Listener {
             }
 
             this.applyEnchantments(event);
+
+            if(itemHeld.getType() != Material.AIR && itemHeld.equals(SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.TREE_CAPITATOR))) {
+
+            }
         }
     }
 
