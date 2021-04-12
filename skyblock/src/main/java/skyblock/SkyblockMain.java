@@ -80,6 +80,7 @@ public class SkyblockMain extends JavaPlugin {
         this.getServer().getPluginManager().registerEvents(new EntityDamageByEntityListener(), this);
         this.getServer().getPluginManager().registerEvents(new ChangeWorldListener(), this);
         this.getServer().getPluginManager().registerEvents(new EntityDeathListener(), this);
+        this.getServer().getPluginManager().registerEvents(new PlayerFishEvent(), this);
 
         // commands
         this.setCommandExecutors();
