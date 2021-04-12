@@ -14,10 +14,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
-import skyblock.commands.CreateWorldCommand;
-import skyblock.commands.FakePlayerTestCommand;
-import skyblock.commands.JoinSkyblockCommand;
-import skyblock.commands.WarpCommand;
+import skyblock.commands.*;
 import skyblock.enchantments.EnchantmentRegistry;
 import skyblock.listeners.*;
 import skyblock.registries.ItemRegistry;
@@ -121,6 +118,7 @@ public class SkyblockMain extends JavaPlugin {
         this.getCommand("warp").setExecutor(new WarpCommand());
         this.getCommand("create_world").setExecutor(new CreateWorldCommand());
         this.getCommand("fp_test").setExecutor(new FakePlayerTestCommand());
+        this.getCommand("structurizer").setExecutor(new StructurizerCommand());
     }
 
     @Override
