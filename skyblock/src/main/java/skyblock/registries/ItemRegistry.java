@@ -39,6 +39,7 @@ public class ItemRegistry {
         SPEEDY_BOOTS,
         SPOOL_OF_THREAD,
         SHINY_PEBBLE,
+        SHADOW_WARRIOR_SPAWN_EGG,
         TREE_CAPITATOR
     }
 
@@ -174,6 +175,11 @@ public class ItemRegistry {
         setAttrModifier(shadowsteelBoots, Attribute.GENERIC_ARMOR_TOUGHNESS, "generic.armor_toughness", 2.0, EquipmentSlot.FEET);
         setAttrModifier(shadowsteelBoots, Attribute.GENERIC_MAX_HEALTH, "generic.max_health", 2.0, EquipmentSlot.FEET);
         specialItems.put(SkyblockItems.SHADOWSTEEL_BOOTS, shadowsteelBoots);
+
+        ItemStack shadowWarriorSpawnEgg = createTexturedSkull("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOTNhOGIwZTlhMDZmMTk5MzFlYTU5N2JhNzY4MjNiNTk0MDQ4NDFkNTNiYzQ4MTEyN2JlOWY3MTBjNmI5OTgifX19",
+                new int[]{-432423452, 45435, 435646754, 6000});
+        setItemName(shadowWarriorSpawnEgg, "Shadow Warrior Spawn Egg");
+        specialItems.put(SkyblockItems.SHADOW_WARRIOR_SPAWN_EGG, shadowWarriorSpawnEgg);
     }
 
     public static void setLore(ItemStack itemStack, List<String> lore) {

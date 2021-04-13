@@ -78,6 +78,9 @@ public class RecipeRegistry {
         RecipeRegistry.addShapedRecipe(Collections.singletonList(new Ingredient(SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.SHADOWSTEEL_INGOT), 'S')),
                 SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.SHADOWSTEEL_BOOTS),
                 new String[]{"S S", "S S"});
+        RecipeRegistry.addShapedRecipe(Arrays.asList(new Ingredient(Material.EGG, 'E'), new Ingredient(Material.NETHER_BRICK, 16, 'N')),
+                SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.SHADOW_WARRIOR_SPAWN_EGG),
+                new String[]{"NNN", "NEN", "NNN"});
     }
 
     public static void registerVanillaRecipes() {

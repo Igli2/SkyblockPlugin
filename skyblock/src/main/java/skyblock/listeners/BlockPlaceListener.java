@@ -6,6 +6,9 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.inventory.ItemStack;
+import skyblock.SkyblockMain;
+import skyblock.registries.ItemRegistry;
+import skyblock.utils.ShadowWarriorBoss;
 
 import java.util.HashMap;
 
@@ -15,8 +18,12 @@ public class BlockPlaceListener implements Listener {
     @EventHandler
     public void blockPlaceEvent(BlockPlaceEvent event) {
         // save special blocks extra
-        if (event.getItemInHand().getItemMeta() != null && event.getItemInHand().getItemMeta().hasDisplayName()) { // check if item is a special item
-            if (event.getItemInHand().getType() == Material.PLAYER_HEAD) { // check if placing it makes sence
+        if (event.getItemInHand().getItemMeta() != null && event.getItemInHand().getItemMeta().hasDisplayName()) { // check if item is a custom item
+            if (ItemRegistry.isItemStackEqual(event.getItemInHand(), SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.SHADOW_WARRIOR_SPAWN_EGG))) { // unplaceable spawn eggs...
+                ShadowWarriorBoss.spawn(event.getBlock().getWorld(), event.getBlockPlaced().getLocation());
+                event.getItemInHand().setAmount(event.getItemInHand().getAmount() - 1);
+                event.setCancelled(true);
+            } else if (event.getItemInHand().getType() == Material.PLAYER_HEAD) { // check if placing it makes sence
                 ItemStack placed = event.getItemInHand().clone();
                 placed.setAmount(1);
                 BlockPlaceListener.specialBlocks.put(event.getBlockPlaced().getLocation(), placed);

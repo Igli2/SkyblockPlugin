@@ -18,3 +18,5 @@ server/usercache.json
 server/apache-maven-3.6.0
 server/work
 server/BuildTools.log.txt
+server/player_data.db
+server/plugins
