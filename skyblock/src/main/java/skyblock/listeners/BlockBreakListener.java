@@ -71,6 +71,17 @@ public class BlockBreakListener implements Listener {
             }
 
             this.applyEnchantments(event);
+
+            if(itemHeld.equals(SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.TREE_CAPITATOR))) {
+                SkyblockMain.instance.getLogger().info(String.valueOf(this.isWood(event.getBlock().getType())));
+                SkyblockMain.instance.getLogger().info(event.getBlock().getType().toString() + ", " + itemHeld.getType().toString());
+                if(this.isWood(event.getBlock().getType())) {
+                    Material toBreak = event.getBlock().getType();
+                    event.getBlock().breakNaturally();
+                    event.setCancelled(true);
+                    this.breakNeighboursWithType(toBreak, event.getBlock().getLocation(), 10);
+                }
+            }
         }
     }
 
@@ -79,6 +90,28 @@ public class BlockBreakListener implements Listener {
             ItemStack tool = event.getPlayer().getInventory().getItemInMainHand();
             if (EnchantmentBase.hasEnchantment(tool, enchantment)) {
                 enchantment.onBlockBreak(event, EnchantmentBase.getEnchantmentLevel(tool, enchantment));
+            }
+        }
+    }
+
+    private boolean isWood(Material material) {
+        return material.toString().endsWith("WOOD") || material.toString().endsWith("LOG");
+    }
+
+    private void breakNeighboursWithType(Material material, Location block, int depth) {
+        if(depth > 0) {
+            for(int x = block.getBlockX() - 1; x < block.getBlockX() + 2; x++) {
+                for(int y = block.getBlockY() - 1; y < block.getBlockY() + 2; y++) {
+                    for(int z = block.getBlockZ() - 1; z < block.getBlockZ() + 2; z++) {
+                        if(x != block.getBlockX() || y != block.getBlockY() || z != block.getBlockZ()) {
+                            Location neighbour = new Location(block.getWorld(), x, y, z);
+                            if(neighbour.getBlock().getType() == material) {
+                                neighbour.getBlock().breakNaturally();
+                                this.breakNeighboursWithType(material, neighbour, depth - 1);
+                            }
+                        }
+                    }
+                }
             }
         }
     }

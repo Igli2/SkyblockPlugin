@@ -1,0 +1,15 @@
+{
+  "location":{
+    "world": "lobby",
+    "x": -31.785,
+    "y": 110.0,
+    "z": 22.017,
+    "yaw": -137.3,
+    "pitch": -1.80
+  },
+  "name": "[NPC] Builder",
+  "shop": [
+    ["minecraft:stone", 16, 4],
+    ["minecraft:dirt", 16, 4]
+  ]
+}

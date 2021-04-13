@@ -16,3 +16,6 @@ commands:
   fp_test:
     description: Fake player test
     usage: /<command>
+  structurizer:
+    description: Creates a structure file with the specified blocks
+    usage: /<command>

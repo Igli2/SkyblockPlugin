@@ -1,0 +1,16 @@
+{
+  "location":{
+    "world": "lobby",
+    "x": -4.343,
+    "y": 110.0,
+    "z": 54.796,
+    "yaw": -102.8,
+    "pitch": 1.5
+  },
+  "name": "[NPC] Gardener",
+  "shop": [
+    ["minecraft:oak_sapling", 16, 1],
+    ["minecraft:spruce_sapling", 32, 1],
+    ["skyblock:tree_capitator", 1, 1],
+  ]
+}

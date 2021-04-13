@@ -1,0 +1,17 @@
+{
+  "location":{
+    "world": "lobby",
+    "x": -23.704,
+    "y": 110.0,
+    "z": 27.656,
+    "yaw": -134.2,
+    "pitch": 1.2
+  },
+  "name": "[NPC] Miner",
+  "shop": [
+    ["minecraft:diamond_ore", 1024, 64],
+    ["skyblock:archeologists_pickaxe", 5000, 1],
+    ["skyblock:geode", 1000, 2],
+    ["skyblock:grappling_hook", 1, 1]
+  ]
+}
