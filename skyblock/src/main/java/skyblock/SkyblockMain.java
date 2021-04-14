@@ -21,10 +21,7 @@ import skyblock.registries.ItemRegistry;
 import skyblock.registries.NPCRegistry;
 import skyblock.registries.RecipeRegistry;
 import skyblock.registries.WorldRegistry;
-import skyblock.utils.DatabaseHandler;
-import skyblock.utils.MoneyHandler;
-import skyblock.utils.ShopNPCEntity;
-import skyblock.utils.WorldInfo;
+import skyblock.utils.*;
 
 import java.io.File;
 import java.io.FileReader;
@@ -43,6 +40,8 @@ public class SkyblockMain extends JavaPlugin {
     public static DatabaseHandler databaseHandler;
     public static NPCRegistry npcRegistry;
 
+    public static Structure starterIsland;
+
     public static File worldDataPath = Paths.get("plugins", "SkyblockPlugin", "special_blocks.yaml").toFile();
 
     @Override
@@ -53,6 +52,8 @@ public class SkyblockMain extends JavaPlugin {
         SkyblockMain.moneyHandler = new MoneyHandler();
         SkyblockMain.databaseHandler = new DatabaseHandler();
         SkyblockMain.npcRegistry = new NPCRegistry();
+
+        SkyblockMain.starterIsland = Structure.fromFile(this.getDataFolder().getAbsolutePath() + "/structures/skyblock.struct");
 
         SkyblockMain.worldRegistry = WorldRegistry.loadFromConfig(this.getDataFolder().getAbsolutePath() + "/world_registry.yaml");
         if(!SkyblockMain.worldRegistry.hasWorld("world")) SkyblockMain.worldRegistry.addWorld(new WorldInfo(WorldInfo.WorldType.PUBLIC_WORLD, "world", true));
