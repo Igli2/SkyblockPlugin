@@ -24,7 +24,7 @@ public class ShadowWarriorBoss {
             equipment.setBoots(SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.SHADOWSTEEL_BOOTS));
         }
         boss.setCanPickupItems(false);
-        // todo: health bar
+        // todo: boss bar
 
         AttributeInstance attrInstance = boss.getAttribute(Attribute.GENERIC_MAX_HEALTH);
         if (attrInstance != null) {
@@ -73,7 +73,7 @@ public class ShadowWarriorBoss {
         WitherSkeleton boss = (WitherSkeleton) entity;
         entity.setCustomName(ShadowWarriorBoss.getName() + " " + getHealthText(boss, damage));
 
-        // summon normal wither skeleton
+        // summon normal wither skeletons
         Location l = entity.getLocation();
         for (int x = l.getBlockX() - 5; x < l.getBlockX() + 5; x++) {
             for (int z = l.getBlockZ() - 5; z < l.getBlockZ() + 5; z++) {

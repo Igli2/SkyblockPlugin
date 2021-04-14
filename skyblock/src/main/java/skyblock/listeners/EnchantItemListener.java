@@ -30,4 +30,13 @@ public class EnchantItemListener implements Listener {
         lore.add(0, ChatColor.GRAY + enchantment.getName() + " " + EnchantmentBase.intToRomanLetters(level));
         ItemRegistry.setLore(itemStack, lore);
     }
+
+    public static void removeEnchantmentLore(ItemStack itemStack, EnchantmentBase enchantment) {
+        ArrayList<String> lore = new ArrayList<>();
+        if (itemStack.getItemMeta() != null && itemStack.getItemMeta().getLore() != null) {
+            lore.addAll(itemStack.getItemMeta().getLore());
+        }
+        lore.removeIf(s -> ChatColor.stripColor(s).startsWith(enchantment.getName()));
+        ItemRegistry.setLore(itemStack, lore);
+    }
 }

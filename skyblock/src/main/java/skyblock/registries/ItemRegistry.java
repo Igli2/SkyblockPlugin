@@ -14,6 +14,7 @@ import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.LeatherArmorMeta;
+import skyblock.enchantments.EnchantmentBase;
 
 import java.util.Collections;
 import java.util.HashMap;
@@ -53,6 +54,7 @@ public class ItemRegistry {
         ItemStack archeologistsPickaxe = new ItemStack(Material.GOLDEN_PICKAXE);
         setItemName(archeologistsPickaxe, "Archeologist's Pickaxe");
         specialItems.put(SkyblockItems.ARCHEOLOGISTS_PICKAXE, archeologistsPickaxe);
+        EnchantmentBase.customPickaxes.add(archeologistsPickaxe);
 
         ItemStack geode = createTexturedSkull(
                 "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvY2FiYjUxZjU5NDgxMTMyNTQ1YjUwZTQ3NWU3NjYyMzljNzljNjI0ZTliOTZhYjNhMGFjYjJhZjMwMWQ5NmM3OSJ9fX0=",
@@ -73,6 +75,7 @@ public class ItemRegistry {
         setAttrModifier(speedyHelmet, Attribute.GENERIC_ARMOR, "generic.armor", 1.0, EquipmentSlot.HEAD);
         setAttrModifier(speedyHelmet, Attribute.GENERIC_MOVEMENT_SPEED, "generic.movement_speed", 0.02, EquipmentSlot.HEAD);
         specialItems.put(SkyblockItems.SPEEDY_HELMET, speedyHelmet);
+        EnchantmentBase.customHelmets.add(speedyHelmet);
 
         ItemStack speedyChestplate = new ItemStack(Material.LEATHER_CHESTPLATE);
         addEnchantEffect(speedyChestplate);
@@ -82,6 +85,7 @@ public class ItemRegistry {
         setAttrModifier(speedyChestplate, Attribute.GENERIC_ARMOR, "generic.armor", 3.0, EquipmentSlot.CHEST);
         setAttrModifier(speedyChestplate, Attribute.GENERIC_MOVEMENT_SPEED, "generic.movement_speed", 0.02, EquipmentSlot.CHEST);
         specialItems.put(SkyblockItems.SPEEDY_CHESTPLATE, speedyChestplate);
+        EnchantmentBase.customChestplates.add(speedyChestplate);
 
         ItemStack speedyLeggings = new ItemStack(Material.LEATHER_LEGGINGS);
         addEnchantEffect(speedyLeggings);
@@ -91,6 +95,7 @@ public class ItemRegistry {
         setAttrModifier(speedyLeggings, Attribute.GENERIC_ARMOR, "generic.armor", 2.0, EquipmentSlot.LEGS);
         setAttrModifier(speedyLeggings, Attribute.GENERIC_MOVEMENT_SPEED, "generic.movement_speed", 0.02, EquipmentSlot.LEGS);
         specialItems.put(SkyblockItems.SPEEDY_LEGGINGS, speedyLeggings);
+        EnchantmentBase.customLeggings.add(speedyLeggings);
 
         ItemStack speedyBoots = new ItemStack(Material.LEATHER_BOOTS);
         addEnchantEffect(speedyBoots);
@@ -100,6 +105,7 @@ public class ItemRegistry {
         setAttrModifier(speedyBoots, Attribute.GENERIC_ARMOR, "generic.armor", 1.0, EquipmentSlot.FEET);
         setAttrModifier(speedyBoots, Attribute.GENERIC_MOVEMENT_SPEED, "generic.movement_speed", 0.02, EquipmentSlot.FEET);
         specialItems.put(SkyblockItems.SPEEDY_BOOTS, speedyBoots);
+        EnchantmentBase.customBoots.add(speedyBoots);
 
         ItemStack shinyPebble = new ItemStack(Material.STONE_BUTTON);
         addEnchantEffect(shinyPebble);
@@ -114,6 +120,7 @@ public class ItemRegistry {
         setAttrModifier(guardsDefender, Attribute.GENERIC_ATTACK_DAMAGE, "generic.attack_damage", 3.0, EquipmentSlot.HAND);
         setAttrModifier(guardsDefender, Attribute.GENERIC_ATTACK_SPEED, "generic.attack_speed", -2.4, EquipmentSlot.HAND);
         specialItems.put(SkyblockItems.GUARDS_DEFENDER, guardsDefender);
+        EnchantmentBase.customSwords.add(guardsDefender);
 
         ItemStack fossilizedLog = createTexturedSkull("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYWU4ZmU4NDAzMTFmMTI2MzlhOGVlNmFkN2VkNjMyNWIyMmI3OTBkODEyNzg4YzlhZGExMTI4NDE3NzVhZSJ9fX0=",
                 new int[]{-34234234, 436345413, 5346534, 55});
@@ -124,6 +131,7 @@ public class ItemRegistry {
         setItemName(treeCapitator, "Tree Capitator");
        // setLore(treeCapitator, Collections.singletonList("Cut down whole trees in a single hit!"));
         specialItems.put(SkyblockItems.TREE_CAPITATOR, treeCapitator);
+        EnchantmentBase.customAxes.add(treeCapitator);
 
         ItemStack shadowsteelIngot = new ItemStack(Material.NETHER_BRICK);
         setItemName(shadowsteelIngot, "Shadowsteel Ingot");
@@ -148,6 +156,7 @@ public class ItemRegistry {
         setAttrModifier(shadowsteelHelmet, Attribute.GENERIC_ARMOR_TOUGHNESS, "generic.armor_toughness", 2.0, EquipmentSlot.HEAD);
         setAttrModifier(shadowsteelHelmet, Attribute.GENERIC_MAX_HEALTH, "generic.max_health", 2.0, EquipmentSlot.HEAD);
         specialItems.put(SkyblockItems.SHADOWSTEEL_HELMET, shadowsteelHelmet);
+        EnchantmentBase.customHelmets.add(shadowsteelHelmet);
 
         ItemStack shadowsteelChestplate = new ItemStack(Material.LEATHER_CHESTPLATE);
         setArmorColor(shadowsteelChestplate, 50, 0, 64);
@@ -157,6 +166,7 @@ public class ItemRegistry {
         setAttrModifier(shadowsteelChestplate, Attribute.GENERIC_ARMOR_TOUGHNESS, "generic.armor_toughness", 2.0, EquipmentSlot.CHEST);
         setAttrModifier(shadowsteelChestplate, Attribute.GENERIC_MAX_HEALTH, "generic.max_health", 4.0, EquipmentSlot.CHEST);
         specialItems.put(SkyblockItems.SHADOWSTEEL_CHESTPLATE, shadowsteelChestplate);
+        EnchantmentBase.customChestplates.add(shadowsteelChestplate);
 
         ItemStack shadowsteelLeggings = new ItemStack(Material.LEATHER_LEGGINGS);
         setArmorColor(shadowsteelLeggings, 50, 0, 64);
@@ -166,6 +176,7 @@ public class ItemRegistry {
         setAttrModifier(shadowsteelLeggings, Attribute.GENERIC_ARMOR_TOUGHNESS, "generic.armor_toughness", 2.0, EquipmentSlot.LEGS);
         setAttrModifier(shadowsteelLeggings, Attribute.GENERIC_MAX_HEALTH, "generic.max_health", 2.0, EquipmentSlot.LEGS);
         specialItems.put(SkyblockItems.SHADOWSTEEL_LEGGINGS, shadowsteelLeggings);
+        EnchantmentBase.customLeggings.add(shadowsteelLeggings);
 
         ItemStack shadowsteelBoots = new ItemStack(Material.LEATHER_BOOTS);
         setArmorColor(shadowsteelBoots, 50, 0, 64);
@@ -175,6 +186,7 @@ public class ItemRegistry {
         setAttrModifier(shadowsteelBoots, Attribute.GENERIC_ARMOR_TOUGHNESS, "generic.armor_toughness", 2.0, EquipmentSlot.FEET);
         setAttrModifier(shadowsteelBoots, Attribute.GENERIC_MAX_HEALTH, "generic.max_health", 2.0, EquipmentSlot.FEET);
         specialItems.put(SkyblockItems.SHADOWSTEEL_BOOTS, shadowsteelBoots);
+        EnchantmentBase.customBoots.add(shadowsteelBoots);
 
         ItemStack shadowWarriorSpawnEgg = createTexturedSkull("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOTNhOGIwZTlhMDZmMTk5MzFlYTU5N2JhNzY4MjNiNTk0MDQ4NDFkNTNiYzQ4MTEyN2JlOWY3MTBjNmI5OTgifX19",
                 new int[]{-432423452, 45435, 435646754, 6000});

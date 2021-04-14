@@ -5,6 +5,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryDragEvent;
 import skyblock.SkyblockMain;
+import skyblock.utils.Anvil;
 import skyblock.utils.CraftingTable;
 import skyblock.utils.NPCEntity;
 import skyblock.utils.ShopNPCEntity;
@@ -15,6 +16,8 @@ public class InventoryDragListener implements Listener {
         // needed to update crafting table inventory after item drag event because inventory click event isn't fired
         if (event.getView().getTitle().equals("Crafting Table")) {
             SkyblockMain.instance.getServer().getScheduler().scheduleSyncDelayedTask(SkyblockMain.instance, () -> CraftingTable.updateContents(event.getInventory()));
+        } else if (event.getView().getTitle().equals("Anvil")) {
+            SkyblockMain.instance.getServer().getScheduler().scheduleSyncDelayedTask(SkyblockMain.instance, () -> Anvil.updateContents(event.getInventory()));
         }
 
         //shop npc handling
