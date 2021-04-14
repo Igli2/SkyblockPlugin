@@ -1,0 +1,16 @@
+{
+  "location":{
+    "world": "lobby",
+    "x": -35.4,
+    "y": 112.0,
+    "z": -25.5,
+    "yaw": -79.6,
+    "pitch": 0.0
+  },
+  "name": "[NPC] Wizard",
+  "shop": [
+    ["minecraft:nether_wart", 50, 1],
+    ["minecraft:ghast_tear", 250, 1],
+    ["minecraft:blaze_rod", 75, 1]
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "location":{
+    "world": "lobby",
+    "x": -16.2,
+    "y": 110.0,
+    "z": -21.7,
+    "yaw": -128.0,
+    "pitch": 0.0
+  },
+  "name": "[NPC] Nethermaster",
+  "shop": [
+    ["minecraft:crimson_nylium", 50, 1],
+    ["minecraft:warped_nylium", 50, 1],
+    ["minecraft:crimson_fungus", 50, 1],
+    ["minecraft:warped_fungus", 50, 1]
+  ]
+}

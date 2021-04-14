@@ -9,8 +9,25 @@
   },
   "name": "[NPC] Gardener",
   "shop": [
-    ["minecraft:oak_sapling", 16, 1],
-    ["minecraft:spruce_sapling", 32, 1],
-    ["skyblock:tree_capitator", 1, 1],
+    ["minecraft:water_bucket", 50, 1],
+    ["minecraft:mycelium", 100, 1],
+    ["minecraft:red_mushroom", 25, 1],
+    ["minecraft:brown_mushroom", 25, 1],
+    ["minecraft:kelp", 25, 1],
+    ["minecraft:pumpkin_seeds", 25, 1],
+    ["minecraft:melon_seeds", 25, 1],
+    ["minecraft:beetroot_seeds", 25, 1],
+    ["minecraft:wheat_seeds", 25, 1],
+    ["minecraft:sugar_cane", 25, 1],
+    ["minecraft:bamboo", 25, 1],
+    ["minecraft:cocoa_beans", 25, 1],
+    ["minecraft:sweet_berries", 25, 1],
+    ["minecraft:cactus", 25, 1],
+    ["minecraft:oak_sapling", 25, 1],
+    ["minecraft:spruce_sapling", 25, 1],
+    ["minecraft:birch_sapling", 25, 1],
+    ["minecraft:jungle_sapling", 25, 1],
+    ["minecraft:acacia_sapling", 25, 1],
+    ["minecraft:dark_oak_sapling", 25, 1]
   ]
 }

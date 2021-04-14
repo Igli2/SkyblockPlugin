@@ -1,0 +1,16 @@
+{
+  "location":{
+    "world": "lobby",
+    "x": 11.5,
+    "y": 110.0,
+    "z": 13.5,
+    "yaw": 90.0,
+    "pitch": 0.0
+  },
+  "name": "[NPC] End Explorer",
+  "shop": [
+    ["minecraft:chorus_flower", 50, 1],
+    ["minecraft:shulker_shell", 120, 1],
+    ["minecraft:end_stone", 12, 1]
+  ]
+}

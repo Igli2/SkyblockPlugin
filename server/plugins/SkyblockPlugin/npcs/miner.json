@@ -9,9 +9,9 @@
   },
   "name": "[NPC] Miner",
   "shop": [
-    ["minecraft:diamond_ore", 1024, 64],
-    ["skyblock:archeologists_pickaxe", 5000, 1],
-    ["skyblock:geode", 1000, 2],
-    ["skyblock:grappling_hook", 1, 1]
+    ["minecraft:lava_bucket", 60, 1],
+    ["minecraft:andesite", 8, 4],
+    ["minecraft:diorite", 8, 4],
+    ["minecraft:granite", 8, 4]
   ]
 }
