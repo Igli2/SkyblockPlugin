@@ -9,7 +9,22 @@
   },
   "name": "[NPC] Builder",
   "shop": [
-    ["minecraft:stone", 16, 4],
-    ["minecraft:dirt", 16, 4]
+    ["minecraft:dirt", 4, 4],
+    ["minecraft:grass", 16, 1],
+    ["minecraft:sand", 16, 4],
+    ["minecraft:red_sand", 20, 4],
+    ["minecraft:gravel", 10, 4],
+    ["minecraft:netherrack", 20, 4],
+    ["minecraft:soul_sand", 10, 1],
+    ["minecraft:soul_soil", 50, 1],
+    ["minecraft:glowstone", 40, 1],
+    ["minecraft:nether_bricks", 20, 1],
+    ["minecraft:quartz_block", 16, 4],
+    ["minecraft:prismarine", 8, 1],
+    ["minecraft:prismarine_bricks", 8, 1],
+    ["minecraft:dark_prismarine", 8, 1],
+    ["minecraft:magma_block", 25, 1],
+    ["minecraft:red_nether_bricks", 20, 1],
+    ["minecraft:blackstone", 15, 1]
   ]
 }

@@ -1,0 +1,18 @@
+{
+  "location":{
+    "world": "lobby",
+    "x": 22.0,
+    "y": 117.0,
+    "z": 32.0,
+    "yaw": 80.0,
+    "pitch": 0.0
+  },
+  "name": "[NPC] Smith",
+  "shop": [
+    ["minecraft:name_tag", 100, 1],
+    ["minecraft:leather_horse_armor", 80, 1],
+    ["minecraft:golden_horse_armor", 120, 1],
+    ["minecraft:iron_horse_armor", 250, 1],
+    ["minecraft:diamond_horse_armor", 750, 1]
+  ]
+}
