@@ -12,6 +12,11 @@ import skyblock.utils.ShadowWarriorBoss;
 public class EntityDamageByEntityListener implements Listener {
     @EventHandler
     public void entityDamageByEntityEvent(EntityDamageByEntityEvent event) {
+        if (event.getEntity().getWorld().getName().equals("lobby")) {
+            event.setCancelled(true);
+            return;
+        }
+
         if (event.getDamager() instanceof Player) {
             // apply enchantments on weapons
             for (EnchantmentBase enchantment : EnchantmentRegistry.enchantments) {

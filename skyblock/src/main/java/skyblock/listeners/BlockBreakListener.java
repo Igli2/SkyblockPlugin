@@ -29,6 +29,10 @@ public class BlockBreakListener implements Listener {
 
     @EventHandler
     public void blockBreakEvent(BlockBreakEvent event) {
+        if (event.getPlayer().getWorld().getName().equals("lobby")) {
+            event.setCancelled(true);
+            return;
+        }
         if (!event.isCancelled()) {
             ItemStack itemHeld = event.getPlayer().getInventory().getItemInMainHand();
             // geode drop

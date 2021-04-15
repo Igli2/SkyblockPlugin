@@ -17,6 +17,10 @@ public class BlockPlaceListener implements Listener {
 
     @EventHandler
     public void blockPlaceEvent(BlockPlaceEvent event) {
+        if (event.getPlayer().getWorld().getName().equals("lobby")) {
+            event.setCancelled(true);
+            return;
+        }
         // save special blocks extra
         if (event.getItemInHand().getItemMeta() != null && event.getItemInHand().getItemMeta().hasDisplayName()) { // check if item is a custom item
             if (ItemRegistry.isItemStackEqual(event.getItemInHand(), SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.SHADOW_WARRIOR_SPAWN_EGG))) { // unplaceable spawn eggs...
