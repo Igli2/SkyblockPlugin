@@ -51,18 +51,17 @@ public class InventoryClickListener implements Listener {
         //shop npc handling
         if(event.getWhoClicked() instanceof Player) {
             for(NPCEntity npc : SkyblockMain.npcRegistry.getNPCs()) {
-                if(npc instanceof ShopNPCEntity) {
-                    if(event.getView().getTitle().equals(npc.getEntity().getName())) {
-                        if(event.getClickedInventory() != null && !event.getClickedInventory().equals(event.getWhoClicked().getInventory())) {
-                            ((ShopNPCEntity) npc).buyOffer((Player) event.getWhoClicked(), event.getCurrentItem(), event.isShiftClick());
-                            event.setCancelled(true);
+                if(npc instanceof ShopNPCEntity && event.getView().getTitle().equals(npc.getEntity().getName())) {
+                    ShopNPCEntity shopNpc = (ShopNPCEntity) npc;
+                    if(event.getClickedInventory() != null) {
+                        if (event.getClickedInventory().equals(event.getWhoClicked().getInventory())) {
+                            shopNpc.sellItem((Player) event.getWhoClicked(), event.getCurrentItem(), event.getInventory());
                         } else {
-                            if(event.isShiftClick()) {
-                                event.setCancelled(true);
-                            }
+                            shopNpc.buyOffer((Player) event.getWhoClicked(), event.getCurrentItem(), event.isShiftClick(), event.getSlot(), event.getInventory());
                         }
-                        break;
+                        event.setCancelled(true);
                     }
+                    break;
                 }
             }
         }

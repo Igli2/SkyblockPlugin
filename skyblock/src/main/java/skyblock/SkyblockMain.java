@@ -7,6 +7,7 @@ import com.comphenix.protocol.events.PacketEvent;
 import com.comphenix.protocol.wrappers.EnumWrappers;
 import com.mojang.authlib.properties.Property;
 import org.bukkit.Location;
+import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -83,10 +84,6 @@ public class SkyblockMain extends JavaPlugin {
         // commands
         this.setCommandExecutors();
 
-        RecipeRegistry.registerCustomRecipes();
-        RecipeRegistry.registerVanillaRecipes();
-        EnchantmentRegistry.registerAllEnchantments();
-
         ProtocolLibrary.getProtocolManager().addPacketListener(new PacketAdapter(SkyblockMain.instance, PacketType.Play.Client.USE_ENTITY) {
             @Override
             public void onPacketReceiving(PacketEvent event) {
@@ -99,8 +96,17 @@ public class SkyblockMain extends JavaPlugin {
                 }
             }
         });
-        JSONParser parser = new JSONParser();
 
+        JSONParser parser = new JSONParser();
+        loadNpcs(parser);
+        loadSellableItems(parser);
+
+        RecipeRegistry.registerCustomRecipes();
+        RecipeRegistry.registerVanillaRecipes();
+        EnchantmentRegistry.registerAllEnchantments();
+    }
+
+    private void loadNpcs(JSONParser parser) {
         try {
             JSONObject builder = (JSONObject) parser.parse(new FileReader(this.getDataFolder().getAbsolutePath() + "/npcs/builder.json"));
             SkyblockMain.npcRegistry.registerNPC(new ShopNPCEntity(new Property("textures", "ewogICJ0aW1lc3RhbXAiIDogMTYxNzMwNzg5NTg5NiwKICAicHJvZmlsZUlkIiA6ICIzOTg5OGFiODFmMjU0NmQxOGIyY2ExMTE1MDRkZGU1MCIsCiAgInByb2ZpbGVOYW1lIiA6ICJNeVV1aWRJcyIsCiAgInNpZ25hdHVyZVJlcXVpcmVkIiA6IHRydWUsCiAgInRleHR1cmVzIiA6IHsKICAgICJTS0lOIiA6IHsKICAgICAgInVybCIgOiAiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS8yYzcyMzUzYTliYzVjMTA4NGM5YjUyOWMxM2Y0ZjY4MWZmZmRmMDBjYzE2MjQ4N2Q4OGFkMDQyZGFhZmNmNjk0IgogICAgfQogIH0KfQ==", "ok83pzF5kpTgGtcbChohun9fu+66yW5JcgduGfXzrR+mH9H1WNnA4EF0JwApuUUrfPGZmFcwPmnu8QALgPkXfHEBNqUGDsmnISDP4eWW51gxiGcQkRBDwuN4hTC97ufh320C7Ao+QV4g9/qbZ7tAe1c6WpyAWq/EpqTA58O7PpxrawVmJJP4JIv36p0seFK+XJ+FCWGxATY/76YOj4oD3Y0b+lKqG83pMBzDj80m7cf1GwBtcYbvMd712lQdDKs/lOFwAu8FGjHAn3zMhpvxw7U+pt0tDNYIZt1UfRwM8YD6g4UOJiA6gcUY64MURySMqrMaIdGkT+LxTwx9KaGBdn+xVH80shGdbVgcpTXjO4PlQSu0EFLje7et+wdWse0K2BX3Uw6OawW6tlk3stlw6lYhF/cgTx3CgYuwfCgCZ2yIU5DX6hGNQfyE2bhv+v5LoNyJqRMMsCD3ar4yoweAuoPAL1XTRPsz//zQ8XG3dyzGWWYcqqkc+oeRpkCGztkc62oh1Bm86gX1oodluPhpMXvASnlbu8I8q8mkrzvL3q+RaoWnFdnka3NtpEHCERotdxKL03kPsEa2dRvntgsDH5TQl2r4GP/RO1/JNbgwXbnNxzvwyl9iuA3Mo0AVCHkL8Exqm5avzpYnshO/h/hvjn3e4DlzVuYAZq+n0707KPY="), builder));
@@ -117,6 +123,29 @@ public class SkyblockMain extends JavaPlugin {
             JSONObject netherMaster = (JSONObject) parser.parse(new FileReader(this.getDataFolder().getAbsolutePath() + "/npcs/nethermaster.json"));
             SkyblockMain.npcRegistry.registerNPC(new ShopNPCEntity(new Property("textures", "ewogICJ0aW1lc3RhbXAiIDogMTYwOTYyODkxNjU2MCwKICAicHJvZmlsZUlkIiA6ICI5ZjNkYmFjNWViYTQ0YzZhODQ5YTg2YTY5OWM1YzQxYiIsCiAgInByb2ZpbGVOYW1lIiA6ICJTcGVjdHJhc29uaWMiLAogICJzaWduYXR1cmVSZXF1aXJlZCIgOiB0cnVlLAogICJ0ZXh0dXJlcyIgOiB7CiAgICAiU0tJTiIgOiB7CiAgICAgICJ1cmwiIDogImh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYzYwYjdmZGEzOTQyZDYwMTZkZTBjMWNmZTk0MjZhM2MwZDY0MTY1NTRhNWY5ZjY2NDJmMTU0YTU4ZjdlY2IwYiIsCiAgICAgICJtZXRhZGF0YSIgOiB7CiAgICAgICAgIm1vZGVsIiA6ICJzbGltIgogICAgICB9CiAgICB9CiAgfQp9", "MSFfqC2kOecLt/6i5rvsOMTb+c4L2L6ccmn7A/DvjSJneOivDIf+5bxmJXP2IzysQBy8+DAsknbEk0Kko0MvCKT5tBpvqH1MHQs01JNshR6rebHaoB/Hsu7Xo+MU9EcpIkO0uwdZkZTZYiP3VjHLv3P84ptYuI18CizGWj9h4FppmukrPCUGBE52fyOdkSKVaQb6f+A7UOhznLYkQahTeY1/2P72nulZGBw9j+c03ZMJgTzYnaZ+mLwGSJ6OW+to6oo959QKmcTJbhfPUe0KEwxlyPDk5+CtJQfj8xVZDGpMLSdHZmCxwuzfGbQTqRSdwz236hvmbyixRetQ2sgpkK03FOatCOhLhvJ+NHGSLzsIwMdLVDIkqmDcig5FgsU5FOu4dZoVBYlsw1+NbCgIKDLY0YYXLfJ8v/cBSAwGxNsh/f+B0UB+XHBCA0U5NOi7yLSpIhCTf1Rh9qSXToRQplOUGUaO3CXuvWKekZTnGhOSQ374m0uqwarFiJcAxoeZJccrT4bB5/keaa6jDndAogvNGBlv+bEq8L8yvzBZEBU/oWCH3HsRlMaIdXr9/e4fsbx3OiPBvXCEl10C2MKaCniwvmLal4NSLLBmQoffprBV6X52IRtQLGXLKPXODfn75AmASoFyh1J7MSW5GKJ0zQDUcNTItTusV5IupY8S+a0="), netherMaster));
 
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void loadSellableItems(JSONParser parser) {
+        try {
+            JSONObject sellablesJson = (JSONObject) parser.parse(new FileReader(SkyblockMain.instance.getDataFolder().getAbsolutePath() + "/items.json"));
+            for (Object o : sellablesJson.keySet()) {
+                String itemName = o.toString();
+                String[] comp = itemName.split(":");
+                ItemStack shopItem = null;
+
+                if (comp[0].equals("skyblock")) {
+                    shopItem = SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.valueOf(comp[1].toUpperCase()));
+                } else if (comp[0].equals("minecraft")) {
+                    shopItem = new ItemStack(Material.valueOf(comp[1].toUpperCase()));
+                }
+
+                if (shopItem != null) {
+                    ShopNPCEntity.sellables.add(new ShopItem(shopItem, Integer.parseInt(sellablesJson.get(o).toString()), 1));
+                }
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }

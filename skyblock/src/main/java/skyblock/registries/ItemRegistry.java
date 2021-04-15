@@ -53,6 +53,7 @@ public class ItemRegistry {
     private void registerSpecialItems() {
         ItemStack archeologistsPickaxe = new ItemStack(Material.GOLDEN_PICKAXE);
         setItemName(archeologistsPickaxe, "Archeologist's Pickaxe");
+        makeUnbreakable(archeologistsPickaxe);
         specialItems.put(SkyblockItems.ARCHEOLOGISTS_PICKAXE, archeologistsPickaxe);
         EnchantmentBase.customPickaxes.add(archeologistsPickaxe);
 
@@ -74,6 +75,7 @@ public class ItemRegistry {
         setLore(speedyHelmet, Collections.singletonList(ChatColor.GOLD + "Gives you permanent speed"));
         setAttrModifier(speedyHelmet, Attribute.GENERIC_ARMOR, "generic.armor", 1.0, EquipmentSlot.HEAD);
         setAttrModifier(speedyHelmet, Attribute.GENERIC_MOVEMENT_SPEED, "generic.movement_speed", 0.02, EquipmentSlot.HEAD);
+        makeUnbreakable(speedyHelmet);
         specialItems.put(SkyblockItems.SPEEDY_HELMET, speedyHelmet);
         EnchantmentBase.customHelmets.add(speedyHelmet);
 
@@ -84,6 +86,7 @@ public class ItemRegistry {
         setLore(speedyChestplate, Collections.singletonList(ChatColor.GOLD + "Gives you permanent speed"));
         setAttrModifier(speedyChestplate, Attribute.GENERIC_ARMOR, "generic.armor", 3.0, EquipmentSlot.CHEST);
         setAttrModifier(speedyChestplate, Attribute.GENERIC_MOVEMENT_SPEED, "generic.movement_speed", 0.02, EquipmentSlot.CHEST);
+        makeUnbreakable(speedyChestplate);
         specialItems.put(SkyblockItems.SPEEDY_CHESTPLATE, speedyChestplate);
         EnchantmentBase.customChestplates.add(speedyChestplate);
 
@@ -94,6 +97,7 @@ public class ItemRegistry {
         setLore(speedyLeggings, Collections.singletonList(ChatColor.GOLD + "Gives you permanent speed"));
         setAttrModifier(speedyLeggings, Attribute.GENERIC_ARMOR, "generic.armor", 2.0, EquipmentSlot.LEGS);
         setAttrModifier(speedyLeggings, Attribute.GENERIC_MOVEMENT_SPEED, "generic.movement_speed", 0.02, EquipmentSlot.LEGS);
+        makeUnbreakable(speedyLeggings);
         specialItems.put(SkyblockItems.SPEEDY_LEGGINGS, speedyLeggings);
         EnchantmentBase.customLeggings.add(speedyLeggings);
 
@@ -104,6 +108,7 @@ public class ItemRegistry {
         setLore(speedyBoots, Collections.singletonList(ChatColor.GOLD + "Gives you permanent speed"));
         setAttrModifier(speedyBoots, Attribute.GENERIC_ARMOR, "generic.armor", 1.0, EquipmentSlot.FEET);
         setAttrModifier(speedyBoots, Attribute.GENERIC_MOVEMENT_SPEED, "generic.movement_speed", 0.02, EquipmentSlot.FEET);
+        makeUnbreakable(speedyBoots);
         specialItems.put(SkyblockItems.SPEEDY_BOOTS, speedyBoots);
         EnchantmentBase.customBoots.add(speedyBoots);
 
@@ -119,6 +124,7 @@ public class ItemRegistry {
         setAttrModifier(guardsDefender, Attribute.GENERIC_ARMOR, "generic.armor", 4.0, EquipmentSlot.HAND);
         setAttrModifier(guardsDefender, Attribute.GENERIC_ATTACK_DAMAGE, "generic.attack_damage", 3.0, EquipmentSlot.HAND);
         setAttrModifier(guardsDefender, Attribute.GENERIC_ATTACK_SPEED, "generic.attack_speed", -2.4, EquipmentSlot.HAND);
+        makeUnbreakable(guardsDefender);
         specialItems.put(SkyblockItems.GUARDS_DEFENDER, guardsDefender);
         EnchantmentBase.customSwords.add(guardsDefender);
 
@@ -129,7 +135,8 @@ public class ItemRegistry {
 
         ItemStack treeCapitator = new ItemStack(Material.WOODEN_AXE);
         setItemName(treeCapitator, "Tree Capitator");
-       // setLore(treeCapitator, Collections.singletonList("Cut down whole trees in a single hit!"));
+        setLore(treeCapitator, Collections.singletonList("Cut down whole trees in a single hit!"));
+        makeUnbreakable(treeCapitator);
         specialItems.put(SkyblockItems.TREE_CAPITATOR, treeCapitator);
         EnchantmentBase.customAxes.add(treeCapitator);
 
@@ -146,6 +153,7 @@ public class ItemRegistry {
 
         ItemStack grapplingHook = new ItemStack(Material.FISHING_ROD);
         setItemName(grapplingHook, "Grappling Hook");
+        makeUnbreakable(grapplingHook);
         specialItems.put(SkyblockItems.GRAPPLING_HOOK, grapplingHook);
 
         ItemStack shadowsteelHelmet = new ItemStack(Material.LEATHER_HELMET);
@@ -155,6 +163,7 @@ public class ItemRegistry {
         setAttrModifier(shadowsteelHelmet, Attribute.GENERIC_KNOCKBACK_RESISTANCE, "generic.knockback_resistance", 0.05, EquipmentSlot.HEAD);
         setAttrModifier(shadowsteelHelmet, Attribute.GENERIC_ARMOR_TOUGHNESS, "generic.armor_toughness", 2.0, EquipmentSlot.HEAD);
         setAttrModifier(shadowsteelHelmet, Attribute.GENERIC_MAX_HEALTH, "generic.max_health", 2.0, EquipmentSlot.HEAD);
+        makeUnbreakable(shadowsteelHelmet);
         specialItems.put(SkyblockItems.SHADOWSTEEL_HELMET, shadowsteelHelmet);
         EnchantmentBase.customHelmets.add(shadowsteelHelmet);
 
@@ -165,6 +174,7 @@ public class ItemRegistry {
         setAttrModifier(shadowsteelChestplate, Attribute.GENERIC_KNOCKBACK_RESISTANCE, "generic.knockback_resistance", 0.05, EquipmentSlot.CHEST);
         setAttrModifier(shadowsteelChestplate, Attribute.GENERIC_ARMOR_TOUGHNESS, "generic.armor_toughness", 2.0, EquipmentSlot.CHEST);
         setAttrModifier(shadowsteelChestplate, Attribute.GENERIC_MAX_HEALTH, "generic.max_health", 4.0, EquipmentSlot.CHEST);
+        makeUnbreakable(shadowsteelChestplate);
         specialItems.put(SkyblockItems.SHADOWSTEEL_CHESTPLATE, shadowsteelChestplate);
         EnchantmentBase.customChestplates.add(shadowsteelChestplate);
 
@@ -175,6 +185,7 @@ public class ItemRegistry {
         setAttrModifier(shadowsteelLeggings, Attribute.GENERIC_KNOCKBACK_RESISTANCE, "generic.knockback_resistance", 0.05, EquipmentSlot.LEGS);
         setAttrModifier(shadowsteelLeggings, Attribute.GENERIC_ARMOR_TOUGHNESS, "generic.armor_toughness", 2.0, EquipmentSlot.LEGS);
         setAttrModifier(shadowsteelLeggings, Attribute.GENERIC_MAX_HEALTH, "generic.max_health", 2.0, EquipmentSlot.LEGS);
+        makeUnbreakable(shadowsteelLeggings);
         specialItems.put(SkyblockItems.SHADOWSTEEL_LEGGINGS, shadowsteelLeggings);
         EnchantmentBase.customLeggings.add(shadowsteelLeggings);
 
@@ -185,6 +196,7 @@ public class ItemRegistry {
         setAttrModifier(shadowsteelBoots, Attribute.GENERIC_KNOCKBACK_RESISTANCE, "generic.knockback_resistance", 0.05, EquipmentSlot.FEET);
         setAttrModifier(shadowsteelBoots, Attribute.GENERIC_ARMOR_TOUGHNESS, "generic.armor_toughness", 2.0, EquipmentSlot.FEET);
         setAttrModifier(shadowsteelBoots, Attribute.GENERIC_MAX_HEALTH, "generic.max_health", 2.0, EquipmentSlot.FEET);
+        makeUnbreakable(shadowsteelBoots);
         specialItems.put(SkyblockItems.SHADOWSTEEL_BOOTS, shadowsteelBoots);
         EnchantmentBase.customBoots.add(shadowsteelBoots);
 
