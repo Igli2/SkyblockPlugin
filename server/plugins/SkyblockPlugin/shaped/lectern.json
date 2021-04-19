@@ -1,0 +1,26 @@
+{
+    "result": "minecraft:lectern",
+    "pattern": [
+        "SSS",
+        " B ",
+        " S "
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "S": [
+            "minecraft:oak_slab",
+            "minecraft:spruce_slab",
+            "minecraft:birch_slab",
+            "minecraft:jungle_slab",
+            "minecraft:acacia_slab",
+            "minecraft:dark_oak_slab",
+            "minecraft:crimson_slab",
+            "minecraft:warped_slab"
+        ],
+        "B": [
+            "minecraft:bookshelf"
+        ]
+    }
+}

@@ -1,0 +1,15 @@
+{
+    "result": "minecraft:bucket",
+    "pattern": [
+        "# #",
+        " # "
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:iron_ingot"
+        ]
+    }
+}

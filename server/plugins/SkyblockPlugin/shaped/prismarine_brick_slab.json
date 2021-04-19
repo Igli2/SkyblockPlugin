@@ -1,0 +1,14 @@
+{
+    "result": "minecraft:prismarine_brick_slab",
+    "pattern": [
+        "###"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:prismarine_bricks"
+        ]
+    }
+}

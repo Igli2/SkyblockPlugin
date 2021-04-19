@@ -1,0 +1,15 @@
+{
+    "result": "minecraft:diamond_boots",
+    "pattern": [
+        "X X",
+        "X X"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "X": [
+            "minecraft:diamond"
+        ]
+    }
+}

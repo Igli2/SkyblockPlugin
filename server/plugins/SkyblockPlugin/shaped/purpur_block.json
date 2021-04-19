@@ -1,0 +1,15 @@
+{
+    "result": "minecraft:purpur_block",
+    "pattern": [
+        "FF",
+        "FF"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "F": [
+            "minecraft:popped_chorus_fruit"
+        ]
+    }
+}

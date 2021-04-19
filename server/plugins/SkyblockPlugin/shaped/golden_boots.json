@@ -1,0 +1,15 @@
+{
+    "result": "minecraft:golden_boots",
+    "pattern": [
+        "X X",
+        "X X"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "X": [
+            "minecraft:gold_ingot"
+        ]
+    }
+}

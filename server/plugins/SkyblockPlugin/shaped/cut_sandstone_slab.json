@@ -1,0 +1,14 @@
+{
+    "result": "minecraft:cut_sandstone_slab",
+    "pattern": [
+        "###"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:cut_sandstone"
+        ]
+    }
+}

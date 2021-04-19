@@ -1,0 +1,19 @@
+{
+    "result": "minecraft:golden_hoe",
+    "pattern": [
+        "XX",
+        " #",
+        " #"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "X": [
+            "minecraft:gold_ingot"
+        ],
+        "#": [
+            "minecraft:stick"
+        ]
+    }
+}

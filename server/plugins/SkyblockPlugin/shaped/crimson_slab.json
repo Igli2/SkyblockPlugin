@@ -1,0 +1,14 @@
+{
+    "result": "minecraft:crimson_slab",
+    "pattern": [
+        "###"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:crimson_planks"
+        ]
+    }
+}

@@ -1,0 +1,18 @@
+{
+    "result": "minecraft:end_rod",
+    "pattern": [
+        "/",
+        "#"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "/": [
+            "minecraft:blaze_rod"
+        ],
+        "#": [
+            "minecraft:popped_chorus_fruit"
+        ]
+    }
+}

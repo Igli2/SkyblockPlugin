@@ -1,0 +1,19 @@
+{
+    "result": "minecraft:target",
+    "pattern": [
+        " R ",
+        "RHR",
+        " R "
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "R": [
+            "minecraft:redstone"
+        ],
+        "H": [
+            "minecraft:hay_block"
+        ]
+    }
+}

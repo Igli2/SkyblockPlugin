@@ -1,0 +1,14 @@
+{
+    "result": "minecraft:brick_slab",
+    "pattern": [
+        "###"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:bricks"
+        ]
+    }
+}

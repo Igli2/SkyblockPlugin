@@ -1,0 +1,19 @@
+{
+    "result": "minecraft:lime_stained_glass",
+    "pattern": [
+        "###",
+        "#X#",
+        "###"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:glass"
+        ],
+        "X": [
+            "minecraft:lime_dye"
+        ]
+    }
+}

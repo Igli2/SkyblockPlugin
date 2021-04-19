@@ -1,0 +1,11 @@
+{
+    "result": "minecraft:flint_and_steel",
+    "ingredients": [
+        [
+            "minecraft:iron_ingot"
+        ],
+        [
+            "minecraft:flint"
+        ]
+    ]
+}

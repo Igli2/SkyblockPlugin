@@ -1,0 +1,17 @@
+{
+    "result": "minecraft:furnace",
+    "pattern": [
+        "###",
+        "# #",
+        "###"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:cobblestone",
+            "minecraft:blackstone"
+        ]
+    }
+}

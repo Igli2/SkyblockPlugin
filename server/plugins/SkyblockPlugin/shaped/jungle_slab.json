@@ -1,0 +1,14 @@
+{
+    "result": "minecraft:jungle_slab",
+    "pattern": [
+        "###"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:jungle_planks"
+        ]
+    }
+}

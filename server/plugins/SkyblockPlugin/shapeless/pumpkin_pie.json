@@ -1,0 +1,14 @@
+{
+    "result": "minecraft:pumpkin_pie",
+    "ingredients": [
+        [
+            "minecraft:pumpkin"
+        ],
+        [
+            "minecraft:sugar"
+        ],
+        [
+            "minecraft:egg"
+        ]
+    ]
+}

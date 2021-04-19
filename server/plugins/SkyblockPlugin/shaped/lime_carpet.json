@@ -1,0 +1,14 @@
+{
+    "result": "minecraft:lime_carpet",
+    "pattern": [
+        "##"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:lime_wool"
+        ]
+    }
+}

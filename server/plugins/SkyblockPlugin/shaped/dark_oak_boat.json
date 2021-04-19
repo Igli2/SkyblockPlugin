@@ -1,0 +1,15 @@
+{
+    "result": "minecraft:dark_oak_boat",
+    "pattern": [
+        "# #",
+        "###"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:dark_oak_planks"
+        ]
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "result": "minecraft:jungle_pressure_plate",
+    "pattern": [
+        "##"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:jungle_planks"
+        ]
+    }
+}

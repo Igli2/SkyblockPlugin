@@ -1,0 +1,20 @@
+{
+    "result": "minecraft:stone_axe",
+    "pattern": [
+        "XX",
+        "X#",
+        " #"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "X": [
+            "minecraft:cobblestone",
+            "minecraft:blackstone"
+        ],
+        "#": [
+            "minecraft:stick"
+        ]
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "result": "minecraft:smooth_sandstone_slab",
+    "pattern": [
+        "###"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:smooth_sandstone"
+        ]
+    }
+}

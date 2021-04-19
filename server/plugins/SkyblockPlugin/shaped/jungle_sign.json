@@ -1,0 +1,19 @@
+{
+    "result": "minecraft:jungle_sign",
+    "pattern": [
+        "###",
+        "###",
+        " X "
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:jungle_planks"
+        ],
+        "X": [
+            "minecraft:stick"
+        ]
+    }
+}

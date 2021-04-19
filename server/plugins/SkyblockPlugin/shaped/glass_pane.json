@@ -1,0 +1,15 @@
+{
+    "result": "minecraft:glass_pane",
+    "pattern": [
+        "###",
+        "###"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:glass"
+        ]
+    }
+}

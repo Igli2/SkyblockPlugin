@@ -1,0 +1,20 @@
+{
+    "result": "minecraft:honey_bottle",
+    "ingredients": [
+        [
+            "minecraft:honey_block"
+        ],
+        [
+            "minecraft:glass_bottle"
+        ],
+        [
+            "minecraft:glass_bottle"
+        ],
+        [
+            "minecraft:glass_bottle"
+        ],
+        [
+            "minecraft:glass_bottle"
+        ]
+    ]
+}

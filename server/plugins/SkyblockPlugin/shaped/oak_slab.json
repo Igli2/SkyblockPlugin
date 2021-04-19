@@ -1,0 +1,14 @@
+{
+    "result": "minecraft:oak_slab",
+    "pattern": [
+        "###"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:oak_planks"
+        ]
+    }
+}

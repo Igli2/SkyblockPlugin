@@ -1,0 +1,15 @@
+{
+    "result": "minecraft:birch_wood",
+    "pattern": [
+        "##",
+        "##"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:birch_log"
+        ]
+    }
+}

@@ -1,0 +1,19 @@
+{
+    "result": "minecraft:ender_chest",
+    "pattern": [
+        "###",
+        "#E#",
+        "###"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:obsidian"
+        ],
+        "E": [
+            "minecraft:ender_eye"
+        ]
+    }
+}

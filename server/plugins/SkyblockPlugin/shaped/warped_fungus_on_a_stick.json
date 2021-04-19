@@ -1,0 +1,18 @@
+{
+    "result": "minecraft:warped_fungus_on_a_stick",
+    "pattern": [
+        "# ",
+        " X"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:fishing_rod"
+        ],
+        "X": [
+            "minecraft:warped_fungus"
+        ]
+    }
+}

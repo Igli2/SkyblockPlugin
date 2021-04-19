@@ -1,0 +1,19 @@
+{
+    "result": "minecraft:birch_sign",
+    "pattern": [
+        "###",
+        "###",
+        " X "
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:birch_planks"
+        ],
+        "X": [
+            "minecraft:stick"
+        ]
+    }
+}

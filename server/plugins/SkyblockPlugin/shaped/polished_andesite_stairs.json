@@ -1,0 +1,16 @@
+{
+    "result": "minecraft:polished_andesite_stairs",
+    "pattern": [
+        "#  ",
+        "## ",
+        "###"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:polished_andesite"
+        ]
+    }
+}

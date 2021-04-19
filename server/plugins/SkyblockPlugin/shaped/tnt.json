@@ -1,0 +1,19 @@
+{
+    "result": "minecraft:tnt",
+    "pattern": [
+        "X#X",
+        "#X#",
+        "X#X"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "X": [
+            "minecraft:gunpowder"
+        ],
+        "#": [
+            "minecraft:red_sand"
+        ]
+    }
+}

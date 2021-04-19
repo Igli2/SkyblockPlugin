@@ -1,0 +1,14 @@
+{
+    "result": "minecraft:diorite_slab",
+    "pattern": [
+        "###"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:diorite"
+        ]
+    }
+}

@@ -1,0 +1,15 @@
+{
+    "result": "minecraft:iron_helmet",
+    "pattern": [
+        "XXX",
+        "X X"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "X": [
+            "minecraft:iron_ingot"
+        ]
+    }
+}

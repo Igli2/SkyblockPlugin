@@ -1,0 +1,19 @@
+{
+    "result": "minecraft:brown_stained_glass",
+    "pattern": [
+        "###",
+        "#X#",
+        "###"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:glass"
+        ],
+        "X": [
+            "minecraft:brown_dye"
+        ]
+    }
+}

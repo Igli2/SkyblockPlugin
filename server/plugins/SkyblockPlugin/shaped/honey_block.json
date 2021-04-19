@@ -1,0 +1,15 @@
+{
+    "result": "minecraft:honey_block",
+    "pattern": [
+        "SS",
+        "SS"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "S": [
+            "minecraft:honey_bottle"
+        ]
+    }
+}

@@ -1,0 +1,16 @@
+{
+    "result": "minecraft:oak_door",
+    "pattern": [
+        "##",
+        "##",
+        "##"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:oak_planks"
+        ]
+    }
+}

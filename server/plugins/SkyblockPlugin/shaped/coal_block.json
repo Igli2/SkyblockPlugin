@@ -1,0 +1,16 @@
+{
+    "result": "minecraft:coal_block",
+    "pattern": [
+        "###",
+        "###",
+        "###"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:coal"
+        ]
+    }
+}

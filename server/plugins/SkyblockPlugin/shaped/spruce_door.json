@@ -1,0 +1,16 @@
+{
+    "result": "minecraft:spruce_door",
+    "pattern": [
+        "##",
+        "##",
+        "##"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:spruce_planks"
+        ]
+    }
+}

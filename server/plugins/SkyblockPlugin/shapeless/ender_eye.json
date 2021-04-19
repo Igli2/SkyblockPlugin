@@ -1,0 +1,11 @@
+{
+    "result": "minecraft:ender_eye",
+    "ingredients": [
+        [
+            "minecraft:ender_pearl"
+        ],
+        [
+            "minecraft:blaze_powder"
+        ]
+    ]
+}

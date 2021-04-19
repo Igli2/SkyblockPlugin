@@ -1,0 +1,16 @@
+{
+    "result": "minecraft:purpur_stairs",
+    "pattern": [
+        "#  ",
+        "## ",
+        "###"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:purpur_pillar"
+        ]
+    }
+}

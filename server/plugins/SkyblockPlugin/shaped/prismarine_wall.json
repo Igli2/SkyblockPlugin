@@ -1,0 +1,15 @@
+{
+    "result": "minecraft:prismarine_wall",
+    "pattern": [
+        "###",
+        "###"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:prismarine"
+        ]
+    }
+}

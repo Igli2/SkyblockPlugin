@@ -1,0 +1,19 @@
+{
+    "result": "minecraft:pink_stained_glass",
+    "pattern": [
+        "###",
+        "#X#",
+        "###"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:glass"
+        ],
+        "X": [
+            "minecraft:pink_dye"
+        ]
+    }
+}

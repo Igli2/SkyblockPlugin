@@ -1,0 +1,15 @@
+{
+    "result": "minecraft:chiseled_nether_bricks",
+    "pattern": [
+        "#",
+        "#"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:nether_brick_slab"
+        ]
+    }
+}

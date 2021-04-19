@@ -1,0 +1,15 @@
+{
+    "result": "minecraft:blackstone_wall",
+    "pattern": [
+        "###",
+        "###"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:blackstone"
+        ]
+    }
+}

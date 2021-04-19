@@ -1,0 +1,16 @@
+{
+    "result": "minecraft:acacia_stairs",
+    "pattern": [
+        "#  ",
+        "## ",
+        "###"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:acacia_planks"
+        ]
+    }
+}

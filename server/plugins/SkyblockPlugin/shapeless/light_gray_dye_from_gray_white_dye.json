@@ -1,0 +1,11 @@
+{
+    "result": "minecraft:light_gray_dye",
+    "ingredients": [
+        [
+            "minecraft:gray_dye"
+        ],
+        [
+            "minecraft:white_dye"
+        ]
+    ]
+}

@@ -1,0 +1,14 @@
+{
+    "result": "minecraft:fermented_spider_eye",
+    "ingredients": [
+        [
+            "minecraft:spider_eye"
+        ],
+        [
+            "minecraft:brown_mushroom"
+        ],
+        [
+            "minecraft:sugar"
+        ]
+    ]
+}

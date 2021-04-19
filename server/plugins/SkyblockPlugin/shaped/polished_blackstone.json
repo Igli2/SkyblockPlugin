@@ -1,0 +1,15 @@
+{
+    "result": "minecraft:polished_blackstone",
+    "pattern": [
+        "SS",
+        "SS"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "S": [
+            "minecraft:blackstone"
+        ]
+    }
+}

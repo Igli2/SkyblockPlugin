@@ -1,0 +1,19 @@
+{
+    "result": "minecraft:acacia_sign",
+    "pattern": [
+        "###",
+        "###",
+        " X "
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:acacia_planks"
+        ],
+        "X": [
+            "minecraft:stick"
+        ]
+    }
+}

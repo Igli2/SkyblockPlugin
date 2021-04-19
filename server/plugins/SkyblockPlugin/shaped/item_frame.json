@@ -1,0 +1,19 @@
+{
+    "result": "minecraft:item_frame",
+    "pattern": [
+        "###",
+        "#X#",
+        "###"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:stick"
+        ],
+        "X": [
+            "minecraft:leather"
+        ]
+    }
+}

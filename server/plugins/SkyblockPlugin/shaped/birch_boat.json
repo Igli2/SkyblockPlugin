@@ -1,0 +1,15 @@
+{
+    "result": "minecraft:birch_boat",
+    "pattern": [
+        "# #",
+        "###"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:birch_planks"
+        ]
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "result": "minecraft:polished_blackstone_pressure_plate",
+    "pattern": [
+        "##"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:polished_blackstone"
+        ]
+    }
+}

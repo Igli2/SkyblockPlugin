@@ -1,0 +1,16 @@
+{
+    "result": "minecraft:emerald_block",
+    "pattern": [
+        "###",
+        "###",
+        "###"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:emerald"
+        ]
+    }
+}

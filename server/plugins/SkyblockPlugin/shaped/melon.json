@@ -1,0 +1,16 @@
+{
+    "result": "minecraft:melon",
+    "pattern": [
+        "MMM",
+        "MMM",
+        "MMM"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "M": [
+            "minecraft:melon_slice"
+        ]
+    }
+}

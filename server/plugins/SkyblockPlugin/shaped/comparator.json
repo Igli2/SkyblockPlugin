@@ -1,0 +1,22 @@
+{
+    "result": "minecraft:comparator",
+    "pattern": [
+        " # ",
+        "#X#",
+        "III"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:redstone_torch"
+        ],
+        "X": [
+            "minecraft:quartz"
+        ],
+        "I": [
+            "minecraft:stone"
+        ]
+    }
+}

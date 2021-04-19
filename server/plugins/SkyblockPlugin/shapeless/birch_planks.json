@@ -1,0 +1,11 @@
+{
+    "result": "minecraft:birch_planks",
+    "ingredients": [
+        [
+            "minecraft:birch_log",
+            "minecraft:birch_wood",
+            "minecraft:stripped_birch_log",
+            "minecraft:stripped_birch_wood"
+        ]
+    ]
+}

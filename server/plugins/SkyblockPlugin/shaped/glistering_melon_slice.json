@@ -1,0 +1,19 @@
+{
+    "result": "minecraft:glistering_melon_slice",
+    "pattern": [
+        "###",
+        "#X#",
+        "###"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:gold_nugget"
+        ],
+        "X": [
+            "minecraft:melon_slice"
+        ]
+    }
+}

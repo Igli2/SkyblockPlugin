@@ -1,0 +1,19 @@
+{
+    "result": "minecraft:golden_apple",
+    "pattern": [
+        "###",
+        "#X#",
+        "###"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:gold_ingot"
+        ],
+        "X": [
+            "minecraft:apple"
+        ]
+    }
+}

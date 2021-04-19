@@ -1,0 +1,15 @@
+{
+    "result": "minecraft:iron_trapdoor",
+    "pattern": [
+        "##",
+        "##"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:iron_ingot"
+        ]
+    }
+}

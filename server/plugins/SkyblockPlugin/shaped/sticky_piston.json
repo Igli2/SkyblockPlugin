@@ -1,0 +1,18 @@
+{
+    "result": "minecraft:sticky_piston",
+    "pattern": [
+        "S",
+        "P"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "S": [
+            "minecraft:slime_ball"
+        ],
+        "P": [
+            "minecraft:piston"
+        ]
+    }
+}

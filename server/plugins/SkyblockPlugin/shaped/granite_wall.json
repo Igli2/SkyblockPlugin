@@ -1,0 +1,15 @@
+{
+    "result": "minecraft:granite_wall",
+    "pattern": [
+        "###",
+        "###"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:granite"
+        ]
+    }
+}

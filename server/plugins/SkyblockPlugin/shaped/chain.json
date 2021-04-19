@@ -1,0 +1,19 @@
+{
+    "result": "minecraft:chain",
+    "pattern": [
+        "N",
+        "I",
+        "N"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "N": [
+            "minecraft:iron_nugget"
+        ],
+        "I": [
+            "minecraft:iron_ingot"
+        ]
+    }
+}

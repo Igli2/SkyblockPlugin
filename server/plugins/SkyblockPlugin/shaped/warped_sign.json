@@ -1,0 +1,19 @@
+{
+    "result": "minecraft:warped_sign",
+    "pattern": [
+        "###",
+        "###",
+        " X "
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:warped_planks"
+        ],
+        "X": [
+            "minecraft:stick"
+        ]
+    }
+}

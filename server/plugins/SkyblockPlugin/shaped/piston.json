@@ -1,0 +1,32 @@
+{
+    "result": "minecraft:piston",
+    "pattern": [
+        "TTT",
+        "#X#",
+        "#R#"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "T": [
+            "minecraft:oak_planks",
+            "minecraft:spruce_planks",
+            "minecraft:birch_planks",
+            "minecraft:jungle_planks",
+            "minecraft:acacia_planks",
+            "minecraft:dark_oak_planks",
+            "minecraft:crimson_planks",
+            "minecraft:warped_planks"
+        ],
+        "#": [
+            "minecraft:cobblestone"
+        ],
+        "X": [
+            "minecraft:iron_ingot"
+        ],
+        "R": [
+            "minecraft:redstone"
+        ]
+    }
+}

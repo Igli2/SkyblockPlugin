@@ -1,0 +1,25 @@
+{
+    "result": "minecraft:cake",
+    "pattern": [
+        "AAA",
+        "BEB",
+        "CCC"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "A": [
+            "minecraft:milk_bucket"
+        ],
+        "B": [
+            "minecraft:sugar"
+        ],
+        "E": [
+            "minecraft:egg"
+        ],
+        "C": [
+            "minecraft:wheat"
+        ]
+    }
+}

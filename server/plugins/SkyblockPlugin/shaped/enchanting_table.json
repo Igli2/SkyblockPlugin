@@ -1,0 +1,22 @@
+{
+    "result": "minecraft:enchanting_table",
+    "pattern": [
+        " B ",
+        "D#D",
+        "###"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "B": [
+            "minecraft:book"
+        ],
+        "D": [
+            "minecraft:diamond"
+        ],
+        "#": [
+            "minecraft:obsidian"
+        ]
+    }
+}

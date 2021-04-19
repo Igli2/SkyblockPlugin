@@ -1,0 +1,15 @@
+{
+    "result": "minecraft:stripped_jungle_wood",
+    "pattern": [
+        "##",
+        "##"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:stripped_jungle_log"
+        ]
+    }
+}

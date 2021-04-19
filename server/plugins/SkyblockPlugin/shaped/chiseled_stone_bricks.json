@@ -1,0 +1,15 @@
+{
+    "result": "minecraft:chiseled_stone_bricks",
+    "pattern": [
+        "#",
+        "#"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:stone_brick_slab"
+        ]
+    }
+}

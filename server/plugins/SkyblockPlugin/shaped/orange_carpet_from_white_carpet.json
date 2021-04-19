@@ -1,0 +1,19 @@
+{
+    "result": "minecraft:orange_carpet",
+    "pattern": [
+        "###",
+        "#$#",
+        "###"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:white_carpet"
+        ],
+        "$": [
+            "minecraft:orange_dye"
+        ]
+    }
+}

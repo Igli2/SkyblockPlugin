@@ -1,0 +1,15 @@
+{
+    "result": "minecraft:shears",
+    "pattern": [
+        " #",
+        "# "
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:iron_ingot"
+        ]
+    }
+}

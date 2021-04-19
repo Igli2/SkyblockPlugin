@@ -1,0 +1,14 @@
+{
+    "result": "minecraft:mossy_stone_brick_slab",
+    "pattern": [
+        "###"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:mossy_stone_bricks"
+        ]
+    }
+}

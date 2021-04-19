@@ -1,0 +1,14 @@
+{
+    "result": "minecraft:spruce_pressure_plate",
+    "pattern": [
+        "##"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:spruce_planks"
+        ]
+    }
+}

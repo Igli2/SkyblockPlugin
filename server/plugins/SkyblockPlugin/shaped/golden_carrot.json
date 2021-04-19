@@ -1,0 +1,19 @@
+{
+    "result": "minecraft:golden_carrot",
+    "pattern": [
+        "###",
+        "#X#",
+        "###"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:gold_nugget"
+        ],
+        "X": [
+            "minecraft:carrot"
+        ]
+    }
+}

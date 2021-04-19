@@ -1,0 +1,22 @@
+{
+    "result": "minecraft:observer",
+    "pattern": [
+        "###",
+        "RRQ",
+        "###"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:cobblestone"
+        ],
+        "R": [
+            "minecraft:redstone"
+        ],
+        "Q": [
+            "minecraft:quartz"
+        ]
+    }
+}

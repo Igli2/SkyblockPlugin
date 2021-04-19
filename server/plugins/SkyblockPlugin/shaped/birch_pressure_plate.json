@@ -1,0 +1,14 @@
+{
+    "result": "minecraft:birch_pressure_plate",
+    "pattern": [
+        "##"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:birch_planks"
+        ]
+    }
+}

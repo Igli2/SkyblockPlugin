@@ -1,0 +1,11 @@
+{
+    "result": "minecraft:skull_banner_pattern",
+    "ingredients": [
+        [
+            "minecraft:paper"
+        ],
+        [
+            "minecraft:wither_skeleton_skull"
+        ]
+    ]
+}

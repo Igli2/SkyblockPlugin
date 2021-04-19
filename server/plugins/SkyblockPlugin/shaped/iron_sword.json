@@ -1,0 +1,19 @@
+{
+    "result": "minecraft:iron_sword",
+    "pattern": [
+        "X",
+        "X",
+        "#"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "X": [
+            "minecraft:iron_ingot"
+        ],
+        "#": [
+            "minecraft:stick"
+        ]
+    }
+}

@@ -1,0 +1,15 @@
+{
+    "result": "minecraft:honeycomb_block",
+    "pattern": [
+        "HH",
+        "HH"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "H": [
+            "minecraft:honeycomb"
+        ]
+    }
+}

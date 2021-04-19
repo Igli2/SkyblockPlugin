@@ -1,0 +1,14 @@
+{
+    "result": "minecraft:warped_slab",
+    "pattern": [
+        "###"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:warped_planks"
+        ]
+    }
+}

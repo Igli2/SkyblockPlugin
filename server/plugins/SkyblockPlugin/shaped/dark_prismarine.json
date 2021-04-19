@@ -1,0 +1,19 @@
+{
+    "result": "minecraft:dark_prismarine",
+    "pattern": [
+        "SSS",
+        "SIS",
+        "SSS"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "S": [
+            "minecraft:prismarine_shard"
+        ],
+        "I": [
+            "minecraft:black_dye"
+        ]
+    }
+}

@@ -1,0 +1,19 @@
+{
+    "result": "minecraft:armor_stand",
+    "pattern": [
+        "///",
+        " / ",
+        "/_/"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "/": [
+            "minecraft:stick"
+        ],
+        "_": [
+            "minecraft:smooth_stone_slab"
+        ]
+    }
+}

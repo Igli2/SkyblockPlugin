@@ -1,0 +1,11 @@
+{
+    "result": "minecraft:mojang_banner_pattern",
+    "ingredients": [
+        [
+            "minecraft:paper"
+        ],
+        [
+            "minecraft:enchanted_golden_apple"
+        ]
+    ]
+}

@@ -1,0 +1,22 @@
+{
+    "result": "minecraft:activator_rail",
+    "pattern": [
+        "XSX",
+        "X#X",
+        "XSX"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "X": [
+            "minecraft:iron_ingot"
+        ],
+        "S": [
+            "minecraft:stick"
+        ],
+        "#": [
+            "minecraft:redstone_torch"
+        ]
+    }
+}

@@ -1,0 +1,19 @@
+{
+    "result": "minecraft:scaffolding",
+    "pattern": [
+        "I~I",
+        "I I",
+        "I I"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "I": [
+            "minecraft:bamboo"
+        ],
+        "~": [
+            "minecraft:string"
+        ]
+    }
+}

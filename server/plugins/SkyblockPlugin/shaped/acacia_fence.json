@@ -1,0 +1,18 @@
+{
+    "result": "minecraft:acacia_fence",
+    "pattern": [
+        "W#W",
+        "W#W"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "W": [
+            "minecraft:acacia_planks"
+        ],
+        "#": [
+            "minecraft:stick"
+        ]
+    }
+}

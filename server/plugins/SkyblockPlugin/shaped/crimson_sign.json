@@ -1,0 +1,19 @@
+{
+    "result": "minecraft:crimson_sign",
+    "pattern": [
+        "###",
+        "###",
+        " X "
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:crimson_planks"
+        ],
+        "X": [
+            "minecraft:stick"
+        ]
+    }
+}

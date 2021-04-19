@@ -1,0 +1,14 @@
+{
+    "result": "minecraft:acacia_pressure_plate",
+    "pattern": [
+        "##"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:acacia_planks"
+        ]
+    }
+}

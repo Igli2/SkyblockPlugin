@@ -1,0 +1,19 @@
+{
+    "result": "minecraft:map",
+    "pattern": [
+        "###",
+        "#X#",
+        "###"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:paper"
+        ],
+        "X": [
+            "minecraft:compass"
+        ]
+    }
+}

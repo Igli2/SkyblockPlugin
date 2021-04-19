@@ -1,0 +1,18 @@
+{
+    "result": "minecraft:torch",
+    "pattern": [
+        "X",
+        "#"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "X": [
+            "minecraft:charcoal"
+        ],
+        "#": [
+            "minecraft:stick"
+        ]
+    }
+}

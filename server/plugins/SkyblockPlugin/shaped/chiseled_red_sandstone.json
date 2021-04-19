@@ -1,0 +1,15 @@
+{
+    "result": "minecraft:chiseled_red_sandstone",
+    "pattern": [
+        "#",
+        "#"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:red_sandstone_slab"
+        ]
+    }
+}

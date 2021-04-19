@@ -1,0 +1,19 @@
+{
+    "result": "minecraft:purple_banner",
+    "pattern": [
+        "###",
+        "###",
+        " | "
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:purple_wool"
+        ],
+        "|": [
+            "minecraft:stick"
+        ]
+    }
+}

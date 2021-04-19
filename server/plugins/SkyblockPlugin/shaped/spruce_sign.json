@@ -1,0 +1,19 @@
+{
+    "result": "minecraft:spruce_sign",
+    "pattern": [
+        "###",
+        "###",
+        " X "
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:spruce_planks"
+        ],
+        "X": [
+            "minecraft:stick"
+        ]
+    }
+}

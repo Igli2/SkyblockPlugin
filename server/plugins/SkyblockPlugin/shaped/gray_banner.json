@@ -1,0 +1,19 @@
+{
+    "result": "minecraft:gray_banner",
+    "pattern": [
+        "###",
+        "###",
+        " | "
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:gray_wool"
+        ],
+        "|": [
+            "minecraft:stick"
+        ]
+    }
+}

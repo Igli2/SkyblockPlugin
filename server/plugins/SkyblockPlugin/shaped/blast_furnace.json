@@ -1,0 +1,22 @@
+{
+    "result": "minecraft:blast_furnace",
+    "pattern": [
+        "III",
+        "IXI",
+        "###"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "I": [
+            "minecraft:iron_ingot"
+        ],
+        "X": [
+            "minecraft:furnace"
+        ],
+        "#": [
+            "minecraft:smooth_stone"
+        ]
+    }
+}

@@ -1,0 +1,19 @@
+{
+    "result": "minecraft:anvil",
+    "pattern": [
+        "III",
+        " i ",
+        "iii"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "I": [
+            "minecraft:iron_block"
+        ],
+        "i": [
+            "minecraft:iron_ingot"
+        ]
+    }
+}

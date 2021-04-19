@@ -1,0 +1,15 @@
+{
+    "result": "minecraft:polished_granite",
+    "pattern": [
+        "SS",
+        "SS"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "S": [
+            "minecraft:granite"
+        ]
+    }
+}

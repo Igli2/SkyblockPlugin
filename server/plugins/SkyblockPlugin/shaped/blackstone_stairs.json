@@ -1,0 +1,16 @@
+{
+    "result": "minecraft:blackstone_stairs",
+    "pattern": [
+        "#  ",
+        "## ",
+        "###"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:blackstone"
+        ]
+    }
+}

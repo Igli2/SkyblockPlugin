@@ -1,0 +1,16 @@
+{
+    "result": "minecraft:jungle_door",
+    "pattern": [
+        "##",
+        "##",
+        "##"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:jungle_planks"
+        ]
+    }
+}

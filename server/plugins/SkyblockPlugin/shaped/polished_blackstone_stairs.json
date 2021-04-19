@@ -1,0 +1,16 @@
+{
+    "result": "minecraft:polished_blackstone_stairs",
+    "pattern": [
+        "#  ",
+        "## ",
+        "###"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:polished_blackstone"
+        ]
+    }
+}

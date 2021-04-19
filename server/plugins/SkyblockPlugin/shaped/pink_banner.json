@@ -1,0 +1,19 @@
+{
+    "result": "minecraft:pink_banner",
+    "pattern": [
+        "###",
+        "###",
+        " | "
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:pink_wool"
+        ],
+        "|": [
+            "minecraft:stick"
+        ]
+    }
+}

@@ -1,0 +1,19 @@
+{
+    "result": "minecraft:rail",
+    "pattern": [
+        "X X",
+        "X#X",
+        "X X"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "X": [
+            "minecraft:iron_ingot"
+        ],
+        "#": [
+            "minecraft:stick"
+        ]
+    }
+}

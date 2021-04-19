@@ -1,0 +1,16 @@
+{
+    "result": "minecraft:sandstone_stairs",
+    "pattern": [
+        "#  ",
+        "## ",
+        "###"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:cut_sandstone"
+        ]
+    }
+}

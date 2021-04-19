@@ -1,0 +1,14 @@
+{
+    "result": "minecraft:polished_blackstone_brick_slab",
+    "pattern": [
+        "###"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:polished_blackstone_bricks"
+        ]
+    }
+}

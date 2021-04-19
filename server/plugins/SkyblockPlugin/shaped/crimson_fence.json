@@ -1,0 +1,18 @@
+{
+    "result": "minecraft:crimson_fence",
+    "pattern": [
+        "W#W",
+        "W#W"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "W": [
+            "minecraft:crimson_planks"
+        ],
+        "#": [
+            "minecraft:stick"
+        ]
+    }
+}

@@ -1,0 +1,16 @@
+{
+    "result": "minecraft:lapis_block",
+    "pattern": [
+        "###",
+        "###",
+        "###"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:lapis_lazuli"
+        ]
+    }
+}

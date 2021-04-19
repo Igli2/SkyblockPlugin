@@ -1,0 +1,11 @@
+{
+    "result": "minecraft:red_bed",
+    "ingredients": [
+        [
+            "minecraft:white_bed"
+        ],
+        [
+            "minecraft:red_dye"
+        ]
+    ]
+}

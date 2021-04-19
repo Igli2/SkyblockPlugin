@@ -1,0 +1,14 @@
+{
+    "result": "minecraft:polished_granite_slab",
+    "pattern": [
+        "###"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:polished_granite"
+        ]
+    }
+}

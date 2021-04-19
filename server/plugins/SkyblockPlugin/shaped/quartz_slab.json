@@ -1,0 +1,14 @@
+{
+    "result": "minecraft:quartz_slab",
+    "pattern": [
+        "###"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:quartz_pillar"
+        ]
+    }
+}

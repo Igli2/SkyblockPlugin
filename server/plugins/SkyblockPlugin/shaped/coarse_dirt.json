@@ -1,0 +1,18 @@
+{
+    "result": "minecraft:coarse_dirt",
+    "pattern": [
+        "DG",
+        "GD"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "D": [
+            "minecraft:dirt"
+        ],
+        "G": [
+            "minecraft:gravel"
+        ]
+    }
+}

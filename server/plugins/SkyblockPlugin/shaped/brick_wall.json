@@ -1,0 +1,15 @@
+{
+    "result": "minecraft:brick_wall",
+    "pattern": [
+        "###",
+        "###"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:bricks"
+        ]
+    }
+}

@@ -1,0 +1,16 @@
+{
+    "result": "minecraft:slime_block",
+    "pattern": [
+        "###",
+        "###",
+        "###"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:slime_ball"
+        ]
+    }
+}

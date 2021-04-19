@@ -1,0 +1,19 @@
+{
+    "result": "minecraft:conduit",
+    "pattern": [
+        "###",
+        "#X#",
+        "###"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:nautilus_shell"
+        ],
+        "X": [
+            "minecraft:heart_of_the_sea"
+        ]
+    }
+}

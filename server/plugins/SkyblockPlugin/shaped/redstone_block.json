@@ -1,0 +1,16 @@
+{
+    "result": "minecraft:redstone_block",
+    "pattern": [
+        "###",
+        "###",
+        "###"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:redstone"
+        ]
+    }
+}

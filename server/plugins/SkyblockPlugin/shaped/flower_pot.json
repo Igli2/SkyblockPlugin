@@ -1,0 +1,15 @@
+{
+    "result": "minecraft:flower_pot",
+    "pattern": [
+        "# #",
+        " # "
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:brick"
+        ]
+    }
+}

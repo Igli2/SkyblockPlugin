@@ -1,0 +1,19 @@
+{
+    "result": "minecraft:light_blue_banner",
+    "pattern": [
+        "###",
+        "###",
+        " | "
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:light_blue_wool"
+        ],
+        "|": [
+            "minecraft:stick"
+        ]
+    }
+}

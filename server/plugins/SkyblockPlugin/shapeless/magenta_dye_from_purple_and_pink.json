@@ -1,0 +1,11 @@
+{
+    "result": "minecraft:magenta_dye",
+    "ingredients": [
+        [
+            "minecraft:purple_dye"
+        ],
+        [
+            "minecraft:pink_dye"
+        ]
+    ]
+}

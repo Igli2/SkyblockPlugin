@@ -1,0 +1,11 @@
+{
+    "result": "minecraft:orange_dye",
+    "ingredients": [
+        [
+            "minecraft:red_dye"
+        ],
+        [
+            "minecraft:yellow_dye"
+        ]
+    ]
+}

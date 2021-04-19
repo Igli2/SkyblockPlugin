@@ -1,0 +1,15 @@
+{
+    "result": "minecraft:cut_red_sandstone",
+    "pattern": [
+        "##",
+        "##"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:red_sandstone"
+        ]
+    }
+}

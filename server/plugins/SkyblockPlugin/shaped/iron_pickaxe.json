@@ -1,0 +1,19 @@
+{
+    "result": "minecraft:iron_pickaxe",
+    "pattern": [
+        "XXX",
+        " # ",
+        " # "
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "X": [
+            "minecraft:iron_ingot"
+        ],
+        "#": [
+            "minecraft:stick"
+        ]
+    }
+}

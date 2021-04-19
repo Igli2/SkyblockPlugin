@@ -1,0 +1,15 @@
+{
+    "result": "minecraft:purpur_pillar",
+    "pattern": [
+        "#",
+        "#"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:purpur_slab"
+        ]
+    }
+}

@@ -1,0 +1,16 @@
+{
+    "result": "minecraft:granite_stairs",
+    "pattern": [
+        "#  ",
+        "## ",
+        "###"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:granite"
+        ]
+    }
+}

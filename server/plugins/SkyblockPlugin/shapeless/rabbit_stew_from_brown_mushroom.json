@@ -1,0 +1,20 @@
+{
+    "result": "minecraft:rabbit_stew",
+    "ingredients": [
+        [
+            "minecraft:baked_potato"
+        ],
+        [
+            "minecraft:cooked_rabbit"
+        ],
+        [
+            "minecraft:bowl"
+        ],
+        [
+            "minecraft:carrot"
+        ],
+        [
+            "minecraft:brown_mushroom"
+        ]
+    ]
+}

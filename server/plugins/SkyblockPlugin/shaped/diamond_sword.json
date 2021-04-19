@@ -1,0 +1,19 @@
+{
+    "result": "minecraft:diamond_sword",
+    "pattern": [
+        "X",
+        "X",
+        "#"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "X": [
+            "minecraft:diamond"
+        ],
+        "#": [
+            "minecraft:stick"
+        ]
+    }
+}

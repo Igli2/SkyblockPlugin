@@ -1,0 +1,19 @@
+{
+    "result": "minecraft:iron_shovel",
+    "pattern": [
+        "X",
+        "#",
+        "#"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "X": [
+            "minecraft:iron_ingot"
+        ],
+        "#": [
+            "minecraft:stick"
+        ]
+    }
+}

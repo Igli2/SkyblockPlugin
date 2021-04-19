@@ -1,0 +1,14 @@
+{
+    "result": "minecraft:polished_andesite_slab",
+    "pattern": [
+        "###"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:polished_andesite"
+        ]
+    }
+}

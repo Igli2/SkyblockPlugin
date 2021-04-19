@@ -1,0 +1,19 @@
+{
+    "result": "minecraft:blue_stained_glass_pane",
+    "pattern": [
+        "###",
+        "#$#",
+        "###"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:glass_pane"
+        ],
+        "$": [
+            "minecraft:blue_dye"
+        ]
+    }
+}

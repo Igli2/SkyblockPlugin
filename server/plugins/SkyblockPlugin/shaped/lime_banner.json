@@ -1,0 +1,19 @@
+{
+    "result": "minecraft:lime_banner",
+    "pattern": [
+        "###",
+        "###",
+        " | "
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:lime_wool"
+        ],
+        "|": [
+            "minecraft:stick"
+        ]
+    }
+}

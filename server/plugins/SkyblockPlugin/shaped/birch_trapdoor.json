@@ -1,0 +1,15 @@
+{
+    "result": "minecraft:birch_trapdoor",
+    "pattern": [
+        "###",
+        "###"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:birch_planks"
+        ]
+    }
+}

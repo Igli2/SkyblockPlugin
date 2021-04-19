@@ -1,0 +1,19 @@
+{
+    "result": "minecraft:diamond_hoe",
+    "pattern": [
+        "XX",
+        " #",
+        " #"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "X": [
+            "minecraft:diamond"
+        ],
+        "#": [
+            "minecraft:stick"
+        ]
+    }
+}

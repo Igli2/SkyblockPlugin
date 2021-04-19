@@ -1,0 +1,15 @@
+{
+    "result": "minecraft:stick",
+    "pattern": [
+        "#",
+        "#"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:bamboo"
+        ]
+    }
+}

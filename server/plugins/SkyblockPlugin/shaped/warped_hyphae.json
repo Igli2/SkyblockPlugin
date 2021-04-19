@@ -1,0 +1,15 @@
+{
+    "result": "minecraft:warped_hyphae",
+    "pattern": [
+        "##",
+        "##"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:warped_stem"
+        ]
+    }
+}

@@ -1,0 +1,15 @@
+{
+    "result": "minecraft:polished_basalt",
+    "pattern": [
+        "SS",
+        "SS"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "S": [
+            "minecraft:basalt"
+        ]
+    }
+}

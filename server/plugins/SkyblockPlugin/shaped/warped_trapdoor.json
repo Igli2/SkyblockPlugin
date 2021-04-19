@@ -1,0 +1,15 @@
+{
+    "result": "minecraft:warped_trapdoor",
+    "pattern": [
+        "###",
+        "###"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:warped_planks"
+        ]
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "result": "minecraft:birch_slab",
+    "pattern": [
+        "###"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:birch_planks"
+        ]
+    }
+}

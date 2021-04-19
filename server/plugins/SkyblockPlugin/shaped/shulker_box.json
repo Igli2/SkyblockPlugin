@@ -1,0 +1,19 @@
+{
+    "result": "minecraft:shulker_box",
+    "pattern": [
+        "-",
+        "#",
+        "-"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "-": [
+            "minecraft:shulker_shell"
+        ],
+        "#": [
+            "minecraft:chest"
+        ]
+    }
+}

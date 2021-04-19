@@ -1,0 +1,16 @@
+{
+    "result": "minecraft:gold_ingot",
+    "pattern": [
+        "###",
+        "###",
+        "###"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:gold_nugget"
+        ]
+    }
+}

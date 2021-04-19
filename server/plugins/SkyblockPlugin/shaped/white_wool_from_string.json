@@ -1,0 +1,15 @@
+{
+    "result": "minecraft:white_wool",
+    "pattern": [
+        "##",
+        "##"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:string"
+        ]
+    }
+}

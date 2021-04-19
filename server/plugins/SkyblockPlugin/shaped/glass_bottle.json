@@ -1,0 +1,15 @@
+{
+    "result": "minecraft:glass_bottle",
+    "pattern": [
+        "# #",
+        " # "
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:glass"
+        ]
+    }
+}

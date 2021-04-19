@@ -1,0 +1,15 @@
+{
+    "result": "minecraft:chiseled_polished_blackstone",
+    "pattern": [
+        "#",
+        "#"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:polished_blackstone_slab"
+        ]
+    }
+}

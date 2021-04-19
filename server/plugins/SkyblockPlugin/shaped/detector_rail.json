@@ -1,0 +1,22 @@
+{
+    "result": "minecraft:detector_rail",
+    "pattern": [
+        "X X",
+        "X#X",
+        "XRX"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "X": [
+            "minecraft:iron_ingot"
+        ],
+        "#": [
+            "minecraft:stone_pressure_plate"
+        ],
+        "R": [
+            "minecraft:redstone"
+        ]
+    }
+}

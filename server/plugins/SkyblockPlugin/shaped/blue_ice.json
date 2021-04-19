@@ -1,0 +1,16 @@
+{
+    "result": "minecraft:blue_ice",
+    "pattern": [
+        "###",
+        "###",
+        "###"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:packed_ice"
+        ]
+    }
+}

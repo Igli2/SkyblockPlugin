@@ -1,0 +1,16 @@
+{
+    "result": "minecraft:prismarine_brick_stairs",
+    "pattern": [
+        "#  ",
+        "## ",
+        "###"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:prismarine_bricks"
+        ]
+    }
+}

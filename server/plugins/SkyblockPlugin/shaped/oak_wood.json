@@ -1,0 +1,15 @@
+{
+    "result": "minecraft:oak_wood",
+    "pattern": [
+        "##",
+        "##"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:oak_log"
+        ]
+    }
+}

@@ -1,0 +1,15 @@
+{
+    "result": "minecraft:glowstone",
+    "pattern": [
+        "##",
+        "##"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:glowstone_dust"
+        ]
+    }
+}

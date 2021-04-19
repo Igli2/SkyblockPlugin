@@ -1,0 +1,22 @@
+{
+    "result": "minecraft:dispenser",
+    "pattern": [
+        "###",
+        "#X#",
+        "#R#"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:cobblestone"
+        ],
+        "X": [
+            "minecraft:bow"
+        ],
+        "R": [
+            "minecraft:redstone"
+        ]
+    }
+}

@@ -1,0 +1,19 @@
+{
+    "result": "minecraft:hopper",
+    "pattern": [
+        "I I",
+        "ICI",
+        " I "
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "I": [
+            "minecraft:iron_ingot"
+        ],
+        "C": [
+            "minecraft:chest"
+        ]
+    }
+}

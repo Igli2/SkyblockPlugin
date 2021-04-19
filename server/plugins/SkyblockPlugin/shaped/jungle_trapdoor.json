@@ -1,0 +1,15 @@
+{
+    "result": "minecraft:jungle_trapdoor",
+    "pattern": [
+        "###",
+        "###"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:jungle_planks"
+        ]
+    }
+}

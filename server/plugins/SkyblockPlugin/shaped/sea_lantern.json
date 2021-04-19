@@ -1,0 +1,19 @@
+{
+    "result": "minecraft:sea_lantern",
+    "pattern": [
+        "SCS",
+        "CCC",
+        "SCS"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "S": [
+            "minecraft:prismarine_shard"
+        ],
+        "C": [
+            "minecraft:prismarine_crystals"
+        ]
+    }
+}

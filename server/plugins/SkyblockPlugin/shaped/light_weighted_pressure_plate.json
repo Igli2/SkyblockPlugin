@@ -1,0 +1,14 @@
+{
+    "result": "minecraft:light_weighted_pressure_plate",
+    "pattern": [
+        "##"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:gold_ingot"
+        ]
+    }
+}

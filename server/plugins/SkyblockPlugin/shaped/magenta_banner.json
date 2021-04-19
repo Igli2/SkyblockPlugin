@@ -1,0 +1,19 @@
+{
+    "result": "minecraft:magenta_banner",
+    "pattern": [
+        "###",
+        "###",
+        " | "
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:magenta_wool"
+        ],
+        "|": [
+            "minecraft:stick"
+        ]
+    }
+}

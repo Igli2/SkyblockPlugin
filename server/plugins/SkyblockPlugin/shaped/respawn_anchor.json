@@ -1,0 +1,19 @@
+{
+    "result": "minecraft:respawn_anchor",
+    "pattern": [
+        "OOO",
+        "GGG",
+        "OOO"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "O": [
+            "minecraft:crying_obsidian"
+        ],
+        "G": [
+            "minecraft:glowstone"
+        ]
+    }
+}

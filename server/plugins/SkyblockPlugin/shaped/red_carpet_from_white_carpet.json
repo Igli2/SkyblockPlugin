@@ -1,0 +1,19 @@
+{
+    "result": "minecraft:red_carpet",
+    "pattern": [
+        "###",
+        "#$#",
+        "###"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:white_carpet"
+        ],
+        "$": [
+            "minecraft:red_dye"
+        ]
+    }
+}

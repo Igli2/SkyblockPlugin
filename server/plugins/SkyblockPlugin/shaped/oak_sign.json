@@ -1,0 +1,19 @@
+{
+    "result": "minecraft:oak_sign",
+    "pattern": [
+        "###",
+        "###",
+        " X "
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:oak_planks"
+        ],
+        "X": [
+            "minecraft:stick"
+        ]
+    }
+}

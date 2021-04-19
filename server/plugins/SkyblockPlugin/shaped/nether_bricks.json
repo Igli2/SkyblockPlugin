@@ -1,0 +1,15 @@
+{
+    "result": "minecraft:nether_bricks",
+    "pattern": [
+        "NN",
+        "NN"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "N": [
+            "minecraft:nether_brick"
+        ]
+    }
+}

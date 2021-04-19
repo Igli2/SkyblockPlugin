@@ -1,0 +1,15 @@
+{
+    "result": "minecraft:spruce_wood",
+    "pattern": [
+        "##",
+        "##"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:spruce_log"
+        ]
+    }
+}

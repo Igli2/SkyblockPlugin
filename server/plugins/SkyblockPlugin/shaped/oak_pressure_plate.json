@@ -1,0 +1,14 @@
+{
+    "result": "minecraft:oak_pressure_plate",
+    "pattern": [
+        "##"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:oak_planks"
+        ]
+    }
+}

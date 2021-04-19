@@ -1,0 +1,15 @@
+{
+    "result": "minecraft:acacia_wood",
+    "pattern": [
+        "##",
+        "##"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:acacia_log"
+        ]
+    }
+}

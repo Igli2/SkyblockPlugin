@@ -1,0 +1,14 @@
+{
+    "result": "minecraft:gray_carpet",
+    "pattern": [
+        "##"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:gray_wool"
+        ]
+    }
+}

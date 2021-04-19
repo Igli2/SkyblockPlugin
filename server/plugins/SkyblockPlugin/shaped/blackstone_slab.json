@@ -1,0 +1,14 @@
+{
+    "result": "minecraft:blackstone_slab",
+    "pattern": [
+        "###"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:blackstone"
+        ]
+    }
+}

@@ -1,0 +1,16 @@
+{
+    "result": "minecraft:smooth_quartz_stairs",
+    "pattern": [
+        "#  ",
+        "## ",
+        "###"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:smooth_quartz"
+        ]
+    }
+}

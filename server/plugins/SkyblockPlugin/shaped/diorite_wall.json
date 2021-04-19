@@ -1,0 +1,15 @@
+{
+    "result": "minecraft:diorite_wall",
+    "pattern": [
+        "###",
+        "###"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:diorite"
+        ]
+    }
+}

@@ -1,0 +1,15 @@
+{
+    "result": "minecraft:stripped_acacia_wood",
+    "pattern": [
+        "##",
+        "##"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:stripped_acacia_log"
+        ]
+    }
+}

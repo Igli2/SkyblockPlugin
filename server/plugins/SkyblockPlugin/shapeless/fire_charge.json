@@ -1,0 +1,14 @@
+{
+    "result": "minecraft:fire_charge",
+    "ingredients": [
+        [
+            "minecraft:gunpowder"
+        ],
+        [
+            "minecraft:blaze_powder"
+        ],
+        [
+            "minecraft:coal"
+        ]
+    ]
+}

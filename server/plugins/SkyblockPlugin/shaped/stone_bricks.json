@@ -1,0 +1,15 @@
+{
+    "result": "minecraft:stone_bricks",
+    "pattern": [
+        "##",
+        "##"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:stone"
+        ]
+    }
+}

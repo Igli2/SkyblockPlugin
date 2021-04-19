@@ -1,0 +1,15 @@
+{
+    "result": "minecraft:turtle_helmet",
+    "pattern": [
+        "XXX",
+        "X X"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "X": [
+            "minecraft:scute"
+        ]
+    }
+}

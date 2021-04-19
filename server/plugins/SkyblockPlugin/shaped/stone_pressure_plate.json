@@ -1,0 +1,14 @@
+{
+    "result": "minecraft:stone_pressure_plate",
+    "pattern": [
+        "##"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:stone"
+        ]
+    }
+}

@@ -1,0 +1,18 @@
+{
+    "result": "minecraft:redstone_torch",
+    "pattern": [
+        "X",
+        "#"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "X": [
+            "minecraft:redstone"
+        ],
+        "#": [
+            "minecraft:stick"
+        ]
+    }
+}

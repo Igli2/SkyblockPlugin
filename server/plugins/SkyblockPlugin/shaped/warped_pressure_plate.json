@@ -1,0 +1,14 @@
+{
+    "result": "minecraft:warped_pressure_plate",
+    "pattern": [
+        "##"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:warped_planks"
+        ]
+    }
+}

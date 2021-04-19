@@ -1,0 +1,19 @@
+{
+    "result": "minecraft:bow",
+    "pattern": [
+        " #X",
+        "# X",
+        " #X"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:stick"
+        ],
+        "X": [
+            "minecraft:string"
+        ]
+    }
+}

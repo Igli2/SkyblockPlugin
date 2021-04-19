@@ -1,0 +1,11 @@
+{
+    "result": "minecraft:black_wool",
+    "ingredients": [
+        [
+            "minecraft:black_dye"
+        ],
+        [
+            "minecraft:white_wool"
+        ]
+    ]
+}

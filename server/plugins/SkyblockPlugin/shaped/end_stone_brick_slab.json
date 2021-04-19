@@ -1,0 +1,14 @@
+{
+    "result": "minecraft:end_stone_brick_slab",
+    "pattern": [
+        "###"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:end_stone_bricks"
+        ]
+    }
+}

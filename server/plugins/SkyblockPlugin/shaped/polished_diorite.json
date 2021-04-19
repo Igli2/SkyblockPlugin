@@ -1,0 +1,15 @@
+{
+    "result": "minecraft:polished_diorite",
+    "pattern": [
+        "SS",
+        "SS"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "S": [
+            "minecraft:diorite"
+        ]
+    }
+}

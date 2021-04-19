@@ -1,0 +1,15 @@
+{
+    "result": "minecraft:snow_block",
+    "pattern": [
+        "##",
+        "##"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:snowball"
+        ]
+    }
+}

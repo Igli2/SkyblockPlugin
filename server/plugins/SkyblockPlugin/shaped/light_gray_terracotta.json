@@ -1,0 +1,19 @@
+{
+    "result": "minecraft:light_gray_terracotta",
+    "pattern": [
+        "###",
+        "#X#",
+        "###"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:terracotta"
+        ],
+        "X": [
+            "minecraft:light_gray_dye"
+        ]
+    }
+}

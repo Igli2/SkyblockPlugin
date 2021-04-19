@@ -1,0 +1,15 @@
+{
+    "result": "minecraft:cobblestone_wall",
+    "pattern": [
+        "###",
+        "###"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:cobblestone"
+        ]
+    }
+}
