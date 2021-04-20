@@ -4,6 +4,7 @@ import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 import skyblock.registries.ItemRegistry;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ShapedRecipe implements Recipe {
@@ -23,19 +24,27 @@ public class ShapedRecipe implements Recipe {
             for (int row = 0; row < matrixOther.length; row++) {
                 for (int col = 0; col < matrixOther[0].length; col++) {
                     ItemStack itemStackOther = matrixOther[row][col];
-                    ItemStack itemStackThis = new ItemStack(Material.AIR);
+                    List<ItemStack> itemStackThis = new ArrayList<>();
                     for (Ingredient ingredient : this.ingredients) {
                         if (ingredient.getKey() == this.shape[row].charAt(col)) {
                             itemStackThis = ingredient.getItem();
                         }
                     }
 
-                    if (!ItemRegistry.isItemStackEqual(itemStackThis, itemStackOther)) {
+                    boolean check = false;
+                    for (ItemStack itemStack : itemStackThis) {
+                        if (ItemRegistry.isItemStackEqual(itemStack, itemStackOther)) {
+                            check = true;
+                            break;
+                        }
+                    }
+                    if (!check) {
                         return false;
                     }
+
                     // check stack size
-                    if (itemStackThis != null && itemStackThis.getType() != Material.AIR && itemStackOther != null && itemStackOther.getType() != Material.AIR) {
-                        int amount = itemStackThis.getAmount();
+                    if (itemStackThis.get(0).getType() != Material.AIR && itemStackOther != null && itemStackOther.getType() != Material.AIR) {
+                        int amount = itemStackThis.get(0).getAmount();
                         int amountOther = itemStackOther.getAmount();
                         if (amountOther < amount) {
                             return false;
