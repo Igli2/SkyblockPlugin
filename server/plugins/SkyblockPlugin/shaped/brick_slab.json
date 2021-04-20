@@ -1,5 +1,6 @@
 {
     "result": "minecraft:brick_slab",
+    "count": 6,
     "pattern": [
         "###"
     ],

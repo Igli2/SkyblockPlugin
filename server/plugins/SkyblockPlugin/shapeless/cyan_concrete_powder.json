@@ -1,5 +1,6 @@
 {
     "result": "minecraft:cyan_concrete_powder",
+    "count": 8,
     "ingredients": [
         [
             "minecraft:cyan_dye"

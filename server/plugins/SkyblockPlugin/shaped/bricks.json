@@ -1,5 +1,6 @@
 {
     "result": "minecraft:bricks",
+    "count": 1,
     "pattern": [
         "##",
         "##"

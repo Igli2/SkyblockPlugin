@@ -1,5 +1,6 @@
 {
     "result": "minecraft:nether_bricks",
+    "count": 1,
     "pattern": [
         "NN",
         "NN"

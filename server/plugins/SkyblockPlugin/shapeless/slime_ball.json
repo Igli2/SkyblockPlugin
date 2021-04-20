@@ -1,5 +1,6 @@
 {
     "result": "minecraft:slime_ball",
+    "count": 9,
     "ingredients": [
         [
             "minecraft:slime_block"

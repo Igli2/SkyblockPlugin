@@ -1,5 +1,6 @@
 {
     "result": "minecraft:oak_stairs",
+    "count": 4,
     "pattern": [
         "#  ",
         "## ",

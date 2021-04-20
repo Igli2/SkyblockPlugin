@@ -1,5 +1,6 @@
 {
     "result": "minecraft:tripwire_hook",
+    "count": 2,
     "pattern": [
         "I",
         "S",

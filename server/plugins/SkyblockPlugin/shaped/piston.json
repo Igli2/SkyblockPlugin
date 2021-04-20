@@ -1,5 +1,6 @@
 {
     "result": "minecraft:piston",
+    "count": 1,
     "pattern": [
         "TTT",
         "#X#",

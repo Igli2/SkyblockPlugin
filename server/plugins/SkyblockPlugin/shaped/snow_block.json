@@ -1,5 +1,6 @@
 {
     "result": "minecraft:snow_block",
+    "count": 1,
     "pattern": [
         "##",
         "##"

@@ -1,5 +1,6 @@
 {
     "result": "minecraft:stone_pressure_plate",
+    "count": 1,
     "pattern": [
         "##"
     ],

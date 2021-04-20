@@ -1,5 +1,6 @@
 {
     "result": "minecraft:rail",
+    "count": 16,
     "pattern": [
         "X X",
         "X#X",

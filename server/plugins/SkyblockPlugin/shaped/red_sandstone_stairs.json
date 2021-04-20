@@ -1,5 +1,6 @@
 {
     "result": "minecraft:red_sandstone_stairs",
+    "count": 4,
     "pattern": [
         "#  ",
         "## ",
@@ -10,6 +11,8 @@
             "minecraft:air"
         ],
         "#": [
+            "minecraft:red_sandstone",
+            "minecraft:chiseled_red_sandstone",
             "minecraft:cut_red_sandstone"
         ]
     }

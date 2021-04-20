@@ -1,5 +1,6 @@
 {
     "result": "minecraft:respawn_anchor",
+    "count": 1,
     "pattern": [
         "OOO",
         "GGG",

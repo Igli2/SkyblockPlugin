@@ -1,5 +1,6 @@
 {
     "result": "minecraft:warped_button",
+    "count": 1,
     "ingredients": [
         [
             "minecraft:warped_planks"

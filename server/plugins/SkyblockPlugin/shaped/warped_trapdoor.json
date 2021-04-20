@@ -1,5 +1,6 @@
 {
     "result": "minecraft:warped_trapdoor",
+    "count": 2,
     "pattern": [
         "###",
         "###"

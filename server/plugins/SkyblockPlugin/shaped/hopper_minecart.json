@@ -1,5 +1,6 @@
 {
     "result": "minecraft:hopper_minecart",
+    "count": 1,
     "pattern": [
         "A",
         "B"

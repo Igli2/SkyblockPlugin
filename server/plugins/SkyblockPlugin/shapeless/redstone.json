@@ -1,5 +1,6 @@
 {
     "result": "minecraft:redstone",
+    "count": 9,
     "ingredients": [
         [
             "minecraft:redstone_block"

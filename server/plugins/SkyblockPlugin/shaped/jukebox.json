@@ -1,5 +1,6 @@
 {
     "result": "minecraft:jukebox",
+    "count": 1,
     "pattern": [
         "###",
         "#X#",

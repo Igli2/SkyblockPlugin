@@ -1,5 +1,6 @@
 {
     "result": "minecraft:gray_dye",
+    "count": 2,
     "ingredients": [
         [
             "minecraft:black_dye"

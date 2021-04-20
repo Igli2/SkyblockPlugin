@@ -1,5 +1,6 @@
 {
     "result": "minecraft:blaze_powder",
+    "count": 2,
     "ingredients": [
         [
             "minecraft:blaze_rod"

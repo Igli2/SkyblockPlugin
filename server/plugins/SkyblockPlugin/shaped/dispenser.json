@@ -1,5 +1,6 @@
 {
     "result": "minecraft:dispenser",
+    "count": 1,
     "pattern": [
         "###",
         "#X#",

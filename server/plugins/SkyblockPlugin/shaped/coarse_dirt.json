@@ -1,5 +1,6 @@
 {
     "result": "minecraft:coarse_dirt",
+    "count": 4,
     "pattern": [
         "DG",
         "GD"

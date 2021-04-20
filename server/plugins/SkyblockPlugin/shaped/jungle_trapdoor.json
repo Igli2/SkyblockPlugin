@@ -1,5 +1,6 @@
 {
     "result": "minecraft:jungle_trapdoor",
+    "count": 2,
     "pattern": [
         "###",
         "###"

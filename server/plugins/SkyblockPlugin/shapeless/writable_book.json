@@ -1,5 +1,6 @@
 {
     "result": "minecraft:writable_book",
+    "count": 1,
     "ingredients": [
         [
             "minecraft:book"

@@ -1,5 +1,6 @@
 {
     "result": "minecraft:paper",
+    "count": 3,
     "pattern": [
         "###"
     ],

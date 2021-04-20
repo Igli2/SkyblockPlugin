@@ -1,5 +1,6 @@
 {
     "result": "minecraft:conduit",
+    "count": 1,
     "pattern": [
         "###",
         "#X#",

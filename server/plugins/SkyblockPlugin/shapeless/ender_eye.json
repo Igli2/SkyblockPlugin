@@ -1,5 +1,6 @@
 {
     "result": "minecraft:ender_eye",
+    "count": 1,
     "ingredients": [
         [
             "minecraft:ender_pearl"

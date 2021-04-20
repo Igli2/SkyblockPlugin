@@ -1,5 +1,6 @@
 {
     "result": "minecraft:book",
+    "count": 1,
     "ingredients": [
         [
             "minecraft:paper"

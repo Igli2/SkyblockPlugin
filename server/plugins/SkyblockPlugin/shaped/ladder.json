@@ -1,5 +1,6 @@
 {
     "result": "minecraft:ladder",
+    "count": 3,
     "pattern": [
         "# #",
         "###",

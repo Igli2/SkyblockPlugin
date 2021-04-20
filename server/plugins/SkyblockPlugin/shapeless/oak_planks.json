@@ -1,5 +1,6 @@
 {
     "result": "minecraft:oak_planks",
+    "count": 4,
     "ingredients": [
         [
             "minecraft:oak_log",

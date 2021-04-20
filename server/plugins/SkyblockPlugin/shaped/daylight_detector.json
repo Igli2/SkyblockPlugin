@@ -1,5 +1,6 @@
 {
     "result": "minecraft:daylight_detector",
+    "count": 1,
     "pattern": [
         "GGG",
         "QQQ",

@@ -1,5 +1,6 @@
 {
     "result": "minecraft:spruce_button",
+    "count": 1,
     "ingredients": [
         [
             "minecraft:spruce_planks"

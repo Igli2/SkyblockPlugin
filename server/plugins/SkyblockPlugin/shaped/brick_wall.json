@@ -1,5 +1,6 @@
 {
     "result": "minecraft:brick_wall",
+    "count": 6,
     "pattern": [
         "###",
         "###"

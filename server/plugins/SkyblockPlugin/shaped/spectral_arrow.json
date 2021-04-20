@@ -1,5 +1,6 @@
 {
     "result": "minecraft:spectral_arrow",
+    "count": 2,
     "pattern": [
         " # ",
         "#X#",

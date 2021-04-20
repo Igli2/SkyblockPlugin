@@ -1,5 +1,6 @@
 {
     "result": "minecraft:beacon",
+    "count": 1,
     "pattern": [
         "GGG",
         "GSG",

@@ -1,5 +1,6 @@
 {
     "result": "minecraft:sandstone_slab",
+    "count": 6,
     "pattern": [
         "###"
     ],
@@ -8,6 +9,7 @@
             "minecraft:air"
         ],
         "#": [
+            "minecraft:sandstone",
             "minecraft:chiseled_sandstone"
         ]
     }

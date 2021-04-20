@@ -1,5 +1,6 @@
 {
     "result": "minecraft:blackstone_stairs",
+    "count": 4,
     "pattern": [
         "#  ",
         "## ",

@@ -1,5 +1,6 @@
 {
     "result": "minecraft:painting",
+    "count": 1,
     "pattern": [
         "###",
         "#X#",

@@ -1,5 +1,6 @@
 {
     "result": "minecraft:furnace",
+    "count": 1,
     "pattern": [
         "###",
         "# #",

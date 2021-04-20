@@ -1,5 +1,6 @@
 {
     "result": "minecraft:torch",
+    "count": 4,
     "pattern": [
         "X",
         "#"
@@ -9,6 +10,7 @@
             "minecraft:air"
         ],
         "X": [
+            "minecraft:coal",
             "minecraft:charcoal"
         ],
         "#": [

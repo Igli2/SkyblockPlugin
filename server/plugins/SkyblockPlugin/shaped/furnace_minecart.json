@@ -1,5 +1,6 @@
 {
     "result": "minecraft:furnace_minecart",
+    "count": 1,
     "pattern": [
         "A",
         "B"

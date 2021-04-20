@@ -1,5 +1,6 @@
 {
     "result": "minecraft:blue_dye",
+    "count": 1,
     "ingredients": [
         [
             "minecraft:lapis_lazuli"

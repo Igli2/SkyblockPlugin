@@ -1,5 +1,6 @@
 {
     "result": "minecraft:yellow_wool",
+    "count": 1,
     "ingredients": [
         [
             "minecraft:yellow_dye"

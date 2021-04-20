@@ -1,5 +1,6 @@
 {
     "result": "minecraft:cartography_table",
+    "count": 1,
     "pattern": [
         "@@",
         "##",

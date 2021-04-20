@@ -1,5 +1,6 @@
 {
     "result": "minecraft:sandstone_wall",
+    "count": 6,
     "pattern": [
         "###",
         "###"

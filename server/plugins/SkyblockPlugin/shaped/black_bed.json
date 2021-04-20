@@ -1,5 +1,6 @@
 {
     "result": "minecraft:black_bed",
+    "count": 1,
     "pattern": [
         "###",
         "XXX"

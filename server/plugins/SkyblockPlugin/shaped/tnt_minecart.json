@@ -1,5 +1,6 @@
 {
     "result": "minecraft:tnt_minecart",
+    "count": 1,
     "pattern": [
         "A",
         "B"

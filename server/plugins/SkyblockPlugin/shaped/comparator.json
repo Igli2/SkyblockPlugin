@@ -1,5 +1,6 @@
 {
     "result": "minecraft:comparator",
+    "count": 1,
     "pattern": [
         " # ",
         "#X#",

@@ -1,5 +1,6 @@
 {
     "result": "minecraft:flint_and_steel",
+    "count": 1,
     "ingredients": [
         [
             "minecraft:iron_ingot"

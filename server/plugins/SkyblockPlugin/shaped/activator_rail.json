@@ -1,5 +1,6 @@
 {
     "result": "minecraft:activator_rail",
+    "count": 6,
     "pattern": [
         "XSX",
         "X#X",
