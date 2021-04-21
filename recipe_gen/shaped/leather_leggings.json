@@ -1,0 +1,17 @@
+{
+    "result": "minecraft:leather_leggings",
+    "count": 1,
+    "pattern": [
+        "XXX",
+        "X X",
+        "X X"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "X": [
+            "minecraft:leather"
+        ]
+    }
+}

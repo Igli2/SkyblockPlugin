@@ -1,0 +1,16 @@
+{
+    "result": "minecraft:polished_andesite",
+    "count": 4,
+    "pattern": [
+        "SS",
+        "SS"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "S": [
+            "minecraft:andesite"
+        ]
+    }
+}

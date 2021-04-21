@@ -1,0 +1,30 @@
+{
+    "result": "minecraft:tripwire_hook",
+    "count": 2,
+    "pattern": [
+        "I",
+        "S",
+        "#"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "I": [
+            "minecraft:iron_ingot"
+        ],
+        "S": [
+            "minecraft:stick"
+        ],
+        "#": [
+            "minecraft:oak_planks",
+            "minecraft:spruce_planks",
+            "minecraft:birch_planks",
+            "minecraft:jungle_planks",
+            "minecraft:acacia_planks",
+            "minecraft:dark_oak_planks",
+            "minecraft:crimson_planks",
+            "minecraft:warped_planks"
+        ]
+    }
+}

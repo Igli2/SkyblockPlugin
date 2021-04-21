@@ -1,0 +1,19 @@
+{
+    "result": "minecraft:quartz_stairs",
+    "count": 4,
+    "pattern": [
+        "#  ",
+        "## ",
+        "###"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:chiseled_quartz_block",
+            "minecraft:quartz_block",
+            "minecraft:quartz_pillar"
+        ]
+    }
+}

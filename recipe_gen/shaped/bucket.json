@@ -1,0 +1,16 @@
+{
+    "result": "minecraft:bucket",
+    "count": 1,
+    "pattern": [
+        "# #",
+        " # "
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:iron_ingot"
+        ]
+    }
+}

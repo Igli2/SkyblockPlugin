@@ -1,0 +1,20 @@
+{
+    "result": "minecraft:diamond_pickaxe",
+    "count": 1,
+    "pattern": [
+        "XXX",
+        " # ",
+        " # "
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "X": [
+            "minecraft:diamond"
+        ],
+        "#": [
+            "minecraft:stick"
+        ]
+    }
+}

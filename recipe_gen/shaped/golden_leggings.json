@@ -1,0 +1,17 @@
+{
+    "result": "minecraft:golden_leggings",
+    "count": 1,
+    "pattern": [
+        "XXX",
+        "X X",
+        "X X"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "X": [
+            "minecraft:gold_ingot"
+        ]
+    }
+}

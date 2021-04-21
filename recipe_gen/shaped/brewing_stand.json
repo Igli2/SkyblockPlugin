@@ -1,0 +1,19 @@
+{
+    "result": "minecraft:brewing_stand",
+    "count": 1,
+    "pattern": [
+        " B ",
+        "###"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "B": [
+            "minecraft:blaze_rod"
+        ],
+        "#": [
+            "minecraft:cobblestone"
+        ]
+    }
+}

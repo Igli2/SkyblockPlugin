@@ -1,0 +1,16 @@
+{
+    "result": "minecraft:magma_block",
+    "count": 1,
+    "pattern": [
+        "##",
+        "##"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:magma_cream"
+        ]
+    }
+}

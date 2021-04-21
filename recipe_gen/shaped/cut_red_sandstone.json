@@ -1,0 +1,16 @@
+{
+    "result": "minecraft:cut_red_sandstone",
+    "count": 4,
+    "pattern": [
+        "##",
+        "##"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:red_sandstone"
+        ]
+    }
+}

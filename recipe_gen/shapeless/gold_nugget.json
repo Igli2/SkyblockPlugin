@@ -1,0 +1,9 @@
+{
+    "result": "minecraft:gold_nugget",
+    "count": 9,
+    "ingredients": [
+        [
+            "minecraft:gold_ingot"
+        ]
+    ]
+}

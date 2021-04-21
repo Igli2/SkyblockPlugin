@@ -1,0 +1,17 @@
+{
+    "result": "minecraft:hay_block",
+    "count": 1,
+    "pattern": [
+        "###",
+        "###",
+        "###"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:wheat"
+        ]
+    }
+}

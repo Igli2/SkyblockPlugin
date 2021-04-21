@@ -1,0 +1,17 @@
+{
+    "result": "minecraft:crimson_stairs",
+    "count": 4,
+    "pattern": [
+        "#  ",
+        "## ",
+        "###"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:crimson_planks"
+        ]
+    }
+}

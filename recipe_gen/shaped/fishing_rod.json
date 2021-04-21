@@ -1,0 +1,20 @@
+{
+    "result": "minecraft:fishing_rod",
+    "count": 1,
+    "pattern": [
+        "  #",
+        " #X",
+        "# X"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:stick"
+        ],
+        "X": [
+            "minecraft:string"
+        ]
+    }
+}

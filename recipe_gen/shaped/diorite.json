@@ -1,0 +1,19 @@
+{
+    "result": "minecraft:diorite",
+    "count": 2,
+    "pattern": [
+        "CQ",
+        "QC"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "C": [
+            "minecraft:cobblestone"
+        ],
+        "Q": [
+            "minecraft:quartz"
+        ]
+    }
+}

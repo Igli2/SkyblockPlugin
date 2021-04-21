@@ -1,0 +1,17 @@
+{
+    "result": "minecraft:stone_brick_stairs",
+    "count": 4,
+    "pattern": [
+        "#  ",
+        "## ",
+        "###"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:stone_bricks"
+        ]
+    }
+}

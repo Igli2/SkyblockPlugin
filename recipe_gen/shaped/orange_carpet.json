@@ -1,0 +1,15 @@
+{
+    "result": "minecraft:orange_carpet",
+    "count": 3,
+    "pattern": [
+        "##"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:orange_wool"
+        ]
+    }
+}

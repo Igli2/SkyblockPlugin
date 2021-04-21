@@ -1,0 +1,17 @@
+{
+    "result": "minecraft:prismarine_bricks",
+    "count": 1,
+    "pattern": [
+        "SSS",
+        "SSS",
+        "SSS"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "S": [
+            "minecraft:prismarine_shard"
+        ]
+    }
+}

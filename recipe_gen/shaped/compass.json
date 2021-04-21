@@ -1,0 +1,20 @@
+{
+    "result": "minecraft:compass",
+    "count": 1,
+    "pattern": [
+        " # ",
+        "#X#",
+        " # "
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:iron_ingot"
+        ],
+        "X": [
+            "minecraft:redstone"
+        ]
+    }
+}

@@ -1,0 +1,16 @@
+{
+    "result": "minecraft:clay",
+    "count": 1,
+    "pattern": [
+        "##",
+        "##"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:clay_ball"
+        ]
+    }
+}

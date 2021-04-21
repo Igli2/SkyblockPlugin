@@ -1,0 +1,15 @@
+{
+    "result": "minecraft:paper",
+    "count": 3,
+    "pattern": [
+        "###"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:sugar_cane"
+        ]
+    }
+}

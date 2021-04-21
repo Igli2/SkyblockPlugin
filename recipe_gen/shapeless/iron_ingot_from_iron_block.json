@@ -1,0 +1,9 @@
+{
+    "result": "minecraft:iron_ingot",
+    "count": 9,
+    "ingredients": [
+        [
+            "minecraft:iron_block"
+        ]
+    ]
+}

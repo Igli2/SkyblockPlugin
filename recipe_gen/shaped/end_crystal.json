@@ -1,0 +1,23 @@
+{
+    "result": "minecraft:end_crystal",
+    "count": 1,
+    "pattern": [
+        "GGG",
+        "GEG",
+        "GTG"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "G": [
+            "minecraft:glass"
+        ],
+        "E": [
+            "minecraft:ender_eye"
+        ],
+        "T": [
+            "minecraft:ghast_tear"
+        ]
+    }
+}

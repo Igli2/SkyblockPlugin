@@ -1,0 +1,20 @@
+{
+    "result": "minecraft:iron_hoe",
+    "count": 1,
+    "pattern": [
+        "XX",
+        " #",
+        " #"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "X": [
+            "minecraft:iron_ingot"
+        ],
+        "#": [
+            "minecraft:stick"
+        ]
+    }
+}

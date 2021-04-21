@@ -1,0 +1,15 @@
+{
+    "result": "minecraft:dark_prismarine_slab",
+    "count": 6,
+    "pattern": [
+        "###"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:dark_prismarine"
+        ]
+    }
+}

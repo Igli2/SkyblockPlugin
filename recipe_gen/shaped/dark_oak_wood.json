@@ -1,0 +1,16 @@
+{
+    "result": "minecraft:dark_oak_wood",
+    "count": 3,
+    "pattern": [
+        "##",
+        "##"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:dark_oak_log"
+        ]
+    }
+}

@@ -1,0 +1,20 @@
+{
+    "result": "minecraft:cyan_banner",
+    "count": 1,
+    "pattern": [
+        "###",
+        "###",
+        " | "
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:cyan_wool"
+        ],
+        "|": [
+            "minecraft:stick"
+        ]
+    }
+}

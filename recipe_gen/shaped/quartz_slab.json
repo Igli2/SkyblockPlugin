@@ -1,0 +1,17 @@
+{
+    "result": "minecraft:quartz_slab",
+    "count": 6,
+    "pattern": [
+        "###"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:chiseled_quartz_block",
+            "minecraft:quartz_block",
+            "minecraft:quartz_pillar"
+        ]
+    }
+}

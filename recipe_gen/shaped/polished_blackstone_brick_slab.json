@@ -1,0 +1,15 @@
+{
+    "result": "minecraft:polished_blackstone_brick_slab",
+    "count": 6,
+    "pattern": [
+        "###"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:polished_blackstone_bricks"
+        ]
+    }
+}

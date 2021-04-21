@@ -1,0 +1,20 @@
+{
+    "result": "minecraft:dropper",
+    "count": 1,
+    "pattern": [
+        "###",
+        "# #",
+        "#R#"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:cobblestone"
+        ],
+        "R": [
+            "minecraft:redstone"
+        ]
+    }
+}

@@ -1,0 +1,15 @@
+{
+    "result": "minecraft:bread",
+    "count": 1,
+    "pattern": [
+        "###"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:wheat"
+        ]
+    }
+}

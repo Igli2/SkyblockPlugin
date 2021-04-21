@@ -1,0 +1,9 @@
+{
+    "result": "minecraft:netherite_ingot",
+    "count": 9,
+    "ingredients": [
+        [
+            "minecraft:netherite_block"
+        ]
+    ]
+}

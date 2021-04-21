@@ -1,0 +1,19 @@
+{
+    "result": "minecraft:nether_brick_fence",
+    "count": 6,
+    "pattern": [
+        "#-#",
+        "#-#"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:nether_bricks"
+        ],
+        "-": [
+            "minecraft:nether_brick"
+        ]
+    }
+}

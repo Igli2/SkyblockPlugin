@@ -1,0 +1,12 @@
+{
+    "result": "minecraft:flower_banner_pattern",
+    "count": 1,
+    "ingredients": [
+        [
+            "minecraft:paper"
+        ],
+        [
+            "minecraft:oxeye_daisy"
+        ]
+    ]
+}

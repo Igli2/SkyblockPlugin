@@ -1,0 +1,19 @@
+{
+    "result": "minecraft:jungle_fence",
+    "count": 3,
+    "pattern": [
+        "W#W",
+        "W#W"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "W": [
+            "minecraft:jungle_planks"
+        ],
+        "#": [
+            "minecraft:stick"
+        ]
+    }
+}

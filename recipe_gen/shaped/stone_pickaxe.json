@@ -1,0 +1,21 @@
+{
+    "result": "minecraft:stone_pickaxe",
+    "count": 1,
+    "pattern": [
+        "XXX",
+        " # ",
+        " # "
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "X": [
+            "minecraft:cobblestone",
+            "minecraft:blackstone"
+        ],
+        "#": [
+            "minecraft:stick"
+        ]
+    }
+}

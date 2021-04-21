@@ -1,0 +1,21 @@
+{
+    "result": "minecraft:stone_sword",
+    "count": 1,
+    "pattern": [
+        "X",
+        "X",
+        "#"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "X": [
+            "minecraft:cobblestone",
+            "minecraft:blackstone"
+        ],
+        "#": [
+            "minecraft:stick"
+        ]
+    }
+}

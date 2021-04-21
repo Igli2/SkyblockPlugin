@@ -1,0 +1,20 @@
+{
+    "result": "minecraft:lantern",
+    "count": 1,
+    "pattern": [
+        "XXX",
+        "X#X",
+        "XXX"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "X": [
+            "minecraft:iron_nugget"
+        ],
+        "#": [
+            "minecraft:torch"
+        ]
+    }
+}
