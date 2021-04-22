@@ -15,10 +15,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
-import skyblock.commands.CreateWorldCommand;
-import skyblock.commands.FakePlayerTestCommand;
-import skyblock.commands.StructurizerCommand;
-import skyblock.commands.WarpCommand;
+import skyblock.commands.*;
 import skyblock.enchantments.EnchantmentRegistry;
 import skyblock.listeners.*;
 import skyblock.registries.ItemRegistry;
@@ -126,6 +123,8 @@ public class SkyblockMain extends JavaPlugin {
             SkyblockMain.npcRegistry.registerNPC(new ShopNPCEntity(new Property("textures", "ewogICJ0aW1lc3RhbXAiIDogMTYxODUxNDI3MDYwNCwKICAicHJvZmlsZUlkIiA6ICIwNWQ0NTNiZWE0N2Y0MThiOWI2ZDUzODg0MWQxMDY2MCIsCiAgInByb2ZpbGVOYW1lIiA6ICJFY2hvcnJhIiwKICAic2lnbmF0dXJlUmVxdWlyZWQiIDogdHJ1ZSwKICAidGV4dHVyZXMiIDogewogICAgIlNLSU4iIDogewogICAgICAidXJsIiA6ICJodHRwOi8vdGV4dHVyZXMubWluZWNyYWZ0Lm5ldC90ZXh0dXJlL2YxMzZmN2I3NzY5Nzg3MTlkNzNmMmNmMDc0NTQ0MDExYzVhMmU3MzQzZDA0NzczNTU1Yjk2Y2UxYWMxMmZmNDciCiAgICB9CiAgfQp9", "MG+KahD3AEWyGY4XfE7ngQT/qxF9kkpwB3ViSF7GgyMne+duy7amDy9jAvsry4fibtPfof1mJRu9hFSXFFq0sH7tryRM0sm0WVVxfavRHcUafe3UfqPcA6w/NOKnxF2bPIUy9SQAbrFdkAFkgvzWWkrCS5UcuHufC2Ezqehg4Z82etIkIsg7QCWCQ0beqDUcpKGLe9I1oAiqkKx90TIQ2x2lIhX1ZjyZ9DFpp9wQwm1rlPBejHWk238XyVKRP9HE22uoTXy4TU+AqovpTim1jn5ojhre7+LieksXHFBxADbMrukaKqTzaNMCuZ8t+RYoClge5jytfuil53IKpaJqbBUd5+qVJdmj0qrnGQ42ZO95KQM0N8SyOHE858Fx5ZVS+qBCYU0vouuayJR9zYyzS70eU7KL3lkX9Hfe7+ndpPo4OPeI9NEaLJ7JXy7m7vKe3dvZHGX99q64UWEIdchzCRfYFi6V3JmiedL/w1GSqOOcnK8/aO5C74oYwSTO0i1jtFZuwN9i4CyyefnnanRcQURxEidyDSKmQFqN0IRXr6Rg7eHZLgrvLV5H3P2adDCrhI8MTFfGzGkwSNazdleLwUsTISlYXdwl4rASxhRs0Hllv5Tu9gWW+2LLFL6GmgockbsRMxIX1Xl6z5pnL/P1394z65nb2ySxu8p4QxIGysE="), endExplorer));
             JSONObject netherMaster = (JSONObject) parser.parse(new FileReader(this.getDataFolder().getAbsolutePath() + "/npcs/nethermaster.json"));
             SkyblockMain.npcRegistry.registerNPC(new ShopNPCEntity(new Property("textures", "ewogICJ0aW1lc3RhbXAiIDogMTYwMDM3NDg0NTgyNSwKICAicHJvZmlsZUlkIiA6ICI4MmM2MDZjNWM2NTI0Yjc5OGI5MWExMmQzYTYxNjk3NyIsCiAgInByb2ZpbGVOYW1lIiA6ICJOb3ROb3RvcmlvdXNOZW1vIiwKICAic2lnbmF0dXJlUmVxdWlyZWQiIDogdHJ1ZSwKICAidGV4dHVyZXMiIDogewogICAgIlNLSU4iIDogewogICAgICAidXJsIiA6ICJodHRwOi8vdGV4dHVyZXMubWluZWNyYWZ0Lm5ldC90ZXh0dXJlLzFmNzhiYjVkMDI3MmIyNDgyNmEwZjdmY2E2ZWRlN2IyOWJkNzE0YzIyYzNhNWRiYzYyOTA1M2E1YzgxMDBlM2MiCiAgICB9CiAgfQp9", "NEEcixB7tuQ/0Htyh9BpI2HslvEWvNswnqLZyxHaCAxlob8Z4Jhz6TP93lf8RnGFR578M7axc6LZuXKiHSa1mA7UY9a4NW0lDscfMRs691SQxgw6e0SzfhE0lRzr7YEU44WW0xD9sSGvXlgBrOwaZ+CQ5GsOS83DuD7PbYnydffFV5jyeYBleYgNKk8SGgH7XOH8/68Y9UEfiZb2bim6y3WfN0EycHsmz6owiDlfAAl+4Fw6D0NLAppWFPu7h3DKxzxD0jr20XX7ez9PjuQtYID3R6aohVz+v5gOk4ZhlPpd4OtMsGH6AA2MrhxydzNR3rYSD+A6T23NdkJm2kA51K6VMaaOTHnTd1T3GIh6wPY1ToludIsZ9FKNj5MOSnGEKahuH1F5MZEgJbcXwwsrLxtLbXpjxi3OuT3cchQht7g2+HpoTzHBRJFWPO81n2mOVxoE2OZNOQxruLXvy7QqzPafZseXrKFf11tOnJsKFliteXg2Ex+7ZHFqf4hdNp1dQpk4zShTQqkydcUfKIa3zhrh1TrKAH2ZKN50hrM3MkAoWYQgtTGxjZrewc4JhXiW39Vk/SPG2oTrQYtGHkrVZbnqgQluYeVfoJhhS4MbSeXVxYw13cxhQPeMy5w5i5LLXdvRkbIEXuJquuc4oCoALofTOPh9ErFSFXzTo6nTxDg="), netherMaster));
+            JSONObject sell = (JSONObject) parser.parse(new FileReader(this.getDataFolder().getAbsolutePath() + "/npcs/sell.json"));
+            SkyblockMain.npcRegistry.registerNPC(new ShopNPCEntity(new Property("textures", "ewogICJ0aW1lc3RhbXAiIDogMTYwMDM3NDg0NTgyNSwKICAicHJvZmlsZUlkIiA6ICI4MmM2MDZjNWM2NTI0Yjc5OGI5MWExMmQzYTYxNjk3NyIsCiAgInByb2ZpbGVOYW1lIiA6ICJOb3ROb3RvcmlvdXNOZW1vIiwKICAic2lnbmF0dXJlUmVxdWlyZWQiIDogdHJ1ZSwKICAidGV4dHVyZXMiIDogewogICAgIlNLSU4iIDogewogICAgICAidXJsIiA6ICJodHRwOi8vdGV4dHVyZXMubWluZWNyYWZ0Lm5ldC90ZXh0dXJlLzFmNzhiYjVkMDI3MmIyNDgyNmEwZjdmY2E2ZWRlN2IyOWJkNzE0YzIyYzNhNWRiYzYyOTA1M2E1YzgxMDBlM2MiCiAgICB9CiAgfQp9", "NEEcixB7tuQ/0Htyh9BpI2HslvEWvNswnqLZyxHaCAxlob8Z4Jhz6TP93lf8RnGFR578M7axc6LZuXKiHSa1mA7UY9a4NW0lDscfMRs691SQxgw6e0SzfhE0lRzr7YEU44WW0xD9sSGvXlgBrOwaZ+CQ5GsOS83DuD7PbYnydffFV5jyeYBleYgNKk8SGgH7XOH8/68Y9UEfiZb2bim6y3WfN0EycHsmz6owiDlfAAl+4Fw6D0NLAppWFPu7h3DKxzxD0jr20XX7ez9PjuQtYID3R6aohVz+v5gOk4ZhlPpd4OtMsGH6AA2MrhxydzNR3rYSD+A6T23NdkJm2kA51K6VMaaOTHnTd1T3GIh6wPY1ToludIsZ9FKNj5MOSnGEKahuH1F5MZEgJbcXwwsrLxtLbXpjxi3OuT3cchQht7g2+HpoTzHBRJFWPO81n2mOVxoE2OZNOQxruLXvy7QqzPafZseXrKFf11tOnJsKFliteXg2Ex+7ZHFqf4hdNp1dQpk4zShTQqkydcUfKIa3zhrh1TrKAH2ZKN50hrM3MkAoWYQgtTGxjZrewc4JhXiW39Vk/SPG2oTrQYtGHkrVZbnqgQluYeVfoJhhS4MbSeXVxYw13cxhQPeMy5w5i5LLXdvRkbIEXuJquuc4oCoALofTOPh9ErFSFXzTo6nTxDg="), sell));
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -161,6 +160,7 @@ public class SkyblockMain extends JavaPlugin {
         this.getCommand("create_world").setExecutor(new CreateWorldCommand());
         this.getCommand("fp_test").setExecutor(new FakePlayerTestCommand());
         this.getCommand("structurizer").setExecutor(new StructurizerCommand());
+        this.getCommand("sell").setExecutor(new SellCommand());
     }
 
     @Override

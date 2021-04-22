@@ -16,3 +16,6 @@ commands:
   structurizer:
     description: Creates a structure file with the specified blocks
     usage: /<command>
+  sell:
+    description: Open shop inventory to sell items
+    usage: /<command>
