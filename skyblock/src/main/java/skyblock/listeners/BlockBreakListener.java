@@ -29,10 +29,11 @@ public class BlockBreakListener implements Listener {
 
     @EventHandler
     public void blockBreakEvent(BlockBreakEvent event) {
-        if (event.getPlayer().getWorld().getName().equals("lobby")) {
+        if (!event.getPlayer().isOp() && !event.getPlayer().getWorld().getName().equals(event.getPlayer().getUniqueId().toString())) {
             event.setCancelled(true);
             return;
         }
+
         if (!event.isCancelled()) {
             ItemStack itemHeld = event.getPlayer().getInventory().getItemInMainHand();
             // geode drop
@@ -77,8 +78,6 @@ public class BlockBreakListener implements Listener {
             this.applyEnchantments(event);
 
             if(itemHeld.equals(SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.TREE_CAPITATOR))) {
-                SkyblockMain.instance.getLogger().info(String.valueOf(this.isWood(event.getBlock().getType())));
-                SkyblockMain.instance.getLogger().info(event.getBlock().getType().toString() + ", " + itemHeld.getType().toString());
                 if(this.isWood(event.getBlock().getType())) {
                     Material toBreak = event.getBlock().getType();
                     event.getBlock().breakNaturally();
