@@ -192,7 +192,7 @@ public class CraftingTable {
                         for (int j = 0; j < recipe.getShape()[0].length(); j++) {
                             char c = recipe.getShape()[i].charAt(j);
                             Ingredient ingredient = recipe.getIngredient(c);
-                            if (ingredient != null) {
+                            if (ingredient != null && ingredient.getItem().get(0).getType() != Material.AIR && matrix[row + i][col + j].getType() != Material.AIR) {
                                 matrix[row + i][col + j].setAmount(matrix[row + i][col + j].getAmount() - ingredient.getItem().get(0).getAmount());
                             }
                         }

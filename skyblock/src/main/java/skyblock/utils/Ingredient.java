@@ -10,16 +10,16 @@ public class Ingredient {
     private final List<ItemStack> item;
     private final char key;
 
-    public Ingredient(List<ItemStack> item, char key) {
-        this.item = item;
+    public Ingredient(List<ItemStack> i, char key) {
+        this.item = i;
         this.key = key;
     }
 
-    public Ingredient(List<ItemStack> item, int amount, char key) {
-        for (ItemStack itemStack : item) {
+    public Ingredient(List<ItemStack> i, int amount, char key) {
+        for (ItemStack itemStack : i) {
             itemStack.setAmount(amount);
         }
-        this.item = item;
+        this.item = i;
         this.key = key;
     }
 
@@ -29,24 +29,24 @@ public class Ingredient {
         this.key = key;
     }
 
-    public Ingredient(ItemStack item, int amount, char key) {
-        item.setAmount(amount);
+    public Ingredient(ItemStack i, int amount, char key) {
+        i.setAmount(amount);
         this.item = new ArrayList<>();
-        this.item.add(item);
+        this.item.add(i);
         this.key = key;
     }
 
     public Ingredient(Material material, int amount, char key) {
-        ItemStack item = new ItemStack(material, amount);
+        ItemStack i = new ItemStack(material, amount);
         this.item = new ArrayList<>();
-        this.item.add(item);
+        this.item.add(i);
         this.key = key;
     }
 
     public Ingredient(Material material, char key) {
-        ItemStack item = new ItemStack(material, 1);
+        ItemStack i = new ItemStack(material, 1);
         this.item = new ArrayList<>();
-        this.item.add(item);
+        this.item.add(i);
         this.key = key;
     }
 

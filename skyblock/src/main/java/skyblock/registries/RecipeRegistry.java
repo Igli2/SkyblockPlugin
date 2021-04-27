@@ -31,22 +31,22 @@ public class RecipeRegistry {
     }
 
     public static void registerCustomRecipes() {
-        RecipeRegistry.addShapedRecipe(Arrays.asList(new Ingredient(SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.GEODE), 'G'), new Ingredient(Material.STICK, 'S')),
+        RecipeRegistry.addShapedRecipe(Arrays.asList(new Ingredient(SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.GEODE), 'G'), new Ingredient(Material.STICK, 'S'), new Ingredient(Material.AIR, ' ')),
                 SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.ARCHEOLOGISTS_PICKAXE),
                 new String[]{"GGG", " S ", " S "});
         RecipeRegistry.addShapedRecipe(Collections.singletonList(new Ingredient(Material.SUGAR, 64, 'S')),
                 SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.SUGAR_CUBE),
                 new String[]{"SSS", "SSS", "SSS"});
-        RecipeRegistry.addShapedRecipe(Collections.singletonList(new Ingredient(SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.SUGAR_CUBE), 5, 'S')),
+        RecipeRegistry.addShapedRecipe(Arrays.asList(new Ingredient(SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.SUGAR_CUBE), 5, 'S'), new Ingredient(Material.AIR, ' ')),
                 SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.SPEEDY_HELMET),
                 new String[]{"SSS", "S S"});
-        RecipeRegistry.addShapedRecipe(Collections.singletonList(new Ingredient(SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.SUGAR_CUBE), 5, 'S')),
+        RecipeRegistry.addShapedRecipe(Arrays.asList(new Ingredient(SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.SUGAR_CUBE), 5, 'S'), new Ingredient(Material.AIR, ' ')),
                 SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.SPEEDY_CHESTPLATE),
                 new String[]{"S S", "SSS", "SSS"});
-        RecipeRegistry.addShapedRecipe(Collections.singletonList(new Ingredient(SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.SUGAR_CUBE), 5, 'S')),
+        RecipeRegistry.addShapedRecipe(Arrays.asList(new Ingredient(SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.SUGAR_CUBE), 5, 'S'), new Ingredient(Material.AIR, ' ')),
                 SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.SPEEDY_LEGGINGS),
                 new String[]{"SSS", "S S", "S S"});
-        RecipeRegistry.addShapedRecipe(Collections.singletonList(new Ingredient(SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.SUGAR_CUBE), 5, 'S')),
+        RecipeRegistry.addShapedRecipe(Arrays.asList(new Ingredient(SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.SUGAR_CUBE), 5, 'S'), new Ingredient(Material.AIR, ' ')),
                 SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.SPEEDY_BOOTS),
                 new String[]{"S S", "S S"});
         RecipeRegistry.addShapedRecipe(Arrays.asList(new Ingredient(Material.STONE, 64, 'S'), new Ingredient(Material.GOLD_INGOT, 64, 'G'), new Ingredient(Material.LAPIS_LAZULI, 64, 'L')),
@@ -57,10 +57,10 @@ public class RecipeRegistry {
                 new String[]{"P", "P", "S"});
         RecipeRegistry.addShapelessRecipe(Arrays.asList(Collections.singletonList(new ItemStack(Material.OAK_LOG, 64)), Collections.singletonList(new ItemStack(Material.BIRCH_LOG, 64)), Collections.singletonList(new ItemStack(Material.SPRUCE_LOG, 64)), Collections.singletonList(new ItemStack(Material.DARK_OAK_LOG, 64)), Collections.singletonList(new ItemStack(Material.JUNGLE_LOG, 64)), Collections.singletonList(new ItemStack(Material.ACACIA_LOG, 64))),
                 SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.FOSSILIZED_LOG));
-        RecipeRegistry.addShapedRecipe(Arrays.asList(new Ingredient(Material.STICK, 'S'), new Ingredient(SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.FOSSILIZED_LOG), 5, 'L')),
+        RecipeRegistry.addShapedRecipe(Arrays.asList(new Ingredient(Material.STICK, 'S'), new Ingredient(SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.FOSSILIZED_LOG), 5, 'L'), new Ingredient(Material.AIR, ' ')),
                 SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.TREE_CAPITATOR),
                 new String[]{"LL", "LS", " S"});
-        RecipeRegistry.addShapedRecipe(Arrays.asList(new Ingredient(Material.STICK, 'S'), new Ingredient(SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.FOSSILIZED_LOG), 5, 'L')),
+        RecipeRegistry.addShapedRecipe(Arrays.asList(new Ingredient(Material.STICK, 'S'), new Ingredient(SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.FOSSILIZED_LOG), 5, 'L'), new Ingredient(Material.AIR, ' ')),
                 SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.TREE_CAPITATOR),
                 new String[]{"LL", "SL", "S "});
         RecipeRegistry.addShapedRecipe(Arrays.asList(new Ingredient(Material.IRON_BLOCK, 16, 'I'), new Ingredient(Material.COAL_BLOCK, 32, 'C'), new Ingredient(Material.BASALT, 64, 'B')),
@@ -69,19 +69,19 @@ public class RecipeRegistry {
         RecipeRegistry.addShapedRecipe(Arrays.asList(new Ingredient(Material.YELLOW_WOOL, 64, 'W'), new Ingredient(SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.FOSSILIZED_LOG), 'L')),
                 SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.SPOOL_OF_THREAD),
                 new String[]{"WWW", "WLW", "WWW"});
-        RecipeRegistry.addShapedRecipe(Arrays.asList(new Ingredient(Material.STICK, 'S'), new Ingredient(SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.SPOOL_OF_THREAD), 'T')),
+        RecipeRegistry.addShapedRecipe(Arrays.asList(new Ingredient(Material.STICK, 'S'), new Ingredient(SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.SPOOL_OF_THREAD), 'T'), new Ingredient(Material.AIR, ' ')),
                 SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.GRAPPLING_HOOK),
                 new String[]{"  S", " ST", "S T"});
-        RecipeRegistry.addShapedRecipe(Collections.singletonList(new Ingredient(SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.SHADOWSTEEL_INGOT), 'S')),
+        RecipeRegistry.addShapedRecipe(Arrays.asList(new Ingredient(SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.SHADOWSTEEL_INGOT), 'S'), new Ingredient(Material.AIR, ' ')),
                 SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.SHADOWSTEEL_HELMET),
                 new String[]{"SSS", "S S"});
-        RecipeRegistry.addShapedRecipe(Collections.singletonList(new Ingredient(SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.SHADOWSTEEL_INGOT), 'S')),
+        RecipeRegistry.addShapedRecipe(Arrays.asList(new Ingredient(SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.SHADOWSTEEL_INGOT), 'S'), new Ingredient(Material.AIR, ' ')),
                 SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.SHADOWSTEEL_CHESTPLATE),
                 new String[]{"S S", "SSS", "SSS"});
-        RecipeRegistry.addShapedRecipe(Collections.singletonList(new Ingredient(SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.SHADOWSTEEL_INGOT), 'S')),
+        RecipeRegistry.addShapedRecipe(Arrays.asList(new Ingredient(SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.SHADOWSTEEL_INGOT), 'S'), new Ingredient(Material.AIR, ' ')),
                 SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.SHADOWSTEEL_LEGGINGS),
                 new String[]{"SSS", "S S", "S S"});
-        RecipeRegistry.addShapedRecipe(Collections.singletonList(new Ingredient(SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.SHADOWSTEEL_INGOT), 'S')),
+        RecipeRegistry.addShapedRecipe(Arrays.asList(new Ingredient(SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.SHADOWSTEEL_INGOT), 'S'), new Ingredient(Material.AIR, ' ')),
                 SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.SHADOWSTEEL_BOOTS),
                 new String[]{"S S", "S S"});
         RecipeRegistry.addShapedRecipe(Arrays.asList(new Ingredient(Material.EGG, 'E'), new Ingredient(Material.NETHER_BRICK, 16, 'N')),
