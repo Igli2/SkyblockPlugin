@@ -69,7 +69,7 @@ public class CraftingTable {
             if (isShiftClick) {
                 boolean sameRecipe = true;
                 while (sameRecipe) {
-                    HashMap<Integer, ItemStack> excess = humanEntity.getInventory().addItem(shapedRecipe.getResult());
+                    HashMap<Integer, ItemStack> excess = humanEntity.getInventory().addItem(shapedRecipe.getResult().clone());
                     if (excess.size() == 0) { // check if inventory is full
                         CraftingTable.removeRecipeFromMatrix(CraftingTable.getMatrix(inventory), shapedRecipe);
                     } else {
