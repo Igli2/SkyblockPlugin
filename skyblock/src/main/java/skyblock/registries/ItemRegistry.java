@@ -16,14 +16,12 @@ import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.LeatherArmorMeta;
 import skyblock.enchantments.EnchantmentBase;
 
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 public class ItemRegistry {
     public enum  SkyblockItems {
         ARCHEOLOGISTS_PICKAXE,
+        CREEPER_WAND,
         FOSSILIZED_LOG,
         GEODE,
         GRAPPLING_HOOK,
@@ -204,6 +202,11 @@ public class ItemRegistry {
                 new int[]{-432423452, 45435, 435646754, 6000});
         setItemName(shadowWarriorSpawnEgg, "Shadow Warrior Spawn Egg");
         specialItems.put(SkyblockItems.SHADOW_WARRIOR_SPAWN_EGG, shadowWarriorSpawnEgg);
+
+        ItemStack creeperWand = new ItemStack(Material.BAMBOO);
+        setItemName(creeperWand, "Creeper Wand");
+        setLore(creeperWand, Arrays.asList(ChatColor.RED + "Beware!", "Explosions are usually deadly!"));
+        specialItems.put(SkyblockItems.CREEPER_WAND, creeperWand);
     }
 
     public static void setLore(ItemStack itemStack, List<String> lore) {

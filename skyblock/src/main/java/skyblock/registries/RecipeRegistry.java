@@ -87,6 +87,9 @@ public class RecipeRegistry {
         RecipeRegistry.addShapedRecipe(Arrays.asList(new Ingredient(Material.EGG, 'E'), new Ingredient(Material.NETHER_BRICK, 16, 'N')),
                 SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.SHADOW_WARRIOR_SPAWN_EGG),
                 new String[]{"NNN", "NEN", "NNN"});
+        RecipeRegistry.addShapedRecipe(Arrays.asList(new Ingredient(Material.BAMBOO, 'B'), new Ingredient(Material.TNT, 64, 'T')),
+                SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.CREEPER_WAND),
+                new String[]{"T", "T", "B"});
     }
 
     public static void registerVanillaRecipes() {
