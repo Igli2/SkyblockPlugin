@@ -90,6 +90,24 @@ public class RecipeRegistry {
         RecipeRegistry.addShapedRecipe(Arrays.asList(new Ingredient(Material.BAMBOO, 'B'), new Ingredient(Material.TNT, 64, 'T')),
                 SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.CREEPER_WAND),
                 new String[]{"T", "T", "B"});
+        RecipeRegistry.addShapedRecipe(Arrays.asList(new Ingredient(Material.OAK_LEAVES, 64, 'L'), new Ingredient(Material.OAK_WOOD, 64, 'W')),
+                SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.TREETOP_HELMET),
+                new String[]{"LLL", "LLL", "LWL"});
+        RecipeRegistry.addShapedRecipe(Arrays.asList(new Ingredient(Material.AIR, ' '), new Ingredient(Material.WHITE_WOOL, 'W'), new Ingredient(Material.STICK, 'S')),
+                SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.APPLE_HARVESTER),
+                new String[]{"WW", " S", " S"});
+        RecipeRegistry.addShapedRecipe(Arrays.asList(new Ingredient(Material.MAGMA_CREAM, 'M'), new Ingredient(Material.DARK_OAK_LOG, 'L')),
+                SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.TREATED_WOOD),
+                new String[]{"LLL", "LML", "LLL"});
+        RecipeRegistry.addShapedRecipe(Collections.singletonList(new Ingredient(SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.TREATED_WOOD), 32, 'D')),
+                SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.THE_TRUNK),
+                new String[]{"DD", "DD", "DD"});
+        RecipeRegistry.addShapedRecipe(Collections.singletonList(new Ingredient(SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.SUN_PEARL), 'S')),
+                SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.CLOUD),
+                new String[]{"SSS", "SSS", "SSS"});
+        RecipeRegistry.addShapedRecipe(Arrays.asList(new Ingredient(SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.CLOUD), 'C'), new Ingredient(Material.STICK, 'S')),
+                SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.TORNADO),
+                new String[]{"C", "C", "S"});
     }
 
     public static void registerVanillaRecipes() {

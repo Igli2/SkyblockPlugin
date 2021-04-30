@@ -13,8 +13,13 @@ import skyblock.utils.ShopNPCEntity;
 public class InventoryDragListener implements Listener {
     @EventHandler
     public void inventoryDragEvent(InventoryDragEvent event) {
-        // needed to update crafting table inventory after item drag event because inventory click event isn't fired
         if (event.getView().getTitle().equals("Crafting Table")) {
+            for (int slot : event.getRawSlots()) {
+                if (slot == CraftingTable.RESULT) {
+                    event.setCancelled(true);
+                    return;
+                }
+            }
             SkyblockMain.instance.getServer().getScheduler().scheduleSyncDelayedTask(SkyblockMain.instance, () -> CraftingTable.updateContents(event.getInventory()));
         } else if (event.getView().getTitle().equals("Anvil")) {
             SkyblockMain.instance.getServer().getScheduler().scheduleSyncDelayedTask(SkyblockMain.instance, () -> Anvil.updateContents(event.getInventory()));

@@ -18,8 +18,12 @@ public class CreeperWand implements Listener {
         ItemStack item = event.getItem();
         if (item != null && item.equals(SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.CREEPER_WAND))) {
             if (event.getAction() == Action.RIGHT_CLICK_AIR || event.getAction() == Action.RIGHT_CLICK_BLOCK) {
+                if (!event.getPlayer().getInventory().contains(Material.GUNPOWDER)) {
+                    return;
+                }
                 Block target = getTargetBlock(event.getPlayer(), 25);
                 if (target != null) {
+                    event.getPlayer().getInventory().removeItem(new ItemStack(Material.GUNPOWDER));
                     target.getWorld().createExplosion(target.getLocation(), 1.5f, false, false);
                 }
             }

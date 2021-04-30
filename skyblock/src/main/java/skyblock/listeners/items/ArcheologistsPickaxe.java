@@ -37,6 +37,8 @@ public class ArcheologistsPickaxe implements Listener {
                             event.getPlayer().getWorld().dropItem(event.getBlock().getLocation(), new ItemStack(m));
                             event.setExpToDrop(event.getExpToDrop() + 3);
                             event.setDropItems(false);
+                            event.setCancelled(true);
+                            event.getBlock().setType(Material.AIR);
                             break;
                         }
                         counter += dropChance;

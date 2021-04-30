@@ -165,7 +165,7 @@ public class Anvil {
         }
         // apply custom enchantments
         for (EnchantmentBase e : EnchantmentRegistry.enchantments) {
-            if (EnchantmentBase.hasEnchantment(book, e)) {
+            if (EnchantmentBase.hasEnchantment(book, e) && e.appliesOn(result)) {
                 int level = EnchantmentBase.getEnchantmentLevel(book, e);
 
                 if (EnchantmentBase.getEnchantmentLevel(item, e) == level && e.getMaxLevel() >= (level + 1)) {

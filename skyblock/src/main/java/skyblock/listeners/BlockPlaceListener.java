@@ -26,7 +26,9 @@ public class BlockPlaceListener implements Listener {
         if (event.getItemInHand().getItemMeta() != null && event.getItemInHand().getItemMeta().hasDisplayName()) { // check if item is a custom item
             if (ItemRegistry.isItemStackEqual(event.getItemInHand(), SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.SHADOW_WARRIOR_SPAWN_EGG))) { // unplaceable spawn eggs...
                 ShadowWarriorBoss.spawn(event.getBlock().getWorld(), event.getBlockPlaced().getLocation());
-                event.getItemInHand().setAmount(event.getItemInHand().getAmount() - 1);
+                ItemStack hand = event.getPlayer().getInventory().getItemInMainHand();
+                hand.setAmount(hand.getAmount() - 1);
+                event.getPlayer().getInventory().setItemInMainHand(hand);
                 event.setCancelled(true);
             } else if (event.getItemInHand().getType() == Material.PLAYER_HEAD) { // check if placing it makes sence
                 ItemStack placed = event.getItemInHand().clone();

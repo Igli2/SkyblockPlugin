@@ -20,8 +20,10 @@ import java.util.*;
 
 public class ItemRegistry {
     public enum  SkyblockItems {
+        APPLE_HARVESTER,
         ARCHEOLOGISTS_PICKAXE,
         CREEPER_WAND,
+        CLOUD,
         FOSSILIZED_LOG,
         GEODE,
         GRAPPLING_HOOK,
@@ -39,7 +41,12 @@ public class ItemRegistry {
         SPOOL_OF_THREAD,
         SHINY_PEBBLE,
         SHADOW_WARRIOR_SPAWN_EGG,
-        TREE_CAPITATOR
+        SUN_PEARL,
+        THE_TRUNK,
+        TORNADO,
+        TREATED_WOOD,
+        TREE_CAPITATOR,
+        TREETOP_HELMET
     }
 
     public HashMap<SkyblockItems, ItemStack> specialItems = new HashMap<>();
@@ -207,6 +214,50 @@ public class ItemRegistry {
         setItemName(creeperWand, "Creeper Wand");
         setLore(creeperWand, Arrays.asList(ChatColor.RED + "Beware!", "Explosions are usually deadly!"));
         specialItems.put(SkyblockItems.CREEPER_WAND, creeperWand);
+
+        ItemStack treetopHelmet = createTexturedSkull("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvODM3NjVlOGNlMTFhZTZmMTMxYzcyNWMwN2Y1OGYyZDQxMzJkOTg0YWQ2NjM2MDM5YTdhMzZhM2M1MTI3MjEifX19",
+                new int[]{-25443534, 453453, 4647686, 1111});
+        setItemName(treetopHelmet, "Treetop Helmet");
+        setAttrModifier(treetopHelmet, Attribute.GENERIC_ARMOR, "generic.armor", 2.0, EquipmentSlot.HEAD);
+        setAttrModifier(treetopHelmet, Attribute.GENERIC_MOVEMENT_SPEED, "generic.movement_speed", -0.05, EquipmentSlot.HEAD);
+        setAttrModifier(treetopHelmet, Attribute.GENERIC_MAX_HEALTH, "generic.max_health", 15.0, EquipmentSlot.HEAD);
+        specialItems.put(SkyblockItems.TREETOP_HELMET, treetopHelmet);
+
+        ItemStack appleHarvester = new ItemStack(Material.IRON_HOE);
+        setItemName(appleHarvester, "Apple Harvester");
+        makeUnbreakable(appleHarvester);
+        specialItems.put(SkyblockItems.APPLE_HARVESTER, appleHarvester);
+
+        ItemStack treatedWood = createTexturedSkull("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjc1NWYyNDJhNjVhYmRhNDdhZDQ3MDM1OTRiMzMxZTA4YzU2ZjBmODY2MTQ0MmRjNTY1ZjQzZWYzYzkzYTQyMyJ9fX0=",
+                new int[]{4444, -55555, 666666, 7777777});
+        setItemName(treatedWood, "Treated Wood");
+        setLore(treatedWood, Collections.singletonList("Fire-Resistant"));
+        specialItems.put(SkyblockItems.TREATED_WOOD, treatedWood);
+
+        ItemStack theTrunk = createTexturedSkull("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMmE5NWRkMmVkYTAzY2E0OTE3OTZmNTM4ZDYyNTU3OWE4MjhiNzE4NDNmYjYwODY5YjEyYzkxZWNlMTUxNiJ9fX0=",
+                new int[]{-1, -1111, 0, 1111000549});
+        setItemName(theTrunk, "The Trunk");
+        setLore(theTrunk, Arrays.asList("You probably need a lot of", "strength to use this."));
+        setAttrModifier(theTrunk, Attribute.GENERIC_MOVEMENT_SPEED, "generic.movement_speed", -0.01, EquipmentSlot.HAND);
+        setAttrModifier(theTrunk, Attribute.GENERIC_ATTACK_DAMAGE, "generic.attack_damage", 15, EquipmentSlot.HAND);
+        setAttrModifier(theTrunk, Attribute.GENERIC_ATTACK_SPEED, "generic.attack_speed", -3.5, EquipmentSlot.HAND);
+        specialItems.put(SkyblockItems.THE_TRUNK, theTrunk);
+
+        ItemStack tornado = new ItemStack(Material.IRON_SWORD);
+        setItemName(tornado, "Tornado");
+        setLore(tornado, Collections.singletonList("The ultimate weapon of the gods"));
+        setAttrModifier(tornado, Attribute.GENERIC_ATTACK_DAMAGE, "generic.attack_damage", 5, EquipmentSlot.HAND);
+        setAttrModifier(tornado, Attribute.GENERIC_ATTACK_SPEED, "generic.attack_speed", -0.5, EquipmentSlot.HAND);
+        specialItems.put(SkyblockItems.TORNADO, tornado);
+
+        ItemStack sunPearl = new ItemStack(Material.SNOWBALL);
+        setItemName(sunPearl, "Sun Pearl");
+        specialItems.put(SkyblockItems.SUN_PEARL, sunPearl);
+
+        ItemStack cloud = createTexturedSkull("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNDY2YjEwYmY2ZWUyY2Q3ZTNhYzk2ZDk3NDllYTYxNmFhOWM3MzAzMGJkY2FlZmZhZWQyNDllNTVjODQ5OTRhYyJ9fX0=",
+                new int[]{-34345, 56900000, 4359211, 653299119});
+        setItemName(cloud, "Cloud");
+        specialItems.put(SkyblockItems.CLOUD, cloud);
     }
 
     public static void setLore(ItemStack itemStack, List<String> lore) {

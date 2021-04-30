@@ -18,9 +18,7 @@ import org.json.simple.parser.JSONParser;
 import skyblock.commands.*;
 import skyblock.enchantments.EnchantmentRegistry;
 import skyblock.listeners.*;
-import skyblock.listeners.items.ArcheologistsPickaxe;
-import skyblock.listeners.items.CreeperWand;
-import skyblock.listeners.items.Geode;
+import skyblock.listeners.items.*;
 import skyblock.registries.ItemRegistry;
 import skyblock.registries.NPCRegistry;
 import skyblock.registries.RecipeRegistry;
@@ -85,9 +83,12 @@ public class SkyblockMain extends JavaPlugin {
         this.getServer().getPluginManager().registerEvents(new PlayerFishEvent(), this);
         this.getServer().getPluginManager().registerEvents(new CreatureSpawnListener(), this);
         this.getServer().getPluginManager().registerEvents(new PlayerRespawnListener(), this);
+
         this.getServer().getPluginManager().registerEvents(new Geode(), this);
         this.getServer().getPluginManager().registerEvents(new ArcheologistsPickaxe(), this);
         this.getServer().getPluginManager().registerEvents(new CreeperWand(), this);
+        this.getServer().getPluginManager().registerEvents(new AppleHarvester(), this);
+        this.getServer().getPluginManager().registerEvents(new TheTrunk(), this);
 
         // commands
         this.setCommandExecutors();

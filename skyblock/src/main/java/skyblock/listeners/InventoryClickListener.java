@@ -3,6 +3,7 @@ package skyblock.listeners;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.inventory.InventoryAction;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import skyblock.SkyblockMain;
 import skyblock.utils.Anvil;
@@ -15,6 +16,10 @@ public class InventoryClickListener implements Listener {
     public void inventoryClickEvent(InventoryClickEvent event) {
         // crafting table handling
         if (event.getView().getTitle().equals("Crafting Table")) {
+            if (event.getAction() == InventoryAction.COLLECT_TO_CURSOR) {
+                event.setCancelled(true);
+                return;
+            }
             SkyblockMain.instance.getServer().getScheduler().scheduleSyncDelayedTask(SkyblockMain.instance, () -> CraftingTable.updateContents(event.getInventory()));
 
             // make glass pane placeholders not obtainable
