@@ -27,7 +27,6 @@ public class MoneyHandler {
 
     public void setScoreboard(Player player) {
         player.setScoreboard(this.scoreboard);
-        this.addMoney(player, 100);
     }
 
     public void addMoney(Player player, int amount) {
