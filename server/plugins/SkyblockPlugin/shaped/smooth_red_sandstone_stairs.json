@@ -1,0 +1,17 @@
+{
+    "result": "minecraft:smooth_red_sandstone_stairs",
+    "count": 4,
+    "pattern": [
+        "#  ",
+        "## ",
+        "###"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:smooth_red_sandstone"
+        ]
+    }
+}

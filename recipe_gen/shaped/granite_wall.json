@@ -1,0 +1,16 @@
+{
+    "result": "minecraft:granite_wall",
+    "count": 6,
+    "pattern": [
+        "###",
+        "###"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:granite"
+        ]
+    }
+}

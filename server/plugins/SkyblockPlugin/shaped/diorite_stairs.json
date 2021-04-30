@@ -1,0 +1,17 @@
+{
+    "result": "minecraft:diorite_stairs",
+    "count": 4,
+    "pattern": [
+        "#  ",
+        "## ",
+        "###"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:diorite"
+        ]
+    }
+}

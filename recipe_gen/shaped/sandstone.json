@@ -1,0 +1,16 @@
+{
+    "result": "minecraft:sandstone",
+    "count": 1,
+    "pattern": [
+        "##",
+        "##"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:sand"
+        ]
+    }
+}

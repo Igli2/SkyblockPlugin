@@ -1,0 +1,17 @@
+{
+    "result": "minecraft:diamond_block",
+    "count": 1,
+    "pattern": [
+        "###",
+        "###",
+        "###"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:diamond"
+        ]
+    }
+}

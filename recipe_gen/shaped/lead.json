@@ -1,0 +1,20 @@
+{
+    "result": "minecraft:lead",
+    "count": 2,
+    "pattern": [
+        "~~ ",
+        "~O ",
+        "  ~"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "~": [
+            "minecraft:string"
+        ],
+        "O": [
+            "minecraft:slime_ball"
+        ]
+    }
+}

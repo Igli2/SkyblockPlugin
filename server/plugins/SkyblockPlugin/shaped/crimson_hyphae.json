@@ -1,0 +1,16 @@
+{
+    "result": "minecraft:crimson_hyphae",
+    "count": 3,
+    "pattern": [
+        "##",
+        "##"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:crimson_stem"
+        ]
+    }
+}

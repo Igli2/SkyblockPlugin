@@ -1,0 +1,23 @@
+{
+    "result": "minecraft:arrow",
+    "count": 4,
+    "pattern": [
+        "X",
+        "#",
+        "Y"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "X": [
+            "minecraft:flint"
+        ],
+        "#": [
+            "minecraft:stick"
+        ],
+        "Y": [
+            "minecraft:feather"
+        ]
+    }
+}

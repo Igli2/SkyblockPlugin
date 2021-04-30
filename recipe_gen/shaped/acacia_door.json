@@ -1,0 +1,17 @@
+{
+    "result": "minecraft:acacia_door",
+    "count": 3,
+    "pattern": [
+        "##",
+        "##",
+        "##"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:acacia_planks"
+        ]
+    }
+}

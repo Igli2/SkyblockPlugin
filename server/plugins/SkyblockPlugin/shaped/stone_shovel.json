@@ -1,0 +1,21 @@
+{
+    "result": "minecraft:stone_shovel",
+    "count": 1,
+    "pattern": [
+        "X",
+        "#",
+        "#"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "X": [
+            "minecraft:cobblestone",
+            "minecraft:blackstone"
+        ],
+        "#": [
+            "minecraft:stick"
+        ]
+    }
+}

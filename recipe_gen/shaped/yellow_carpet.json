@@ -1,0 +1,15 @@
+{
+    "result": "minecraft:yellow_carpet",
+    "count": 3,
+    "pattern": [
+        "##"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:yellow_wool"
+        ]
+    }
+}

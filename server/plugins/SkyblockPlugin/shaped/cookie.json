@@ -1,0 +1,18 @@
+{
+    "result": "minecraft:cookie",
+    "count": 8,
+    "pattern": [
+        "#X#"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:wheat"
+        ],
+        "X": [
+            "minecraft:cocoa_beans"
+        ]
+    }
+}

@@ -1,0 +1,12 @@
+{
+    "result": "minecraft:pink_bed",
+    "count": 1,
+    "ingredients": [
+        [
+            "minecraft:white_bed"
+        ],
+        [
+            "minecraft:pink_dye"
+        ]
+    ]
+}

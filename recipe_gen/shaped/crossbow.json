@@ -1,0 +1,26 @@
+{
+    "result": "minecraft:crossbow",
+    "count": 1,
+    "pattern": [
+        "#&#",
+        "~$~",
+        " # "
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:stick"
+        ],
+        "&": [
+            "minecraft:iron_ingot"
+        ],
+        "~": [
+            "minecraft:string"
+        ],
+        "$": [
+            "minecraft:tripwire_hook"
+        ]
+    }
+}

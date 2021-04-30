@@ -1,0 +1,15 @@
+{
+    "result": "minecraft:mossy_cobblestone_slab",
+    "count": 6,
+    "pattern": [
+        "###"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:mossy_cobblestone"
+        ]
+    }
+}

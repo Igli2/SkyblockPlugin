@@ -1,0 +1,15 @@
+{
+    "result": "minecraft:writable_book",
+    "count": 1,
+    "ingredients": [
+        [
+            "minecraft:book"
+        ],
+        [
+            "minecraft:ink_sac"
+        ],
+        [
+            "minecraft:feather"
+        ]
+    ]
+}

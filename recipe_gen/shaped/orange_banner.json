@@ -1,0 +1,20 @@
+{
+    "result": "minecraft:orange_banner",
+    "count": 1,
+    "pattern": [
+        "###",
+        "###",
+        " | "
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:orange_wool"
+        ],
+        "|": [
+            "minecraft:stick"
+        ]
+    }
+}

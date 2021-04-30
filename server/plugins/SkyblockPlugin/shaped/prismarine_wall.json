@@ -1,0 +1,16 @@
+{
+    "result": "minecraft:prismarine_wall",
+    "count": 6,
+    "pattern": [
+        "###",
+        "###"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:prismarine"
+        ]
+    }
+}

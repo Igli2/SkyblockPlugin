@@ -1,0 +1,20 @@
+{
+    "result": "minecraft:green_banner",
+    "count": 1,
+    "pattern": [
+        "###",
+        "###",
+        " | "
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:green_wool"
+        ],
+        "|": [
+            "minecraft:stick"
+        ]
+    }
+}

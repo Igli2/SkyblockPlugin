@@ -69,7 +69,7 @@ public class CraftingTable {
             if (isShiftClick) {
                 boolean sameRecipe = true;
                 while (sameRecipe) {
-                    HashMap<Integer, ItemStack> excess = humanEntity.getInventory().addItem(shapedRecipe.getResult());
+                    HashMap<Integer, ItemStack> excess = humanEntity.getInventory().addItem(shapedRecipe.getResult().clone());
                     if (excess.size() == 0) { // check if inventory is full
                         CraftingTable.removeRecipeFromMatrix(CraftingTable.getMatrix(inventory), shapedRecipe);
                     } else {
@@ -143,14 +143,16 @@ public class CraftingTable {
     }
 
     private static void removeRecipeFromMatrix(ItemStack[][] matrix, ShapelessRecipe recipe) {
-        List<ItemStack> ingredients = recipe.getIngredients();
-        for (ItemStack ingredient : ingredients) {
-            // find itemstack in matrix and reduce amount
-            label: for (ItemStack[] itemStacks : matrix) {
-                for (ItemStack itemStack : itemStacks) {
-                    if (ItemRegistry.isItemStackEqual(itemStack, ingredient) && ShapelessRecipe.isItem(itemStack)) {
-                        itemStack.setAmount(itemStack.getAmount() - ingredient.getAmount());
-                        break label;
+        List<List<ItemStack>> ingredients = recipe.getIngredients();
+        for (List<ItemStack> possibilities : ingredients) {
+            label: for (ItemStack ingredient : possibilities) {
+                // find itemstack in matrix and reduce amount
+                for (ItemStack[] itemStacks : matrix) {
+                    for (ItemStack itemStack : itemStacks) {
+                        if (ItemRegistry.isItemStackEqual(itemStack, ingredient) && ShapelessRecipe.isItem(itemStack)) {
+                            itemStack.setAmount(itemStack.getAmount() - ingredient.getAmount());
+                            break label;
+                        }
                     }
                 }
             }
@@ -170,7 +172,14 @@ public class CraftingTable {
                         char c = recipe.getShape()[i].charAt(j);
                         Ingredient ingredient = recipe.getIngredient(c);
                         if (ingredient != null) {
-                            if (!ItemRegistry.isItemStackEqual(matrix[row + i][col + j], ingredient.getItem())) {
+                            boolean check = false;
+                            for (ItemStack itemStack : ingredient.getItem()) {
+                                if (ItemRegistry.isItemStackEqual(matrix[row + i][col + j], itemStack)) {
+                                    check = true;
+                                    break;
+                                }
+                            }
+                            if (!check) {
                                 match = false;
                                 break label;
                             }
@@ -183,8 +192,8 @@ public class CraftingTable {
                         for (int j = 0; j < recipe.getShape()[0].length(); j++) {
                             char c = recipe.getShape()[i].charAt(j);
                             Ingredient ingredient = recipe.getIngredient(c);
-                            if (ingredient != null) {
-                                matrix[row + i][col + j].setAmount(matrix[row + i][col + j].getAmount() - ingredient.getItem().getAmount());
+                            if (ingredient != null && ingredient.getItem().get(0).getType() != Material.AIR && matrix[row + i][col + j].getType() != Material.AIR) {
+                                matrix[row + i][col + j].setAmount(matrix[row + i][col + j].getAmount() - ingredient.getItem().get(0).getAmount());
                             }
                         }
                     }

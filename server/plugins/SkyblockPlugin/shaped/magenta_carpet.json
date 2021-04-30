@@ -1,0 +1,15 @@
+{
+    "result": "minecraft:magenta_carpet",
+    "count": 3,
+    "pattern": [
+        "##"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:magenta_wool"
+        ]
+    }
+}

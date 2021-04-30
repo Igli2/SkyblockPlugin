@@ -1,0 +1,12 @@
+{
+    "result": "minecraft:jungle_planks",
+    "count": 4,
+    "ingredients": [
+        [
+            "minecraft:jungle_log",
+            "minecraft:jungle_wood",
+            "minecraft:stripped_jungle_log",
+            "minecraft:stripped_jungle_wood"
+        ]
+    ]
+}

@@ -1,0 +1,17 @@
+{
+    "result": "minecraft:oak_stairs",
+    "count": 4,
+    "pattern": [
+        "#  ",
+        "## ",
+        "###"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:oak_planks"
+        ]
+    }
+}

@@ -1,0 +1,16 @@
+{
+    "result": "minecraft:red_sandstone_wall",
+    "count": 6,
+    "pattern": [
+        "###",
+        "###"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:red_sandstone"
+        ]
+    }
+}

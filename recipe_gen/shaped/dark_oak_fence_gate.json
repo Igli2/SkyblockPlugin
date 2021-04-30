@@ -1,0 +1,19 @@
+{
+    "result": "minecraft:dark_oak_fence_gate",
+    "count": 1,
+    "pattern": [
+        "#W#",
+        "#W#"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:stick"
+        ],
+        "W": [
+            "minecraft:dark_oak_planks"
+        ]
+    }
+}

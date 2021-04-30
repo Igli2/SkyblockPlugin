@@ -1,0 +1,20 @@
+{
+    "result": "minecraft:clock",
+    "count": 1,
+    "pattern": [
+        " # ",
+        "#X#",
+        " # "
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:gold_ingot"
+        ],
+        "X": [
+            "minecraft:redstone"
+        ]
+    }
+}

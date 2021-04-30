@@ -1,0 +1,12 @@
+{
+    "result": "minecraft:trapped_chest",
+    "count": 1,
+    "ingredients": [
+        [
+            "minecraft:chest"
+        ],
+        [
+            "minecraft:tripwire_hook"
+        ]
+    ]
+}

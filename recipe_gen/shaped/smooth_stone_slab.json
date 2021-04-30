@@ -1,0 +1,15 @@
+{
+    "result": "minecraft:smooth_stone_slab",
+    "count": 6,
+    "pattern": [
+        "###"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:smooth_stone"
+        ]
+    }
+}

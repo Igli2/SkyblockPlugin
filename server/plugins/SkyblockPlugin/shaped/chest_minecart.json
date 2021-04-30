@@ -1,0 +1,19 @@
+{
+    "result": "minecraft:chest_minecart",
+    "count": 1,
+    "pattern": [
+        "A",
+        "B"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "A": [
+            "minecraft:chest"
+        ],
+        "B": [
+            "minecraft:minecart"
+        ]
+    }
+}

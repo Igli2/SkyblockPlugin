@@ -1,0 +1,19 @@
+{
+    "result": "minecraft:warped_fence",
+    "count": 3,
+    "pattern": [
+        "W#W",
+        "W#W"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "W": [
+            "minecraft:warped_planks"
+        ],
+        "#": [
+            "minecraft:stick"
+        ]
+    }
+}

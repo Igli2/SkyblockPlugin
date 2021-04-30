@@ -1,0 +1,9 @@
+{
+    "result": "minecraft:melon_seeds",
+    "count": 1,
+    "ingredients": [
+        [
+            "minecraft:melon_slice"
+        ]
+    ]
+}

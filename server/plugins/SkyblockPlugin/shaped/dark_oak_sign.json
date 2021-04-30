@@ -1,0 +1,20 @@
+{
+    "result": "minecraft:dark_oak_sign",
+    "count": 3,
+    "pattern": [
+        "###",
+        "###",
+        " X "
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:dark_oak_planks"
+        ],
+        "X": [
+            "minecraft:stick"
+        ]
+    }
+}

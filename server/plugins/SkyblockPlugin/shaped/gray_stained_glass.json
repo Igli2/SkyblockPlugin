@@ -1,0 +1,20 @@
+{
+    "result": "minecraft:gray_stained_glass",
+    "count": 8,
+    "pattern": [
+        "###",
+        "#X#",
+        "###"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:glass"
+        ],
+        "X": [
+            "minecraft:gray_dye"
+        ]
+    }
+}

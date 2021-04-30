@@ -1,0 +1,16 @@
+{
+    "result": "minecraft:blue_stained_glass_pane",
+    "count": 16,
+    "pattern": [
+        "###",
+        "###"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:blue_stained_glass"
+        ]
+    }
+}

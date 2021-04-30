@@ -1,0 +1,33 @@
+{
+    "result": "minecraft:pink_concrete_powder",
+    "count": 8,
+    "ingredients": [
+        [
+            "minecraft:pink_dye"
+        ],
+        [
+            "minecraft:sand"
+        ],
+        [
+            "minecraft:sand"
+        ],
+        [
+            "minecraft:sand"
+        ],
+        [
+            "minecraft:sand"
+        ],
+        [
+            "minecraft:gravel"
+        ],
+        [
+            "minecraft:gravel"
+        ],
+        [
+            "minecraft:gravel"
+        ],
+        [
+            "minecraft:gravel"
+        ]
+    ]
+}

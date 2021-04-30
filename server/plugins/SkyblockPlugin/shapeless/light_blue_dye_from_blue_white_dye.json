@@ -1,0 +1,12 @@
+{
+    "result": "minecraft:light_blue_dye",
+    "count": 2,
+    "ingredients": [
+        [
+            "minecraft:blue_dye"
+        ],
+        [
+            "minecraft:white_dye"
+        ]
+    ]
+}

@@ -1,0 +1,33 @@
+{
+    "result": "minecraft:lime_concrete_powder",
+    "count": 8,
+    "ingredients": [
+        [
+            "minecraft:lime_dye"
+        ],
+        [
+            "minecraft:sand"
+        ],
+        [
+            "minecraft:sand"
+        ],
+        [
+            "minecraft:sand"
+        ],
+        [
+            "minecraft:sand"
+        ],
+        [
+            "minecraft:gravel"
+        ],
+        [
+            "minecraft:gravel"
+        ],
+        [
+            "minecraft:gravel"
+        ],
+        [
+            "minecraft:gravel"
+        ]
+    ]
+}

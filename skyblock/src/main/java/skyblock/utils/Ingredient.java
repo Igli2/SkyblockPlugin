@@ -3,32 +3,54 @@ package skyblock.utils;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Ingredient {
-    private final ItemStack item;
+    private final List<ItemStack> item;
     private final char key;
 
-    public Ingredient(ItemStack item, char key) {
-        this.item = item;
+    public Ingredient(List<ItemStack> i, char key) {
+        this.item = i;
         this.key = key;
     }
 
-    public Ingredient(ItemStack item, int amount, char key) {
-        item.setAmount(amount);
-        this.item = item;
+    public Ingredient(List<ItemStack> i, int amount, char key) {
+        for (ItemStack itemStack : i) {
+            itemStack.setAmount(amount);
+        }
+        this.item = i;
+        this.key = key;
+    }
+
+    public Ingredient(ItemStack item, char key) {
+        this.item = new ArrayList<>();
+        this.item.add(item);
+        this.key = key;
+    }
+
+    public Ingredient(ItemStack i, int amount, char key) {
+        i.setAmount(amount);
+        this.item = new ArrayList<>();
+        this.item.add(i);
         this.key = key;
     }
 
     public Ingredient(Material material, int amount, char key) {
-        this.item = new ItemStack(material, amount);
+        ItemStack i = new ItemStack(material, amount);
+        this.item = new ArrayList<>();
+        this.item.add(i);
         this.key = key;
     }
 
     public Ingredient(Material material, char key) {
-        this.item = new ItemStack(material, 1);
+        ItemStack i = new ItemStack(material, 1);
+        this.item = new ArrayList<>();
+        this.item.add(i);
         this.key = key;
     }
 
-    public ItemStack getItem() {
+    public List<ItemStack> getItem() {
         return item;
     }
 
@@ -38,6 +60,6 @@ public class Ingredient {
 
     // debug method
     public String toString() {
-        return "Ingredient{" + this.key + "," + this.item.getType() + "}";
+        return "Ingredient{" + this.key + "," + this.item.get(0).getType() + "}";
     }
 }

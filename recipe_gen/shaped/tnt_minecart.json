@@ -1,0 +1,19 @@
+{
+    "result": "minecraft:tnt_minecart",
+    "count": 1,
+    "pattern": [
+        "A",
+        "B"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "A": [
+            "minecraft:tnt"
+        ],
+        "B": [
+            "minecraft:minecart"
+        ]
+    }
+}

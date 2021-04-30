@@ -1,0 +1,16 @@
+{
+    "result": "minecraft:acacia_boat",
+    "count": 1,
+    "pattern": [
+        "# #",
+        "###"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:acacia_planks"
+        ]
+    }
+}

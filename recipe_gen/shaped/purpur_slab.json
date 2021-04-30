@@ -1,0 +1,16 @@
+{
+    "result": "minecraft:purpur_slab",
+    "count": 6,
+    "pattern": [
+        "###"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:purpur_block",
+            "minecraft:purpur_pillar"
+        ]
+    }
+}

@@ -1,0 +1,23 @@
+{
+    "result": "minecraft:beacon",
+    "count": 1,
+    "pattern": [
+        "GGG",
+        "GSG",
+        "OOO"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "G": [
+            "minecraft:glass"
+        ],
+        "S": [
+            "minecraft:nether_star"
+        ],
+        "O": [
+            "minecraft:obsidian"
+        ]
+    }
+}

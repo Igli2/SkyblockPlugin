@@ -1,0 +1,16 @@
+{
+    "result": "minecraft:birch_wood",
+    "count": 3,
+    "pattern": [
+        "##",
+        "##"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:birch_log"
+        ]
+    }
+}

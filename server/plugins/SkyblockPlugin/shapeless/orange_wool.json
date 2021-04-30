@@ -1,0 +1,12 @@
+{
+    "result": "minecraft:orange_wool",
+    "count": 1,
+    "ingredients": [
+        [
+            "minecraft:orange_dye"
+        ],
+        [
+            "minecraft:white_wool"
+        ]
+    ]
+}

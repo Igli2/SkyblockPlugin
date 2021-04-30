@@ -1,0 +1,25 @@
+{
+    "result": "minecraft:soul_torch",
+    "count": 4,
+    "pattern": [
+        "X",
+        "#",
+        "S"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "X": [
+            "minecraft:coal",
+            "minecraft:charcoal"
+        ],
+        "#": [
+            "minecraft:stick"
+        ],
+        "S": [
+            "minecraft:soul_sand",
+            "minecraft:soul_soil"
+        ]
+    }
+}

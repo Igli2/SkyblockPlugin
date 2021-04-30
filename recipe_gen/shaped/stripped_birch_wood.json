@@ -1,0 +1,16 @@
+{
+    "result": "minecraft:stripped_birch_wood",
+    "count": 3,
+    "pattern": [
+        "##",
+        "##"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:stripped_birch_log"
+        ]
+    }
+}

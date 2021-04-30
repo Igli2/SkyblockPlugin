@@ -1,0 +1,19 @@
+{
+    "result": "minecraft:stonecutter",
+    "count": 1,
+    "pattern": [
+        " I ",
+        "###"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "I": [
+            "minecraft:iron_ingot"
+        ],
+        "#": [
+            "minecraft:stone"
+        ]
+    }
+}

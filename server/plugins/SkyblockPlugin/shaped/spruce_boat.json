@@ -1,0 +1,16 @@
+{
+    "result": "minecraft:spruce_boat",
+    "count": 1,
+    "pattern": [
+        "# #",
+        "###"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:spruce_planks"
+        ]
+    }
+}

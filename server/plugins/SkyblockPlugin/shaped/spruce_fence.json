@@ -1,0 +1,19 @@
+{
+    "result": "minecraft:spruce_fence",
+    "count": 3,
+    "pattern": [
+        "W#W",
+        "W#W"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "W": [
+            "minecraft:spruce_planks"
+        ],
+        "#": [
+            "minecraft:stick"
+        ]
+    }
+}

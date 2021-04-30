@@ -1,0 +1,16 @@
+{
+    "result": "minecraft:leather",
+    "count": 1,
+    "pattern": [
+        "##",
+        "##"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:rabbit_hide"
+        ]
+    }
+}

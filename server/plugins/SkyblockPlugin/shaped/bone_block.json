@@ -1,0 +1,17 @@
+{
+    "result": "minecraft:bone_block",
+    "count": 1,
+    "pattern": [
+        "XXX",
+        "XXX",
+        "XXX"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "X": [
+            "minecraft:bone_meal"
+        ]
+    }
+}

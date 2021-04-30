@@ -1,0 +1,19 @@
+{
+    "result": "minecraft:hopper_minecart",
+    "count": 1,
+    "pattern": [
+        "A",
+        "B"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "A": [
+            "minecraft:hopper"
+        ],
+        "B": [
+            "minecraft:minecart"
+        ]
+    }
+}

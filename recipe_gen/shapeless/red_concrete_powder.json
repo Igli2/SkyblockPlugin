@@ -1,0 +1,33 @@
+{
+    "result": "minecraft:red_concrete_powder",
+    "count": 8,
+    "ingredients": [
+        [
+            "minecraft:red_dye"
+        ],
+        [
+            "minecraft:sand"
+        ],
+        [
+            "minecraft:sand"
+        ],
+        [
+            "minecraft:sand"
+        ],
+        [
+            "minecraft:sand"
+        ],
+        [
+            "minecraft:gravel"
+        ],
+        [
+            "minecraft:gravel"
+        ],
+        [
+            "minecraft:gravel"
+        ],
+        [
+            "minecraft:gravel"
+        ]
+    ]
+}

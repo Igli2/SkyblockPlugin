@@ -1,0 +1,12 @@
+{
+    "result": "minecraft:purple_dye",
+    "count": 2,
+    "ingredients": [
+        [
+            "minecraft:blue_dye"
+        ],
+        [
+            "minecraft:red_dye"
+        ]
+    ]
+}

@@ -1,0 +1,12 @@
+{
+    "result": "minecraft:lime_wool",
+    "count": 1,
+    "ingredients": [
+        [
+            "minecraft:lime_dye"
+        ],
+        [
+            "minecraft:white_wool"
+        ]
+    ]
+}

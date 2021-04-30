@@ -1,0 +1,9 @@
+{
+    "result": "minecraft:gold_ingot",
+    "count": 9,
+    "ingredients": [
+        [
+            "minecraft:gold_block"
+        ]
+    ]
+}

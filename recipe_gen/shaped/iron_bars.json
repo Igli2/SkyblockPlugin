@@ -1,0 +1,16 @@
+{
+    "result": "minecraft:iron_bars",
+    "count": 16,
+    "pattern": [
+        "###",
+        "###"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:iron_ingot"
+        ]
+    }
+}

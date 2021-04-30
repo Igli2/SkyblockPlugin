@@ -1,0 +1,34 @@
+{
+    "result": "minecraft:barrel",
+    "count": 1,
+    "pattern": [
+        "PSP",
+        "P P",
+        "PSP"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "P": [
+            "minecraft:oak_planks",
+            "minecraft:spruce_planks",
+            "minecraft:birch_planks",
+            "minecraft:jungle_planks",
+            "minecraft:acacia_planks",
+            "minecraft:dark_oak_planks",
+            "minecraft:crimson_planks",
+            "minecraft:warped_planks"
+        ],
+        "S": [
+            "minecraft:oak_slab",
+            "minecraft:spruce_slab",
+            "minecraft:birch_slab",
+            "minecraft:jungle_slab",
+            "minecraft:acacia_slab",
+            "minecraft:dark_oak_slab",
+            "minecraft:crimson_slab",
+            "minecraft:warped_slab"
+        ]
+    }
+}

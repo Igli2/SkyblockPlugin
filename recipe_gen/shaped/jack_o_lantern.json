@@ -1,0 +1,19 @@
+{
+    "result": "minecraft:jack_o_lantern",
+    "count": 1,
+    "pattern": [
+        "A",
+        "B"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "A": [
+            "minecraft:carved_pumpkin"
+        ],
+        "B": [
+            "minecraft:torch"
+        ]
+    }
+}

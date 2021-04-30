@@ -1,0 +1,15 @@
+{
+    "result": "minecraft:fire_charge",
+    "count": 3,
+    "ingredients": [
+        [
+            "minecraft:gunpowder"
+        ],
+        [
+            "minecraft:blaze_powder"
+        ],
+        [
+            "minecraft:coal"
+        ]
+    ]
+}

@@ -1,0 +1,20 @@
+{
+    "result": "minecraft:orange_stained_glass_pane",
+    "count": 8,
+    "pattern": [
+        "###",
+        "#$#",
+        "###"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:glass_pane"
+        ],
+        "$": [
+            "minecraft:orange_dye"
+        ]
+    }
+}

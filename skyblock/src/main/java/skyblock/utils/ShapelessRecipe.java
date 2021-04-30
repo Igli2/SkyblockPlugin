@@ -8,10 +8,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ShapelessRecipe implements Recipe {
-    private final List<ItemStack> ingredients;
+    private final List<List<ItemStack>> ingredients;
     private final ItemStack result;
 
-    public ShapelessRecipe(List<ItemStack> ingredients, ItemStack result) {
+    public ShapelessRecipe(List<List<ItemStack>> ingredients, ItemStack result) {
         this.ingredients = ingredients;
         this.result = result;
     }
@@ -32,14 +32,16 @@ public class ShapelessRecipe implements Recipe {
             return false;
         }
         // check item stack type & amount
-        for (ItemStack required : this.ingredients) {
-            // if not in availableItems: return false
-            for (ItemStack available : availableItems) {
-                if (ItemRegistry.isItemStackEqual(available, required) && isItem(available) && isItem(required)) {
-                    // check amount
-                    if (available.getAmount() >= required.getAmount()) {
-                        availableItems.remove(available);
-                        break;
+        for (List<ItemStack> requiredAll : this.ingredients) {
+            label: for (ItemStack required : requiredAll) {
+                // if not in availableItems: break
+                for (ItemStack available : availableItems) {
+                    if (ItemRegistry.isItemStackEqual(available, required) && isItem(available) && isItem(required)) {
+                        // check amount
+                        if (available.getAmount() >= required.getAmount()) {
+                            availableItems.remove(available);
+                            break label;
+                        }
                     }
                 }
             }
@@ -55,7 +57,7 @@ public class ShapelessRecipe implements Recipe {
         return result;
     }
 
-    public List<ItemStack> getIngredients() {
+    public List<List<ItemStack>> getIngredients() {
         return ingredients;
     }
 }

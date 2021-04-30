@@ -1,0 +1,18 @@
+{
+    "result": "minecraft:purpur_stairs",
+    "count": 4,
+    "pattern": [
+        "#  ",
+        "## ",
+        "###"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:purpur_block",
+            "minecraft:purpur_pillar"
+        ]
+    }
+}

@@ -1,0 +1,9 @@
+{
+    "result": "minecraft:wheat",
+    "count": 9,
+    "ingredients": [
+        [
+            "minecraft:hay_block"
+        ]
+    ]
+}

@@ -1,0 +1,20 @@
+{
+    "result": "minecraft:spectral_arrow",
+    "count": 2,
+    "pattern": [
+        " # ",
+        "#X#",
+        " # "
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:glowstone_dust"
+        ],
+        "X": [
+            "minecraft:arrow"
+        ]
+    }
+}

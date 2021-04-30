@@ -1,0 +1,12 @@
+{
+    "result": "minecraft:mossy_cobblestone",
+    "count": 1,
+    "ingredients": [
+        [
+            "minecraft:cobblestone"
+        ],
+        [
+            "minecraft:vine"
+        ]
+    ]
+}

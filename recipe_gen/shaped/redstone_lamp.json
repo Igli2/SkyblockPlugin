@@ -1,0 +1,20 @@
+{
+    "result": "minecraft:redstone_lamp",
+    "count": 1,
+    "pattern": [
+        " R ",
+        "RGR",
+        " R "
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "R": [
+            "minecraft:redstone"
+        ],
+        "G": [
+            "minecraft:glowstone"
+        ]
+    }
+}

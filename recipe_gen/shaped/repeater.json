@@ -1,0 +1,22 @@
+{
+    "result": "minecraft:repeater",
+    "count": 1,
+    "pattern": [
+        "#X#",
+        "III"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:redstone_torch"
+        ],
+        "X": [
+            "minecraft:redstone"
+        ],
+        "I": [
+            "minecraft:stone"
+        ]
+    }
+}

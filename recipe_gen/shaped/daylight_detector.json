@@ -1,0 +1,30 @@
+{
+    "result": "minecraft:daylight_detector",
+    "count": 1,
+    "pattern": [
+        "GGG",
+        "QQQ",
+        "WWW"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "G": [
+            "minecraft:glass"
+        ],
+        "Q": [
+            "minecraft:quartz"
+        ],
+        "W": [
+            "minecraft:oak_slab",
+            "minecraft:spruce_slab",
+            "minecraft:birch_slab",
+            "minecraft:jungle_slab",
+            "minecraft:acacia_slab",
+            "minecraft:dark_oak_slab",
+            "minecraft:crimson_slab",
+            "minecraft:warped_slab"
+        ]
+    }
+}

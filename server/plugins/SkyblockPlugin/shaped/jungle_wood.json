@@ -1,0 +1,16 @@
+{
+    "result": "minecraft:jungle_wood",
+    "count": 3,
+    "pattern": [
+        "##",
+        "##"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:jungle_log"
+        ]
+    }
+}

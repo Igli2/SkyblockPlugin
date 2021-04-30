@@ -1,0 +1,19 @@
+{
+    "result": "minecraft:red_nether_bricks",
+    "count": 1,
+    "pattern": [
+        "NW",
+        "WN"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "N": [
+            "minecraft:nether_brick"
+        ],
+        "W": [
+            "minecraft:nether_wart"
+        ]
+    }
+}

@@ -1,0 +1,18 @@
+{
+    "result": "minecraft:magenta_dye",
+    "count": 4,
+    "ingredients": [
+        [
+            "minecraft:blue_dye"
+        ],
+        [
+            "minecraft:red_dye"
+        ],
+        [
+            "minecraft:red_dye"
+        ],
+        [
+            "minecraft:white_dye"
+        ]
+    ]
+}

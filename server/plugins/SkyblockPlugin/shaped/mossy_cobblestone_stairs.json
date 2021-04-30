@@ -1,0 +1,17 @@
+{
+    "result": "minecraft:mossy_cobblestone_stairs",
+    "count": 4,
+    "pattern": [
+        "#  ",
+        "## ",
+        "###"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:mossy_cobblestone"
+        ]
+    }
+}

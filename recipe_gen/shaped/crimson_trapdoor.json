@@ -1,0 +1,16 @@
+{
+    "result": "minecraft:crimson_trapdoor",
+    "count": 2,
+    "pattern": [
+        "###",
+        "###"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:crimson_planks"
+        ]
+    }
+}

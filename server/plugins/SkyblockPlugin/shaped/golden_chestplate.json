@@ -1,0 +1,17 @@
+{
+    "result": "minecraft:golden_chestplate",
+    "count": 1,
+    "pattern": [
+        "X X",
+        "XXX",
+        "XXX"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "X": [
+            "minecraft:gold_ingot"
+        ]
+    }
+}

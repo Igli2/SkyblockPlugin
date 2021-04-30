@@ -1,0 +1,19 @@
+{
+    "result": "minecraft:lever",
+    "count": 1,
+    "pattern": [
+        "X",
+        "#"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "X": [
+            "minecraft:stick"
+        ],
+        "#": [
+            "minecraft:cobblestone"
+        ]
+    }
+}

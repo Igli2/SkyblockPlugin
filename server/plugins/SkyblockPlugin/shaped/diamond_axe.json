@@ -1,0 +1,20 @@
+{
+    "result": "minecraft:diamond_axe",
+    "count": 1,
+    "pattern": [
+        "XX",
+        "X#",
+        " #"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "X": [
+            "minecraft:diamond"
+        ],
+        "#": [
+            "minecraft:stick"
+        ]
+    }
+}

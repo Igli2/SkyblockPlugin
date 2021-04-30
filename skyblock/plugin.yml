@@ -4,9 +4,6 @@ version: 0.1
 api-version: 1.16
 depend: [ProtocolLib]
 commands:
-  skyblock:
-    description: Teleports you to your skyblock. If you don't already have one, one will be created for you.
-    usage: /<command>
   warp:
     description: Warps you into a specific world
     usage: /<command>
@@ -18,4 +15,7 @@ commands:
     usage: /<command>
   structurizer:
     description: Creates a structure file with the specified blocks
+    usage: /<command>
+  sell:
+    description: Open shop inventory to sell items
     usage: /<command>

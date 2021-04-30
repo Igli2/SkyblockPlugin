@@ -1,0 +1,20 @@
+{
+    "result": "minecraft:lime_carpet",
+    "count": 8,
+    "pattern": [
+        "###",
+        "#$#",
+        "###"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:white_carpet"
+        ],
+        "$": [
+            "minecraft:lime_dye"
+        ]
+    }
+}

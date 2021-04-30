@@ -1,0 +1,21 @@
+{
+    "result": "minecraft:honey_bottle",
+    "count": 4,
+    "ingredients": [
+        [
+            "minecraft:honey_block"
+        ],
+        [
+            "minecraft:glass_bottle"
+        ],
+        [
+            "minecraft:glass_bottle"
+        ],
+        [
+            "minecraft:glass_bottle"
+        ],
+        [
+            "minecraft:glass_bottle"
+        ]
+    ]
+}

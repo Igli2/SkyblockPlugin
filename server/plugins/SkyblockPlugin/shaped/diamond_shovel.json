@@ -1,0 +1,20 @@
+{
+    "result": "minecraft:diamond_shovel",
+    "count": 1,
+    "pattern": [
+        "X",
+        "#",
+        "#"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "X": [
+            "minecraft:diamond"
+        ],
+        "#": [
+            "minecraft:stick"
+        ]
+    }
+}

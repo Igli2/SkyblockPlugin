@@ -1,0 +1,12 @@
+{
+    "result": "minecraft:light_gray_bed",
+    "count": 1,
+    "ingredients": [
+        [
+            "minecraft:white_bed"
+        ],
+        [
+            "minecraft:light_gray_dye"
+        ]
+    ]
+}

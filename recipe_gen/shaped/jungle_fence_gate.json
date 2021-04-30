@@ -1,0 +1,19 @@
+{
+    "result": "minecraft:jungle_fence_gate",
+    "count": 1,
+    "pattern": [
+        "#W#",
+        "#W#"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:stick"
+        ],
+        "W": [
+            "minecraft:jungle_planks"
+        ]
+    }
+}

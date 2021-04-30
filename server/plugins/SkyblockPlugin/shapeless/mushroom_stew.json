@@ -1,0 +1,15 @@
+{
+    "result": "minecraft:mushroom_stew",
+    "count": 1,
+    "ingredients": [
+        [
+            "minecraft:brown_mushroom"
+        ],
+        [
+            "minecraft:red_mushroom"
+        ],
+        [
+            "minecraft:bowl"
+        ]
+    ]
+}

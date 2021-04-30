@@ -1,0 +1,19 @@
+{
+    "result": "minecraft:crimson_fence_gate",
+    "count": 1,
+    "pattern": [
+        "#W#",
+        "#W#"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:stick"
+        ],
+        "W": [
+            "minecraft:crimson_planks"
+        ]
+    }
+}

@@ -1,0 +1,15 @@
+{
+    "result": "minecraft:light_gray_carpet",
+    "count": 3,
+    "pattern": [
+        "##"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "#": [
+            "minecraft:light_gray_wool"
+        ]
+    }
+}

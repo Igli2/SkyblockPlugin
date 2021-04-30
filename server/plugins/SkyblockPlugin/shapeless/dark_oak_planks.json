@@ -1,0 +1,12 @@
+{
+    "result": "minecraft:dark_oak_planks",
+    "count": 4,
+    "ingredients": [
+        [
+            "minecraft:dark_oak_log",
+            "minecraft:dark_oak_wood",
+            "minecraft:stripped_dark_oak_log",
+            "minecraft:stripped_dark_oak_wood"
+        ]
+    ]
+}

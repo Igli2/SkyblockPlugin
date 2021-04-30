@@ -1,0 +1,20 @@
+{
+    "result": "minecraft:lodestone",
+    "count": 1,
+    "pattern": [
+        "SSS",
+        "S#S",
+        "SSS"
+    ],
+    "keys": {
+        " ": [
+            "minecraft:air"
+        ],
+        "S": [
+            "minecraft:chiseled_stone_bricks"
+        ],
+        "#": [
+            "minecraft:netherite_ingot"
+        ]
+    }
+}
