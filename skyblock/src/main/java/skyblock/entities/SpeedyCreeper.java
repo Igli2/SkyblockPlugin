@@ -16,18 +16,25 @@ public class SpeedyCreeper extends EntityCreeper {
         this.setPosition(location.getX(), location.getY(), location.getZ());
         this.setPowered(true);
         this.setNoAI(false);
-        this.setHealth(30.0f);
+        this.setHealth(12.5f);
+        this.maxFuseTicks = 15;
+        this.getAttributeInstance(GenericAttributes.MOVEMENT_SPEED).setValue(0.5);
+        this.getAttributeInstance(GenericAttributes.KNOCKBACK_RESISTANCE).setValue(1.0);
+
+        this.getBukkitEntity().setCustomName(ChatColor.GREEN + "Speedy Creeper");
+        this.getBukkitEntity().setCustomNameVisible(true);
     }
 
     @Override
     protected boolean damageEntity0(DamageSource damagesource, float f) {
-        damagesource.getEntity().getBukkitEntity().sendMessage(ChatColor.RED + "Ouch!");
-        return super.damageEntity0(damagesource, f);
+        if(!damagesource.isExplosion()) {
+            return super.damageEntity0(damagesource, f);
+        }
+        return false;
     }
 
     @Override
-    protected void initPathfinder() {
-        super.initPathfinder();
-        this.goalSelector.a(0, new PathfinderGoalNearestAttackableTarget<EntityCreeper>(this, EntityCreeper.class, false));
+    public void tick() {
+        super.tick();
     }
 }
