@@ -19,3 +19,6 @@ commands:
   sell:
     description: Open shop inventory to sell items
     usage: /<command>
+  itembrowser:
+    description: Open the item/recipe browser inventory
+    usage: /<command>

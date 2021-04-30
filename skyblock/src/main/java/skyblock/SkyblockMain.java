@@ -83,6 +83,7 @@ public class SkyblockMain extends JavaPlugin {
         this.getServer().getPluginManager().registerEvents(new PlayerFishEvent(), this);
         this.getServer().getPluginManager().registerEvents(new CreatureSpawnListener(), this);
         this.getServer().getPluginManager().registerEvents(new PlayerRespawnListener(), this);
+        this.getServer().getPluginManager().registerEvents(new ItemBrowser(), this);
 
         this.getServer().getPluginManager().registerEvents(new Geode(), this);
         this.getServer().getPluginManager().registerEvents(new ArcheologistsPickaxe(), this);
@@ -169,6 +170,7 @@ public class SkyblockMain extends JavaPlugin {
         this.getCommand("fp_test").setExecutor(new FakePlayerTestCommand());
         this.getCommand("structurizer").setExecutor(new StructurizerCommand());
         this.getCommand("sell").setExecutor(new SellCommand());
+        this.getCommand("itembrowser").setExecutor(new ItemBrowser());
     }
 
     @Override
