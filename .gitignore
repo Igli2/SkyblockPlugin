@@ -1,4 +1,5 @@
 .vscode
+.idea
 server/world
 server/world_nether
 server/world_the_end
@@ -19,4 +20,6 @@ server/apache-maven-3.6.0
 server/work
 server/BuildTools.log.txt
 server/player_data.db
-.idea
+server/4f575bb8-9634-365d-83ca-83750a53794f
+server/b8e3bff7-84f2-497c-947c-89ab64f54581
+server/b1c0c425-36a6-4014-88d6-f114accb5174
