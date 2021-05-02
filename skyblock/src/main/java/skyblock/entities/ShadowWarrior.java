@@ -18,14 +18,20 @@ import skyblock.registries.ItemRegistry;
 
 public class ShadowWarrior extends EntitySkeletonWither {
 
+    private static final int MAX_MINIONS = 7;
+
     private BossBar bossBar;
+    private int minionCount;
 
     public ShadowWarrior(EntityTypes<? extends EntitySkeletonWither> entitytypes, World world) {
         super(entitytypes, world);
+        this.minionCount = 0;
     }
 
     public ShadowWarrior(Location location) {
         super(EntityTypes.WITHER_SKELETON, ((CraftWorld)location.getWorld()).getHandle());
+        this.minionCount = 0;
+
         this.setPosition(location.getX(), location.getY(), location.getZ());
         this.setNoAI(false);
 
@@ -70,15 +76,20 @@ public class ShadowWarrior extends EntitySkeletonWither {
     @Override
     protected boolean damageEntity0(DamageSource damagesource, float f) {
         if(damagesource.isMagic()) return false;
-        boolean result = super.damageEntity0(damagesource, f);
-        this.bossBar.setProgress(this.getHealth() / this.getMaxHealth());
 
-        EntityEquipment equipment = ((WitherSkeleton)this.getBukkitEntity()).getEquipment();
-        if(equipment != null) {
-            equipment.setItemInMainHand(new ItemStack(org.bukkit.Material.BOW));
+        if(this.minionCount == 0) {
+            boolean result = super.damageEntity0(damagesource, f);
+            this.bossBar.setProgress(this.getHealth() / this.getMaxHealth());
+
+           /* EntityEquipment equipment = ((WitherSkeleton)this.getBukkitEntity()).getEquipment();
+            if(equipment != null) {
+                equipment.setItemInMainHand(new ItemStack(org.bukkit.Material.BOW));
+            }*/
+
+            return result;
         }
 
-        return result;
+        return false;
     }
 
     @Override
@@ -98,6 +109,10 @@ public class ShadowWarrior extends EntitySkeletonWither {
                     }
                 }
             }
+
+            if(SkyblockMain.random.nextDouble() < 0.005) {
+                this.spawnMinions(Math.min(1 + SkyblockMain.random.nextInt(3), ShadowWarrior.MAX_MINIONS - this.minionCount));
+            }
         }
     }
 
@@ -105,5 +120,32 @@ public class ShadowWarrior extends EntitySkeletonWither {
     public void die() {
         super.die();
         this.bossBar.removeAll();
+    }
+
+    public void minionDied() {
+        if(--this.minionCount == 0) {
+            this.bossBar.setColor(BarColor.PURPLE);
+        }
+    }
+
+    private void spawnMinions(int count) {
+        for(int m = 0; m < count; m++) {
+            int offX =  5 - SkyblockMain.random.nextInt(11);
+            int offZ =  5 - SkyblockMain.random.nextInt(11);
+
+            Location minionPos = this.getBukkitEntity().getLocation().clone();
+            minionPos.setX(minionPos.getBlockX() + offX);
+            minionPos.setZ(minionPos.getZ() + offZ);
+            minionPos.setY(minionPos.getWorld().getHighestBlockYAt(minionPos.getBlockX(), minionPos.getBlockZ()) + 1);
+
+           // System.out.println(minionPos.toString());
+
+            ShadowWarriorMinion minion = new ShadowWarriorMinion(minionPos, this);
+
+            this.getWorld().addEntity(minion);
+        }
+
+        this.minionCount += count;
+        this.bossBar.setColor(BarColor.RED);
     }
 }

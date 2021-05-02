@@ -30,6 +30,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.Random;
 
 
 public class SkyblockMain extends JavaPlugin {
@@ -46,6 +47,8 @@ public class SkyblockMain extends JavaPlugin {
 
     public static File worldDataPath = Paths.get("plugins", "SkyblockPlugin", "special_blocks.yaml").toFile();
 
+    public static Random random;
+
     @Override
     public void onEnable() {
         // init
@@ -61,6 +64,9 @@ public class SkyblockMain extends JavaPlugin {
         if(!SkyblockMain.worldRegistry.hasWorld("world")) SkyblockMain.worldRegistry.addWorld(new WorldInfo(WorldInfo.WorldType.PUBLIC_WORLD, "world", true));
         SkyblockMain.worldRegistry.loadPublicWorlds();
         SkyblockMain.moneyHandler.loadData();
+
+        SkyblockMain.random = new Random();
+
         this.loadWorldData();
 
         // listeners
