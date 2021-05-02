@@ -15,7 +15,6 @@ public class SellCommand implements CommandExecutor {
     public boolean onCommand(@Nonnull CommandSender commandSender, @Nonnull Command command, @Nonnull String s, @Nonnull String[] strings) {
         if(commandSender instanceof Player) {
             for (NPCEntity npc : SkyblockMain.npcRegistry.getNPCs()) {
-                System.out.println(npc.getEntity().getName());
                 if (npc.getEntity().getName().equals("[NPC] Sell")) {
                     Player player = (Player) commandSender;
                     npc.interact(player);

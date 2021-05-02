@@ -13,11 +13,14 @@ public class Geode implements Listener {
     public void blockBreakEvent(BlockBreakEvent event) {
         if (!event.isCancelled()) {
             ItemStack itemHeld = event.getPlayer().getInventory().getItemInMainHand();
-            if (itemHeld.equals(new ItemStack(Material.STONE_PICKAXE))) {
+            if (ItemRegistry.isItemStackEqual(itemHeld, new ItemStack(Material.STONE_PICKAXE))) {
                 if (event.getBlock().getType() == Material.COBBLESTONE || event.getBlock().getType() == Material.STONE) {
                     if (Math.random() > 0.995) {
                         ItemStack geode = SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.GEODE);
-                        event.getPlayer().getWorld().dropItem(event.getPlayer().getLocation(), geode);
+                        event.setDropItems(false);
+                        event.setCancelled(true);
+                        event.getBlock().setType(Material.AIR);
+                        SkyblockMain.instance.getServer().getScheduler().scheduleSyncDelayedTask(SkyblockMain.instance, () -> event.getPlayer().getWorld().dropItem(event.getPlayer().getLocation(), geode), 1);
                     }
                 }
             }

@@ -1,6 +1,7 @@
 package skyblock.listeners.items;
 
 import org.bukkit.Material;
+import org.bukkit.entity.ExperienceOrb;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
@@ -34,11 +35,11 @@ public class ArcheologistsPickaxe implements Listener {
                     for (Material m : oreDropChances.keySet()) {
                         double dropChance = oreDropChances.get(m);
                         if (random < (dropChance + counter)) {
-                            event.getPlayer().getWorld().dropItem(event.getBlock().getLocation(), new ItemStack(m));
-                            event.setExpToDrop(event.getExpToDrop() + 3);
                             event.setDropItems(false);
                             event.setCancelled(true);
                             event.getBlock().setType(Material.AIR);
+                            SkyblockMain.instance.getServer().getScheduler().scheduleSyncDelayedTask(SkyblockMain.instance, () -> event.getPlayer().getWorld().dropItem(event.getBlock().getLocation(), new ItemStack(m)), 1);
+                            event.getBlock().getWorld().spawn(event.getBlock().getLocation().add(1,0,0), ExperienceOrb.class).setExperience(3);
                             break;
                         }
                         counter += dropChance;

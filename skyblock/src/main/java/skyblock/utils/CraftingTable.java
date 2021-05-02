@@ -89,7 +89,7 @@ public class CraftingTable {
                 }
             } else {
                 if (humanEntity.getItemOnCursor().getType() == Material.AIR) { // non-stackable items
-                    humanEntity.setItemOnCursor(shapedRecipe.getResult());
+                    humanEntity.setItemOnCursor(shapedRecipe.getResult().clone());
                     CraftingTable.removeRecipeFromMatrix(CraftingTable.getMatrix(inventory), shapedRecipe);
                 } else if (ItemRegistry.isItemStackEqual(humanEntity.getItemOnCursor(), shapedRecipe.getResult()) &&
                         humanEntity.getItemOnCursor().getAmount() + shapedRecipe.getResult().getAmount() <= shapedRecipe.getResult().getMaxStackSize()) { // stackable items with non-full item stack
@@ -109,7 +109,7 @@ public class CraftingTable {
             if (isShiftClick) {
                 boolean sameRecipe = true;
                 while (sameRecipe) {
-                    HashMap<Integer, ItemStack> excess = humanEntity.getInventory().addItem(shapelessRecipe.getResult());
+                    HashMap<Integer, ItemStack> excess = humanEntity.getInventory().addItem(shapelessRecipe.getResult().clone());
                     if (excess.size() == 0) { // check if inventory is full
                         CraftingTable.removeRecipeFromMatrix(CraftingTable.getMatrix(inventory), shapelessRecipe);
                     } else {
@@ -129,7 +129,7 @@ public class CraftingTable {
                 }
             } else {
                 if (humanEntity.getItemOnCursor().getType() == Material.AIR) { // non-stackable items
-                    humanEntity.setItemOnCursor(shapelessRecipe.getResult());
+                    humanEntity.setItemOnCursor(shapelessRecipe.getResult().clone());
                     CraftingTable.removeRecipeFromMatrix(CraftingTable.getMatrix(inventory), shapelessRecipe);
                 } else if (ItemRegistry.isItemStackEqual(humanEntity.getItemOnCursor(), shapelessRecipe.getResult()) &&
                         humanEntity.getItemOnCursor().getAmount() + shapelessRecipe.getResult().getAmount() <= shapelessRecipe.getResult().getMaxStackSize()) { // stackable items with non-full item stack
