@@ -14,7 +14,6 @@ public class AppleHarvester implements Listener {
         if (!event.isCancelled()) {
             ItemStack itemHeld = event.getPlayer().getInventory().getItemInMainHand();
             if (itemHeld.equals(SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.APPLE_HARVESTER))) {
-                System.out.println("treeeeeeee");
                 if (event.getBlock().getType().toString().endsWith("LEAVES")) {
                     if (Math.random() < 0.15) {
                         event.setDropItems(false);

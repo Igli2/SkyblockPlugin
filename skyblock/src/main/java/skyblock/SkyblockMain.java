@@ -84,12 +84,15 @@ public class SkyblockMain extends JavaPlugin {
         this.getServer().getPluginManager().registerEvents(new CreatureSpawnListener(), this);
         this.getServer().getPluginManager().registerEvents(new PlayerRespawnListener(), this);
         this.getServer().getPluginManager().registerEvents(new ItemBrowser(), this);
+        this.getServer().getPluginManager().registerEvents(new PlayerBucketEmptyListener(), this);
+        this.getServer().getPluginManager().registerEvents(new PlayerBucketFillListener(), this);
 
         this.getServer().getPluginManager().registerEvents(new Geode(), this);
         this.getServer().getPluginManager().registerEvents(new ArcheologistsPickaxe(), this);
         this.getServer().getPluginManager().registerEvents(new CreeperWand(), this);
         this.getServer().getPluginManager().registerEvents(new AppleHarvester(), this);
         this.getServer().getPluginManager().registerEvents(new TheTrunk(), this);
+        this.getServer().getPluginManager().registerEvents(new Tornado(), this);
 
         // commands
         this.setCommandExecutors();

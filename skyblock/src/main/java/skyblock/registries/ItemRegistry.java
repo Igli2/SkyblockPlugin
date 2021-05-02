@@ -212,7 +212,7 @@ public class ItemRegistry {
 
         ItemStack creeperWand = new ItemStack(Material.BAMBOO);
         setItemName(creeperWand, "Creeper Wand");
-        setLore(creeperWand, Arrays.asList(ChatColor.RED + "Beware!", "Explosions are usually deadly!"));
+        setLore(creeperWand, Arrays.asList(ChatColor.RED + "Beware!", "Explosions are usually lethal!"));
         specialItems.put(SkyblockItems.CREEPER_WAND, creeperWand);
 
         ItemStack treetopHelmet = createTexturedSkull("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvODM3NjVlOGNlMTFhZTZmMTMxYzcyNWMwN2Y1OGYyZDQxMzJkOTg0YWQ2NjM2MDM5YTdhMzZhM2M1MTI3MjEifX19",

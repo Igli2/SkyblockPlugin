@@ -17,11 +17,23 @@ import skyblock.registries.ItemRegistry;
 import skyblock.registries.RecipeRegistry;
 
 import javax.annotation.Nonnull;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 
 public class ItemBrowser implements Listener, CommandExecutor {
     public static final int HOME_BUTTON = 49;
+    public static final int INFO_SLOT = 25;
     public static final ItemStack HOME_BUTTON_ITEM = ItemRegistry.createTexturedSkull("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYmQ2OWUwNmU1ZGFkZmQ4NGU1ZjNkMWMyMTA2M2YyNTUzYjJmYTk0NWVlMWQ0ZDcxNTJmZGM1NDI1YmMxMmE5In19fQ==", new int[]{3546554, -56354542, -564566, 111666666});
+    public static final HashMap<ItemRegistry.SkyblockItems, List<String>> itemInfo = new HashMap<ItemRegistry.SkyblockItems, List<String>>() {{
+        put(ItemRegistry.SkyblockItems.GEODE, Arrays.asList("1/200 chance to drop from stone or", "cobblestone when mined with a stone pickaxe"));
+        put(ItemRegistry.SkyblockItems.ARCHEOLOGISTS_PICKAXE, Arrays.asList("Mine cobblestone or stone to get:", "Coal: 5%", "Iron ore: 2.5%", "Gold ore: 1%", "Lapis lazuli: 1%", "Redstone: 2%", "Diamond: 0.5%", "Emerald: 0.25%", "Ancient debris: 0.2%", "Nether quartz: 1.5%"));
+        put(ItemRegistry.SkyblockItems.APPLE_HARVESTER, Collections.singletonList("15% chance to drop apple from any leaves block"));
+        put(ItemRegistry.SkyblockItems.CREEPER_WAND, Collections.singletonList("Consumes 1 gunpowder on use"));
+        put(ItemRegistry.SkyblockItems.THE_TRUNK, Collections.singletonList("Apply slowness 2 on hit"));
+        put(ItemRegistry.SkyblockItems.TORNADO, Arrays.asList("Right click to use ability", "Launches all entities within 5 block radius", "into the air"));
+    }};
 
     static {
         ItemMeta itemMeta = HOME_BUTTON_ITEM.getItemMeta();
@@ -32,6 +44,7 @@ public class ItemBrowser implements Listener, CommandExecutor {
     }
 
     @EventHandler
+    @SuppressWarnings("unused")
     public void inventoryClickEvent(InventoryClickEvent event) {
         if (event.getView().getTitle().equals("Item Browser")) { // operators can take items
             int slot = event.getRawSlot();
@@ -44,7 +57,7 @@ public class ItemBrowser implements Listener, CommandExecutor {
             if (slot < 45) {
                 // cancel if null, because there willbe no recipe
                 // cancel if placeholder
-                if (item == null || item.equals(CraftingTable.PLACEHOLDER)) {
+                if (item == null || item.equals(CraftingTable.PLACEHOLDER) || isItemInfo(item)) {
                     event.setCancelled(true);
                     return;
                 }
@@ -65,6 +78,14 @@ public class ItemBrowser implements Listener, CommandExecutor {
             }
             event.setCancelled(true);
         }
+    }
+
+    private boolean isItemInfo(ItemStack itemStack) {
+        ItemMeta itemMeta = itemStack.getItemMeta();
+        if (itemMeta == null) {
+            return false;
+        }
+        return itemMeta.getDisplayName().equals("Item Info");
     }
 
     private Recipe getRecipe(ItemStack itemStack) {
@@ -98,13 +119,15 @@ public class ItemBrowser implements Listener, CommandExecutor {
         for (int i : CraftingTable.GLASS_PANES) {
             inventory.setItem(i, CraftingTable.PLACEHOLDER);
         }
-        inventory.setItem(CraftingTable.RESULT, itemStack);
+        ItemStack clone = itemStack.clone();
+        clone.setAmount(1);
+        inventory.setItem(CraftingTable.RESULT, clone);
         inventory.setItem(HOME_BUTTON, HOME_BUTTON_ITEM);
 
-        // TODO: item info (eg. drop chance)
-        if (recipe == null) {
-            // no recipe, only info
-        } else {
+        List<String> info = getItemInfo(itemStack);
+        setItemInfo(inventory, info);
+        if (recipe != null) {
+            inventory.setItem(CraftingTable.RESULT, recipe.getResult());
             // recipe and info
             if (recipe instanceof ShapedRecipe) {
                 String[] shape = ((ShapedRecipe) recipe).getShape();
@@ -127,6 +150,32 @@ public class ItemBrowser implements Listener, CommandExecutor {
                 }
             }
         }
+    }
+
+    private void setItemInfo(Inventory inventory, List<String> info) {
+        if (info == null) {
+            return;
+        }
+
+        ItemStack infoPaper = new ItemStack(Material.PAPER);
+        ItemMeta infoPaperMeta = infoPaper.getItemMeta();
+        if (infoPaperMeta == null) {
+            return;
+        }
+        infoPaperMeta.setDisplayName("Item Info");
+        infoPaperMeta.setLore(info);
+        infoPaper.setItemMeta(infoPaperMeta);
+        inventory.setItem(INFO_SLOT, infoPaper);
+    }
+
+    private List<String> getItemInfo(ItemStack itemStack) {
+        for (ItemRegistry.SkyblockItems skyblockItems : itemInfo.keySet()) {
+            ItemStack skyblockItem = SkyblockMain.itemRegistry.getItemStack(skyblockItems);
+            if (skyblockItem.equals(itemStack)) {
+                return itemInfo.get(skyblockItems);
+            }
+        }
+        return null;
     }
 
     private void setItemList(Inventory inventory, int page) {

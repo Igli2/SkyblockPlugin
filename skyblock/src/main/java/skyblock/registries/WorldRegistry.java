@@ -1,6 +1,8 @@
 package skyblock.registries;
 
 import org.bukkit.Bukkit;
+import org.bukkit.GameRule;
+import org.bukkit.World;
 import org.bukkit.WorldCreator;
 import org.bukkit.configuration.file.YamlConfiguration;
 import skyblock.generators.SkyblockChunkGenerator;
@@ -65,7 +67,13 @@ public class WorldRegistry {
         if(!this.isWorldLoaded(world)) {
             WorldCreator wc = new WorldCreator(world);
             wc.generator(new SkyblockChunkGenerator());
-            Bukkit.createWorld(wc);
+            World generatedWorld = Bukkit.createWorld(wc);
+            if (generatedWorld != null) {
+                generatedWorld.setGameRule(GameRule.KEEP_INVENTORY, true);
+                generatedWorld.setGameRule(GameRule.DO_FIRE_TICK, false);
+                generatedWorld.setGameRule(GameRule.ANNOUNCE_ADVANCEMENTS, false);
+            }
+
             this.worlds.get(world).setStatus(true);
             return true;
         }

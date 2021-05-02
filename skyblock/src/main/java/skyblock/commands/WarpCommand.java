@@ -21,7 +21,7 @@ public class WarpCommand implements CommandExecutor {
             Player player = (Player) commandSender;
             if(strings.length == 1) {
                 if (strings[0].equals("lobby")) {
-                    player.teleport(new Location(Bukkit.getWorld("lobby"), 2, 110, -3));
+                    player.teleport(new Location(Bukkit.getWorld("lobby"), 0.5, 110, 0.5));
                 } else if (strings[0].equals("skyblock") || strings[0].equals("sb") || strings[0].equals("island") || strings[0].equals("is") || strings[0].equals("home")) {
                     String worldName = player.getUniqueId().toString();
 

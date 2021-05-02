@@ -12,7 +12,7 @@ public class PlayerRespawnListener implements Listener {
     public void playerRespawnEvent(PlayerRespawnEvent event) {
         // teleport to lobby if player died and has neither bed nor respawn anchor
         if (!event.isBedSpawn() && !event.isAnchorSpawn()) {
-            SkyblockMain.instance.getServer().getScheduler().scheduleSyncDelayedTask(SkyblockMain.instance, () -> event.getPlayer().teleport(new Location(Bukkit.getWorld("lobby"), 2, 110, -3)));
+            SkyblockMain.instance.getServer().getScheduler().scheduleSyncDelayedTask(SkyblockMain.instance, () -> event.getPlayer().teleport(new Location(Bukkit.getWorld("lobby"), 0.5, 110, 0.5)));
         }
     }
 }

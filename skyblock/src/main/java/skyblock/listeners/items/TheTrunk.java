@@ -19,7 +19,7 @@ public class TheTrunk implements Listener {
             ItemStack itemHeld = player.getInventory().getItemInMainHand();
             if (ItemRegistry.isItemStackEqual(itemHeld, SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.THE_TRUNK))) {
                 LivingEntity le = (LivingEntity) event.getEntity();
-                le.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 20 * 5, 1));
+                le.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 30, 2));
             }
         }
     }
