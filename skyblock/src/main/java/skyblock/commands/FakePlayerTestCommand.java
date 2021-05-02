@@ -13,7 +13,7 @@ public class FakePlayerTestCommand implements CommandExecutor {
 
     @Override
     public boolean onCommand(@Nonnull CommandSender commandSender, @Nonnull Command command, @Nonnull String s, @Nonnull String[] strings) {
-        if(commandSender instanceof Player) {
+        if(commandSender instanceof Player && commandSender.isOp()) {
             Player player = (Player) commandSender;
 
             //SpeedyCreeper speedyCreeper = new SpeedyCreeper(player.getLocation());

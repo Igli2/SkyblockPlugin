@@ -18,9 +18,7 @@ public class Geode implements Listener {
                     if (Math.random() > 0.995) {
                         ItemStack geode = SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.GEODE);
                         event.setDropItems(false);
-                        event.setCancelled(true);
-                        event.getBlock().setType(Material.AIR);
-                        SkyblockMain.instance.getServer().getScheduler().scheduleSyncDelayedTask(SkyblockMain.instance, () -> event.getPlayer().getWorld().dropItem(event.getPlayer().getLocation(), geode), 1);
+                        SkyblockMain.instance.getServer().getScheduler().scheduleSyncDelayedTask(SkyblockMain.instance, () -> event.getPlayer().getWorld().dropItem(event.getPlayer().getLocation().add(0.5, 0.5, 0.5), geode), 1);
                     }
                 }
             }

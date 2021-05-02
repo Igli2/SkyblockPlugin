@@ -21,6 +21,7 @@ public class WarpCommand implements CommandExecutor {
             Player player = (Player) commandSender;
             if(strings.length == 1) {
                 if (strings[0].equals("lobby")) {
+                    player.setFallDistance(0);
                     player.teleport(new Location(Bukkit.getWorld("lobby"), 0.5, 110, 0.5));
                 } else if (strings[0].equals("skyblock") || strings[0].equals("sb") || strings[0].equals("island") || strings[0].equals("is") || strings[0].equals("home")) {
                     String worldName = player.getUniqueId().toString();
@@ -32,6 +33,7 @@ public class WarpCommand implements CommandExecutor {
                         SkyblockMain.worldRegistry.addWorld(new WorldInfo(WorldInfo.WorldType.PLAYER_WORLD, worldName, true));
                     }
 
+                    player.setFallDistance(0);
                     player.teleport(new Location(Bukkit.getWorld(worldName), 9, 111, 8));
                 } else {
                     player.sendMessage(ChatColor.RED + "Can't warp you there!");

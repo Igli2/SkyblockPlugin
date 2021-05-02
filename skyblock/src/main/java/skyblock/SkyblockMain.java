@@ -93,6 +93,7 @@ public class SkyblockMain extends JavaPlugin {
         this.getServer().getPluginManager().registerEvents(new AppleHarvester(), this);
         this.getServer().getPluginManager().registerEvents(new TheTrunk(), this);
         this.getServer().getPluginManager().registerEvents(new Tornado(), this);
+        this.getServer().getPluginManager().registerEvents(new DesertBiomeStick(), this);
 
         // commands
         this.setCommandExecutors();

@@ -24,10 +24,12 @@ public class ItemRegistry {
         ARCHEOLOGISTS_PICKAXE,
         CREEPER_WAND,
         CLOUD,
+        DESERT_BIOME_STICK,
         FOSSILIZED_LOG,
         GEODE,
         GRAPPLING_HOOK,
         GUARDS_DEFENDER,
+        MANIPULATION_GEM,
         SHADOWSTEEL_INGOT,
         SHADOWSTEEL_HELMET,
         SHADOWSTEEL_CHESTPLATE,
@@ -252,12 +254,23 @@ public class ItemRegistry {
 
         ItemStack sunPearl = new ItemStack(Material.SNOWBALL);
         setItemName(sunPearl, "Sun Pearl");
+        addEnchantEffect(sunPearl);
         specialItems.put(SkyblockItems.SUN_PEARL, sunPearl);
 
         ItemStack cloud = createTexturedSkull("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNDY2YjEwYmY2ZWUyY2Q3ZTNhYzk2ZDk3NDllYTYxNmFhOWM3MzAzMGJkY2FlZmZhZWQyNDllNTVjODQ5OTRhYyJ9fX0=",
                 new int[]{-34345, 56900000, 4359211, 653299119});
         setItemName(cloud, "Cloud");
         specialItems.put(SkyblockItems.CLOUD, cloud);
+
+        ItemStack manipulationGem = new ItemStack(Material.MAGMA_CREAM);
+        setItemName(manipulationGem, "Manipulation Gem");
+        addEnchantEffect(manipulationGem);
+        specialItems.put(SkyblockItems.MANIPULATION_GEM, manipulationGem);
+
+        ItemStack desertBiomeStick = new ItemStack(Material.STICK);
+        setItemName(desertBiomeStick, "Desert Biome Stick");
+        setLore(desertBiomeStick, Arrays.asList("Size: 1 block", "Left click to change"));
+        specialItems.put(SkyblockItems.DESERT_BIOME_STICK, desertBiomeStick);
     }
 
     public static void setLore(ItemStack itemStack, List<String> lore) {

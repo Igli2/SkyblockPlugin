@@ -108,6 +108,15 @@ public class RecipeRegistry {
         RecipeRegistry.addShapedRecipe(Arrays.asList(new Ingredient(SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.CLOUD), 'C'), new Ingredient(Material.STICK, 'S')),
                 SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.TORNADO),
                 new String[]{"C", "C", "S"});
+        RecipeRegistry.addShapedRecipe(Arrays.asList(new Ingredient(Material.STICK, 64, 'S'), new Ingredient(Material.AIR, ' ')),
+                new ItemStack(Material.DEAD_BUSH),
+                new String[]{"S S", "SSS", " S "});
+        RecipeRegistry.addShapedRecipe(Arrays.asList(new Ingredient(Material.BLAZE_POWDER, 'B'), new Ingredient(Material.SLIME_BALL, 'S'), new Ingredient(Material.ORANGE_DYE, 'D'), new Ingredient(Material.NETHERITE_INGOT, 'N')),
+                SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.MANIPULATION_GEM),
+                new String[]{"BDB", "DSD", "BNB"});
+        RecipeRegistry.addShapedRecipe(Arrays.asList(new Ingredient(Material.DEAD_BUSH, 16, 'D'), new Ingredient(SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.MANIPULATION_GEM), 'G')),
+                SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.DESERT_BIOME_STICK),
+                new String[]{"D", "G"});
     }
 
     public static void registerVanillaRecipes() {
