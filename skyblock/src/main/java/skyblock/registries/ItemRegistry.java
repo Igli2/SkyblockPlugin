@@ -25,10 +25,12 @@ public class ItemRegistry {
         CREEPER_WAND,
         CLOUD,
         DESERT_BIOME_STICK,
+        EMERALD_STUDDED_GEODE,
         FOSSILIZED_LOG,
         GEODE,
         GRAPPLING_HOOK,
         GUARDS_DEFENDER,
+        JACKHAMMER,
         MANIPULATION_GEM,
         SHADOWSTEEL_INGOT,
         SHADOWSTEEL_HELMET,
@@ -250,7 +252,9 @@ public class ItemRegistry {
         setLore(tornado, Collections.singletonList("The ultimate weapon of the gods"));
         setAttrModifier(tornado, Attribute.GENERIC_ATTACK_DAMAGE, "generic.attack_damage", 5, EquipmentSlot.HAND);
         setAttrModifier(tornado, Attribute.GENERIC_ATTACK_SPEED, "generic.attack_speed", -0.5, EquipmentSlot.HAND);
+        makeUnbreakable(tornado);
         specialItems.put(SkyblockItems.TORNADO, tornado);
+        EnchantmentBase.customSwords.add(tornado);
 
         ItemStack sunPearl = new ItemStack(Material.SNOWBALL);
         setItemName(sunPearl, "Sun Pearl");
@@ -271,6 +275,17 @@ public class ItemRegistry {
         setItemName(desertBiomeStick, "Desert Biome Stick");
         setLore(desertBiomeStick, Arrays.asList("Size: 1 block", "Left click to change"));
         specialItems.put(SkyblockItems.DESERT_BIOME_STICK, desertBiomeStick);
+
+        ItemStack emeraldStuddedGeode = createTexturedSkull("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMjI4ZGQzZDliODFjYzlmOTZhNGMxMWZlMTNiMDc5NDk0ZjI3ZmM1YjkzM2M0ZjA4MzNmNjU2NDQ3MmVlMTYwOSJ9fX0=",
+                new int[]{3454335, -455689, 33333333, -1010110045});
+        setItemName(emeraldStuddedGeode, "Emerald-Studded Geode");
+        specialItems.put(SkyblockItems.EMERALD_STUDDED_GEODE, emeraldStuddedGeode);
+
+        ItemStack jackhammer = new ItemStack(Material.IRON_PICKAXE);
+        setItemName(jackhammer, "Jackhammer");
+        makeUnbreakable(jackhammer);
+        specialItems.put(SkyblockItems.JACKHAMMER, jackhammer);
+        EnchantmentBase.customPickaxes.add(jackhammer);
     }
 
     public static void setLore(ItemStack itemStack, List<String> lore) {

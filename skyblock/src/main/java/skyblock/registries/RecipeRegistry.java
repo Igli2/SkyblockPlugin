@@ -117,6 +117,12 @@ public class RecipeRegistry {
         RecipeRegistry.addShapedRecipe(Arrays.asList(new Ingredient(Material.DEAD_BUSH, 16, 'D'), new Ingredient(SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.MANIPULATION_GEM), 'G')),
                 SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.DESERT_BIOME_STICK),
                 new String[]{"D", "G"});
+        RecipeRegistry.addShapedRecipe(Arrays.asList(new Ingredient(Material.EMERALD_BLOCK, 'E'), new Ingredient(SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.GEODE), 'G')),
+                SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.EMERALD_STUDDED_GEODE),
+                new String[]{"EEE", "EGE", "EEE"});
+        RecipeRegistry.addShapedRecipe(Arrays.asList(new Ingredient(Material.AIR, ' '), new Ingredient(Material.STICK, 'S'), new Ingredient(SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.EMERALD_STUDDED_GEODE), 'A')),
+                SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.JACKHAMMER),
+                new String[]{"AAA", " S ", " S "});
     }
 
     public static void registerVanillaRecipes() {

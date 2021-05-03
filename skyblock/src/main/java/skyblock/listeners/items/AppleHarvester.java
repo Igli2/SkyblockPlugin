@@ -16,10 +16,7 @@ public class AppleHarvester implements Listener {
             if (ItemRegistry.isItemStackEqual(itemHeld, SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.APPLE_HARVESTER))) {
                 if (event.getBlock().getType().toString().endsWith("LEAVES")) {
                     if (Math.random() < 0.15) {
-                        event.setDropItems(false);
-                        event.setCancelled(true);
-                        event.getBlock().setType(Material.AIR);
-                        event.getBlock().getWorld().dropItem(event.getBlock().getLocation(), new ItemStack(Material.APPLE));
+                        SkyblockMain.instance.getServer().getScheduler().scheduleSyncDelayedTask(SkyblockMain.instance, () -> event.getPlayer().getWorld().dropItem(event.getBlock().getLocation().add(0.5, 0.5, 0.5), new ItemStack(Material.APPLE)), 1);
                     }
                 }
             }

@@ -6,12 +6,19 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
+import skyblock.SkyblockMain;
+import skyblock.registries.ItemRegistry;
 import skyblock.utils.Anvil;
 import skyblock.utils.CraftingTable;
 
 public class PlayerInteractListener implements Listener {
     @EventHandler
     public void playerInteractEvent(PlayerInteractEvent event) {
+        if (!event.getPlayer().isOp() && !event.getPlayer().getWorld().getName().equals(event.getPlayer().getUniqueId().toString())) {
+            event.setCancelled(true);
+            return;
+        }
+
         // open own crafting menu, anvil
         if (event.getAction() == Action.RIGHT_CLICK_BLOCK && !(event.getPlayer().isSneaking() && event.getPlayer().getInventory().getItemInMainHand().getType() != Material.AIR)) {
             Block block = event.getClickedBlock();
@@ -26,6 +33,10 @@ public class PlayerInteractListener implements Listener {
 
         // prevent farmland trampling
         if (event.getAction() == Action.PHYSICAL && event.getClickedBlock() != null && event.getClickedBlock().getType() == Material.FARMLAND) {
+            event.setCancelled(true);
+        }
+
+        if (ItemRegistry.isItemStackEqual(event.getItem(), SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.SUN_PEARL))) {
             event.setCancelled(true);
         }
     }

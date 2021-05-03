@@ -11,9 +11,9 @@
   "shop": [
     ["minecraft:dirt", 4, 4],
     ["minecraft:grass_block", 16, 1],
-    ["minecraft:sand", 16, 4],
+    ["minecraft:sand", 32, 4],
     ["minecraft:red_sand", 20, 4],
-    ["minecraft:gravel", 10, 4],
+    ["minecraft:gravel", 24, 4],
     ["minecraft:netherrack", 20, 4],
     ["minecraft:soul_sand", 10, 1],
     ["minecraft:soul_soil", 50, 1],
