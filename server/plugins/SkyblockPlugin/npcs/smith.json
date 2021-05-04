@@ -9,7 +9,6 @@
   },
   "name": "[NPC] Smith",
   "shop": [
-    ["minecraft:name_tag", 100, 1],
     ["minecraft:leather_horse_armor", 80, 1],
     ["minecraft:golden_horse_armor", 120, 1],
     ["minecraft:iron_horse_armor", 250, 1],

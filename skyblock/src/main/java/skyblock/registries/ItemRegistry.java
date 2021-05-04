@@ -26,6 +26,7 @@ public class ItemRegistry {
         CLOUD,
         DESERT_BIOME_STICK,
         EMERALD_STUDDED_GEODE,
+        FOREST_BIOME_STICK,
         FOSSILIZED_LOG,
         GEODE,
         GRAPPLING_HOOK,
@@ -275,6 +276,11 @@ public class ItemRegistry {
         setItemName(desertBiomeStick, "Desert Biome Stick");
         setLore(desertBiomeStick, Arrays.asList("Size: 1 block", "Left click to change"));
         specialItems.put(SkyblockItems.DESERT_BIOME_STICK, desertBiomeStick);
+
+        ItemStack forestBiomeStick = new ItemStack(Material.STICK);
+        setItemName(forestBiomeStick, "Forest Biome Stick");
+        setLore(forestBiomeStick, Arrays.asList("Size: 1 block", "Left click to change"));
+        specialItems.put(SkyblockItems.FOREST_BIOME_STICK, forestBiomeStick);
 
         ItemStack emeraldStuddedGeode = createTexturedSkull("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMjI4ZGQzZDliODFjYzlmOTZhNGMxMWZlMTNiMDc5NDk0ZjI3ZmM1YjkzM2M0ZjA4MzNmNjU2NDQ3MmVlMTYwOSJ9fX0=",
                 new int[]{3454335, -455689, 33333333, -1010110045});

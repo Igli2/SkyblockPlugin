@@ -117,6 +117,9 @@ public class RecipeRegistry {
         RecipeRegistry.addShapedRecipe(Arrays.asList(new Ingredient(Material.DEAD_BUSH, 16, 'D'), new Ingredient(SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.MANIPULATION_GEM), 'G')),
                 SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.DESERT_BIOME_STICK),
                 new String[]{"D", "G"});
+        RecipeRegistry.addShapedRecipe(Arrays.asList(new Ingredient(SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.MANIPULATION_GEM), 'G'), new Ingredient(Arrays.asList(new ItemStack(Material.OAK_SAPLING), new ItemStack(Material.BIRCH_SAPLING), new ItemStack(Material.ACACIA_SAPLING), new ItemStack(Material.DARK_OAK_SAPLING), new ItemStack(Material.JUNGLE_SAPLING), new ItemStack(Material.SPRUCE_SAPLING)), 64, 'S')),
+                SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.FOREST_BIOME_STICK),
+                new String[]{"S", "G", "S"});
         RecipeRegistry.addShapedRecipe(Arrays.asList(new Ingredient(Material.EMERALD_BLOCK, 'E'), new Ingredient(SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.GEODE), 'G')),
                 SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.EMERALD_STUDDED_GEODE),
                 new String[]{"EEE", "EGE", "EEE"});
