@@ -1,17 +1,46 @@
-package skyblock.utils;
+package skyblock.listeners.items;
 
 import net.minecraft.server.v1_16_R3.PacketPlayOutMapChunk;
 import org.bukkit.Chunk;
 import org.bukkit.block.Biome;
 import org.bukkit.craftbukkit.v1_16_R3.CraftChunk;
 import org.bukkit.craftbukkit.v1_16_R3.entity.CraftPlayer;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
+import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import skyblock.SkyblockMain;
+import skyblock.registries.ItemRegistry;
 
+import java.util.HashMap;
 import java.util.List;
 
-public class BiomeSticks {
+public class BiomeSticks implements Listener {
+    private static final HashMap<ItemRegistry.SkyblockItems, Biome> biomeMap = new HashMap<ItemRegistry.SkyblockItems, Biome>() {{
+        put(ItemRegistry.SkyblockItems.DESERT_BIOME_STICK, Biome.DESERT);
+        put(ItemRegistry.SkyblockItems.FOREST_BIOME_STICK, Biome.FOREST);
+        put(ItemRegistry.SkyblockItems.FLOWER_FOREST_BIOME_STICK, Biome.FLOWER_FOREST);
+        put(ItemRegistry.SkyblockItems.SWAMP_BIOME_STICK, Biome.SWAMP);
+    }};
+    @EventHandler
+    @SuppressWarnings("unused")
+    public void playerInteractEvent(PlayerInteractEvent event) {
+        ItemStack item = event.getItem();
+        if (item == null) {return;}
+
+        for (ItemRegistry.SkyblockItems skyblockItem : biomeMap.keySet()) {
+            if (ItemRegistry.isItemStackEqual(item, SkyblockMain.itemRegistry.getItemStack(skyblockItem))) {
+                if (event.getAction() == Action.LEFT_CLICK_AIR || event.getAction() == Action.LEFT_CLICK_BLOCK) {
+                    setSize(item);
+                } else if (event.getAction() == Action.RIGHT_CLICK_BLOCK || event.getAction() == Action.RIGHT_CLICK_AIR) {
+                    setBiome(event, item, biomeMap.get(skyblockItem));
+                }
+            }
+        }
+    }
+
     public static void setSize(ItemStack item) {
         ItemMeta itemMeta = item.getItemMeta();
         if (itemMeta == null) {return;}

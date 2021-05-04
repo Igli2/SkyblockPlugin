@@ -120,12 +120,21 @@ public class RecipeRegistry {
         RecipeRegistry.addShapedRecipe(Arrays.asList(new Ingredient(SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.MANIPULATION_GEM), 'G'), new Ingredient(Arrays.asList(new ItemStack(Material.OAK_SAPLING), new ItemStack(Material.BIRCH_SAPLING), new ItemStack(Material.ACACIA_SAPLING), new ItemStack(Material.DARK_OAK_SAPLING), new ItemStack(Material.JUNGLE_SAPLING), new ItemStack(Material.SPRUCE_SAPLING)), 64, 'S')),
                 SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.FOREST_BIOME_STICK),
                 new String[]{"S", "G", "S"});
+        RecipeRegistry.addShapedRecipe(Arrays.asList(new Ingredient(SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.MANIPULATION_GEM), 'G'), new Ingredient(Material.POPPY, 64, 'P'), new Ingredient(Material.DANDELION, 64, 'D')),
+                SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.FLOWER_FOREST_BIOME_STICK),
+                new String[]{"P", "D", "G"});
+        RecipeRegistry.addShapedRecipe(Arrays.asList(new Ingredient(SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.MANIPULATION_GEM), 'G'), new Ingredient(Material.SLIME_BLOCK, 64, 'S')),
+                SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.SWAMP_BIOME_STICK),
+                new String[]{"S", "G"});
         RecipeRegistry.addShapedRecipe(Arrays.asList(new Ingredient(Material.EMERALD_BLOCK, 'E'), new Ingredient(SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.GEODE), 'G')),
                 SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.EMERALD_STUDDED_GEODE),
                 new String[]{"EEE", "EGE", "EEE"});
         RecipeRegistry.addShapedRecipe(Arrays.asList(new Ingredient(Material.AIR, ' '), new Ingredient(Material.STICK, 'S'), new Ingredient(SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.EMERALD_STUDDED_GEODE), 'A')),
                 SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.JACKHAMMER),
                 new String[]{"AAA", " S ", " S "});
+        RecipeRegistry.addShapedRecipe(Arrays.asList(new Ingredient(Material.YELLOW_GLAZED_TERRACOTTA, 64, 'T'), new Ingredient(SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.SPOOL_OF_THREAD), 4, 'S'), new Ingredient(SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.APPLE_HARVESTER), 'A')),
+                SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.REINFORCED_APPLE_HARVESTER),
+                new String[]{"TST", "SAS", "TST"});
     }
 
     public static void registerVanillaRecipes() {

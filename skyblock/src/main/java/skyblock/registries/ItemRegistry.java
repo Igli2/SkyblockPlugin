@@ -26,6 +26,7 @@ public class ItemRegistry {
         CLOUD,
         DESERT_BIOME_STICK,
         EMERALD_STUDDED_GEODE,
+        FLOWER_FOREST_BIOME_STICK,
         FOREST_BIOME_STICK,
         FOSSILIZED_LOG,
         GEODE,
@@ -33,6 +34,7 @@ public class ItemRegistry {
         GUARDS_DEFENDER,
         JACKHAMMER,
         MANIPULATION_GEM,
+        REINFORCED_APPLE_HARVESTER,
         SHADOWSTEEL_INGOT,
         SHADOWSTEEL_HELMET,
         SHADOWSTEEL_CHESTPLATE,
@@ -47,6 +49,7 @@ public class ItemRegistry {
         SHINY_PEBBLE,
         SHADOW_WARRIOR_SPAWN_EGG,
         SUN_PEARL,
+        SWAMP_BIOME_STICK,
         THE_TRUNK,
         TORNADO,
         TREATED_WOOD,
@@ -282,6 +285,16 @@ public class ItemRegistry {
         setLore(forestBiomeStick, Arrays.asList("Size: 1 block", "Left click to change"));
         specialItems.put(SkyblockItems.FOREST_BIOME_STICK, forestBiomeStick);
 
+        ItemStack flowerForestBiomeStick = new ItemStack(Material.STICK);
+        setItemName(flowerForestBiomeStick, "Flower Forest Biome Stick");
+        setLore(flowerForestBiomeStick, Arrays.asList("Size: 1 block", "Left click to change"));
+        specialItems.put(SkyblockItems.FLOWER_FOREST_BIOME_STICK, flowerForestBiomeStick);
+
+        ItemStack swampBiomeStick = new ItemStack(Material.STICK);
+        setItemName(swampBiomeStick, "Swamp Biome Stick");
+        setLore(swampBiomeStick, Arrays.asList("Size: 1 block", "Left click to change"));
+        specialItems.put(SkyblockItems.SWAMP_BIOME_STICK, swampBiomeStick);
+
         ItemStack emeraldStuddedGeode = createTexturedSkull("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMjI4ZGQzZDliODFjYzlmOTZhNGMxMWZlMTNiMDc5NDk0ZjI3ZmM1YjkzM2M0ZjA4MzNmNjU2NDQ3MmVlMTYwOSJ9fX0=",
                 new int[]{3454335, -455689, 33333333, -1010110045});
         setItemName(emeraldStuddedGeode, "Emerald-Studded Geode");
@@ -292,6 +305,11 @@ public class ItemRegistry {
         makeUnbreakable(jackhammer);
         specialItems.put(SkyblockItems.JACKHAMMER, jackhammer);
         EnchantmentBase.customPickaxes.add(jackhammer);
+
+        ItemStack reinforcedAppleHarvester = new ItemStack(Material.GOLDEN_HOE);
+        setItemName(reinforcedAppleHarvester, "Reinforced Apple Harvester");
+        makeUnbreakable(reinforcedAppleHarvester);
+        specialItems.put(SkyblockItems.REINFORCED_APPLE_HARVESTER, reinforcedAppleHarvester);
     }
 
     public static void setLore(ItemStack itemStack, List<String> lore) {

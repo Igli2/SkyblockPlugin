@@ -15,7 +15,7 @@ public class Tornado implements Listener {
     @EventHandler
     @SuppressWarnings("unused")
     public void playerInteractEvent(PlayerInteractEvent event) {
-        if (event.getAction() == Action.RIGHT_CLICK_AIR) {
+        if (event.getAction() == Action.RIGHT_CLICK_AIR || event.getAction() == Action.RIGHT_CLICK_BLOCK) {
             if (ItemRegistry.isItemStackEqual(event.getItem(), SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.TORNADO))) {
                 for (Entity entity : event.getPlayer().getWorld().getNearbyEntities(event.getPlayer().getLocation(), 5, 5, 5)) {
                     if (entity.isOnGround() && !(entity.getEntityId() == event.getPlayer().getEntityId())) {
