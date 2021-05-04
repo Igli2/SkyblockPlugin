@@ -22,6 +22,7 @@ public class ItemRegistry {
     public enum  SkyblockItems {
         APPLE_HARVESTER,
         ARCHEOLOGISTS_PICKAXE,
+        AUTO_STRIPPER,
         CREEPER_WAND,
         CLOUD,
         DESERT_BIOME_STICK,
@@ -310,6 +311,11 @@ public class ItemRegistry {
         setItemName(reinforcedAppleHarvester, "Reinforced Apple Harvester");
         makeUnbreakable(reinforcedAppleHarvester);
         specialItems.put(SkyblockItems.REINFORCED_APPLE_HARVESTER, reinforcedAppleHarvester);
+
+        ItemStack autoStripper = new ItemStack(Material.DISPENSER);
+        setItemName(autoStripper, "Auto Stripper");
+        setLore(autoStripper, Arrays.asList("Single-use only", "Strips all logs in your inventory"));
+        specialItems.put(SkyblockItems.AUTO_STRIPPER, autoStripper);
     }
 
     public static void setLore(ItemStack itemStack, List<String> lore) {

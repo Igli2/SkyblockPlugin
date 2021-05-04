@@ -101,6 +101,7 @@ public class SkyblockMain extends JavaPlugin {
         this.getServer().getPluginManager().registerEvents(new Tornado(), this);
         this.getServer().getPluginManager().registerEvents(new BiomeSticks(), this);
         this.getServer().getPluginManager().registerEvents(new Jackhammer(), this);
+        this.getServer().getPluginManager().registerEvents(new AutoStripper(), this);
 
         // commands
         this.setCommandExecutors();

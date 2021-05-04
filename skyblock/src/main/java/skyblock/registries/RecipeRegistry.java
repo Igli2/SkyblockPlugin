@@ -135,6 +135,9 @@ public class RecipeRegistry {
         RecipeRegistry.addShapedRecipe(Arrays.asList(new Ingredient(Material.YELLOW_GLAZED_TERRACOTTA, 64, 'T'), new Ingredient(SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.SPOOL_OF_THREAD), 4, 'S'), new Ingredient(SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.APPLE_HARVESTER), 'A')),
                 SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.REINFORCED_APPLE_HARVESTER),
                 new String[]{"TST", "SAS", "TST"});
+        RecipeRegistry.addShapedRecipe(Arrays.asList(new Ingredient(Material.DISPENSER, 'D'), new Ingredient(Material.WOODEN_AXE, 'a'), new Ingredient(Material.STONE_AXE, 'b'), new Ingredient(Material.GOLDEN_AXE, 'c'), new Ingredient(Material.IRON_AXE, 'd'), new Ingredient(SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.TREATED_WOOD), 'T')),
+                SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.AUTO_STRIPPER),
+                new String[]{"TaT", "bDc", "TdT"});
     }
 
     public static void registerVanillaRecipes() {
