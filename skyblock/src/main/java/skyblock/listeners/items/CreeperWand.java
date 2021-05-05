@@ -16,7 +16,7 @@ public class CreeperWand implements Listener {
     @EventHandler
     public void playerInteractEvent(PlayerInteractEvent event) {
         ItemStack item = event.getItem();
-        if (item != null && ItemRegistry.isItemStackEqual(item, SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.CREEPER_WAND))) {
+        if (item != null && ItemRegistry.isItemStackEqual(item, SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.CREEPER_WAND)) && event.getPlayer().getCooldown(Material.BAMBOO) == 0) {
             if (event.getAction() == Action.RIGHT_CLICK_AIR || event.getAction() == Action.RIGHT_CLICK_BLOCK) {
                 if (!event.getPlayer().getInventory().contains(Material.GUNPOWDER)) {
                     return;
@@ -25,6 +25,7 @@ public class CreeperWand implements Listener {
                 if (target != null) {
                     event.getPlayer().getInventory().removeItem(new ItemStack(Material.GUNPOWDER));
                     target.getWorld().createExplosion(target.getLocation(), 1.5f, false, false);
+                    event.getPlayer().setCooldown(Material.BAMBOO, 8);
                 }
             }
         }
