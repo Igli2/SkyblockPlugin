@@ -7,10 +7,10 @@ import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.inventory.ItemStack;
 import skyblock.enchantments.EnchantmentBase;
 import skyblock.enchantments.EnchantmentRegistry;
-import skyblock.utils.ShadowWarriorBoss;
 
 public class EntityDamageByEntityListener implements Listener {
     @EventHandler
+    @SuppressWarnings("unused")
     public void entityDamageByEntityEvent(EntityDamageByEntityEvent event) {
         if (event.getEntity().getWorld().getName().equals("lobby")) {
             event.setCancelled(true);
@@ -25,10 +25,6 @@ public class EntityDamageByEntityListener implements Listener {
                     enchantment.onAttack(event, EnchantmentBase.getEnchantmentLevel(weapon, enchantment));
                 }
             }
-        }
-
-        if (event.getEntity().getCustomName() != null && event.getEntity().getCustomName().startsWith(ShadowWarriorBoss.getName())) {
-            ShadowWarriorBoss.updateEntity(event.getEntity(), event.getFinalDamage());
         }
     }
 }

@@ -8,7 +8,6 @@ import org.bukkit.inventory.ItemStack;
 import skyblock.enchantments.EnchantmentBase;
 import skyblock.enchantments.EnchantmentRegistry;
 import skyblock.registries.ItemRegistry;
-import skyblock.utils.ShadowWarriorBoss;
 
 import java.util.List;
 
@@ -23,14 +22,6 @@ public class EntityDeathListener implements Listener {
         }
 
         if (event.getEntity().getKiller() != null) {
-            // boss drops
-            String customName = event.getEntity().getCustomName();
-            if (customName != null && customName.startsWith(ShadowWarriorBoss.getName())) {
-                event.getDrops().clear();
-                event.getDrops().addAll(ShadowWarriorBoss.getDrops(getLootingLevel(event)));
-                event.setDroppedExp(250);
-            }
-
             // apply custom enchantments
             for (EnchantmentBase enchantment : EnchantmentRegistry.enchantments) {
                 ItemStack weapon = event.getEntity().getKiller().getInventory().getItemInMainHand();
