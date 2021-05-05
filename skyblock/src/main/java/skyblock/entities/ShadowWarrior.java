@@ -74,6 +74,13 @@ public class ShadowWarrior extends EntitySkeletonWither {
     }
 
     @Override
+    protected void dropDeathLoot(DamageSource damagesource, int i, boolean flag) {
+        ItemStack shadowSteelIngot = SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.SHADOWSTEEL_INGOT);
+        shadowSteelIngot.setAmount(1 + SkyblockMain.random.nextInt(3));
+        this.getBukkitEntity().getWorld().dropItemNaturally(this.getBukkitEntity().getLocation(), shadowSteelIngot);
+    }
+
+    @Override
     protected boolean damageEntity0(DamageSource damagesource, float f) {
         if(damagesource.isMagic()) return false;
 
