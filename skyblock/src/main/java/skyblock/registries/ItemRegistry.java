@@ -83,7 +83,6 @@ public class ItemRegistry {
         specialItems.put(SkyblockItems.SUGAR_CUBE, sugarCube);
 
         ItemStack speedyHelmet = new ItemStack(Material.LEATHER_HELMET);
-        addEnchantEffect(speedyHelmet);
         setArmorColor(speedyHelmet, 180, 220, 140);
         setItemName(speedyHelmet, "Speedy Helmet");
         setLore(speedyHelmet, Collections.singletonList(ChatColor.GOLD + "Gives you permanent speed"));
@@ -94,7 +93,6 @@ public class ItemRegistry {
         EnchantmentBase.customHelmets.add(speedyHelmet);
 
         ItemStack speedyChestplate = new ItemStack(Material.LEATHER_CHESTPLATE);
-        addEnchantEffect(speedyChestplate);
         setArmorColor(speedyChestplate, 180, 220, 140);
         setItemName(speedyChestplate, "Speedy Chestplate");
         setLore(speedyChestplate, Collections.singletonList(ChatColor.GOLD + "Gives you permanent speed"));
@@ -105,7 +103,6 @@ public class ItemRegistry {
         EnchantmentBase.customChestplates.add(speedyChestplate);
 
         ItemStack speedyLeggings = new ItemStack(Material.LEATHER_LEGGINGS);
-        addEnchantEffect(speedyLeggings);
         setArmorColor(speedyLeggings, 180, 220, 140);
         setItemName(speedyLeggings, "Speedy Leggings");
         setLore(speedyLeggings, Collections.singletonList(ChatColor.GOLD + "Gives you permanent speed"));
@@ -116,7 +113,6 @@ public class ItemRegistry {
         EnchantmentBase.customLeggings.add(speedyLeggings);
 
         ItemStack speedyBoots = new ItemStack(Material.LEATHER_BOOTS);
-        addEnchantEffect(speedyBoots);
         setArmorColor(speedyBoots, 180, 220, 140);
         setItemName(speedyBoots, "Speedy Boots");
         setLore(speedyBoots, Collections.singletonList(ChatColor.GOLD + "Gives you permanent speed"));
