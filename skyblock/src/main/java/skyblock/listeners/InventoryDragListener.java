@@ -22,7 +22,7 @@ public class InventoryDragListener implements Listener {
             }
             SkyblockMain.instance.getServer().getScheduler().scheduleSyncDelayedTask(SkyblockMain.instance, () -> CraftingTable.updateContents(event.getInventory()));
         } else if (event.getView().getTitle().equals("Anvil")) {
-            SkyblockMain.instance.getServer().getScheduler().scheduleSyncDelayedTask(SkyblockMain.instance, () -> Anvil.updateContents(event.getInventory()));
+            SkyblockMain.instance.getServer().getScheduler().scheduleSyncDelayedTask(SkyblockMain.instance, () -> Anvil.updateContents(event.getInventory(), event.getWhoClicked()));
         }
 
         //shop npc handling

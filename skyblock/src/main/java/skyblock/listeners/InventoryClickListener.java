@@ -36,7 +36,7 @@ public class InventoryClickListener implements Listener {
                 CraftingTable.onCraft(event.getInventory(), event.getWhoClicked(), event.isShiftClick());
             }
         } else if (event.getView().getTitle().equals("Anvil")) {
-            SkyblockMain.instance.getServer().getScheduler().scheduleSyncDelayedTask(SkyblockMain.instance, () -> Anvil.updateContents(event.getInventory()));
+            SkyblockMain.instance.getServer().getScheduler().scheduleSyncDelayedTask(SkyblockMain.instance, () -> Anvil.updateContents(event.getInventory(), event.getWhoClicked()));
 
             // make glass pane placeholders not obtainable
             for (int i : Anvil.GLASS_PANES) {
@@ -44,6 +44,10 @@ public class InventoryClickListener implements Listener {
                     event.setCancelled(true);
                     return;
                 }
+            }
+            if (event.getRawSlot() == Anvil.EXP) {
+                event.setCancelled(true);
+                return;
             }
 
             // craft the item if there is a valid recipe
