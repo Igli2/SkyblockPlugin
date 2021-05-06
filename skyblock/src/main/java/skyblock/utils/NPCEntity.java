@@ -51,6 +51,14 @@ public class NPCEntity {
         }
     }
 
+    public void hide(Player player) {
+        if(this.alive) {
+            PlayerConnection connection = ((CraftPlayer) player).getHandle().playerConnection;
+            connection.sendPacket(new PacketPlayOutPlayerInfo(PacketPlayOutPlayerInfo.EnumPlayerInfoAction.REMOVE_PLAYER, this.entity));
+            connection.sendPacket(new PacketPlayOutEntityDestroy(this.entity.getId()));
+        }
+    }
+
     public void kill() {
         if(this.alive) {
             this.alive = false;

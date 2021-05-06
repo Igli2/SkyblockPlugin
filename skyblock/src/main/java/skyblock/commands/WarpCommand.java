@@ -24,6 +24,7 @@ public class WarpCommand implements CommandExecutor {
                     player.setFallDistance(0);
                     player.teleport(new Location(Bukkit.getWorld("lobby"), 0.5, 110, 0.5));
                 } else if (strings[0].equals("skyblock") || strings[0].equals("sb") || strings[0].equals("island") || strings[0].equals("is") || strings[0].equals("home")) {
+                    SkyblockMain.npcRegistry.hideNPCs(player);
                     String worldName = player.getUniqueId().toString();
 
                     if(!SkyblockMain.worldRegistry.hasWorld(worldName)) {

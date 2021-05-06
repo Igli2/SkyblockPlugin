@@ -17,10 +17,26 @@ public class EntityDamageByEntityListener implements Listener {
             return;
         }
 
+        // disable players taking damage on other islands
+        if (event.getEntity() instanceof Player) {
+            Player player = (Player) event.getEntity();
+            if (!player.getWorld().getName().equals(player.getUniqueId().toString())) {
+                event.setCancelled(true);
+                return;
+            }
+        }
+
+        // disable players attacking entities on other islands
         if (event.getDamager() instanceof Player) {
+            Player player = (Player) event.getDamager();
+            if (!player.isOp() && !player.getWorld().getName().equals(player.getUniqueId().toString())) {
+                event.setCancelled(true);
+                return;
+            }
+
             // apply enchantments on weapons
             for (EnchantmentBase enchantment : EnchantmentRegistry.enchantments) {
-                ItemStack weapon = ((Player) event.getDamager()).getInventory().getItemInMainHand();
+                ItemStack weapon = player.getInventory().getItemInMainHand();
                 if (EnchantmentBase.hasEnchantment(weapon, enchantment)) {
                     enchantment.onAttack(event, EnchantmentBase.getEnchantmentLevel(weapon, enchantment));
                 }

@@ -22,3 +22,6 @@ commands:
   itembrowser:
     description: Open the item/recipe browser inventory
     usage: /<command>
+  visit:
+    description: Visit another players island
+    usage: /<command> <player>

@@ -220,11 +220,11 @@ public class ItemRegistry {
         setLore(creeperWand, Arrays.asList(ChatColor.RED + "Beware!", "Explosions are usually lethal!"));
         specialItems.put(SkyblockItems.CREEPER_WAND, creeperWand);
 
-        ItemStack treetopHelmet = createTexturedSkull("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvODM3NjVlOGNlMTFhZTZmMTMxYzcyNWMwN2Y1OGYyZDQxMzJkOTg0YWQ2NjM2MDM5YTdhMzZhM2M1MTI3MjEifX19",
+        ItemStack treetopHelmet = createTexturedSkull("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZjI0ODQ4OTI4NWVjOTM3MzVmMjNhOGYzNDU2OGFmMTIxMGU2YjViZDlmYjRlZjgwNzViY2Q5MjBiYTBkNTlmOCJ9fX0=",
                 new int[]{-25443534, 453453, 4647686, 1111});
         setItemName(treetopHelmet, "Treetop Helmet");
         setAttrModifier(treetopHelmet, Attribute.GENERIC_ARMOR, "generic.armor", 2.0, EquipmentSlot.HEAD);
-        setAttrModifier(treetopHelmet, Attribute.GENERIC_MOVEMENT_SPEED, "generic.movement_speed", -0.05, EquipmentSlot.HEAD);
+        setAttrModifier(treetopHelmet, Attribute.GENERIC_MOVEMENT_SPEED, "generic.movement_speed", -0.04, EquipmentSlot.HEAD);
         setAttrModifier(treetopHelmet, Attribute.GENERIC_MAX_HEALTH, "generic.max_health", 15.0, EquipmentSlot.HEAD);
         specialItems.put(SkyblockItems.TREETOP_HELMET, treetopHelmet);
 

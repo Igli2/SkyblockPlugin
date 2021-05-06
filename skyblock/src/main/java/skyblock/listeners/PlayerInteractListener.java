@@ -13,10 +13,18 @@ import skyblock.utils.CraftingTable;
 
 public class PlayerInteractListener implements Listener {
     @EventHandler
+    @SuppressWarnings("unused")
     public void playerInteractEvent(PlayerInteractEvent event) {
         if (!event.getPlayer().isOp() && !event.getPlayer().getWorld().getName().equals(event.getPlayer().getUniqueId().toString())) {
-            event.setCancelled(true);
-            return;
+            if (event.getAction() != Action.RIGHT_CLICK_AIR) {
+                event.setCancelled(true);
+                return;
+            } else {
+                 if (!(event.getItem() != null && event.getItem().getType().isEdible())) {
+                     event.setCancelled(true);
+                     return;
+                 }
+            }
         }
 
         // open own crafting menu, anvil

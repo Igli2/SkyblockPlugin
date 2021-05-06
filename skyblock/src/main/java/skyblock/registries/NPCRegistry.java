@@ -46,4 +46,12 @@ public class NPCRegistry {
             }
         }
     }
+
+    public void hideNPCs(Player player) {
+        for(NPCEntity npc : this.npcs.values()) {
+            if(npc.getEntity().getWorld().getWorld().getName().equals(player.getWorld().getName())) {
+                npc.hide(player);
+            }
+        }
+    }
 }

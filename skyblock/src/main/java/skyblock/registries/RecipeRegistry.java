@@ -84,9 +84,9 @@ public class RecipeRegistry {
         RecipeRegistry.addShapedRecipe(Arrays.asList(new Ingredient(SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.SHADOWSTEEL_INGOT), 'S'), new Ingredient(Material.AIR, ' ')),
                 SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.SHADOWSTEEL_BOOTS),
                 new String[]{"S S", "S S"});
-        RecipeRegistry.addShapedRecipe(Arrays.asList(new Ingredient(Material.EGG, 'E'), new Ingredient(Material.NETHER_BRICK, 16, 'N')),
+        RecipeRegistry.addShapedRecipe(Arrays.asList(new Ingredient(Material.EGG, 16, 'E'), new Ingredient(Material.NETHER_BRICK, 64, 'N'), new Ingredient(Material.NETHERITE_INGOT, 'I')),
                 SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.SHADOW_WARRIOR_SPAWN_EGG),
-                new String[]{"NNN", "NEN", "NNN"});
+                new String[]{"NEN", "EIE", "NEN"});
         RecipeRegistry.addShapedRecipe(Arrays.asList(new Ingredient(Material.BAMBOO, 'B'), new Ingredient(Material.TNT, 64, 'T')),
                 SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.CREEPER_WAND),
                 new String[]{"T", "T", "B"});

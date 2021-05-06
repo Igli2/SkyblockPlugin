@@ -92,6 +92,8 @@ public class SkyblockMain extends JavaPlugin {
         this.getServer().getPluginManager().registerEvents(new ItemBrowser(), this);
         this.getServer().getPluginManager().registerEvents(new PlayerBucketEmptyListener(), this);
         this.getServer().getPluginManager().registerEvents(new PlayerBucketFillListener(), this);
+        this.getServer().getPluginManager().registerEvents(new EntityPickupItemListener(), this);
+        this.getServer().getPluginManager().registerEvents(new EntityTargetListener(), this);
 
         this.getServer().getPluginManager().registerEvents(new Geode(), this);
         this.getServer().getPluginManager().registerEvents(new ArcheologistsPickaxe(), this);
@@ -184,6 +186,7 @@ public class SkyblockMain extends JavaPlugin {
         this.getCommand("structurizer").setExecutor(new StructurizerCommand());
         this.getCommand("sell").setExecutor(new SellCommand());
         this.getCommand("itembrowser").setExecutor(new ItemBrowser());
+        this.getCommand("visit").setExecutor(new VisitCommand());
     }
 
     @Override
