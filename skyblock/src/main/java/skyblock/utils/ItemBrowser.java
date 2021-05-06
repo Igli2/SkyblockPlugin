@@ -32,7 +32,7 @@ public class ItemBrowser implements Listener, CommandExecutor {
         put(ItemRegistry.SkyblockItems.APPLE_HARVESTER, Collections.singletonList("15% chance to drop apple from any leaves block"));
         put(ItemRegistry.SkyblockItems.CREEPER_WAND, Collections.singletonList("Consumes 1 gunpowder on use"));
         put(ItemRegistry.SkyblockItems.THE_TRUNK, Collections.singletonList("Apply slowness 2 on hit"));
-        put(ItemRegistry.SkyblockItems.TORNADO, Arrays.asList("Right click to use ability", "Launches all entities within 5 block radius", "into the air"));
+        put(ItemRegistry.SkyblockItems.TORNADO, Arrays.asList("Right click to use ability", "Launches all entities in front of", "you into the air"));
     }};
 
     static {

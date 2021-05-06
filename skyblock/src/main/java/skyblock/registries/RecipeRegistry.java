@@ -138,6 +138,18 @@ public class RecipeRegistry {
         RecipeRegistry.addShapedRecipe(Arrays.asList(new Ingredient(Material.DISPENSER, 'D'), new Ingredient(Material.WOODEN_AXE, 'a'), new Ingredient(Material.STONE_AXE, 'b'), new Ingredient(Material.GOLDEN_AXE, 'c'), new Ingredient(Material.IRON_AXE, 'd'), new Ingredient(SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.TREATED_WOOD), 'T')),
                 SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.AUTO_STRIPPER),
                 new String[]{"TaT", "bDc", "TdT"});
+        RecipeRegistry.addShapedRecipe(Arrays.asList(new Ingredient(Material.BONE, 64, 'B'), new Ingredient(Material.GREEN_DYE, 16, 'D'), new Ingredient(Material.SCUTE, 'S')),
+                SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.GREEN_SCALE),
+                new String[]{"BDB", "DSD", "BDB"});
+        RecipeRegistry.addShapedRecipe(Arrays.asList(new Ingredient(Material.BONE, 64, 'B'), new Ingredient(Material.LIGHT_BLUE_DYE, 16, 'D'), new Ingredient(Material.SCUTE, 'S')),
+                SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.BLUE_SCALE),
+                new String[]{"BDB", "DSD", "BDB"});
+        RecipeRegistry.addShapedRecipe(Arrays.asList(new Ingredient(Material.STRING, 64, 'S'), new Ingredient(Material.AIR, ' '), new Ingredient(Material.STICK, 's'), new Ingredient(Material.MUSHROOM_STEM, 'M')),
+                SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.WRAPPED_SWORD_GRIP),
+                new String[]{" M ", "SsS", " M "});
+        RecipeRegistry.addShapedRecipe(Arrays.asList(new Ingredient(Material.AIR, ' '), new Ingredient(SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.GREEN_SCALE), 'S'), new Ingredient(SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.WRAPPED_SWORD_GRIP), 'G')),
+                SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.GREEN_DRAGON_CRESCENT_BLADE),
+                new String[]{"  S", " S ", "G  "});
     }
 
     public static void registerVanillaRecipes() {

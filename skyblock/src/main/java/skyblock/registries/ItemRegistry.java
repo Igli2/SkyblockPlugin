@@ -23,6 +23,7 @@ public class ItemRegistry {
         APPLE_HARVESTER,
         ARCHEOLOGISTS_PICKAXE,
         AUTO_STRIPPER,
+        BLUE_SCALE,
         CREEPER_WAND,
         CLOUD,
         DESERT_BIOME_STICK,
@@ -32,6 +33,8 @@ public class ItemRegistry {
         FOSSILIZED_LOG,
         GEODE,
         GRAPPLING_HOOK,
+        GREEN_DRAGON_CRESCENT_BLADE,
+        GREEN_SCALE,
         GUARDS_DEFENDER,
         JACKHAMMER,
         MANIPULATION_GEM,
@@ -55,7 +58,8 @@ public class ItemRegistry {
         TORNADO,
         TREATED_WOOD,
         TREE_CAPITATOR,
-        TREETOP_HELMET
+        TREETOP_HELMET,
+        WRAPPED_SWORD_GRIP
     }
 
     public HashMap<SkyblockItems, ItemStack> specialItems = new HashMap<>();
@@ -252,7 +256,7 @@ public class ItemRegistry {
         setItemName(tornado, "Tornado");
         setLore(tornado, Collections.singletonList("The ultimate weapon of the gods"));
         setAttrModifier(tornado, Attribute.GENERIC_ATTACK_DAMAGE, "generic.attack_damage", 5, EquipmentSlot.HAND);
-        setAttrModifier(tornado, Attribute.GENERIC_ATTACK_SPEED, "generic.attack_speed", -0.5, EquipmentSlot.HAND);
+        setAttrModifier(tornado, Attribute.GENERIC_ATTACK_SPEED, "generic.attack_speed", -0.9, EquipmentSlot.HAND);
         makeUnbreakable(tornado);
         specialItems.put(SkyblockItems.TORNADO, tornado);
         EnchantmentBase.customSwords.add(tornado);
@@ -312,6 +316,31 @@ public class ItemRegistry {
         setItemName(autoStripper, "Auto Stripper");
         setLore(autoStripper, Arrays.asList("Single-use only", "Strips all logs in your inventory"));
         specialItems.put(SkyblockItems.AUTO_STRIPPER, autoStripper);
+
+        ItemStack greenScales = new ItemStack(Material.EMERALD);
+        setItemName(greenScales, "Green Scale");
+        addEnchantEffect(greenScales);
+        specialItems.put(SkyblockItems.GREEN_SCALE, greenScales);
+
+        ItemStack blueScales = new ItemStack(Material.DIAMOND);
+        setItemName(blueScales, "Blue Scale");
+        addEnchantEffect(blueScales);
+        specialItems.put(SkyblockItems.BLUE_SCALE, blueScales);
+
+        ItemStack wrappedSwordGrip = new ItemStack(Material.STICK);
+        setItemName(wrappedSwordGrip, "Wrapped Sword Grip");
+        setLore(wrappedSwordGrip, Collections.singletonList("Used in chinese sword crafting arts"));
+        addEnchantEffect(wrappedSwordGrip);
+        specialItems.put(SkyblockItems.WRAPPED_SWORD_GRIP, wrappedSwordGrip);
+
+        ItemStack greenDragonCrescentBlade = new ItemStack(Material.WOODEN_SWORD);
+        setItemName(greenDragonCrescentBlade, "Green Dragon Crescent Blade");
+        setLore(greenDragonCrescentBlade, Collections.singletonList("Guan Yu's legendary weapon"));
+        setAttrModifier(greenDragonCrescentBlade, Attribute.GENERIC_ATTACK_DAMAGE, "generic.attack_damage", 6, EquipmentSlot.HAND);
+        setAttrModifier(greenDragonCrescentBlade, Attribute.GENERIC_ATTACK_SPEED, "generic.attack_speed", -3.2, EquipmentSlot.HAND);
+        makeUnbreakable(greenDragonCrescentBlade);
+        specialItems.put(SkyblockItems.GREEN_DRAGON_CRESCENT_BLADE, greenDragonCrescentBlade);
+        EnchantmentBase.customSwords.add(greenDragonCrescentBlade);
     }
 
     public static void setLore(ItemStack itemStack, List<String> lore) {

@@ -5,7 +5,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.craftbukkit.v1_16_R3.CraftWorld;
 import org.bukkit.entity.Player;
-import skyblock.entities.ShadowWarrior;
+import skyblock.entities.Sunshir;
 
 import javax.annotation.Nonnull;
 
@@ -18,8 +18,11 @@ public class FakePlayerTestCommand implements CommandExecutor {
 
             //SpeedyCreeper speedyCreeper = new SpeedyCreeper(player.getLocation());
             //((CraftWorld)player.getWorld()).getHandle().addEntity(speedyCreeper);
-            ShadowWarrior shadowWarrior = new ShadowWarrior(player.getLocation());
-            ((CraftWorld)player.getWorld()).getHandle().addEntity(shadowWarrior);
+            //ShadowWarrior shadowWarrior = new ShadowWarrior(player.getLocation());
+            //((CraftWorld)player.getWorld()).getHandle().addEntity(shadowWarrior);
+
+            Sunshir sunshir = new Sunshir(player.getLocation());
+            ((CraftWorld)player.getWorld()).getHandle().addEntity(sunshir);
 
             return true;
         }
