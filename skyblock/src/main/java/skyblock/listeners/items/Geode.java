@@ -10,6 +10,7 @@ import skyblock.registries.ItemRegistry;
 
 public class Geode implements Listener {
     @EventHandler
+    @SuppressWarnings("unused")
     public void blockBreakEvent(BlockBreakEvent event) {
         if (!event.isCancelled()) {
             ItemStack itemHeld = event.getPlayer().getInventory().getItemInMainHand();
@@ -18,7 +19,7 @@ public class Geode implements Listener {
                     if (Math.random() > 0.995) {
                         ItemStack geode = SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.GEODE);
                         event.setDropItems(false);
-                        SkyblockMain.instance.getServer().getScheduler().scheduleSyncDelayedTask(SkyblockMain.instance, () -> event.getPlayer().getWorld().dropItem(event.getPlayer().getLocation().add(0.5, 0.5, 0.5), geode), 1);
+                        SkyblockMain.instance.getServer().getScheduler().scheduleSyncDelayedTask(SkyblockMain.instance, () -> event.getPlayer().getWorld().dropItem(event.getBlock().getLocation().add(0.5, 0.5, 0.5), geode), 1);
                     }
                 }
             }

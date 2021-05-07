@@ -143,17 +143,23 @@ public class CraftingTable {
     }
 
     private static void removeRecipeFromMatrix(ItemStack[][] matrix, ShapelessRecipe recipe) {
+        boolean[] removed = new boolean[9];
         List<List<ItemStack>> ingredients = recipe.getIngredients();
         for (List<ItemStack> possibilities : ingredients) {
             label: for (ItemStack ingredient : possibilities) {
                 // find itemstack in matrix and reduce amount
+                int row = 0;
                 for (ItemStack[] itemStacks : matrix) {
+                    int col = 0;
                     for (ItemStack itemStack : itemStacks) {
-                        if (ItemRegistry.isItemStackEqual(itemStack, ingredient) && ShapelessRecipe.isItem(itemStack)) {
+                        if (ItemRegistry.isItemStackEqual(itemStack, ingredient) && ShapelessRecipe.isItem(itemStack) && !removed[row * 3 + col]) {
                             itemStack.setAmount(itemStack.getAmount() - ingredient.getAmount());
+                            removed[row * 3 + col] = true;
                             break label;
                         }
+                        col += 1;
                     }
+                    row += 1;
                 }
             }
         }

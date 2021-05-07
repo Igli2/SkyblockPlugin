@@ -1,6 +1,7 @@
 package skyblock.commands;
 
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -21,6 +22,7 @@ public class VisitCommand implements CommandExecutor {
         }
 
         ((Player) commandSender).teleport(new Location(Bukkit.getWorld(player.getUniqueId().toString()), 9, 111, 8));
+        player.sendMessage(ChatColor.GREEN + commandSender.getName() + " is visiting you.");
         return true;
     }
 }
