@@ -13,6 +13,7 @@ import skyblock.SkyblockMain;
 import skyblock.registries.ItemRegistry;
 
 public class CreeperWand implements Listener {
+
     @EventHandler
     public void playerInteractEvent(PlayerInteractEvent event) {
         ItemStack item = event.getItem();

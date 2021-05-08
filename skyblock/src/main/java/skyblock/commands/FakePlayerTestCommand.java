@@ -5,7 +5,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.craftbukkit.v1_16_R3.CraftWorld;
 import org.bukkit.entity.Player;
-import skyblock.entities.Sunshir;
+import skyblock.entities.Minion;
 
 import javax.annotation.Nonnull;
 
@@ -16,8 +16,10 @@ public class FakePlayerTestCommand implements CommandExecutor {
         if(commandSender instanceof Player && commandSender.isOp()) {
             Player player = (Player) commandSender;
 
-            Sunshir sunshir = new Sunshir(player.getLocation());
-            ((CraftWorld)player.getWorld()).getHandle().addEntity(sunshir);
+           /* Sunshir sunshir = new Sunshir(player.getLocation());
+            ((CraftWorld)player.getWorld()).getHandle().addEntity(sunshir);*/
+            Minion minion = new Minion(player.getLocation());
+            ((CraftWorld)player.getWorld()).getHandle().addEntity(minion);
 
             return true;
         }
