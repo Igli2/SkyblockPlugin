@@ -10,22 +10,26 @@ import org.bukkit.boss.BarStyle;
 import org.bukkit.boss.BossBar;
 import org.bukkit.craftbukkit.v1_16_R3.CraftWorld;
 import org.bukkit.entity.Player;
-import org.bukkit.entity.Sheep;
+import org.bukkit.entity.Zombie;
+import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
 import skyblock.SkyblockMain;
 import skyblock.registries.ItemRegistry;
 
-public class Sunshir extends EntitySheep {
-    private BossBar bossBar;
+import javax.annotation.Nullable;
 
-    public Sunshir(EntityTypes<? extends EntitySheep> entitytypes, World world) {
+public class Sunshir extends EntityZombie {
+    private BossBar bossBar;
+    private SunshirSheep sheep;
+
+    public Sunshir(EntityTypes<? extends EntityZombie> entitytypes, World world) {
         super(entitytypes, world);
     }
 
     public Sunshir(Location location) {
-        super(EntityTypes.SHEEP, ((CraftWorld)location.getWorld()).getHandle());
+        super(EntityTypes.ZOMBIE, ((CraftWorld)location.getWorld()).getHandle());
 
         this.setPosition(location.getX(), location.getY(), location.getZ());
-        this.setNoAI(false);
 
         this.getAttributeInstance(GenericAttributes.MAX_HEALTH).setValue(80);
         this.setHealth(80);
@@ -36,30 +40,65 @@ public class Sunshir extends EntitySheep {
         this.bossBar.setProgress(1.0);
         this.bossBar.setVisible(true);
 
-        Sheep bukkitEntity = (Sheep) this.getBukkitEntity();
+        Zombie bukkitEntity = (Zombie) this.getBukkitEntity();
         bukkitEntity.setCanPickupItems(false);
+        bukkitEntity.setCustomName(ChatColor.AQUA + "Sunshir");
+        bukkitEntity.setCustomNameVisible(true);
+        bukkitEntity.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 1000000, 1, false, false));
+        bukkitEntity.setInvisible(true);
 
         for(Player player : Bukkit.getOnlinePlayers()) {
             this.bossBar.addPlayer(player);
         }
 
-        this.getBukkitEntity().setCustomName(ChatColor.AQUA + "Sunshir");
-        this.getBukkitEntity().setCustomNameVisible(true);
+        this.sheep = new SunshirSheep(EntityTypes.SHEEP, this.getWorld(), this);
+        this.world.addEntity(this.sheep);
+
     }
 
-    // TODO!!! attack player
-    /*@Override
-    protected void initPathfinder() {
-        //this.goalSelector.a(5, new PathfinderGoalRandomStrollLand(this, 1.0D));
-        //this.goalSelector.a(6, new PathfinderGoalLookAtPlayer(this, EntityHuman.class, 8.0F));
-        //this.goalSelector.a(6, new PathfinderGoalRandomLookaround(this));
-        //this.targetSelector.a(1, new PathfinderGoalHurtByTarget(this, new Class[0]));
-        //this.targetSelector.a(2, new PathfinderGoalNearestAttackableTarget(this, EntityHuman.class, true));
-    }*/
+    @Override
+    public boolean isFireProof() {
+        return true;
+    }
+
+    @Override
+    public void setOnFire(int i) {
+    }
+
+    @Override
+    public void setOnFire(int i, boolean callEvent) {
+    }
+
+    @Nullable
+    @Override
+    public EntityItem a(IMaterial imaterial) {
+        return null;
+    }
+
+    @Nullable
+    @Override
+    public EntityItem a(IMaterial imaterial, int i) {
+        return null;
+    }
+
+    @Nullable
+    @Override
+    public EntityItem a(ItemStack itemstack) {
+        return null;
+    }
+
+    @Nullable
+    @Override
+    public EntityItem a(ItemStack itemstack, float f) {
+        return null;
+    }
 
     @Override
     protected void dropDeathLoot(DamageSource damagesource, int i, boolean flag) {
-        if (Math.random() < 0.2) {
+    }
+
+    protected void dropDeathLoot() {
+        if (Math.random() < 0.05) {
             org.bukkit.inventory.ItemStack sunPearl = SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.SUN_PEARL);
             this.getBukkitEntity().getWorld().dropItemNaturally(this.getBukkitEntity().getLocation(), sunPearl);
         }
@@ -75,11 +114,14 @@ public class Sunshir extends EntitySheep {
     @Override
     public void tick() {
         super.tick();
+        this.sheep.teleport(this.getBukkitEntity());
     }
 
     @Override
     public void die() {
+        this.dropDeathLoot();
         super.die();
         this.bossBar.removeAll();
+        this.sheep.getBukkitEntity().remove();
     }
 }

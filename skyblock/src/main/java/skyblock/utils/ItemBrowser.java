@@ -23,9 +23,17 @@ import java.util.HashMap;
 import java.util.List;
 
 public class ItemBrowser implements Listener, CommandExecutor {
-    public static final int HOME_BUTTON = 49;
     public static final int INFO_SLOT = 25;
-    public static final ItemStack HOME_BUTTON_ITEM = ItemRegistry.createTexturedSkull("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYmQ2OWUwNmU1ZGFkZmQ4NGU1ZjNkMWMyMTA2M2YyNTUzYjJmYTk0NWVlMWQ0ZDcxNTJmZGM1NDI1YmMxMmE5In19fQ==", new int[]{3546554, -56354542, -564566, 111666666});
+    public static final int PAGE_INFO = 45;
+    public static final int PREVIOUS_BUTTON = 48;
+    public static final int HOME_BUTTON = 49;
+    public static final int NEXT_BUTTON = 50;
+
+    public static final ItemStack HOME_BUTTON_ITEM = ItemRegistry.createTexturedSkull("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMzM2ZmViZWNhN2M0ODhhNjY3MWRjMDcxNjU1ZGRlMmExYjY1YzNjY2IyMGI2ZThlYWY5YmZiMDhlNjRiODAifX19", new int[]{3546554, -56354542, -564566, 111666666});
+    public static final ItemStack NEXT_BUTTON_ITEM = ItemRegistry.createTexturedSkull("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMTliZjMyOTJlMTI2YTEwNWI1NGViYTcxM2FhMWIxNTJkNTQxYTFkODkzODgyOWM1NjM2NGQxNzhlZDIyYmYifX19", new int[]{3546554, -56354542, -564566, 111666667});
+    public static final ItemStack PREVIOUS_BUTTON_ITEM = ItemRegistry.createTexturedSkull("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYmQ2OWUwNmU1ZGFkZmQ4NGU1ZjNkMWMyMTA2M2YyNTUzYjJmYTk0NWVlMWQ0ZDcxNTJmZGM1NDI1YmMxMmE5In19fQ==", new int[]{3546554, -56354542, -564566, 111666668});
+    public static final ItemStack PAGE_INFO_ITEM = new ItemStack(Material.PAPER);
+
     public static final HashMap<ItemRegistry.SkyblockItems, List<String>> itemInfo = new HashMap<ItemRegistry.SkyblockItems, List<String>>() {{
         put(ItemRegistry.SkyblockItems.GEODE, Arrays.asList("1/200 chance to drop from stone or", "cobblestone when mined with a stone pickaxe"));
         put(ItemRegistry.SkyblockItems.ARCHEOLOGISTS_PICKAXE, Arrays.asList("Mine cobblestone or stone to get:", "Coal: 5%", "Iron ore: 2.5%", "Gold ore: 1%", "Lapis lazuli: 1%", "Redstone: 2%", "Diamond: 0.5%", "Emerald: 0.25%", "Ancient debris: 0.2%", "Nether quartz: 1.5%"));
@@ -33,6 +41,9 @@ public class ItemBrowser implements Listener, CommandExecutor {
         put(ItemRegistry.SkyblockItems.CREEPER_WAND, Collections.singletonList("Consumes 1 gunpowder on use"));
         put(ItemRegistry.SkyblockItems.THE_TRUNK, Collections.singletonList("Apply slowness 2 on hit"));
         put(ItemRegistry.SkyblockItems.TORNADO, Arrays.asList("Right click to use ability", "Launches all entities in front of", "you into the air"));
+        put(ItemRegistry.SkyblockItems.SHADOWSTEEL_INGOT, Arrays.asList("Drop from the shadow warrior boss", "1~3 ingots"));
+        put(ItemRegistry.SkyblockItems.JACKHAMMER, Arrays.asList("Mine cobblestone or stone to get:", "Sand: 10%", "Gravel: 10%"));
+        put(ItemRegistry.SkyblockItems.SUN_PEARL, Collections.singletonList("Rare drom from Sunshir (5%)"));
     }};
 
     static {
@@ -41,6 +52,24 @@ public class ItemBrowser implements Listener, CommandExecutor {
             itemMeta.setDisplayName("Home");
         }
         HOME_BUTTON_ITEM.setItemMeta(itemMeta);
+
+        itemMeta = NEXT_BUTTON_ITEM.getItemMeta();
+        if (itemMeta != null) {
+            itemMeta.setDisplayName("Next Page");
+        }
+        NEXT_BUTTON_ITEM.setItemMeta(itemMeta);
+
+        itemMeta = PREVIOUS_BUTTON_ITEM.getItemMeta();
+        if (itemMeta != null) {
+            itemMeta.setDisplayName("Previous Page");
+        }
+        PREVIOUS_BUTTON_ITEM.setItemMeta(itemMeta);
+
+        itemMeta = PAGE_INFO_ITEM.getItemMeta();
+        if (itemMeta != null) {
+            itemMeta.setDisplayName("0");
+        }
+        PAGE_INFO_ITEM.setItemMeta(itemMeta);
     }
 
     @EventHandler
@@ -71,13 +100,43 @@ public class ItemBrowser implements Listener, CommandExecutor {
                 Recipe recipe = getRecipe(item);
                 setItemInfo(event.getInventory(), recipe, item);
             } else {
-                // get page controls
+                // page controls
+                ItemStack next = event.getInventory().getItem(NEXT_BUTTON);
+                ItemStack previous = event.getInventory().getItem(PREVIOUS_BUTTON);
                 if (slot == HOME_BUTTON) {
                     setItemList(event.getInventory(), 0);
+                } else if (slot == NEXT_BUTTON && next != null && next.equals(NEXT_BUTTON_ITEM)) {
+                    int page = getCurrentPage(event.getInventory()) + 1;
+                    setItemList(event.getInventory(), page);
+                    setCurrentPage(event.getInventory(), page);
+                } else if (slot == PREVIOUS_BUTTON && previous != null && previous.equals(PREVIOUS_BUTTON_ITEM)) {
+                    int page = getCurrentPage(event.getInventory()) - 1;
+                    if (page >= 0) {
+                        setItemList(event.getInventory(), page);
+                        setCurrentPage(event.getInventory(), page);
+                    }
                 }
             }
             event.setCancelled(true);
         }
+    }
+
+    private void setCurrentPage(Inventory inventory, int page) {
+        ItemStack itemStack = inventory.getItem(PAGE_INFO);
+        if (itemStack == null) {return;}
+        ItemMeta itemMeta = itemStack.getItemMeta();
+        if (itemMeta == null) {return;}
+        itemMeta.setDisplayName(String.valueOf(page));
+        itemStack.setItemMeta(itemMeta);
+        inventory.setItem(PAGE_INFO, itemStack);
+    }
+
+    private int getCurrentPage(Inventory inventory) {
+        ItemStack itemStack = inventory.getItem(PAGE_INFO);
+        if (itemStack == null) {return 0;}
+        ItemMeta itemMeta = itemStack.getItemMeta();
+        if (itemMeta == null) {return 1;}
+        return Integer.parseInt(itemMeta.getDisplayName());
     }
 
     private boolean isItemInfo(ItemStack itemStack) {
@@ -183,13 +242,16 @@ public class ItemBrowser implements Listener, CommandExecutor {
             inventory.setItem(i, new ItemStack(Material.AIR));
         }
         inventory.setItem(HOME_BUTTON, HOME_BUTTON_ITEM);
+        inventory.setItem(NEXT_BUTTON, NEXT_BUTTON_ITEM);
+        inventory.setItem(PREVIOUS_BUTTON, PREVIOUS_BUTTON_ITEM);
+        inventory.setItem(PAGE_INFO, PAGE_INFO_ITEM);
 
         int skip = page * 45;
         int slot = 0;
         for (ItemRegistry.SkyblockItems item : ItemRegistry.SkyblockItems.values()) {
             if (skip > 0) {
                 skip -= 1;
-            } else {
+            } else if (slot < 45) {
                 inventory.setItem(slot, SkyblockMain.itemRegistry.getItemStack(item));
                 slot += 1;
             }

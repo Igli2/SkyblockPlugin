@@ -24,8 +24,10 @@ public class ItemRegistry {
         ARCHEOLOGISTS_PICKAXE,
         AUTO_STRIPPER,
         BLUE_SCALE,
+        BUG,
         CREEPER_WAND,
         CLOUD,
+        COCOA_PLANTING_GADGET,
         DESERT_BIOME_STICK,
         EMERALD_STUDDED_GEODE,
         FLOWER_FOREST_BIOME_STICK,
@@ -37,13 +39,17 @@ public class ItemRegistry {
         GREEN_SCALE,
         GUARDS_DEFENDER,
         JACKHAMMER,
+        JUNGLE_BIOME_STICK,
         MANIPULATION_GEM,
+        OCEAN_BIOME_STICK,
+        OCEAN_ESSENCE,
         REINFORCED_APPLE_HARVESTER,
         SHADOWSTEEL_INGOT,
         SHADOWSTEEL_HELMET,
         SHADOWSTEEL_CHESTPLATE,
         SHADOWSTEEL_LEGGINGS,
         SHADOWSTEEL_BOOTS,
+        SNOWY_TAIGA_BIOME_STICK,
         SUGAR_CUBE,
         SPEEDY_HELMET,
         SPEEDY_CHESTPLATE,
@@ -53,6 +59,7 @@ public class ItemRegistry {
         SHINY_PEBBLE,
         SHADOW_WARRIOR_SPAWN_EGG,
         SUN_PEARL,
+        SUNSHIR_SPAWN_EGG,
         SWAMP_BIOME_STICK,
         THE_TRUNK,
         TORNADO,
@@ -163,6 +170,7 @@ public class ItemRegistry {
         ItemStack spoolOfThread = createTexturedSkull("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNmI5YTRkZmNjNzE1M2MzMTc2ZGM4Y2YzODg4N2QyZDgzODU1NDVmYTRjNWY4YzJmZjEzZjlkNjllOThlOSJ9fX0=",
                 new int[]{-436457567, -3456763, -1, 349875349});
         setItemName(spoolOfThread, "Spool Of Thread");
+        setLore(spoolOfThread, Collections.singletonList("Crafting ingredient"));
         specialItems.put(SkyblockItems.SPOOL_OF_THREAD, spoolOfThread);
 
         ItemStack grapplingHook = new ItemStack(Material.FISHING_ROD);
@@ -296,6 +304,21 @@ public class ItemRegistry {
         setLore(swampBiomeStick, Arrays.asList("Size: 1 block", "Left click to change"));
         specialItems.put(SkyblockItems.SWAMP_BIOME_STICK, swampBiomeStick);
 
+        ItemStack oceanBiomeStick = new ItemStack(Material.STICK);
+        setItemName(oceanBiomeStick, "Ocean Biome Stick");
+        setLore(oceanBiomeStick, Arrays.asList("Size: 1 block", "Left click to change"));
+        specialItems.put(SkyblockItems.OCEAN_BIOME_STICK, oceanBiomeStick);
+
+        ItemStack snowyTaigaBiomeStick = new ItemStack(Material.STICK);
+        setItemName(snowyTaigaBiomeStick, "Snowy Taiga Biome Stick");
+        setLore(snowyTaigaBiomeStick, Arrays.asList("Size: 1 block", "Left click to change"));
+        specialItems.put(SkyblockItems.SNOWY_TAIGA_BIOME_STICK, snowyTaigaBiomeStick);
+
+        ItemStack jungleBiomeStick = new ItemStack(Material.STICK);
+        setItemName(jungleBiomeStick, "Jungle Biome Stick");
+        setLore(jungleBiomeStick, Arrays.asList("Size: 1 block", "Left click to change"));
+        specialItems.put(SkyblockItems.JUNGLE_BIOME_STICK, jungleBiomeStick);
+
         ItemStack emeraldStuddedGeode = createTexturedSkull("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMjI4ZGQzZDliODFjYzlmOTZhNGMxMWZlMTNiMDc5NDk0ZjI3ZmM1YjkzM2M0ZjA4MzNmNjU2NDQ3MmVlMTYwOSJ9fX0=",
                 new int[]{3454335, -455689, 33333333, -1010110045});
         setItemName(emeraldStuddedGeode, "Emerald-Studded Geode");
@@ -319,11 +342,13 @@ public class ItemRegistry {
 
         ItemStack greenScales = new ItemStack(Material.EMERALD);
         setItemName(greenScales, "Green Scale");
+        setLore(greenScales, Collections.singletonList("Crafting ingredient"));
         addEnchantEffect(greenScales);
         specialItems.put(SkyblockItems.GREEN_SCALE, greenScales);
 
         ItemStack blueScales = new ItemStack(Material.DIAMOND);
         setItemName(blueScales, "Blue Scale");
+        setLore(blueScales, Collections.singletonList("Crafting ingredient"));
         addEnchantEffect(blueScales);
         specialItems.put(SkyblockItems.BLUE_SCALE, blueScales);
 
@@ -341,6 +366,29 @@ public class ItemRegistry {
         makeUnbreakable(greenDragonCrescentBlade);
         specialItems.put(SkyblockItems.GREEN_DRAGON_CRESCENT_BLADE, greenDragonCrescentBlade);
         EnchantmentBase.customSwords.add(greenDragonCrescentBlade);
+
+        ItemStack bug = createTexturedSkull("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZjBmNDI4OGFlMDhhMzhkMmFiOWNmMzQzMTQxNjQ3ZTRmM2JlMTZjNWE5MjdlNzIyNGEzYjFkZWNhY2ZmMjU5In19fQ==",
+                new int[]{0, 0, 32574598, -101010101});
+        setItemName(bug, "Bug");
+        setLore(bug, Collections.singletonList("Reward for finding a severe bug"));
+        specialItems.put(SkyblockItems.BUG, bug);
+
+        ItemStack oceanEssence = new ItemStack(Material.BLUE_DYE);
+        setItemName(oceanEssence, "Ocean Essence");
+        setLore(oceanEssence, Collections.singletonList("Crafting ingredient"));
+        addEnchantEffect(oceanEssence);
+        specialItems.put(SkyblockItems.OCEAN_ESSENCE, oceanEssence);
+
+        ItemStack cocoaPlantingGadget = new ItemStack(Material.GOLDEN_HORSE_ARMOR);
+        setItemName(cocoaPlantingGadget, "Cocoa Planting Gadget");
+        setLore(cocoaPlantingGadget, Collections.singletonList("Right click to plant 3x3 area cocoa beans"));
+        addEnchantEffect(cocoaPlantingGadget);
+        specialItems.put(SkyblockItems.COCOA_PLANTING_GADGET, cocoaPlantingGadget);
+
+        ItemStack sunshirSpawnEgg = createTexturedSkull("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOWU1OWE4MjNkNTIzYTMyNDJjNWMzODNmYjU2YmEzNzMxNjM5NDIwMmVlYmJlZThlYmI1NGY2MmRjYmFmYjJhYSJ9fX0=",
+                new int[]{-3242354, 660113, 5612951, -49936});
+        setItemName(sunshirSpawnEgg, "Sunshir Spawn Egg");
+        specialItems.put(SkyblockItems.SUNSHIR_SPAWN_EGG, sunshirSpawnEgg);
     }
 
     public static void setLore(ItemStack itemStack, List<String> lore) {

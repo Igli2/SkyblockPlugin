@@ -9,6 +9,7 @@ import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.inventory.ItemStack;
 import skyblock.SkyblockMain;
 import skyblock.entities.ShadowWarrior;
+import skyblock.entities.Sunshir;
 import skyblock.registries.ItemRegistry;
 
 import java.util.HashMap;
@@ -29,6 +30,13 @@ public class BlockPlaceListener implements Listener {
             if (ItemRegistry.isItemStackEqual(event.getItemInHand(), SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.SHADOW_WARRIOR_SPAWN_EGG))) { // unplaceable spawn eggs...
                 ShadowWarrior shadowWarrior = new ShadowWarrior(event.getBlock().getLocation());
                 ((CraftWorld)event.getBlock().getWorld()).getHandle().addEntity(shadowWarrior);
+                ItemStack hand = event.getPlayer().getInventory().getItemInMainHand();
+                hand.setAmount(hand.getAmount() - 1);
+                event.getPlayer().getInventory().setItemInMainHand(hand);
+                event.setCancelled(true);
+            } else if (ItemRegistry.isItemStackEqual(event.getItemInHand(), SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.SUNSHIR_SPAWN_EGG))) {
+                Sunshir sunshir = new Sunshir(event.getBlock().getLocation());
+                ((CraftWorld)event.getBlock().getWorld()).getHandle().addEntity(sunshir);
                 ItemStack hand = event.getPlayer().getInventory().getItemInMainHand();
                 hand.setAmount(hand.getAmount() - 1);
                 event.getPlayer().getInventory().setItemInMainHand(hand);

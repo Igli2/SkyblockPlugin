@@ -23,7 +23,11 @@ public class BiomeSticks implements Listener {
         put(ItemRegistry.SkyblockItems.FOREST_BIOME_STICK, Biome.FOREST);
         put(ItemRegistry.SkyblockItems.FLOWER_FOREST_BIOME_STICK, Biome.FLOWER_FOREST);
         put(ItemRegistry.SkyblockItems.SWAMP_BIOME_STICK, Biome.SWAMP);
+        put(ItemRegistry.SkyblockItems.OCEAN_BIOME_STICK, Biome.OCEAN);
+        put(ItemRegistry.SkyblockItems.SNOWY_TAIGA_BIOME_STICK, Biome.SNOWY_TAIGA);
+        put(ItemRegistry.SkyblockItems.JUNGLE_BIOME_STICK, Biome.JUNGLE);
     }};
+
     @EventHandler
     @SuppressWarnings("unused")
     public void playerInteractEvent(PlayerInteractEvent event) {

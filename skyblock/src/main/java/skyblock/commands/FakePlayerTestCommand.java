@@ -16,11 +16,6 @@ public class FakePlayerTestCommand implements CommandExecutor {
         if(commandSender instanceof Player && commandSender.isOp()) {
             Player player = (Player) commandSender;
 
-            //SpeedyCreeper speedyCreeper = new SpeedyCreeper(player.getLocation());
-            //((CraftWorld)player.getWorld()).getHandle().addEntity(speedyCreeper);
-            //ShadowWarrior shadowWarrior = new ShadowWarrior(player.getLocation());
-            //((CraftWorld)player.getWorld()).getHandle().addEntity(shadowWarrior);
-
             Sunshir sunshir = new Sunshir(player.getLocation());
             ((CraftWorld)player.getWorld()).getHandle().addEntity(sunshir);
 

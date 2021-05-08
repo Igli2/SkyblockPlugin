@@ -9,7 +9,6 @@ import org.bukkit.craftbukkit.v1_16_R3.CraftWorld;
 
 
 public class ShadowWarriorMinion extends EntityBlaze {
-
     private ShadowWarrior owner;
 
     public ShadowWarriorMinion(EntityTypes<? extends EntityBlaze> entitytypes, World world, ShadowWarrior owner) {

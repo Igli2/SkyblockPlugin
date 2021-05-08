@@ -16,6 +16,8 @@ import org.bukkit.inventory.ItemStack;
 import skyblock.SkyblockMain;
 import skyblock.registries.ItemRegistry;
 
+import javax.annotation.Nullable;
+
 public class ShadowWarrior extends EntitySkeletonWither {
 
     private static final int MAX_MINIONS = 7;
@@ -35,10 +37,10 @@ public class ShadowWarrior extends EntitySkeletonWither {
         this.setPosition(location.getX(), location.getY(), location.getZ());
         this.setNoAI(false);
 
-        this.getAttributeInstance(GenericAttributes.MAX_HEALTH).setValue(100.0);
-        this.setHealth(100.0f);
+        this.getAttributeInstance(GenericAttributes.MAX_HEALTH).setValue(100);
+        this.setHealth(100);
 
-        this.getAttributeInstance(GenericAttributes.FOLLOW_RANGE).setValue(64.0);
+        this.getAttributeInstance(GenericAttributes.FOLLOW_RANGE).setValue(64);
 
         this.bossBar = Bukkit.createBossBar(ChatColor.DARK_PURPLE + "Shadow Warrior", BarColor.PURPLE, BarStyle.SOLID, BarFlag.DARKEN_SKY, BarFlag.CREATE_FOG, BarFlag.PLAY_BOSS_MUSIC);
         this.bossBar.setProgress(1.0);
@@ -64,12 +66,36 @@ public class ShadowWarrior extends EntitySkeletonWither {
         this.getBukkitEntity().setCustomNameVisible(true);
     }
 
+    @Nullable
+    @Override
+    public EntityItem a(IMaterial imaterial) {
+        return null;
+    }
+
+    @Nullable
+    @Override
+    public EntityItem a(IMaterial imaterial, int i) {
+        return null;
+    }
+
+    @Nullable
+    @Override
+    public EntityItem a(net.minecraft.server.v1_16_R3.ItemStack itemstack) {
+        return null;
+    }
+
+    @Nullable
+    @Override
+    public EntityItem a(net.minecraft.server.v1_16_R3.ItemStack itemstack, float f) {
+        return null;
+    }
+
     @Override
     protected void initPathfinder() {
         this.goalSelector.a(5, new PathfinderGoalRandomStrollLand(this, 1.0D));
         this.goalSelector.a(6, new PathfinderGoalLookAtPlayer(this, EntityHuman.class, 8.0F));
         this.goalSelector.a(6, new PathfinderGoalRandomLookaround(this));
-        this.targetSelector.a(1, new PathfinderGoalHurtByTarget(this, new Class[0]));
+        this.targetSelector.a(1, new PathfinderGoalHurtByTarget(this));
         this.targetSelector.a(2, new PathfinderGoalNearestAttackableTarget(this, EntityHuman.class, true));
     }
 
@@ -87,12 +113,6 @@ public class ShadowWarrior extends EntitySkeletonWither {
         if(this.minionCount == 0) {
             boolean result = super.damageEntity0(damagesource, f);
             this.bossBar.setProgress(this.getHealth() / this.getMaxHealth());
-
-           /* EntityEquipment equipment = ((WitherSkeleton)this.getBukkitEntity()).getEquipment();
-            if(equipment != null) {
-                equipment.setItemInMainHand(new ItemStack(org.bukkit.Material.BOW));
-            }*/
-
             return result;
         }
 
@@ -105,13 +125,14 @@ public class ShadowWarrior extends EntitySkeletonWither {
 
         if(this.getGoalTarget() != null) {
             EntityEquipment equipment = ((WitherSkeleton)this.getBukkitEntity()).getEquipment();
-            if(equipment != null && equipment.getItemInMainHand() != null) {
-                if(equipment.getItemInMainHand().getType() == org.bukkit.Material.BOW) {
-                    if(this.getGoalTarget().getBukkitEntity().getLocation().distance(this.getBukkitEntity().getLocation()) < 4.0) {
+            if(equipment != null) {
+                equipment.getItemInMainHand();
+                if (equipment.getItemInMainHand().getType() == org.bukkit.Material.BOW) {
+                    if (this.getGoalTarget().getBukkitEntity().getLocation().distance(this.getBukkitEntity().getLocation()) < 4.0) {
                         equipment.setItemInMainHand(new ItemStack(org.bukkit.Material.NETHERITE_SWORD));
                     }
-                } else if(equipment.getItemInMainHand().getType() == org.bukkit.Material.NETHERITE_SWORD) {
-                    if(this.getGoalTarget().getBukkitEntity().getLocation().distance(this.getBukkitEntity().getLocation()) > 5.0) {
+                } else if (equipment.getItemInMainHand().getType() == org.bukkit.Material.NETHERITE_SWORD) {
+                    if (this.getGoalTarget().getBukkitEntity().getLocation().distance(this.getBukkitEntity().getLocation()) > 5.0) {
                         equipment.setItemInMainHand(new ItemStack(org.bukkit.Material.BOW));
                     }
                 }
@@ -143,9 +164,9 @@ public class ShadowWarrior extends EntitySkeletonWither {
             Location minionPos = this.getBukkitEntity().getLocation().clone();
             minionPos.setX(minionPos.getBlockX() + offX);
             minionPos.setZ(minionPos.getZ() + offZ);
-            minionPos.setY(minionPos.getWorld().getHighestBlockYAt(minionPos.getBlockX(), minionPos.getBlockZ()) + 1);
-
-           // System.out.println(minionPos.toString());
+            if (minionPos.getWorld() != null) {
+                minionPos.setY(minionPos.getWorld().getHighestBlockYAt(minionPos.getBlockX(), minionPos.getBlockZ()) + 1);
+            }
 
             ShadowWarriorMinion minion = new ShadowWarriorMinion(minionPos, this);
 

@@ -150,6 +150,24 @@ public class RecipeRegistry {
         RecipeRegistry.addShapedRecipe(Arrays.asList(new Ingredient(Material.AIR, ' '), new Ingredient(SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.GREEN_SCALE), 'S'), new Ingredient(SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.WRAPPED_SWORD_GRIP), 'G')),
                 SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.GREEN_DRAGON_CRESCENT_BLADE),
                 new String[]{"  S", " S ", "G  "});
+        RecipeRegistry.addShapedRecipe(Arrays.asList(new Ingredient(Material.AIR, ' '), new Ingredient(Material.WATER_BUCKET, 'W'), new Ingredient(Material.EMERALD, 64, 'E'), new Ingredient(Material.KELP, 64, 'K')),
+                SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.OCEAN_ESSENCE),
+                new String[]{" K ", "EWE", " K "});
+        RecipeRegistry.addShapedRecipe(Arrays.asList(new Ingredient(SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.OCEAN_ESSENCE), 'E'), new Ingredient(SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.MANIPULATION_GEM), 'M')),
+                SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.OCEAN_BIOME_STICK),
+                new String[]{"E", "M"});
+        RecipeRegistry.addShapedRecipe(Arrays.asList(new Ingredient(Material.ICE, 64, 'I'), new Ingredient(SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.MANIPULATION_GEM), 'M')),
+                SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.SNOWY_TAIGA_BIOME_STICK),
+                new String[]{"I", "M"});
+        RecipeRegistry.addShapedRecipe(Arrays.asList(new Ingredient(Material.COCOA_BEANS, 64, 'C'), new Ingredient(Material.JUNGLE_SAPLING, 64, 'S'), new Ingredient(SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.MANIPULATION_GEM), 'M')),
+                SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.JUNGLE_BIOME_STICK),
+                new String[]{"C", "S", "M"});
+        RecipeRegistry.addShapedRecipe(Arrays.asList(new Ingredient(Material.AIR, ' '), new Ingredient(SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.TREATED_WOOD), 'T'), new Ingredient(SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.SHINY_PEBBLE), 'P'), new Ingredient(Material.GOLD_NUGGET, 'G')),
+                SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.COCOA_PLANTING_GADGET),
+                new String[]{"  P", " G ", "TT "});
+        RecipeRegistry.addShapedRecipe(Arrays.asList(new Ingredient(Material.EGG, 'E'), new Ingredient(Material.WHITE_WOOL, 'W')),
+                SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.SUNSHIR_SPAWN_EGG),
+                new String[]{"WWW", "WEW", "WWW"});
     }
 
     public static void registerVanillaRecipes() {
