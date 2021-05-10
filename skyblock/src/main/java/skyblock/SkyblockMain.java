@@ -95,6 +95,7 @@ public class SkyblockMain extends JavaPlugin {
         this.getServer().getPluginManager().registerEvents(new PlayerBucketFillListener(), this);
         this.getServer().getPluginManager().registerEvents(new EntityPickupItemListener(), this);
         this.getServer().getPluginManager().registerEvents(new EntityTargetListener(), this);
+        this.getServer().getPluginManager().registerEvents(new MinionListener(), this);
 
         this.getServer().getPluginManager().registerEvents(new IcicleListeners(), this);
 
