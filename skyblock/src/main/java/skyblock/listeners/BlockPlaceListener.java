@@ -8,8 +8,10 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.inventory.ItemStack;
 import skyblock.SkyblockMain;
+import skyblock.entities.Lutumite;
 import skyblock.entities.ShadowWarrior;
 import skyblock.entities.Sunshir;
+import skyblock.registries.EntityRegistry;
 import skyblock.registries.ItemRegistry;
 
 import java.util.HashMap;
@@ -28,15 +30,28 @@ public class BlockPlaceListener implements Listener {
         // save special blocks extra
         if (event.getItemInHand().getItemMeta() != null && event.getItemInHand().getItemMeta().hasDisplayName()) { // check if item is a custom item
             if (ItemRegistry.isItemStackEqual(event.getItemInHand(), SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.SHADOW_WARRIOR_SPAWN_EGG))) { // unplaceable spawn eggs...
-                ShadowWarrior shadowWarrior = new ShadowWarrior(event.getBlock().getLocation());
+                ShadowWarrior shadowWarrior = new ShadowWarrior(event.getBlock().getLocation().add(0.5, 0.5, 0.5));
                 ((CraftWorld)event.getBlock().getWorld()).getHandle().addEntity(shadowWarrior);
                 ItemStack hand = event.getPlayer().getInventory().getItemInMainHand();
                 hand.setAmount(hand.getAmount() - 1);
                 event.getPlayer().getInventory().setItemInMainHand(hand);
                 event.setCancelled(true);
             } else if (ItemRegistry.isItemStackEqual(event.getItemInHand(), SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.SUNSHIR_SPAWN_EGG))) {
-                Sunshir sunshir = new Sunshir(event.getBlock().getLocation());
+                Sunshir sunshir = new Sunshir(event.getBlock().getLocation().add(0.5, 0.5, 0.5));
                 ((CraftWorld)event.getBlock().getWorld()).getHandle().addEntity(sunshir);
+                ItemStack hand = event.getPlayer().getInventory().getItemInMainHand();
+                hand.setAmount(hand.getAmount() - 1);
+                event.getPlayer().getInventory().setItemInMainHand(hand);
+                event.setCancelled(true);
+            } else if (ItemRegistry.isItemStackEqual(event.getItemInHand(), SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.ICICLE_SPAWN_EGG))) {
+                EntityRegistry.spawnIcicle(event.getBlock().getLocation().add(0.5, 0, 0.5));
+                ItemStack hand = event.getPlayer().getInventory().getItemInMainHand();
+                hand.setAmount(hand.getAmount() - 1);
+                event.getPlayer().getInventory().setItemInMainHand(hand);
+                event.setCancelled(true);
+            } else if (ItemRegistry.isItemStackEqual(event.getItemInHand(), SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.LUTUMITE_SPAWN_EGG))) {
+                Lutumite lutumite = new Lutumite(event.getBlock().getLocation().add(0.5, 0.5, 0.5));
+                ((CraftWorld)event.getBlock().getWorld()).getHandle().addEntity(lutumite);
                 ItemStack hand = event.getPlayer().getInventory().getItemInMainHand();
                 hand.setAmount(hand.getAmount() - 1);
                 event.getPlayer().getInventory().setItemInMainHand(hand);

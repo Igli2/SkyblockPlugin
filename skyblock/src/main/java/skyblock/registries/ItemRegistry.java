@@ -38,8 +38,11 @@ public class ItemRegistry {
         GREEN_DRAGON_CRESCENT_BLADE,
         GREEN_SCALE,
         GUARDS_DEFENDER,
+        ICE_PEARL,
+        ICICLE_SPAWN_EGG,
         JACKHAMMER,
         JUNGLE_BIOME_STICK,
+        LUTUMITE_SPAWN_EGG,
         MANIPULATION_GEM,
         OCEAN_BIOME_STICK,
         OCEAN_ESSENCE,
@@ -274,6 +277,11 @@ public class ItemRegistry {
         addEnchantEffect(sunPearl);
         specialItems.put(SkyblockItems.SUN_PEARL, sunPearl);
 
+        ItemStack icePearl = new ItemStack(Material.SNOWBALL);
+        setItemName(icePearl, "Ice Pearl");
+        addEnchantEffect(icePearl);
+        specialItems.put(SkyblockItems.ICE_PEARL, icePearl);
+
         ItemStack cloud = createTexturedSkull("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNDY2YjEwYmY2ZWUyY2Q3ZTNhYzk2ZDk3NDllYTYxNmFhOWM3MzAzMGJkY2FlZmZhZWQyNDllNTVjODQ5OTRhYyJ9fX0=",
                 new int[]{-34345, 56900000, 4359211, 653299119});
         setItemName(cloud, "Cloud");
@@ -389,6 +397,16 @@ public class ItemRegistry {
                 new int[]{-3242354, 660113, 5612951, -49936});
         setItemName(sunshirSpawnEgg, "Sunshir Spawn Egg");
         specialItems.put(SkyblockItems.SUNSHIR_SPAWN_EGG, sunshirSpawnEgg);
+
+        ItemStack icicleSpawnEgg = createTexturedSkull("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNTkwYWExMzJiYzM3YzY1ZTY2NGFlMDMzNmUzNzYzMDRlZmFhNGQ0NTk0YjY3OGQ0ODkxYjMxOTZmOTRhMTRiZSJ9fX0=",
+                new int[]{660021, -8846611, -946710, 840174982});
+        setItemName(icicleSpawnEgg, "Icicle Spawn Egg");
+        specialItems.put(SkyblockItems.ICICLE_SPAWN_EGG, icicleSpawnEgg);
+
+        ItemStack lutumiteSpawnEgg = createTexturedSkull("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZDZkZmZhZmEwNmI2ZjExNmU0YzIwNjQ2OWIxNzlhMTRkNDU4MWY3ODRkMDAxOTc3ODVkY2UwOTk1NDUyYmUzNSJ9fX0=",
+                new int[]{660027, -8846616, -346710, 840174932});
+        setItemName(lutumiteSpawnEgg, "Lutumite Spawn Egg");
+        specialItems.put(SkyblockItems.LUTUMITE_SPAWN_EGG, lutumiteSpawnEgg);
     }
 
     public static void setLore(ItemStack itemStack, List<String> lore) {

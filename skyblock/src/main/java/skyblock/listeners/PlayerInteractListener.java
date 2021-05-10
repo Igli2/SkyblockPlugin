@@ -46,6 +46,8 @@ public class PlayerInteractListener implements Listener {
 
         if (ItemRegistry.isItemStackEqual(event.getItem(), SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.SUN_PEARL))) {
             event.setCancelled(true);
+        } else if (ItemRegistry.isItemStackEqual(event.getItem(), SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.ICE_PEARL))) {
+            event.setCancelled(true);
         }
     }
 }

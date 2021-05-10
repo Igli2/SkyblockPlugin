@@ -168,6 +168,12 @@ public class RecipeRegistry {
         RecipeRegistry.addShapedRecipe(Arrays.asList(new Ingredient(Material.EGG, 'E'), new Ingredient(Material.WHITE_WOOL, 'W')),
                 SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.SUNSHIR_SPAWN_EGG),
                 new String[]{"WWW", "WEW", "WWW"});
+        RecipeRegistry.addShapedRecipe(Arrays.asList(new Ingredient(Material.AIR, ' '), new Ingredient(Material.EGG, 'E'), new Ingredient(Material.WATER_BUCKET, 'W'), new Ingredient(Material.WHITE_DYE, 'D'), new Ingredient(Material.IRON_NUGGET, 'N'), new Ingredient(Material.GHAST_TEAR, 'G')),
+                SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.ICICLE_SPAWN_EGG),
+                new String[]{" N ", "DEG", " W "});
+        RecipeRegistry.addShapedRecipe(Arrays.asList(new Ingredient(Material.EGG, 'E'), new Ingredient(Material.SUGAR, 32, 'S'), new Ingredient(Material.STONE, 16, 's')),
+                SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.LUTUMITE_SPAWN_EGG),
+                new String[]{"SES", "sss"});
     }
 
     public static void registerVanillaRecipes() {

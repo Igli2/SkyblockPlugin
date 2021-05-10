@@ -41,9 +41,13 @@ public class ItemBrowser implements Listener, CommandExecutor {
         put(ItemRegistry.SkyblockItems.CREEPER_WAND, Collections.singletonList("Consumes 1 gunpowder on use"));
         put(ItemRegistry.SkyblockItems.THE_TRUNK, Collections.singletonList("Apply slowness 2 on hit"));
         put(ItemRegistry.SkyblockItems.TORNADO, Arrays.asList("Right click to use ability", "Launches all entities in front of", "you into the air"));
-        put(ItemRegistry.SkyblockItems.SHADOWSTEEL_INGOT, Arrays.asList("Drop from the shadow warrior boss", "1~3 ingots"));
+        put(ItemRegistry.SkyblockItems.SHADOWSTEEL_INGOT, Collections.singletonList("Shadow warrior drop"));
         put(ItemRegistry.SkyblockItems.JACKHAMMER, Arrays.asList("Mine cobblestone or stone to get:", "Sand: 10%", "Gravel: 10%"));
-        put(ItemRegistry.SkyblockItems.SUN_PEARL, Collections.singletonList("Rare drom from Sunshir (5%)"));
+        put(ItemRegistry.SkyblockItems.SUN_PEARL, Collections.singletonList("Rare Sunshir drop"));
+        put(ItemRegistry.SkyblockItems.SUNSHIR_SPAWN_EGG, Arrays.asList("Drops:", "5% sun pearl", "\"High on clouds\""));
+        put(ItemRegistry.SkyblockItems.SHADOW_WARRIOR_SPAWN_EGG, Arrays.asList("Drops:", "1~3 shadowsteel ingots"));
+        put(ItemRegistry.SkyblockItems.LUTUMITE_SPAWN_EGG, Arrays.asList("Drops:", "4~7 clay blocks"));
+        put(ItemRegistry.SkyblockItems.ICICLE_SPAWN_EGG, Arrays.asList("Drops:", "5~15 ice blocks", "5% ice pearl", "Ice drops use gaussian distribution!", "Can only be damaged with pickaxes"));
     }};
 
     static {
