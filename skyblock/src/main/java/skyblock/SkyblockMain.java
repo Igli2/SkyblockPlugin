@@ -6,19 +6,25 @@ import com.comphenix.protocol.events.PacketAdapter;
 import com.comphenix.protocol.events.PacketEvent;
 import com.comphenix.protocol.wrappers.EnumWrappers;
 import com.mojang.authlib.properties.Property;
+import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
+import org.bukkit.craftbukkit.v1_16_R3.entity.CraftEntity;
+import org.bukkit.entity.ArmorStand;
+import org.bukkit.entity.Entity;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import skyblock.commands.*;
 import skyblock.enchantments.EnchantmentRegistry;
+import skyblock.entities.Minion;
 import skyblock.listeners.*;
-import skyblock.listeners.entities.IcicleListeners;
+import skyblock.listeners.entities.IcicleListener;
+import skyblock.listeners.entities.MinionListener;
 import skyblock.listeners.items.*;
 import skyblock.registries.ItemRegistry;
 import skyblock.registries.NPCRegistry;
@@ -95,9 +101,9 @@ public class SkyblockMain extends JavaPlugin {
         this.getServer().getPluginManager().registerEvents(new PlayerBucketFillListener(), this);
         this.getServer().getPluginManager().registerEvents(new EntityPickupItemListener(), this);
         this.getServer().getPluginManager().registerEvents(new EntityTargetListener(), this);
-        this.getServer().getPluginManager().registerEvents(new MinionListener(), this);
 
-        this.getServer().getPluginManager().registerEvents(new IcicleListeners(), this);
+        this.getServer().getPluginManager().registerEvents(new IcicleListener(), this);
+        this.getServer().getPluginManager().registerEvents(new MinionListener(), this);
 
         this.getServer().getPluginManager().registerEvents(new Geode(), this);
         this.getServer().getPluginManager().registerEvents(new ArcheologistsPickaxe(), this);
@@ -134,6 +140,19 @@ public class SkyblockMain extends JavaPlugin {
         RecipeRegistry.registerCustomRecipes();
         RecipeRegistry.registerVanillaRecipes();
         EnchantmentRegistry.registerAllEnchantments();
+
+        Bukkit.getScheduler().runTaskLater(SkyblockMain.instance, new Runnable() {
+            @Override
+            public void run() {
+                for(World w : Bukkit.getWorlds()) {
+                    for(Entity e : w.getEntities()) {
+                        if(e instanceof ArmorStand && !(((CraftEntity) e).getHandle() instanceof Minion)) {
+                            Minion.replaceArmorStand((ArmorStand) e);
+                        }
+                    }
+                }
+            }
+        }, 20);
     }
 
     private void loadNpcs(JSONParser parser) {

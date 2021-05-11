@@ -6,12 +6,15 @@ import net.minecraft.server.v1_16_R3.World;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
+import org.bukkit.NamespacedKey;
 import org.bukkit.craftbukkit.v1_16_R3.CraftWorld;
 import org.bukkit.entity.ArmorStand;
 import org.bukkit.inventory.EntityEquipment;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.InventoryHolder;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.persistence.PersistentDataType;
+import skyblock.SkyblockMain;
 
 public class Minion extends EntityArmorStand implements InventoryHolder {
 
@@ -20,6 +23,7 @@ public class Minion extends EntityArmorStand implements InventoryHolder {
     public Minion(EntityTypes<? extends EntityArmorStand> entitytypes, World world) {
         super(entitytypes, world);
         this.program = Bukkit.createInventory(this, 9 * 5, "Program");
+        this.getBukkitEntity().getPersistentDataContainer().set(new NamespacedKey(SkyblockMain.instance, "isMinion"), PersistentDataType.INTEGER, 1);
     }
 
     public Minion(Location location) {
@@ -29,6 +33,7 @@ public class Minion extends EntityArmorStand implements InventoryHolder {
         this.setPosition(location.getX(), location.getY(), location.getZ());
 
         this.setInvulnerable(true);
+        this.getBukkitEntity().getPersistentDataContainer().set(new NamespacedKey(SkyblockMain.instance, "isMinion"), PersistentDataType.INTEGER, 1);
 
         ArmorStand bukkitEntity = (ArmorStand)this.getBukkitEntity();
 
@@ -56,5 +61,17 @@ public class Minion extends EntityArmorStand implements InventoryHolder {
 
     public void updateProgram() {
         Bukkit.broadcastMessage(ChatColor.GREEN + "Program successfully updated!");
+    }
+
+    public static boolean replaceArmorStand(ArmorStand armorStand) {
+        if(armorStand.getPersistentDataContainer().has(new NamespacedKey(SkyblockMain.instance, "isMinion"), PersistentDataType.INTEGER) && armorStand.getPersistentDataContainer().get(new NamespacedKey(SkyblockMain.instance, "isMinion"), PersistentDataType.INTEGER) == 1) {
+            armorStand.remove();
+            Minion minion = new Minion(armorStand.getLocation());
+            ((CraftWorld)armorStand.getWorld()).getHandle().addEntity(minion);
+
+            return true;
+        }
+
+        return false;
     }
 }

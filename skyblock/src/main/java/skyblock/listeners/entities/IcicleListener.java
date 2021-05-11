@@ -9,7 +9,7 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import skyblock.entities.Icicle;
 import skyblock.registries.EntityRegistry;
 
-public class IcicleListeners implements Listener {
+public class IcicleListener implements Listener {
     @EventHandler
     @SuppressWarnings("unused")
     public void playerDeathEvent(PlayerDeathEvent event) {
