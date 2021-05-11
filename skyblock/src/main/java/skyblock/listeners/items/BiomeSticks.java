@@ -31,6 +31,8 @@ public class BiomeSticks implements Listener {
     @EventHandler
     @SuppressWarnings("unused")
     public void playerInteractEvent(PlayerInteractEvent event) {
+        if (event.isCancelled()) {return;}
+
         ItemStack item = event.getItem();
         if (item == null) {return;}
 

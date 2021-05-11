@@ -2,6 +2,7 @@ package skyblock.listeners;
 
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.inventory.ItemStack;
@@ -9,7 +10,7 @@ import skyblock.enchantments.EnchantmentBase;
 import skyblock.enchantments.EnchantmentRegistry;
 
 public class EntityDamageByEntityListener implements Listener {
-    @EventHandler
+    @EventHandler(priority = EventPriority.HIGHEST)
     @SuppressWarnings("unused")
     public void entityDamageByEntityEvent(EntityDamageByEntityEvent event) {
         if (event.getEntity().getWorld().getName().equals("lobby")) {

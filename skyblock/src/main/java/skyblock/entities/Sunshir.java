@@ -31,8 +31,9 @@ public class Sunshir extends EntityZombie {
 
         this.setPosition(location.getX(), location.getY(), location.getZ());
 
-        this.getAttributeInstance(GenericAttributes.MAX_HEALTH).setValue(80);
-        this.setHealth(80);
+        this.getAttributeInstance(GenericAttributes.ATTACK_DAMAGE).setValue(6);
+        this.getAttributeInstance(GenericAttributes.MAX_HEALTH).setValue(120);
+        this.setHealth(120);
 
         this.getAttributeInstance(GenericAttributes.FOLLOW_RANGE).setValue(32);
 

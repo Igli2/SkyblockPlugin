@@ -3,6 +3,7 @@ package skyblock.listeners;
 import org.bukkit.GameMode;
 import org.bukkit.Location;
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.inventory.ItemStack;
@@ -10,7 +11,7 @@ import skyblock.enchantments.EnchantmentBase;
 import skyblock.enchantments.EnchantmentRegistry;
 
 public class BlockBreakListener implements Listener {
-    @EventHandler
+    @EventHandler(priority = EventPriority.HIGHEST)
     @SuppressWarnings("unused")
     public void blockBreakEvent(BlockBreakEvent event) {
         if (!event.getPlayer().isOp() && !event.getPlayer().getWorld().getName().equals(event.getPlayer().getUniqueId().toString())) {

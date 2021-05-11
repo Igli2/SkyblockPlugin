@@ -6,6 +6,7 @@ import org.bukkit.craftbukkit.v1_16_R3.CraftWorld;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockPlaceEvent;
+import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
 import skyblock.SkyblockMain;
 import skyblock.entities.Lutumite;
@@ -32,29 +33,21 @@ public class BlockPlaceListener implements Listener {
             if (ItemRegistry.isItemStackEqual(event.getItemInHand(), SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.SHADOW_WARRIOR_SPAWN_EGG))) { // unplaceable spawn eggs...
                 ShadowWarrior shadowWarrior = new ShadowWarrior(event.getBlock().getLocation().add(0.5, 0.5, 0.5));
                 ((CraftWorld)event.getBlock().getWorld()).getHandle().addEntity(shadowWarrior);
-                ItemStack hand = event.getPlayer().getInventory().getItemInMainHand();
-                hand.setAmount(hand.getAmount() - 1);
-                event.getPlayer().getInventory().setItemInMainHand(hand);
+                removeItem(event);
                 event.setCancelled(true);
             } else if (ItemRegistry.isItemStackEqual(event.getItemInHand(), SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.SUNSHIR_SPAWN_EGG))) {
                 Sunshir sunshir = new Sunshir(event.getBlock().getLocation().add(0.5, 0.5, 0.5));
                 ((CraftWorld)event.getBlock().getWorld()).getHandle().addEntity(sunshir);
-                ItemStack hand = event.getPlayer().getInventory().getItemInMainHand();
-                hand.setAmount(hand.getAmount() - 1);
-                event.getPlayer().getInventory().setItemInMainHand(hand);
+                removeItem(event);
                 event.setCancelled(true);
             } else if (ItemRegistry.isItemStackEqual(event.getItemInHand(), SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.ICICLE_SPAWN_EGG))) {
                 EntityRegistry.spawnIcicle(event.getBlock().getLocation().add(0.5, 0, 0.5));
-                ItemStack hand = event.getPlayer().getInventory().getItemInMainHand();
-                hand.setAmount(hand.getAmount() - 1);
-                event.getPlayer().getInventory().setItemInMainHand(hand);
+                removeItem(event);
                 event.setCancelled(true);
             } else if (ItemRegistry.isItemStackEqual(event.getItemInHand(), SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.LUTUMITE_SPAWN_EGG))) {
                 Lutumite lutumite = new Lutumite(event.getBlock().getLocation().add(0.5, 0.5, 0.5));
                 ((CraftWorld)event.getBlock().getWorld()).getHandle().addEntity(lutumite);
-                ItemStack hand = event.getPlayer().getInventory().getItemInMainHand();
-                hand.setAmount(hand.getAmount() - 1);
-                event.getPlayer().getInventory().setItemInMainHand(hand);
+                removeItem(event);
                 event.setCancelled(true);
             } else if (event.getItemInHand().getType() == Material.PLAYER_HEAD) { // check if placing it makes sence
                 ItemStack placed = event.getItemInHand().clone();
@@ -63,6 +56,18 @@ public class BlockPlaceListener implements Listener {
             } else {
                 event.setCancelled(true);
             }
+        }
+    }
+
+    private void removeItem(BlockPlaceEvent event) {
+        if (event.getHand() == EquipmentSlot.HAND) {
+            ItemStack item = event.getPlayer().getInventory().getItemInMainHand();
+            item.setAmount(item.getAmount() - 1);
+            event.getPlayer().getInventory().setItemInMainHand(item);
+        } else if (event.getHand() == EquipmentSlot.OFF_HAND) {
+            ItemStack item = event.getPlayer().getInventory().getItemInOffHand();
+            item.setAmount(item.getAmount() - 1);
+            event.getPlayer().getInventory().setItemInOffHand(item);
         }
     }
 }

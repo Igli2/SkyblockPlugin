@@ -16,6 +16,8 @@ public class CreeperWand implements Listener {
 
     @EventHandler
     public void playerInteractEvent(PlayerInteractEvent event) {
+        if (event.isCancelled()) {return;}
+
         ItemStack item = event.getItem();
         if (item != null && ItemRegistry.isItemStackEqual(item, SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.CREEPER_WAND)) && event.getPlayer().getCooldown(Material.BAMBOO) == 0) {
             if (event.getAction() == Action.RIGHT_CLICK_AIR || event.getAction() == Action.RIGHT_CLICK_BLOCK) {
