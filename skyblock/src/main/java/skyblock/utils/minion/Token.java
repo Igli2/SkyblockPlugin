@@ -15,6 +15,7 @@ public class Token {
         PAR_OPEN,
         PAR_CLOSE,
         INT,
+        NOT,
         SEPERATOR,
         EOF,
         UNDEFINED

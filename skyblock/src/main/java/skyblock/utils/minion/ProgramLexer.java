@@ -26,6 +26,9 @@ public class ProgramLexer {
         if(this.curr() == ';') {
             this.next();
             return new Token(Token.TokenType.SEPERATOR, l, c, ";");
+        } else if(this.curr() == '!') {
+            this.next();
+            return new Token(Token.TokenType.NOT, l, c, "!");
         } else if(this.curr() == '{') {
             this.next();
             return new Token(Token.TokenType.PAR_OPEN, l, c, "{");
