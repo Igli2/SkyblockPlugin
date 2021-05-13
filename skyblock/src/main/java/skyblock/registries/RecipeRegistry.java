@@ -174,6 +174,12 @@ public class RecipeRegistry {
         RecipeRegistry.addShapedRecipe(Arrays.asList(new Ingredient(Material.EGG, 'E'), new Ingredient(Material.SUGAR, 32, 'S'), new Ingredient(Material.STONE, 16, 's')),
                 SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.LUTUMITE_SPAWN_EGG),
                 new String[]{"SES", "sss"});
+        RecipeRegistry.addShapedRecipe(Arrays.asList(new Ingredient(Material.AIR, ' '), new Ingredient(Material.BLAZE_ROD, 16, 'B'), new Ingredient(Material.GUNPOWDER, 64, 'G'), new Ingredient(Material.LAVA_BUCKET, 'L')),
+                SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.ESSENCE_OF_FIRE),
+                new String[]{" B ", "BGB", " L "});
+        RecipeRegistry.addShapedRecipe(Arrays.asList(new Ingredient(Material.AIR, ' '), new Ingredient(Material.GOLD_INGOT, 'a'), new Ingredient(Material.NETHERITE_INGOT, 'b'), new Ingredient(Material.IRON_INGOT, 'c'), new Ingredient(SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.SHADOWSTEEL_INGOT), 'd'), new Ingredient(SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.BRONZE_INGOT), 'e'), new Ingredient(SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.WRAPPED_SWORD_GRIP), 'G'), new Ingredient(SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.ESSENCE_OF_FIRE), 'E')),
+                SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.ZHANLU),
+                new String[]{" bd", "aEc", "Ge "});
     }
 
     public static void registerVanillaRecipes() {

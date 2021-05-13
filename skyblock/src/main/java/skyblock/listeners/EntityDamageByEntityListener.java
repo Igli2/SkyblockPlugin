@@ -10,7 +10,7 @@ import skyblock.enchantments.EnchantmentBase;
 import skyblock.enchantments.EnchantmentRegistry;
 
 public class EntityDamageByEntityListener implements Listener {
-    @EventHandler(priority = EventPriority.HIGHEST)
+    @EventHandler(priority = EventPriority.LOWEST)
     @SuppressWarnings("unused")
     public void entityDamageByEntityEvent(EntityDamageByEntityEvent event) {
         if (event.getEntity().getWorld().getName().equals("lobby")) {

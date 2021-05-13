@@ -24,12 +24,14 @@ public class ItemRegistry {
         ARCHEOLOGISTS_PICKAXE,
         AUTO_STRIPPER,
         BLUE_SCALE,
+        BRONZE_INGOT,
         BUG,
         CREEPER_WAND,
         CLOUD,
         COCOA_PLANTING_GADGET,
         DESERT_BIOME_STICK,
         EMERALD_STUDDED_GEODE,
+        ESSENCE_OF_FIRE,
         FLOWER_FOREST_BIOME_STICK,
         FOREST_BIOME_STICK,
         FOSSILIZED_LOG,
@@ -69,7 +71,8 @@ public class ItemRegistry {
         TREATED_WOOD,
         TREE_CAPITATOR,
         TREETOP_HELMET,
-        WRAPPED_SWORD_GRIP
+        WRAPPED_SWORD_GRIP,
+        ZHANLU
     }
 
     public HashMap<SkyblockItems, ItemStack> specialItems = new HashMap<>();
@@ -407,6 +410,25 @@ public class ItemRegistry {
                 new int[]{660027, -8846616, -346710, 840174932});
         setItemName(lutumiteSpawnEgg, "Lutumite Spawn Egg");
         specialItems.put(SkyblockItems.LUTUMITE_SPAWN_EGG, lutumiteSpawnEgg);
+
+        ItemStack bronzeIngot = new ItemStack(Material.BRICK);
+        setItemName(bronzeIngot, "Bronze Ingot");
+        addEnchantEffect(bronzeIngot);
+        specialItems.put(SkyblockItems.BRONZE_INGOT, bronzeIngot);
+
+        ItemStack essenceOfFire = new ItemStack(Material.BLAZE_POWDER);
+        setItemName(essenceOfFire, "Essence Of Fire");
+        addEnchantEffect(essenceOfFire);
+        specialItems.put(SkyblockItems.ESSENCE_OF_FIRE, essenceOfFire);
+
+        ItemStack zhanlu = new ItemStack(Material.NETHERITE_SWORD);
+        setItemName(zhanlu, "Zhanlu");
+        setLore(zhanlu, Collections.singletonList("\"Better a diamond with a flaw than a pebble without.\" - Confucius"));
+        setAttrModifier(zhanlu, Attribute.GENERIC_ATTACK_DAMAGE, "generic.attack_damage", 10, EquipmentSlot.HAND);
+        setAttrModifier(zhanlu, Attribute.GENERIC_ATTACK_SPEED, "generic.attack_speed", -2.7, EquipmentSlot.HAND);
+        makeUnbreakable(zhanlu);
+        specialItems.put(SkyblockItems.ZHANLU, zhanlu);
+        EnchantmentBase.customSwords.add(zhanlu);
     }
 
     public static void setLore(ItemStack itemStack, List<String> lore) {

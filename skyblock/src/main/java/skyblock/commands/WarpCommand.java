@@ -27,7 +27,7 @@ public class WarpCommand implements CommandExecutor {
                     SkyblockMain.npcRegistry.hideNPCs(player);
                     String worldName = player.getUniqueId().toString();
 
-                    if(!SkyblockMain.worldRegistry.hasWorld(worldName)) {
+                    if (!SkyblockMain.worldRegistry.hasWorld(worldName)) {
                         WorldCreator wc = new WorldCreator(worldName);
                         wc.generator(new SkyblockChunkGenerator());
                         Bukkit.createWorld(wc);
@@ -42,7 +42,8 @@ public class WarpCommand implements CommandExecutor {
                 }
                 return true;
             } else {
-                player.sendMessage(ChatColor.RED + "/warp <world_name>");
+                player.sendMessage("/warp <lobby/is/island/sb/skyblock/home>");
+                return true;
             }
         }
         return false;

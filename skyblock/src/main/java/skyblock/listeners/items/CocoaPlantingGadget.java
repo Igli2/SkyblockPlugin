@@ -7,6 +7,7 @@ import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
 import org.bukkit.block.data.type.Cocoa;
 import org.bukkit.entity.Player;
+import org.bukkit.event.Event;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
@@ -19,7 +20,7 @@ public class CocoaPlantingGadget implements Listener {
     @EventHandler
     @SuppressWarnings("unused")
     public void playerInteractEvent(PlayerInteractEvent event) {
-        if (event.isCancelled()) {return;}
+        if (event.useItemInHand() == Event.Result.DENY) {return;}
         if (!ItemRegistry.isItemStackEqual(event.getItem(), SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.COCOA_PLANTING_GADGET))) {return;}
         if (event.getAction() != Action.RIGHT_CLICK_BLOCK) {return;}
         if (event.getBlockFace() == BlockFace.UP || event.getBlockFace() == BlockFace.DOWN) {return;}

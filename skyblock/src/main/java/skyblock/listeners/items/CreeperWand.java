@@ -3,6 +3,7 @@ package skyblock.listeners.items;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
+import org.bukkit.event.Event;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
@@ -16,7 +17,7 @@ public class CreeperWand implements Listener {
 
     @EventHandler
     public void playerInteractEvent(PlayerInteractEvent event) {
-        if (event.isCancelled()) {return;}
+        if (event.useItemInHand() == Event.Result.DENY) {return;}
 
         ItemStack item = event.getItem();
         if (item != null && ItemRegistry.isItemStackEqual(item, SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.CREEPER_WAND)) && event.getPlayer().getCooldown(Material.BAMBOO) == 0) {

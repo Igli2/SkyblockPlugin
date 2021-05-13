@@ -2,6 +2,7 @@ package skyblock.listeners;
 
 import org.bukkit.Material;
 import org.bukkit.block.Block;
+import org.bukkit.event.Event;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
@@ -13,19 +14,16 @@ import skyblock.utils.Anvil;
 import skyblock.utils.CraftingTable;
 
 public class PlayerInteractListener implements Listener {
-    @EventHandler(priority = EventPriority.HIGHEST)
+    @EventHandler(priority = EventPriority.LOWEST)
     @SuppressWarnings("unused")
     public void playerInteractEvent(PlayerInteractEvent event) {
         if (!event.getPlayer().isOp() && !event.getPlayer().getWorld().getName().equals(event.getPlayer().getUniqueId().toString())) {
-            if (event.getAction() != Action.RIGHT_CLICK_AIR) {
-                event.setCancelled(true);
-                return;
+            if (event.getItem() != null && event.getItem().getType().isEdible()) {
+                event.setUseInteractedBlock(Event.Result.DENY);
             } else {
-                 if (!(event.getItem() != null && event.getItem().getType().isEdible())) {
-                     event.setCancelled(true);
-                     return;
-                 }
+                event.setCancelled(true);
             }
+            return;
         }
 
         // open own crafting menu, anvil

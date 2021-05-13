@@ -2,17 +2,15 @@ package skyblock.entities;
 
 import com.mojang.authlib.GameProfile;
 import net.minecraft.server.v1_16_R3.*;
+import org.bukkit.Location;
 import org.bukkit.Material;
-import org.bukkit.World;
-import org.bukkit.*;
-import org.bukkit.craftbukkit.v1_16_R3.entity.CraftPlayer;
+import org.bukkit.Sound;
 import org.bukkit.craftbukkit.v1_16_R3.inventory.CraftItemStack;
-import org.bukkit.entity.Player;
 import skyblock.SkyblockMain;
 import skyblock.registries.EntityRegistry;
 import skyblock.registries.ItemRegistry;
 
-public class Icicle extends EntityPlayer {
+public class Icicle extends CustomEntityPlayer {
     public Icicle(MinecraftServer minecraftserver, WorldServer worldserver, GameProfile gameprofile, PlayerInteractManager playerinteractmanager, double x, double y, double z) {
         super(minecraftserver, worldserver, gameprofile, playerinteractmanager);
         this.playerConnection = new PlayerConnection(server, new NetworkManager(EnumProtocolDirection.CLIENTBOUND), this);
@@ -20,35 +18,6 @@ public class Icicle extends EntityPlayer {
         worldserver.addEntity(this);
         sendSpawnToPlayers(worldserver.getWorld());
         server.getPlayerList().players.removeIf(e -> e.getUniqueID().equals(this.getUniqueID()));
-    }
-
-    public void sendSpawnToPlayers(World world) {
-        for (Player player : world.getPlayers()) {
-            this.sendSpawnToPlayer(player);
-        }
-    }
-
-    public void sendSpawnToPlayer(Player player) {
-        PlayerConnection connection = ((CraftPlayer) player).getHandle().playerConnection;
-        connection.sendPacket(new PacketPlayOutPlayerInfo(PacketPlayOutPlayerInfo.EnumPlayerInfoAction.ADD_PLAYER, this));
-        connection.sendPacket(new PacketPlayOutNamedEntitySpawn(this));
-        connection.sendPacket(new PacketPlayOutEntityHeadRotation(this, (byte) (0)));
-
-        DataWatcher watcher = this.getDataWatcher();
-        watcher.set(new DataWatcherObject<>(16, DataWatcherRegistry.a), (byte) 255);
-        connection.sendPacket(new PacketPlayOutEntityMetadata(this.getId(), watcher, true));
-    }
-
-    public void sendDeathToPlayers() {
-        for(Player player : Bukkit.getOnlinePlayers()) {
-            this.sendDeathToPlayer(player);
-        }
-    }
-
-    public void sendDeathToPlayer(Player player) {
-        PlayerConnection connection = ((CraftPlayer) player).getHandle().playerConnection;
-        connection.sendPacket(new PacketPlayOutPlayerInfo(PacketPlayOutPlayerInfo.EnumPlayerInfoAction.REMOVE_PLAYER, this));
-        connection.sendPacket(new PacketPlayOutEntityDestroy(this.getId()));
     }
 
     public void dropDeathLoot() {

@@ -11,6 +11,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.craftbukkit.v1_16_R3.CraftServer;
 import org.bukkit.craftbukkit.v1_16_R3.CraftWorld;
+import skyblock.entities.CaoCaoPlayer;
 import skyblock.entities.Icicle;
 
 import java.util.ArrayList;
@@ -30,5 +31,17 @@ public class EntityRegistry {
         Icicle icicleCustom = new Icicle(server, worldServer, gameProfile, new PlayerInteractManager(worldServer), location.getX(), location.getY(), location.getZ());
 
         EntityRegistry.entities.add(icicleCustom);
+    }
+
+    public static CaoCaoPlayer spawnCaoCaoPlayer(Location location) {
+        MinecraftServer server = ((CraftServer) Bukkit.getServer()).getServer();
+        WorldServer worldServer = ((CraftWorld) location.getWorld()).getHandle();
+
+        GameProfile gameProfile = new GameProfile(UUID.randomUUID(), ChatColor.BLACK + "" + ChatColor.BOLD + "Cao Cao");
+        gameProfile.getProperties().put("textures", new Property("textures", "ewogICJ0aW1lc3RhbXAiIDogMTYyMDc2MTU4MjgzMCwKICAicHJvZmlsZUlkIiA6ICJkZTU3MWExMDJjYjg0ODgwOGZlN2M5ZjQ0OTZlY2RhZCIsCiAgInByb2ZpbGVOYW1lIiA6ICJNSEZfTWluZXNraW4iLAogICJzaWduYXR1cmVSZXF1aXJlZCIgOiB0cnVlLAogICJ0ZXh0dXJlcyIgOiB7CiAgICAiU0tJTiIgOiB7CiAgICAgICJ1cmwiIDogImh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjc3M2QyYmEwOTRmYzNkYzM2YTdmNTJkNTFjMWU2M2MzMWFkZDI5YWM0YjQ1NmRiZTY4MTgwM2E1MzllMWY5ZSIKICAgIH0KICB9Cn0=", "Mghjyz2uZ/B2jeaSDFW+dY2CVwISA1hVDa9xJTrX0TRMY44s6HOXu+1OOmV30SCxBEEo+a3Jg26nJCO5MXh/qy7L1WCgfoQ71YCbQ2YSPblFlOYVrUbvfdZD1VQCEyYxI/V3nXclfvobtB55ioQh1ozWp48awwb+zcyWX7WlAwqz35aPttt7cdbAJcm4541tiwAj5/WZqs66gJbe/jct2w0kQVawC5WtdPgugvRZiRu1MAX870d46V/SKCHMJTA6+J3ugWZC9eJtP7+t6qE9wafgmz2ZOT0P3CSY9Dhih/uzJxOYjXuYtw3eTujIjaprf4uZqB9/JFfqZN/xIueEB/MgykwjhKaeo+7NGOhhX9Y11C+WBt0ovwgXefh06m31rKnzM13cT/yw+bJQk+8uy8fNTEiM09y54AOQ4842QGlDwMgYTT6JERCgmuyLvfm6/ibwJ2s7rA/yxPufWylT7PTDkkZhKMduzp/pByJKiCpQ050qqt7az1GaBcddtLgGks53OShQ0yg90I51UQnDke0hujTZkkbIbUUsHrRAeB1i3VLv+F4inF+Bwcj5ecdPNo2Svc5G0F4G8Rny6fnnJ5ZBfXdJBg4WKOVQKOBNMU+WniBcVhO7vAp292w5N3SEQpbLlG44XZcL+kDOm2Esl3C65ySNzJ/zwaS9NBMZ4Pw="));
+
+        CaoCaoPlayer caoCaoPlayer = new CaoCaoPlayer(server, worldServer, gameProfile, new PlayerInteractManager(worldServer), location.getX(), location.getY(), location.getZ());
+        EntityRegistry.entities.add(caoCaoPlayer);
+        return caoCaoPlayer;
     }
 }

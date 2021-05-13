@@ -2,6 +2,7 @@ package skyblock.listeners.items;
 
 import org.bukkit.Material;
 import org.bukkit.craftbukkit.v1_16_R3.CraftWorld;
+import org.bukkit.event.Event;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
@@ -15,7 +16,8 @@ public class Tornado implements Listener {
     @EventHandler
     @SuppressWarnings("unused")
     public void playerInteractEvent(PlayerInteractEvent event) {
-        if (event.isCancelled()) {return;}
+        if (event.useItemInHand() == Event.Result.DENY) {return;}
+
         if (event.getAction() == Action.RIGHT_CLICK_AIR || event.getAction() == Action.RIGHT_CLICK_BLOCK) {
             if (ItemRegistry.isItemStackEqual(event.getItem(), SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.TORNADO)) && event.getPlayer().getCooldown(Material.IRON_SWORD) == 0) {
                 Vector direction = event.getPlayer().getLocation().getDirection();
