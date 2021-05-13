@@ -24,7 +24,6 @@ import skyblock.enchantments.EnchantmentRegistry;
 import skyblock.entities.Minion;
 import skyblock.listeners.*;
 import skyblock.listeners.entities.CaoCaoListener;
-import skyblock.listeners.entities.IcicleListeners;
 import skyblock.listeners.entities.IcicleListener;
 import skyblock.listeners.entities.MinionListener;
 import skyblock.listeners.items.*;
@@ -106,8 +105,6 @@ public class SkyblockMain extends JavaPlugin {
 
         this.getServer().getPluginManager().registerEvents(new IcicleListener(), this);
         this.getServer().getPluginManager().registerEvents(new MinionListener(), this);
-
-        this.getServer().getPluginManager().registerEvents(new IcicleListeners(), this);
         this.getServer().getPluginManager().registerEvents(new CaoCaoListener(), this);
 
         this.getServer().getPluginManager().registerEvents(new Geode(), this);
