@@ -26,6 +26,7 @@ public class ItemRegistry {
         BLUE_SCALE,
         BRONZE_INGOT,
         BUG,
+        CAOCAO_SPAWN_EGG,
         CREEPER_WAND,
         CLOUD,
         COCOA_PLANTING_GADGET,
@@ -411,6 +412,11 @@ public class ItemRegistry {
         setItemName(lutumiteSpawnEgg, "Lutumite Spawn Egg");
         specialItems.put(SkyblockItems.LUTUMITE_SPAWN_EGG, lutumiteSpawnEgg);
 
+        ItemStack caocaoSpawnEgg = createTexturedSkull("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNGIxOTQ5YTRiNjY4YWFiZDFhYjE4OGY1NTMzNTM3NGRkZjY5NjE0MmY2YmNjMDg5N2VhODhlYzM5YzdiYmIifX19",
+                new int[]{660027, -8846611, -3467199, 840174934});
+        setItemName(caocaoSpawnEgg, "Cao Cao Spawn Egg");
+        specialItems.put(SkyblockItems.CAOCAO_SPAWN_EGG, caocaoSpawnEgg);
+
         ItemStack bronzeIngot = new ItemStack(Material.BRICK);
         setItemName(bronzeIngot, "Bronze Ingot");
         addEnchantEffect(bronzeIngot);
@@ -423,7 +429,7 @@ public class ItemRegistry {
 
         ItemStack zhanlu = new ItemStack(Material.NETHERITE_SWORD);
         setItemName(zhanlu, "Zhanlu");
-        setLore(zhanlu, Collections.singletonList("\"Better a diamond with a flaw than a pebble without.\" - Confucius"));
+        setLore(zhanlu, Arrays.asList("A sword made from the finest of the five metals", "and imbued with the essence of fire"));
         setAttrModifier(zhanlu, Attribute.GENERIC_ATTACK_DAMAGE, "generic.attack_damage", 10, EquipmentSlot.HAND);
         setAttrModifier(zhanlu, Attribute.GENERIC_ATTACK_SPEED, "generic.attack_speed", -2.7, EquipmentSlot.HAND);
         makeUnbreakable(zhanlu);

@@ -9,6 +9,7 @@ import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
 import skyblock.SkyblockMain;
+import skyblock.entities.CaoCao;
 import skyblock.entities.Lutumite;
 import skyblock.entities.ShadowWarrior;
 import skyblock.entities.Sunshir;
@@ -47,6 +48,11 @@ public class BlockPlaceListener implements Listener {
             } else if (ItemRegistry.isItemStackEqual(event.getItemInHand(), SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.LUTUMITE_SPAWN_EGG))) {
                 Lutumite lutumite = new Lutumite(event.getBlock().getLocation().add(0.5, 0.5, 0.5));
                 ((CraftWorld)event.getBlock().getWorld()).getHandle().addEntity(lutumite);
+                removeItem(event);
+                event.setCancelled(true);
+            } else if (ItemRegistry.isItemStackEqual(event.getItemInHand(), SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.CAOCAO_SPAWN_EGG))) {
+                CaoCao caocao = new CaoCao(event.getBlock().getLocation().add(0.5, 0.5, 0.5));
+                ((CraftWorld)event.getBlock().getWorld()).getHandle().addEntity(caocao);
                 removeItem(event);
                 event.setCancelled(true);
             } else if (event.getItemInHand().getType() == Material.PLAYER_HEAD) { // check if placing it makes sence

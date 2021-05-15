@@ -11,8 +11,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CaoCaoPlayer extends CustomEntityPlayer {
-    public CaoCaoPlayer(MinecraftServer minecraftserver, WorldServer worldserver, GameProfile gameprofile, PlayerInteractManager playerinteractmanager, double x, double y, double z) {
+    CaoCao boss;
+
+    public CaoCaoPlayer(MinecraftServer minecraftserver, WorldServer worldserver, GameProfile gameprofile, PlayerInteractManager playerinteractmanager, double x, double y, double z, CaoCao boss) {
         super(minecraftserver, worldserver, gameprofile, playerinteractmanager);
+        this.boss = boss;
         this.playerConnection = new PlayerConnection(server, new NetworkManager(EnumProtocolDirection.CLIENTBOUND), this);
         this.setPosition(x, y, z);
 
@@ -24,5 +27,14 @@ public class CaoCaoPlayer extends CustomEntityPlayer {
         sendSpawnToPlayers(worldserver.getWorld());
         sendEquipmentToPlayers(worldserver.getWorld(), equipment);
         server.getPlayerList().players.removeIf(e -> e.getUniqueID().equals(this.getUniqueID()));
+    }
+
+    @Override
+    public boolean damageEntity(DamageSource damagesource, float f) {
+        if (!damagesource.isSweep()) {
+            this.boss.damageEntity0(damagesource, f);
+            return true;
+        }
+        return false;
     }
 }
