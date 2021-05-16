@@ -13,8 +13,12 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.BookMeta;
 import org.bukkit.persistence.PersistentDataType;
 import skyblock.SkyblockMain;
+import skyblock.utils.minion.Instruction;
+import skyblock.utils.minion.InstructionCodeGenerator;
 import skyblock.utils.minion.ProgramLexer;
 import skyblock.utils.minion.ProgramParser;
+
+import java.util.ArrayList;
 
 public class Minion extends EntityArmorStand implements InventoryHolder {
 
@@ -68,7 +72,11 @@ public class Minion extends EntityArmorStand implements InventoryHolder {
             ProgramParser parser = new ProgramParser(new ProgramLexer(programStr));
 
             try {
-                Bukkit.broadcastMessage(ChatColor.DARK_GREEN + parser.parse().toString());
+                ArrayList<Instruction> instructions = InstructionCodeGenerator.generateInstructions(parser.parse());
+
+                for(Instruction instruction : instructions) {
+                    Bukkit.broadcastMessage(ChatColor.GOLD + instruction.toString());
+                }
             } catch (Exception exception) {
                 exception.printStackTrace();
             }

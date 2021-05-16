@@ -20,6 +20,14 @@ public class ConditionalBranch extends Branch {
             ret += this.conditions[c].getIdentifier();
         }
 
-        return ret += "}, " + this.child.toString() + "}";
+        return ret + "}, " + this.child.toString() + "}";
+    }
+
+    public Condition[] getConditions() {
+        return conditions;
+    }
+
+    public Branch getChild() {
+        return child;
     }
 }

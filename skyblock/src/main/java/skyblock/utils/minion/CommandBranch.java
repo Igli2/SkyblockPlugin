@@ -19,4 +19,12 @@ public class CommandBranch extends Branch {
     public String toString() {
         return "Command{" + this.type.toString() + ", arg: " + this.arg + "}";
     }
+
+    public Token.TokenType getType() {
+        return type;
+    }
+
+    public int getArg() {
+        return arg;
+    }
 }
