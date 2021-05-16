@@ -29,4 +29,8 @@ public class SequenceBranch extends Branch {
 
         return ret + "}";
     }
+
+    public ArrayList<Branch> getChildren() {
+        return children;
+    }
 }
