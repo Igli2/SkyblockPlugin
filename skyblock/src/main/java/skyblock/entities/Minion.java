@@ -13,7 +13,8 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.BookMeta;
 import org.bukkit.persistence.PersistentDataType;
 import skyblock.SkyblockMain;
-import skyblock.utils.minion.*;
+import skyblock.utils.minion.ProgramLexer;
+import skyblock.utils.minion.ProgramParser;
 
 public class Minion extends EntityArmorStand implements InventoryHolder {
 
@@ -63,17 +64,23 @@ public class Minion extends EntityArmorStand implements InventoryHolder {
             ItemStack program = this.inv.getItem(0);
             BookMeta bookMeta = (BookMeta) program.getItemMeta();
             String programStr = String.join("\n", bookMeta.getPages());
-            ProgramLexer lexer = new ProgramLexer(programStr);
 
-            Token t = lexer.nextToken();
+            ProgramParser parser = new ProgramParser(new ProgramLexer(programStr));
+
+            try {
+                Bukkit.broadcastMessage(ChatColor.DARK_GREEN + parser.parse().toString());
+            } catch (Exception exception) {
+                exception.printStackTrace();
+            }
+            /*Token t = lexer.nextToken();
 
             while(t.getType() != Token.TokenType.EOF) {
                 Bukkit.broadcastMessage(ChatColor.GRAY + t.toString());
                 t = lexer.nextToken();
-            }
+            }*/
         }
 
-        Condition c0 = new Condition(true, Token.TokenType.MATERIAL, "oak_log");
+       /* Condition c0 = new Condition(true, Token.TokenType.MATERIAL, "oak_log");
         Condition c1 = new Condition(false, Token.TokenType.POWER, "power");
         Condition c2 = new Condition(false, Token.TokenType.MATERIAL, "iron_block");
 
@@ -81,7 +88,7 @@ public class Minion extends EntityArmorStand implements InventoryHolder {
         sequenceBranch.addChild(new ConditionalBranch(new Condition[]{c0, c1, c2}, new CommandBranch(Token.TokenType.BREAK)));
         sequenceBranch.addChild(new CommandBranch(Token.TokenType.SELECT, 2));
 
-        Bukkit.broadcastMessage(ChatColor.GREEN + sequenceBranch.toString());
+        Bukkit.broadcastMessage(ChatColor.GREEN + sequenceBranch.toString());*/
     }
 
     public static boolean replaceArmorStand(ArmorStand armorStand) {
