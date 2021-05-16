@@ -3,6 +3,7 @@ package skyblock.enchantments;
 import org.bukkit.Material;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.inventory.ItemStack;
+import skyblock.SkyblockMain;
 
 import java.util.HashMap;
 
@@ -51,7 +52,7 @@ public class AutosmeltEnchantment extends EnchantmentBase {
         for (Material m : smelted.keySet()) {
             if (broken == m) {
                 event.setDropItems(false);
-                event.getBlock().getWorld().dropItem(event.getBlock().getLocation(), new ItemStack(smelted.get(m)));
+                SkyblockMain.instance.getServer().getScheduler().scheduleSyncDelayedTask(SkyblockMain.instance, () -> event.getBlock().getWorld().dropItem(event.getBlock().getLocation().add(0.5, 0.5, 0.5), new ItemStack(smelted.get(m))), 1);
                 return;
             }
         }

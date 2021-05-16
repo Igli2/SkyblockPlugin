@@ -13,7 +13,7 @@ public class EntityDamageByEntityListener implements Listener {
     @EventHandler(priority = EventPriority.LOWEST)
     @SuppressWarnings("unused")
     public void entityDamageByEntityEvent(EntityDamageByEntityEvent event) {
-        if (event.getEntity().getWorld().getName().equals("lobby")) {
+        if (!event.getDamager().isOp() && event.getEntity().getWorld().getName().equals("lobby")) {
             event.setCancelled(true);
             return;
         }

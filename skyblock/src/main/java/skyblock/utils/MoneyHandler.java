@@ -61,6 +61,13 @@ public class MoneyHandler {
         return false;
     }
 
+    public int getMoney(Player player) {
+        if (this.money.containsKey(player.getUniqueId())) {
+            return this.money.get(player.getUniqueId());
+        }
+        return -1;
+    }
+
     private void updateScoreboard(Player player) {
         Objective objective = this.scoreboard.getObjective("money");
         if (objective != null) {
