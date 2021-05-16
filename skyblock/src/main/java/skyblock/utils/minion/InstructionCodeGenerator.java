@@ -42,7 +42,7 @@ public class InstructionCodeGenerator {
                 Condition condition = conditional.getConditions()[c];
 
                 int offset = conditional.getConditions().length + childInstructions.size() - c;
-                instructions.add(new Instruction((condition.isNegated()) ? Instruction.InstructionType.JMP_IF_FALSE : Instruction.InstructionType.JMP_IF_TRUE, condition.getIdentifier() + ";" + offset));
+                instructions.add(new Instruction((condition.isNegated()) ? Instruction.InstructionType.JMP_IF_TRUE : Instruction.InstructionType.JMP_IF_FALSE, condition.getIdentifier() + ";" + offset));
             }
             instructions.addAll(childInstructions);
 
