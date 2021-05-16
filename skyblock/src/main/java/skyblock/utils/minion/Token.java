@@ -33,6 +33,13 @@ public class Token {
         this.identifier = identifier;
     }
 
+    public Token(TokenType type, String identifier) {
+        this.type = type;
+        this.line = -1;
+        this.column = -1;
+        this.identifier = identifier;
+    }
+
     public TokenType getType() {
         return this.type;
     }
