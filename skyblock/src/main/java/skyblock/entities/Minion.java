@@ -13,8 +13,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.BookMeta;
 import org.bukkit.persistence.PersistentDataType;
 import skyblock.SkyblockMain;
-import skyblock.utils.minion.ProgramLexer;
-import skyblock.utils.minion.Token;
+import skyblock.utils.minion.*;
 
 public class Minion extends EntityArmorStand implements InventoryHolder {
 
@@ -73,6 +72,16 @@ public class Minion extends EntityArmorStand implements InventoryHolder {
                 t = lexer.nextToken();
             }
         }
+
+        Condition c0 = new Condition(true, Token.TokenType.MATERIAL, "oak_log");
+        Condition c1 = new Condition(false, Token.TokenType.POWER, "power");
+        Condition c2 = new Condition(false, Token.TokenType.MATERIAL, "iron_block");
+
+        SequenceBranch sequenceBranch = new SequenceBranch();
+        sequenceBranch.addChild(new ConditionalBranch(new Condition[]{c0, c1, c2}, new CommandBranch(Token.TokenType.BREAK)));
+        sequenceBranch.addChild(new CommandBranch(Token.TokenType.SELECT, 2));
+
+        Bukkit.broadcastMessage(ChatColor.GREEN + sequenceBranch.toString());
     }
 
     public static boolean replaceArmorStand(ArmorStand armorStand) {
