@@ -23,16 +23,27 @@ import java.util.ArrayList;
 public class Minion extends EntityArmorStand implements InventoryHolder {
 
     private Inventory inv;
+    private ArrayList<Instruction> instructions;
+    private int pc;
+    private int nextUpdate;
 
     public Minion(EntityTypes<? extends EntityArmorStand> entitytypes, World world) {
         super(entitytypes, world);
         this.inv = Bukkit.createInventory(this, 9 * 6, "Program");
         this.getBukkitEntity().getPersistentDataContainer().set(new NamespacedKey(SkyblockMain.instance, "isMinion"), PersistentDataType.INTEGER, 1);
+
+        this.instructions = new ArrayList<>();
+        this.pc = 0;
+        this.nextUpdate = 0;
     }
 
     public Minion(Location location) {
         super(EntityTypes.ARMOR_STAND, ((CraftWorld)location.getWorld()).getHandle());
         this.inv = Bukkit.createInventory(this, 9 * 6, "Program");
+
+        this.instructions = new ArrayList<>();
+        this.pc = 0;
+        this.nextUpdate = 0;
 
         this.setPosition(location.getX(), location.getY(), location.getZ());
 
@@ -56,6 +67,7 @@ public class Minion extends EntityArmorStand implements InventoryHolder {
 
         bukkitEntity.setArms(true);
         bukkitEntity.setSmall(true);
+
     }
 
     @Override
@@ -72,31 +84,85 @@ public class Minion extends EntityArmorStand implements InventoryHolder {
             ProgramParser parser = new ProgramParser(new ProgramLexer(programStr));
 
             try {
-                ArrayList<Instruction> instructions = InstructionCodeGenerator.generateInstructions(parser.parse());
-
-                for(Instruction instruction : instructions) {
+                this.instructions = InstructionCodeGenerator.generateInstructions(parser.parse());
+            /*    for(Instruction instruction : instructions) {
                     Bukkit.broadcastMessage(ChatColor.GOLD + instruction.toString());
-                }
+                }*/
             } catch (Exception exception) {
                 exception.printStackTrace();
             }
-            /*Token t = lexer.nextToken();
-
-            while(t.getType() != Token.TokenType.EOF) {
-                Bukkit.broadcastMessage(ChatColor.GRAY + t.toString());
-                t = lexer.nextToken();
-            }*/
         }
+    }
 
-       /* Condition c0 = new Condition(true, Token.TokenType.MATERIAL, "oak_log");
-        Condition c1 = new Condition(false, Token.TokenType.POWER, "power");
-        Condition c2 = new Condition(false, Token.TokenType.MATERIAL, "iron_block");
+    @Override
+    public void tick() {
+        super.tick();
 
-        SequenceBranch sequenceBranch = new SequenceBranch();
-        sequenceBranch.addChild(new ConditionalBranch(new Condition[]{c0, c1, c2}, new CommandBranch(Token.TokenType.BREAK)));
-        sequenceBranch.addChild(new CommandBranch(Token.TokenType.SELECT, 2));
+        if(this.nextUpdate == 0) {
+            this.nextUpdate = 20;
 
-        Bukkit.broadcastMessage(ChatColor.GREEN + sequenceBranch.toString());*/
+            if(this.instructions.size() == 0) return;
+            if(this.pc >= this.instructions.size()) this.pc = 0;
+
+            Bukkit.broadcastMessage(ChatColor.GOLD + this.instructions.get(pc).getArg());
+            this.executeInstruction(this.instructions.get(pc));
+        } else {
+            this.nextUpdate--;
+        }
+    }
+
+    private void executeInstruction(Instruction instruction) {
+        Location front = this.getBukkitEntity().getLocation().add(this.getBukkitEntity().getLocation().getDirection());
+
+        switch(instruction.getType()) {
+            case USE:
+                break;
+            case SELECT:
+                break;
+            case THROW:
+                break;
+            case CRAFT:
+                break;
+            case DROP:
+                break;
+            case BREAK:
+                if(!front.getBlock().isEmpty()) front.getBlock().breakNaturally();
+                break;
+            case PLACE:
+                if(front.getBlock().getType() == Material.AIR) front.getBlock().setType(Material.STONE);
+                break;
+            case JMP_IF_TRUE:
+                {
+                    String condition = instruction.getArg().split(";")[0];
+                    int offset = Integer.parseInt(instruction.getArg().split(";")[1]);
+
+                    if(this.checkCondition(condition, front)) {
+                        this.pc += offset;
+                        return;
+                    }
+                    break;
+                }
+            case JMP_IF_FALSE:
+                {
+                    String condition = instruction.getArg().split(";")[0];
+                    int offset = Integer.parseInt(instruction.getArg().split(";")[1]);
+
+                    if (!this.checkCondition(condition, front)) {
+                        this.pc += offset;
+                        return;
+                    }
+                    break;
+                }
+        }
+        this.pc++;
+    }
+
+    private boolean checkCondition(String condition, Location front) {
+        if(condition.equals("power")) {
+            return this.getBukkitEntity().getLocation().add(0.0, -1.0, 0.0).getBlock().isBlockPowered();
+        } else {
+            return front.getBlock().getType() == Material.valueOf(condition.toUpperCase());
+        }
     }
 
     public static boolean replaceArmorStand(ArmorStand armorStand) {
