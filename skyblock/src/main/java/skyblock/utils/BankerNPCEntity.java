@@ -11,6 +11,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import skyblock.SkyblockMain;
 
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -18,8 +19,7 @@ import java.util.UUID;
 
 public class BankerNPCEntity extends NPCEntity {
     private static final int[] contractSlots = new int[]{10, 12, 14, 16};
-    // todo save to database
-    private static HashMap<UUID, List<Contract>> contracts = new HashMap<>();
+    private static final HashMap<UUID, List<Contract>> contracts = new HashMap<>();
 
     public BankerNPCEntity(String name, Property textures, World world) {
         super(name, textures, world);
@@ -83,12 +83,90 @@ public class BankerNPCEntity extends NPCEntity {
         return list;
     }
 
+    public static void saveData() {
+        Connection connection = SkyblockMain.databaseHandler.getDatabaseConnection();
+        try {
+            for (UUID uuid : BankerNPCEntity.contracts.keySet()) {
+                List<Contract> playerContracts = BankerNPCEntity.contracts.get(uuid);
+
+                PreparedStatement countQuery = connection.prepareStatement("SELECT COUNT(*) AS total FROM bankdata WHERE uuid=?");
+                countQuery.setString(1, uuid.toString());
+                ResultSet countResult = countQuery.executeQuery();
+                int count = countResult.getInt("total");
+
+                if (count > 0) {
+                    // update
+                    for (Contract c : playerContracts) {
+                        PreparedStatement ps;
+                        ps = connection.prepareStatement("UPDATE bankdata SET timeStamp=?,claimed=?,timeToComplete=? WHERE uuid=? AND value=?");
+                        ps.setLong(1, c.timeStamp);
+                        ps.setBoolean(2, c.claimed);
+                        ps.setLong(3, c.timeToComplete);
+                        ps.setString(4, uuid.toString());
+                        ps.setInt(5, c.value);
+                        ps.executeUpdate();
+                    }
+                } else {
+                    // new
+                    for (Contract c : playerContracts) {
+                        PreparedStatement ps;
+                        ps = connection.prepareStatement("INSERT INTO bankdata(uuid,timeStamp,claimed,value,profit,timeToComplete) VALUES(?,?,?,?,?,?)");
+                        ps.setString(1, uuid.toString());
+                        ps.setLong(2, c.timeStamp);
+                        ps.setBoolean(3, c.claimed);
+                        ps.setInt(4, c.value);
+                        ps.setDouble(5, c.profit);
+                        ps.setLong(6, c.timeToComplete);
+                        ps.executeUpdate();
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void loadData() {
+        Connection connection = SkyblockMain.databaseHandler.getDatabaseConnection();
+        try {
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM bankdata");
+            while (resultSet.next()) {
+                String rawUuid = resultSet.getString("uuid");
+                UUID uuid = UUID.fromString(rawUuid);
+                long timeStamp = resultSet.getLong("timeStamp");
+                boolean claimed = resultSet.getBoolean("claimed");
+                int value = resultSet.getInt("value");
+                double profit = resultSet.getDouble("profit");
+                int timeToComplete = resultSet.getInt("timeToComplete");
+                if (BankerNPCEntity.contracts.containsKey(uuid)) {
+                    List<Contract> playerContracts =  BankerNPCEntity.contracts.get(uuid);
+                    playerContracts.add(new Contract(timeStamp, claimed, value, profit, timeToComplete));
+                } else {
+                    List<Contract> playerContracts =  new ArrayList<>();
+                    playerContracts.add(new Contract(timeStamp, claimed, value, profit, timeToComplete));
+                    BankerNPCEntity.contracts.put(uuid, playerContracts);
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
     private static class Contract {
         public long timeStamp = -1;
         public boolean claimed = true;
         public int value;
         public double profit;
         public int timeToComplete;
+
+        public Contract(long timeStamp, boolean claimed, int value, double profit, int timeToComplete) {
+            this.timeStamp = timeStamp;
+            this.claimed = claimed;
+            this.value = value;
+            this.profit = profit;
+            this.timeToComplete = timeToComplete;
+        }
 
         public Contract(int value) {
             this.value = value;

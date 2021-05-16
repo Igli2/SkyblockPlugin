@@ -26,6 +26,8 @@ public class DatabaseHandler {
         try {
             Statement statement = this.databaseConnection.createStatement();
             statement.execute("CREATE TABLE IF NOT EXISTS playerdata (uuid TEXT PRIMARY KEY, money INTEGER DEFAULT 0)");
+            statement = this.databaseConnection.createStatement();
+            statement.execute("CREATE TABLE IF NOT EXISTS bankdata (id INTEGER PRIMARY KEY AUTOINCREMENT, uuid TEXT, timeStamp INTEGER, claimed INTEGER, value INTEGER, profit DOUBLE, timeToComplete INTEGER)");
         } catch (SQLException e) {
             e.printStackTrace();
         }

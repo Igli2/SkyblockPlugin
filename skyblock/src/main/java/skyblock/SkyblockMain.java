@@ -139,6 +139,7 @@ public class SkyblockMain extends JavaPlugin {
         JSONParser parser = new JSONParser();
         loadNpcs(parser);
         loadSellableItems(parser);
+        BankerNPCEntity.loadData();
 
         RecipeRegistry.registerCustomRecipes();
         RecipeRegistry.registerVanillaRecipes();
@@ -223,6 +224,7 @@ public class SkyblockMain extends JavaPlugin {
         SkyblockMain.worldRegistry.unloadAll();
         SkyblockMain.worldRegistry.saveToConfig(this.getDataFolder().getAbsolutePath() + "/world_registry.yaml");
         SkyblockMain.moneyHandler.saveData();
+        BankerNPCEntity.saveData();
         SkyblockMain.databaseHandler.closeConnection();
         this.saveWorldData();
     }
