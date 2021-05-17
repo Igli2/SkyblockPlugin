@@ -6,6 +6,8 @@ public class Instruction {
         JMP_IF_TRUE,
         JMP_IF_FALSE,
         BREAK,
+        LEFT,
+        RIGHT,
         SELECT,
         PLACE,
         USE,

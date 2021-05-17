@@ -104,7 +104,6 @@ public class Minion extends EntityArmorStand implements InventoryHolder {
             if(this.instructions.size() == 0) return;
             if(this.pc >= this.instructions.size()) this.pc = 0;
 
-            Bukkit.broadcastMessage(ChatColor.GOLD + this.instructions.get(pc).getArg());
             this.executeInstruction(this.instructions.get(pc));
         } else {
             this.nextUpdate--;
@@ -124,6 +123,10 @@ public class Minion extends EntityArmorStand implements InventoryHolder {
             case CRAFT:
                 break;
             case DROP:
+                break;
+            case LEFT:
+                break;
+            case RIGHT:
                 break;
             case BREAK:
                 if(!front.getBlock().isEmpty()) front.getBlock().breakNaturally();

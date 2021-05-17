@@ -31,6 +31,12 @@ public class InstructionCodeGenerator {
                 case USE:
                     instructions.add(new Instruction(Instruction.InstructionType.USE));
                     break;
+                case LEFT:
+                    instructions.add(new Instruction(Instruction.InstructionType.LEFT));
+                    break;
+                case RIGHT:
+                    instructions.add(new Instruction(Instruction.InstructionType.RIGHT));
+                    break;
                 default:
                     throw new Exception("Invalid command type!");
             }
