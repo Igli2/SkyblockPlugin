@@ -122,10 +122,10 @@ public class Minion extends EntityArmorStand implements InventoryHolder {
             case DROP:
                 break;
             case LEFT:
-                this.setYawPitch(this.yaw + 90.0f, this.pitch);
+                this.setYawPitch(this.yaw - 90.0f, this.pitch);
                 break;
             case RIGHT:
-                this.setYawPitch(this.yaw - 90.0f, this.pitch);
+                this.setYawPitch(this.yaw + 90.0f, this.pitch);
                 break;
             case BREAK:
                 if(!front.getBlock().isEmpty()) front.getBlock().breakNaturally();
