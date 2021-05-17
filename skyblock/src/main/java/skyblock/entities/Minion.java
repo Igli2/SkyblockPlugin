@@ -134,26 +134,29 @@ public class Minion extends EntityArmorStand implements InventoryHolder {
             case PLACE:
                 if(front.getBlock().getType() == Material.AIR) front.getBlock().setType(Material.STONE);
                 break;
+            case JMP:
+                this.pc += Integer.parseInt(instruction.getArg());
+                return;
             case JMP_IF_TRUE:
                 {
-                    String condition = instruction.getArg().split(";")[0];
-                    int offset = Integer.parseInt(instruction.getArg().split(";")[1]);
+                    String[] parameters = instruction.getArg().split(";");
 
-                    if(this.checkCondition(condition, front)) {
-                        this.pc += offset;
+                    if(this.checkCondition(parameters[0], front)) {
+                        this.pc += Integer.parseInt(parameters[1]);
                         return;
                     }
+
                     break;
                 }
             case JMP_IF_FALSE:
                 {
-                    String condition = instruction.getArg().split(";")[0];
-                    int offset = Integer.parseInt(instruction.getArg().split(";")[1]);
+                    String[] parameters = instruction.getArg().split(";");
 
-                    if (!this.checkCondition(condition, front)) {
-                        this.pc += offset;
+                    if(!this.checkCondition(parameters[0], front)) {
+                        this.pc += Integer.parseInt(parameters[1]);
                         return;
                     }
+
                     break;
                 }
         }

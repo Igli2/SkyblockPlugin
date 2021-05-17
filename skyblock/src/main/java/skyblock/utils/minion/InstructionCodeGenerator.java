@@ -47,9 +47,16 @@ public class InstructionCodeGenerator {
             for(int c = 0; c < conditional.getConditions().length; c++) {
                 Condition condition = conditional.getConditions()[c];
 
-                int offset = conditional.getConditions().length + childInstructions.size() - c;
-                instructions.add(new Instruction((condition.isNegated()) ? Instruction.InstructionType.JMP_IF_TRUE : Instruction.InstructionType.JMP_IF_FALSE, condition.getIdentifier() + ";" + offset));
+                int first = conditional.getConditions().length - c + 1;
+
+                if(condition.isNegated()) {
+                    instructions.add(new Instruction(Instruction.InstructionType.JMP_IF_FALSE, condition.getIdentifier() + ";" + first));
+                } else {
+                    instructions.add(new Instruction(Instruction.InstructionType.JMP_IF_TRUE, condition.getIdentifier() + ";" + first));
+
+                }
             }
+            instructions.add(new Instruction(Instruction.InstructionType.JMP, String.valueOf(childInstructions.size() + 1)));
             instructions.addAll(childInstructions);
 
         } else {
