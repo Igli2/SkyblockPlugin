@@ -85,9 +85,6 @@ public class Minion extends EntityArmorStand implements InventoryHolder {
 
             try {
                 this.instructions = InstructionCodeGenerator.generateInstructions(parser.parse());
-            /*    for(Instruction instruction : instructions) {
-                    Bukkit.broadcastMessage(ChatColor.GOLD + instruction.toString());
-                }*/
             } catch (Exception exception) {
                 exception.printStackTrace();
             }
@@ -125,9 +122,9 @@ public class Minion extends EntityArmorStand implements InventoryHolder {
             case DROP:
                 break;
             case LEFT:
-                break;
+                this.setYawPitch(this.yaw + 90.0f, this.pitch);
             case RIGHT:
-                break;
+                this.setYawPitch(this.yaw - 90.0f, this.pitch);
             case BREAK:
                 if(!front.getBlock().isEmpty()) front.getBlock().breakNaturally();
                 break;
