@@ -3,9 +3,12 @@ package skyblock.utils.minion;
 public class Instruction {
 
     public enum InstructionType {
+        JMP,
         JMP_IF_TRUE,
         JMP_IF_FALSE,
         BREAK,
+        LEFT,
+        RIGHT,
         SELECT,
         PLACE,
         USE,

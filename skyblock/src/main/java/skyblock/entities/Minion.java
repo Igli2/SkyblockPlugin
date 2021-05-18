@@ -85,9 +85,6 @@ public class Minion extends EntityArmorStand implements InventoryHolder {
 
             try {
                 this.instructions = InstructionCodeGenerator.generateInstructions(parser.parse());
-            /*    for(Instruction instruction : instructions) {
-                    Bukkit.broadcastMessage(ChatColor.GOLD + instruction.toString());
-                }*/
             } catch (Exception exception) {
                 exception.printStackTrace();
             }
@@ -104,7 +101,6 @@ public class Minion extends EntityArmorStand implements InventoryHolder {
             if(this.instructions.size() == 0) return;
             if(this.pc >= this.instructions.size()) this.pc = 0;
 
-            Bukkit.broadcastMessage(ChatColor.GOLD + this.instructions.get(pc).getArg());
             this.executeInstruction(this.instructions.get(pc));
         } else {
             this.nextUpdate--;
@@ -125,32 +121,41 @@ public class Minion extends EntityArmorStand implements InventoryHolder {
                 break;
             case DROP:
                 break;
+            case LEFT:
+                this.setYawPitch(this.yaw - 90.0f, this.pitch);
+                break;
+            case RIGHT:
+                this.setYawPitch(this.yaw + 90.0f, this.pitch);
+                break;
             case BREAK:
                 if(!front.getBlock().isEmpty()) front.getBlock().breakNaturally();
                 break;
             case PLACE:
                 if(front.getBlock().getType() == Material.AIR) front.getBlock().setType(Material.STONE);
                 break;
+            case JMP:
+                this.pc += Integer.parseInt(instruction.getArg());
+                return;
             case JMP_IF_TRUE:
                 {
-                    String condition = instruction.getArg().split(";")[0];
-                    int offset = Integer.parseInt(instruction.getArg().split(";")[1]);
+                    String[] parameters = instruction.getArg().split(";");
 
-                    if(this.checkCondition(condition, front)) {
-                        this.pc += offset;
+                    if(this.checkCondition(parameters[0], front)) {
+                        this.pc += Integer.parseInt(parameters[1]);
                         return;
                     }
+
                     break;
                 }
             case JMP_IF_FALSE:
                 {
-                    String condition = instruction.getArg().split(";")[0];
-                    int offset = Integer.parseInt(instruction.getArg().split(";")[1]);
+                    String[] parameters = instruction.getArg().split(";");
 
-                    if (!this.checkCondition(condition, front)) {
-                        this.pc += offset;
+                    if(!this.checkCondition(parameters[0], front)) {
+                        this.pc += Integer.parseInt(parameters[1]);
                         return;
                     }
+
                     break;
                 }
         }

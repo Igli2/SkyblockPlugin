@@ -11,14 +11,16 @@ public class ProgramParser {
         Token.TokenType.USE,
         Token.TokenType.DROP,
         Token.TokenType.THROW,
-        Token.TokenType.CRAFT
+        Token.TokenType.CRAFT,
+        Token.TokenType.LEFT,
+        Token.TokenType.RIGHT
     };
 
     private static final Token.TokenType[] PARAMETER_COMMANDS = new Token.TokenType[] {
         Token.TokenType.SELECT,
-            Token.TokenType.DROP,
-            Token.TokenType.THROW,
-            Token.TokenType.CRAFT
+        Token.TokenType.DROP,
+        Token.TokenType.THROW,
+        Token.TokenType.CRAFT
     };
 
     private ProgramLexer lexer;

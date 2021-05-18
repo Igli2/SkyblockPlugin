@@ -93,6 +93,10 @@ public class ProgramLexer {
             return Token.TokenType.THROW;
         } else if(identifier.equals("craft")) {
             return Token.TokenType.CRAFT;
+        } else if(identifier.equals("left")) {
+            return Token.TokenType.LEFT;
+        } else if(identifier.equals("right")) {
+            return Token.TokenType.RIGHT;
         } else if(Material.getMaterial(identifier.toUpperCase()) != null) {
             return Token.TokenType.MATERIAL;
         } else {

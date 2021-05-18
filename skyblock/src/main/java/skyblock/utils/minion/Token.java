@@ -3,6 +3,8 @@ package skyblock.utils.minion;
 public class Token {
 
     public enum TokenType {
+        LEFT,
+        RIGHT,
         POWER,
         BREAK,
         SELECT,
