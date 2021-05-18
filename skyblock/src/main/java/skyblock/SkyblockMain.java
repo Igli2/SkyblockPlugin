@@ -32,6 +32,8 @@ import skyblock.registries.NPCRegistry;
 import skyblock.registries.RecipeRegistry;
 import skyblock.registries.WorldRegistry;
 import skyblock.utils.*;
+import skyblock.utils.quest.QuestNPCEntity;
+import skyblock.utils.quest.QuestRegistry;
 
 import java.io.File;
 import java.io.FileReader;
@@ -50,6 +52,7 @@ public class SkyblockMain extends JavaPlugin {
     public static MoneyHandler moneyHandler;
     public static DatabaseHandler databaseHandler;
     public static NPCRegistry npcRegistry;
+    public static QuestRegistry questRegistry;
 
     public static Structure starterIsland;
 
@@ -65,6 +68,7 @@ public class SkyblockMain extends JavaPlugin {
         SkyblockMain.moneyHandler = new MoneyHandler();
         SkyblockMain.databaseHandler = new DatabaseHandler();
         SkyblockMain.npcRegistry = new NPCRegistry();
+        SkyblockMain.questRegistry = new QuestRegistry();
 
         SkyblockMain.starterIsland = Structure.fromFile(this.getDataFolder().getAbsolutePath() + "/structures/skyblock.struct");
 
@@ -157,6 +161,17 @@ public class SkyblockMain extends JavaPlugin {
                 }
             }
         }, 20);
+
+        SkyblockMain.scheduleSaveDatabase();
+    }
+
+    private static void scheduleSaveDatabase() {
+        SkyblockMain.instance.getServer().getScheduler().scheduleSyncDelayedTask(SkyblockMain.instance, () -> {
+            SkyblockMain.moneyHandler.saveData();
+            BankerNPCEntity.saveData();
+            SkyblockMain.questRegistry.saveData();
+            SkyblockMain.scheduleSaveDatabase();
+        }, 1200);
     }
 
     private void loadNpcs(JSONParser parser) {
@@ -179,7 +194,19 @@ public class SkyblockMain extends JavaPlugin {
             SkyblockMain.npcRegistry.registerNPC(new ShopNPCEntity(new Property("textures", "ewogICJ0aW1lc3RhbXAiIDogMTYwMDM3NDg0NTgyNSwKICAicHJvZmlsZUlkIiA6ICI4MmM2MDZjNWM2NTI0Yjc5OGI5MWExMmQzYTYxNjk3NyIsCiAgInByb2ZpbGVOYW1lIiA6ICJOb3ROb3RvcmlvdXNOZW1vIiwKICAic2lnbmF0dXJlUmVxdWlyZWQiIDogdHJ1ZSwKICAidGV4dHVyZXMiIDogewogICAgIlNLSU4iIDogewogICAgICAidXJsIiA6ICJodHRwOi8vdGV4dHVyZXMubWluZWNyYWZ0Lm5ldC90ZXh0dXJlLzFmNzhiYjVkMDI3MmIyNDgyNmEwZjdmY2E2ZWRlN2IyOWJkNzE0YzIyYzNhNWRiYzYyOTA1M2E1YzgxMDBlM2MiCiAgICB9CiAgfQp9", "NEEcixB7tuQ/0Htyh9BpI2HslvEWvNswnqLZyxHaCAxlob8Z4Jhz6TP93lf8RnGFR578M7axc6LZuXKiHSa1mA7UY9a4NW0lDscfMRs691SQxgw6e0SzfhE0lRzr7YEU44WW0xD9sSGvXlgBrOwaZ+CQ5GsOS83DuD7PbYnydffFV5jyeYBleYgNKk8SGgH7XOH8/68Y9UEfiZb2bim6y3WfN0EycHsmz6owiDlfAAl+4Fw6D0NLAppWFPu7h3DKxzxD0jr20XX7ez9PjuQtYID3R6aohVz+v5gOk4ZhlPpd4OtMsGH6AA2MrhxydzNR3rYSD+A6T23NdkJm2kA51K6VMaaOTHnTd1T3GIh6wPY1ToludIsZ9FKNj5MOSnGEKahuH1F5MZEgJbcXwwsrLxtLbXpjxi3OuT3cchQht7g2+HpoTzHBRJFWPO81n2mOVxoE2OZNOQxruLXvy7QqzPafZseXrKFf11tOnJsKFliteXg2Ex+7ZHFqf4hdNp1dQpk4zShTQqkydcUfKIa3zhrh1TrKAH2ZKN50hrM3MkAoWYQgtTGxjZrewc4JhXiW39Vk/SPG2oTrQYtGHkrVZbnqgQluYeVfoJhhS4MbSeXVxYw13cxhQPeMy5w5i5LLXdvRkbIEXuJquuc4oCoALofTOPh9ErFSFXzTo6nTxDg="), sell));
             JSONObject zoologist = (JSONObject) parser.parse(new FileReader(this.getDataFolder().getAbsolutePath() + "/npcs/zoologist.json"));
             SkyblockMain.npcRegistry.registerNPC(new ShopNPCEntity(new Property("textures", "eyJ0aW1lc3RhbXAiOjE1NzYxNzAwODUzMTQsInByb2ZpbGVJZCI6IjIzZjFhNTlmNDY5YjQzZGRiZGI1MzdiZmVjMTA0NzFmIiwicHJvZmlsZU5hbWUiOiIyODA3Iiwic2lnbmF0dXJlUmVxdWlyZWQiOnRydWUsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS82N2U5ODRjMGExODBjOGZhNGJjOGQ2ZWM3MDFlNDljMDgxOWJhZjQxMmYzZThmYmIyMWI2YTM1ZDJiZWY4MjQwIn19fQ==", "q5ia5Q7ti8H8VN4mGg96pSO85oYnO+wHJxOTDoyrUBwLYeLyr68K8CDDl4q7vGqXTXYOrX03WBzGadgRGb0AazX/zE+eqBuRk7MNqf4yyknhximO8fsBVLZUu+YDKB1HWZGX89fOe9d+KavC9pKqHH/fqqjJsaYAl+5DITxDTfn/IyFeTXfhtBQs19rQNdGUshGcYj11jUrGViRtEvkcVvwfEhL+jWRH0g1jAFHz5TiMHy6ekfYRbUOOFIBR7txXsyaPqIixKuoGUYUc5yIJelzNxOF31cjHGlMeeF5hUjzu1L/IpfOkcpLtZOji2EZXGzMjW1rrwgRK8YkH+xU+ZMfObbARx0ikryqXAguIkMzLTpL7pRhgv3QUE5ZxiGg/LdflL1LPdJWeiChYn+z83vNxDnutzMg33yFhuULdWqOmb4dFO6SckxhYIkVpc/qaweq4PgnxgiZTQ8cZK7RU/V3KqbHfXrmEbHmz0MLLGBJeLxwi/Wy1hErvbDDvvFtp2Q8nVlh1gWSnfV79+Z5nhE2Po/V+W9Ak9RrO5cy0byYatK8dKNEm5iSb7fZXhdZT4zH5ednyJlsYX0AJqgsMrvekeUSs+ni75aGZGq4n3xyiNlRyKvVl/qu1XCs+zoedE9f/mDoxD7kXRwl3kysDzOs3WNm5si6tZXbry6U0eKY="), zoologist));
+
             new BankerNPCEntity();
+
+            JSONObject harvey = (JSONObject) parser.parse(new FileReader(this.getDataFolder().getAbsolutePath() + "/npcs/harvey.json"));
+            SkyblockMain.npcRegistry.registerNPC(new QuestNPCEntity(harvey));
+            JSONObject arif = (JSONObject) parser.parse(new FileReader(this.getDataFolder().getAbsolutePath() + "/npcs/arif.json"));
+            SkyblockMain.npcRegistry.registerNPC(new QuestNPCEntity(arif));
+            JSONObject charles = (JSONObject) parser.parse(new FileReader(this.getDataFolder().getAbsolutePath() + "/npcs/charles.json"));
+            SkyblockMain.npcRegistry.registerNPC(new QuestNPCEntity(charles));
+            JSONObject mitchell = (JSONObject) parser.parse(new FileReader(this.getDataFolder().getAbsolutePath() + "/npcs/mitchell.json"));
+            SkyblockMain.npcRegistry.registerNPC(new QuestNPCEntity(mitchell));
+            JSONObject darnell = (JSONObject) parser.parse(new FileReader(this.getDataFolder().getAbsolutePath() + "/npcs/darnell.json"));
+            SkyblockMain.npcRegistry.registerNPC(new QuestNPCEntity(darnell));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -225,6 +252,7 @@ public class SkyblockMain extends JavaPlugin {
         SkyblockMain.worldRegistry.saveToConfig(this.getDataFolder().getAbsolutePath() + "/world_registry.yaml");
         SkyblockMain.moneyHandler.saveData();
         BankerNPCEntity.saveData();
+        SkyblockMain.questRegistry.saveData();
         SkyblockMain.databaseHandler.closeConnection();
         this.saveWorldData();
     }

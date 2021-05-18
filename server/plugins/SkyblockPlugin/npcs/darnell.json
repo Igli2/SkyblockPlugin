@@ -1,0 +1,14 @@
+{
+  "location":{
+    "world": "lobby",
+    "x": 76.5,
+    "y": 113.0,
+    "z": 5.5,
+    "yaw": 90.0,
+    "pitch": 30.0
+  },
+  "greeting": "It's going to be dark soon. Be careful!",
+  "name": "[NPC] Darnell",
+  "value": "",
+  "signature": ""
+}

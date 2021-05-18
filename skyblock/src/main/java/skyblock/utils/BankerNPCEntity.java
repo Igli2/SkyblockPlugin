@@ -28,7 +28,7 @@ public class BankerNPCEntity extends NPCEntity {
     }
 
     public BankerNPCEntity() {
-        this("[NPC] Banker", new Property("textures", "", ""), Bukkit.getWorld("lobby"));
+        this("[NPC] Banker", new Property("textures", "ewogICJ0aW1lc3RhbXAiIDogMTYyMTI0NDY2NDAxNSwKICAicHJvZmlsZUlkIiA6ICJiMWMyNWQ0YjMwZDU0N2Y4YTk3NmZlYTllOGU1YzBjMyIsCiAgInByb2ZpbGVOYW1lIiA6ICJvd29FbmRlciIsCiAgInNpZ25hdHVyZVJlcXVpcmVkIiA6IHRydWUsCiAgInRleHR1cmVzIiA6IHsKICAgICJTS0lOIiA6IHsKICAgICAgInVybCIgOiAiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS82YjU1NzcwYzkyYWU4NTBmNmVlN2YxZDUyM2M5Y2JjZjIzZWI2NGEyMjg2YjAyYWYwZTAwMjBiZjQ5NmI2OTg1IgogICAgfQogIH0KfQ==", "yLnSWoSX3aJb9msFJVvaFRWAH5jQYRm+BL0qIsvvgu7rycvnlNsLmSaKQw80Wimj3bs6502u261nutqA2Qtl4Kt/hWQ4BM0MCTTCEz6xCHk4WcPqUSheZ7yelIxrfOVG43urLylde4yEG53RYpU0CxezjlTJn8qPr01xWfsVk5SG72/4piBwJTEyJItSBzJFEk6WZjPqs3RZN/d1N439wXotRG/3Jf9f9HFw5y1tRcLv7mtR8l0tVQjYTCXfIYkDbatJOgxXfOlI5yTfsn94nKJWChRWr33CJwLe8ysNqTQSXuIsZrrn4TYkTBRkg+X/8uSMjjeoShAE7Z9Yslmf+jXP+IC2Kabk+CcOWCuFd2LtVmlq5zSNEl3SN61Q6HDUiy9wlCib9q9uKk5XWQCcU8vK5Tl9fX4qj3dJRDwjaLkEdVHyit0hl3WHvB5txdwJEaEHtrgt2hKzqRGxzJN55YvXgAyIxjU4ZCDQKuPQZUvJWnE1G8Bkbk4gEcBZha/OyEUSOCh/YVjMWefdAHbkCInd1ew5hnUaMG6lAkGNMSszx5B+BxhD3qg2KgMa/XK6rfly+kNgnj6iPrm9qmQJSG7oyAuEGKdJSH0LQhkCWrOE9JklvosMC7uGIBTVsqI1DV5aUjHi6CxLJfTdqXYH6xpD7viBe7RVWOQLQw2asYo="), Bukkit.getWorld("lobby"));
     }
 
     @Override

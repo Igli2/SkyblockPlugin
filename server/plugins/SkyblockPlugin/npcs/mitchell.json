@@ -1,0 +1,14 @@
+{
+  "location":{
+    "world": "lobby",
+    "x": 74.0,
+    "y": 113.0,
+    "z": 3.5,
+    "yaw": -20.0,
+    "pitch": 30.0
+  },
+  "greeting": "Let's raid some caravans!",
+  "name": "[NPC] Mitchell",
+  "value": "",
+  "signature": ""
+}

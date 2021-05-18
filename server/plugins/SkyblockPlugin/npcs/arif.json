@@ -1,0 +1,14 @@
+{
+  "location":{
+    "world": "lobby",
+    "x": 46.5,
+    "y": 108.0,
+    "z": -17.5,
+    "yaw": 0.0,
+    "pitch": 0.0
+  },
+  "greeting": "Pssst. I'm not allowed to talk to strangers.",
+  "name": "[NPC] Arif",
+  "value": "ewogICJ0aW1lc3RhbXAiIDogMTYyMTI3OTEzODA4OCwKICAicHJvZmlsZUlkIiA6ICI3ZGEyYWIzYTkzY2E0OGVlODMwNDhhZmMzYjgwZTY4ZSIsCiAgInByb2ZpbGVOYW1lIiA6ICJHb2xkYXBmZWwiLAogICJzaWduYXR1cmVSZXF1aXJlZCIgOiB0cnVlLAogICJ0ZXh0dXJlcyIgOiB7CiAgICAiU0tJTiIgOiB7CiAgICAgICJ1cmwiIDogImh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZDczMjMzZTAxMTM0Y2IwMzE2YzhiNTU2MDk0NGI4MTc5MTYyNzEzMmYzN2E4NDM3MDU4MGEzOWEwZjM3YTc1NyIKICAgIH0KICB9Cn0=",
+  "signature": "MCKP7d/KZUj408C9OwTeAftUhRNfixJCLMJtvvi3+mThuQkSmEVBiV7gemH8d/PJi8+VIlhLpqcgGgOetTnDhh9akKzPo/1ANWJK6Ztd1X0VS0MXZ80t17hyDfYOWIjSNrXp8+nXhKlr9dEkglCsRUQFU51sqniMQKSkl9OHk5VdHsE0bbBIJqlzhzoWMVvIDGpJeNuusWInCCcUY7Y88xToF+VTnUyv7biMamKAslNqjAXw3BkK7cd8OA+3mQBiJu0qY3mBIssrbM0UyuQ36YuIBbiFMsBbQpdPi/BrR77GvlREZDDmH3f0gavWZV5vwsJYV6TpZ/QAdShsJDUtLsxIyVti39J9kZ2ZuCe7JQRz88Qfb0R7a52q6sVl/q8/zg68I+QJU2LN7yrlpPPEEnDc30qYweNjCnvBcu5r0eA6QxwtwIezjn/M2UdszsQcrs4VD4PrQzfq7E10eNkLWqL6ykXqqHG9UNGpxrhziWL++8WSsLEZ/sgsmHQDFySrOt/lMsqvHruxLOpNDD0m4djXAyk3YAVE6B5LgxNiXr70t3W1E6v2TBPx8QvGh6wP1hLiumUeU7Nwu/l3uBYv59xgnQ1CSxHOfvZqGbp/oiLEiUefGoJINF6kEU7D/TuFC3+2IAlULxM9ieixuerQ5qivvScHdkfkcW9oH6iabZo="
+}

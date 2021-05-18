@@ -1,0 +1,14 @@
+{
+  "location":{
+    "world": "lobby",
+    "x": 68.5,
+    "y": 113.0,
+    "z": -15.0,
+    "yaw": -110.0,
+    "pitch": 0.0
+  },
+  "greeting": "I'm going to be rich!",
+  "name": "[NPC] Charles",
+  "value": "",
+  "signature": ""
+}

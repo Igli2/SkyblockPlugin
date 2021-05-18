@@ -49,6 +49,7 @@ public class ItemBrowser implements Listener, CommandExecutor {
         put(ItemRegistry.SkyblockItems.LUTUMITE_SPAWN_EGG, Arrays.asList("Drops:", "4~7 clay blocks"));
         put(ItemRegistry.SkyblockItems.ICICLE_SPAWN_EGG, Arrays.asList("Drops:", "5~15 ice blocks", "5% ice pearl", "Ice drops use gaussian distribution!", "Can only be damaged with pickaxes"));
         put(ItemRegistry.SkyblockItems.BRONZE_INGOT, Collections.singletonList("Guaranteed drop from Cao Cao"));
+        put(ItemRegistry.SkyblockItems.GOLDEN_SLIME_HELMET, Collections.singletonList("Quest reward"));
     }};
 
     static {

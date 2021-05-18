@@ -37,6 +37,7 @@ public class ItemRegistry {
         FOREST_BIOME_STICK,
         FOSSILIZED_LOG,
         GEODE,
+        GOLDEN_SLIME_HELMET,
         GRAPPLING_HOOK,
         GREEN_DRAGON_CRESCENT_BLADE,
         GREEN_SCALE,
@@ -246,6 +247,12 @@ public class ItemRegistry {
         setAttrModifier(treetopHelmet, Attribute.GENERIC_MOVEMENT_SPEED, "generic.movement_speed", -0.04, EquipmentSlot.HEAD);
         setAttrModifier(treetopHelmet, Attribute.GENERIC_MAX_HEALTH, "generic.max_health", 15.0, EquipmentSlot.HEAD);
         specialItems.put(SkyblockItems.TREETOP_HELMET, treetopHelmet);
+
+        ItemStack goldenSlimeHelmet = createTexturedSkull("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZGVkY2Q5MmIwZTIxMGNmZTk4ODkyYzQzMzRiZTQ2MmIzYjllNzI1ZGRiZDAwOWMyNzgzZmNmODhmMGZmZGM1MyJ9fX0=",
+                new int[]{234453, 88190963, 6671, 741});
+        setItemName(goldenSlimeHelmet, "Golden Slime Helmet");
+        setAttrModifier(goldenSlimeHelmet, Attribute.GENERIC_ARMOR, "generic.armor", 6.0, EquipmentSlot.HEAD);
+        specialItems.put(SkyblockItems.GOLDEN_SLIME_HELMET, goldenSlimeHelmet);
 
         ItemStack appleHarvester = new ItemStack(Material.IRON_HOE);
         setItemName(appleHarvester, "Apple Harvester");

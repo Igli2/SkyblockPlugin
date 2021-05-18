@@ -28,6 +28,8 @@ public class DatabaseHandler {
             statement.execute("CREATE TABLE IF NOT EXISTS playerdata (uuid TEXT PRIMARY KEY, money INTEGER DEFAULT 0)");
             statement = this.databaseConnection.createStatement();
             statement.execute("CREATE TABLE IF NOT EXISTS bankdata (id INTEGER PRIMARY KEY AUTOINCREMENT, uuid TEXT, timeStamp INTEGER, claimed INTEGER, value INTEGER, profit DOUBLE, timeToComplete INTEGER)");
+            statement = this.databaseConnection.createStatement();
+            statement.execute("CREATE TABLE IF NOT EXISTS questdata (id INTEGER PRIMARY KEY AUTOINCREMENT, uuid TEXT, questName TEXT, progress INTEGER, tasksTotal INTEGER)");
         } catch (SQLException e) {
             e.printStackTrace();
         }
