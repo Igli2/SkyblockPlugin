@@ -239,7 +239,7 @@ public class Minion extends EntityArmorStand implements InventoryHolder {
                 for(int i = 0; i < encoded.length; i++) {
                     int slot = Minion.CRAFTING_GRID[i];
 
-                    minion.inv.setItem(slot, UtilFunctions.itemStackFromBase64(encoded[i]));
+                    if(!encoded[i].equals("null")) minion.inv.setItem(slot, UtilFunctions.itemStackFromBase64(encoded[i]));
                 }
             }
 
@@ -249,11 +249,11 @@ public class Minion extends EntityArmorStand implements InventoryHolder {
                 for(int i = 0; i < encoded.length; i++) {
                     int slot = Minion.INVENTORY_SLOTS[i];
 
-                    minion.inv.setItem(slot, UtilFunctions.itemStackFromBase64(encoded[i]));
+                    if(!encoded[i].equals("null")) minion.inv.setItem(slot, UtilFunctions.itemStackFromBase64(encoded[i]));
                 }
             }
 
-            minion.saveContent();
+            minion.updateProgram();
 
             return true;
         }
