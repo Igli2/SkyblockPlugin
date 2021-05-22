@@ -14,10 +14,7 @@ import org.bukkit.inventory.meta.BookMeta;
 import org.bukkit.persistence.PersistentDataType;
 import skyblock.SkyblockMain;
 import skyblock.utils.UtilFunctions;
-import skyblock.utils.minion.Instruction;
-import skyblock.utils.minion.InstructionCodeGenerator;
-import skyblock.utils.minion.ProgramLexer;
-import skyblock.utils.minion.ProgramParser;
+import skyblock.utils.minion.*;
 
 import java.util.ArrayList;
 
@@ -34,6 +31,9 @@ public class Minion extends EntityArmorStand implements InventoryHolder {
     private ArrayList<Instruction> instructions;
     private int pc;
     private int nextUpdate;
+    private int selectedSlot;
+
+    private int sleepTicks;
 
     public Minion(EntityTypes<? extends EntityArmorStand> entitytypes, World world) {
         super(entitytypes, world);
@@ -43,6 +43,8 @@ public class Minion extends EntityArmorStand implements InventoryHolder {
         this.instructions = new ArrayList<>();
         this.pc = 0;
         this.nextUpdate = 0;
+        this.selectedSlot = 0;
+        this.sleepTicks = 0;
     }
 
     public Minion(Location location) {
@@ -52,6 +54,8 @@ public class Minion extends EntityArmorStand implements InventoryHolder {
         this.instructions = new ArrayList<>();
         this.pc = 0;
         this.nextUpdate = 0;
+        this.selectedSlot = 0;
+        this.sleepTicks = 0;
 
         this.setPosition(location.getX(), location.getY(), location.getZ());
 
@@ -82,7 +86,7 @@ public class Minion extends EntityArmorStand implements InventoryHolder {
         return this.inv;
     }
 
-    public void updateProgram() {
+    public void update() {
         if(this.inv.getItem(Minion.PROGRAM_SLOT) != null && this.inv.getItem(Minion.PROGRAM_SLOT).getType() == Material.WRITTEN_BOOK) {
             ItemStack program = this.inv.getItem(Minion.PROGRAM_SLOT);
             BookMeta bookMeta = (BookMeta) program.getItemMeta();
@@ -97,12 +101,17 @@ public class Minion extends EntityArmorStand implements InventoryHolder {
             }
         }
 
-        this.saveContent();
+        ((ArmorStand)this.getBukkitEntity()).getEquipment().setItemInMainHand(this.inv.getItem(Minion.INVENTORY_SLOTS[this.selectedSlot]));
     }
 
     @Override
     public void tick() {
         super.tick();
+
+        if(this.sleepTicks > 0) {
+            this.sleepTicks--;
+            return;
+        }
 
         if(this.nextUpdate == 0) {
             this.nextUpdate = 20;
@@ -123,6 +132,8 @@ public class Minion extends EntityArmorStand implements InventoryHolder {
             case USE:
                 break;
             case SELECT:
+                this.selectedSlot = Integer.parseInt(instruction.getArg());
+                ((ArmorStand)this.getBukkitEntity()).getEquipment().setItemInMainHand(this.inv.getItem(Minion.INVENTORY_SLOTS[this.selectedSlot]));
                 break;
             case THROW:
                 break;
@@ -137,7 +148,12 @@ public class Minion extends EntityArmorStand implements InventoryHolder {
                 this.setYawPitch(this.yaw + 90.0f, this.pitch);
                 break;
             case BREAK:
-                if(!front.getBlock().isEmpty()) front.getBlock().breakNaturally();
+                if(!front.getBlock().isEmpty() && front.getBlock().getType().getHardness() >= 0.0) {
+                    double breakTime = UtilFunctions.getBlockBreakDuration(this.inv.getItem(Minion.INVENTORY_SLOTS[this.selectedSlot]), front.getBlock(),
+                                -1, -1, false, this.inWater, this.onGround);
+                    this.sleepTicks = (int) (breakTime * 20);
+                    Bukkit.getScheduler().runTaskLater(SkyblockMain.instance, new BreakerRunnable(front.getBlock(), this.inv.getItem(Minion.INVENTORY_SLOTS[this.selectedSlot])), (long) (breakTime * 20));
+                }
                 break;
             case PLACE:
                 if(front.getBlock().getType() == Material.AIR) front.getBlock().setType(Material.STONE);
@@ -171,7 +187,7 @@ public class Minion extends EntityArmorStand implements InventoryHolder {
         this.pc++;
     }
 
-    private void saveContent() {
+    public void saveContent() {
         if(this.inv.getItem(Minion.PROGRAM_SLOT) != null && this.inv.getItem(Minion.PROGRAM_SLOT).getType() == Material.WRITTEN_BOOK) {
             this.getBukkitEntity().getPersistentDataContainer().set(new NamespacedKey(SkyblockMain.instance, "program"), PersistentDataType.STRING,
                     UtilFunctions.itemStackToBase64(this.inv.getItem(Minion.PROGRAM_SLOT)));
@@ -253,7 +269,8 @@ public class Minion extends EntityArmorStand implements InventoryHolder {
                 }
             }
 
-            minion.updateProgram();
+            minion.update();
+            minion.saveContent();
 
             return true;
         }
