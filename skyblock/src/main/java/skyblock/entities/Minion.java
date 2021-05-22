@@ -12,12 +12,18 @@ import org.bukkit.inventory.InventoryHolder;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.BookMeta;
 import org.bukkit.persistence.PersistentDataType;
+import org.bukkit.util.io.BukkitObjectInputStream;
+import org.bukkit.util.io.BukkitObjectOutputStream;
 import skyblock.SkyblockMain;
 import skyblock.utils.minion.Instruction;
 import skyblock.utils.minion.InstructionCodeGenerator;
 import skyblock.utils.minion.ProgramLexer;
 import skyblock.utils.minion.ProgramParser;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 
 public class Minion extends EntityArmorStand implements InventoryHolder {
@@ -58,7 +64,6 @@ public class Minion extends EntityArmorStand implements InventoryHolder {
             equipment.setChestplate(new ItemStack(org.bukkit.Material.LEATHER_CHESTPLATE));
             equipment.setLeggings(new ItemStack(org.bukkit.Material.LEATHER_LEGGINGS));
             equipment.setBoots(new ItemStack(org.bukkit.Material.LEATHER_BOOTS));
-       //     equipment.setItemInMainHand(new ItemStack(org.bukkit.Material.CREEPER_HEAD));
         }
         bukkitEntity.setCanPickupItems(false);
 
@@ -87,6 +92,15 @@ public class Minion extends EntityArmorStand implements InventoryHolder {
                 this.instructions = InstructionCodeGenerator.generateInstructions(parser.parse());
             } catch (Exception exception) {
                 exception.printStackTrace();
+            }
+
+            ByteArrayOutputStream outStream = new ByteArrayOutputStream();
+            try {
+                BukkitObjectOutputStream bukkitStream = new BukkitObjectOutputStream(outStream);
+                bukkitStream.writeObject(this.inv.getItem(0));
+                this.getBukkitEntity().getPersistentDataContainer().set(new NamespacedKey(SkyblockMain.instance, "program"), PersistentDataType.BYTE_ARRAY, outStream.toByteArray());
+            } catch (IOException ioException) {
+                ioException.printStackTrace();
             }
         }
     }
@@ -175,6 +189,19 @@ public class Minion extends EntityArmorStand implements InventoryHolder {
             armorStand.remove();
             Minion minion = new Minion(armorStand.getLocation());
             ((CraftWorld)armorStand.getWorld()).getHandle().addEntity(minion);
+
+            if(armorStand.getPersistentDataContainer().has(new NamespacedKey(SkyblockMain.instance, "program"), PersistentDataType.BYTE_ARRAY)) {
+                byte[] programBytes = armorStand.getPersistentDataContainer().get(new NamespacedKey(SkyblockMain.instance, "program"), PersistentDataType.BYTE_ARRAY);
+
+                InputStream inStream = new ByteArrayInputStream(programBytes);
+                try {
+                    BukkitObjectInputStream bukkitStream = new BukkitObjectInputStream(inStream);
+                    minion.inv.setItem(0, (ItemStack) bukkitStream.readObject());
+                    minion.updateProgram();
+                } catch (Exception ioException) {
+                    ioException.printStackTrace();
+                }
+            }
 
             return true;
         }
