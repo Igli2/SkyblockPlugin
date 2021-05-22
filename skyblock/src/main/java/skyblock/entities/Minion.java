@@ -12,21 +12,23 @@ import org.bukkit.inventory.InventoryHolder;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.BookMeta;
 import org.bukkit.persistence.PersistentDataType;
-import org.bukkit.util.io.BukkitObjectInputStream;
-import org.bukkit.util.io.BukkitObjectOutputStream;
 import skyblock.SkyblockMain;
+import skyblock.utils.UtilFunctions;
 import skyblock.utils.minion.Instruction;
 import skyblock.utils.minion.InstructionCodeGenerator;
 import skyblock.utils.minion.ProgramLexer;
 import skyblock.utils.minion.ProgramParser;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
 
 public class Minion extends EntityArmorStand implements InventoryHolder {
+
+    private static final int PROGRAM_SLOT = 37;
+    private static final int DESTROY_SLOT = 39;
+
+    private static final int[] CRAFTING_GRID = {10, 11, 12, 19, 20, 21, 28, 29, 30};
+
+    private static final int[] INVENTORY_SLOTS = {14, 15, 16, 23, 24, 25, 32, 33, 34, 41, 42, 43};
 
     private Inventory inv;
     private ArrayList<Instruction> instructions;
@@ -81,8 +83,8 @@ public class Minion extends EntityArmorStand implements InventoryHolder {
     }
 
     public void updateProgram() {
-        if(this.inv.getItem(0) != null && this.inv.getItem(0).getType() == Material.WRITTEN_BOOK) {
-            ItemStack program = this.inv.getItem(0);
+        if(this.inv.getItem(Minion.PROGRAM_SLOT) != null && this.inv.getItem(Minion.PROGRAM_SLOT).getType() == Material.WRITTEN_BOOK) {
+            ItemStack program = this.inv.getItem(Minion.PROGRAM_SLOT);
             BookMeta bookMeta = (BookMeta) program.getItemMeta();
             String programStr = String.join("\n", bookMeta.getPages());
 
@@ -93,16 +95,9 @@ public class Minion extends EntityArmorStand implements InventoryHolder {
             } catch (Exception exception) {
                 exception.printStackTrace();
             }
-
-            ByteArrayOutputStream outStream = new ByteArrayOutputStream();
-            try {
-                BukkitObjectOutputStream bukkitStream = new BukkitObjectOutputStream(outStream);
-                bukkitStream.writeObject(this.inv.getItem(0));
-                this.getBukkitEntity().getPersistentDataContainer().set(new NamespacedKey(SkyblockMain.instance, "program"), PersistentDataType.BYTE_ARRAY, outStream.toByteArray());
-            } catch (IOException ioException) {
-                ioException.printStackTrace();
-            }
         }
+
+        this.saveContent();
     }
 
     @Override
@@ -176,6 +171,45 @@ public class Minion extends EntityArmorStand implements InventoryHolder {
         this.pc++;
     }
 
+    private void saveContent() {
+        if(this.inv.getItem(Minion.PROGRAM_SLOT) != null && this.inv.getItem(Minion.PROGRAM_SLOT).getType() == Material.WRITTEN_BOOK) {
+            this.getBukkitEntity().getPersistentDataContainer().set(new NamespacedKey(SkyblockMain.instance, "program"), PersistentDataType.STRING,
+                    UtilFunctions.itemStackToBase64(this.inv.getItem(Minion.PROGRAM_SLOT)));
+        }
+
+        String craftingGrid = "";
+        for(int s = 0; s < Minion.CRAFTING_GRID.length; s++) {
+            int slot = Minion.CRAFTING_GRID[s];
+
+            if(s != 0) craftingGrid += ";";
+
+            if(this.inv.getItem(slot) == null) {
+                craftingGrid += "null";
+            } else {
+                craftingGrid += UtilFunctions.itemStackToBase64(this.inv.getItem(slot));
+            }
+        }
+
+        this.getBukkitEntity().getPersistentDataContainer().set(new NamespacedKey(SkyblockMain.instance, "craftingGrid"), PersistentDataType.STRING,
+                craftingGrid);
+
+        String inventoryGrid = "";
+        for(int s = 0; s < Minion.INVENTORY_SLOTS.length; s++) {
+            int slot = Minion.INVENTORY_SLOTS[s];
+
+            if(s != 0) inventoryGrid += ";";
+
+            if(this.inv.getItem(slot) == null) {
+                inventoryGrid += "null";
+            } else {
+                inventoryGrid += UtilFunctions.itemStackToBase64(this.inv.getItem(slot));
+            }
+        }
+
+        this.getBukkitEntity().getPersistentDataContainer().set(new NamespacedKey(SkyblockMain.instance, "inventoryGrid"), PersistentDataType.STRING,
+                inventoryGrid);
+    }
+
     private boolean checkCondition(String condition, Location front) {
         if(condition.equals("power")) {
             return this.getBukkitEntity().getLocation().add(0.0, -1.0, 0.0).getBlock().isBlockPowered();
@@ -190,18 +224,36 @@ public class Minion extends EntityArmorStand implements InventoryHolder {
             Minion minion = new Minion(armorStand.getLocation());
             ((CraftWorld)armorStand.getWorld()).getHandle().addEntity(minion);
 
-            if(armorStand.getPersistentDataContainer().has(new NamespacedKey(SkyblockMain.instance, "program"), PersistentDataType.BYTE_ARRAY)) {
-                byte[] programBytes = armorStand.getPersistentDataContainer().get(new NamespacedKey(SkyblockMain.instance, "program"), PersistentDataType.BYTE_ARRAY);
-
-                InputStream inStream = new ByteArrayInputStream(programBytes);
+            if(armorStand.getPersistentDataContainer().has(new NamespacedKey(SkyblockMain.instance, "program"), PersistentDataType.STRING)) {
                 try {
-                    BukkitObjectInputStream bukkitStream = new BukkitObjectInputStream(inStream);
-                    minion.inv.setItem(0, (ItemStack) bukkitStream.readObject());
-                    minion.updateProgram();
+                    minion.inv.setItem(Minion.PROGRAM_SLOT, UtilFunctions.itemStackFromBase64(armorStand.getPersistentDataContainer().get(
+                            new NamespacedKey(SkyblockMain.instance, "program"), PersistentDataType.STRING)));
                 } catch (Exception ioException) {
                     ioException.printStackTrace();
                 }
             }
+
+            if(armorStand.getPersistentDataContainer().has(new NamespacedKey(SkyblockMain.instance, "craftingGrid"), PersistentDataType.STRING)) {
+                String[] encoded = armorStand.getPersistentDataContainer().get(new NamespacedKey(SkyblockMain.instance, "craftingGrid"), PersistentDataType.STRING).split(";");
+
+                for(int i = 0; i < encoded.length; i++) {
+                    int slot = Minion.CRAFTING_GRID[i];
+
+                    minion.inv.setItem(slot, UtilFunctions.itemStackFromBase64(encoded[i]));
+                }
+            }
+
+            if(armorStand.getPersistentDataContainer().has(new NamespacedKey(SkyblockMain.instance, "inventoryGrid"), PersistentDataType.STRING)) {
+                String[] encoded = armorStand.getPersistentDataContainer().get(new NamespacedKey(SkyblockMain.instance, "inventoryGrid"), PersistentDataType.STRING).split(";");
+
+                for(int i = 0; i < encoded.length; i++) {
+                    int slot = Minion.INVENTORY_SLOTS[i];
+
+                    minion.inv.setItem(slot, UtilFunctions.itemStackFromBase64(encoded[i]));
+                }
+            }
+
+            minion.saveContent();
 
             return true;
         }
