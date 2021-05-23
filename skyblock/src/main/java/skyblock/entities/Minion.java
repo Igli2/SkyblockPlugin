@@ -6,6 +6,7 @@ import net.minecraft.server.v1_16_R3.World;
 import org.bukkit.*;
 import org.bukkit.craftbukkit.v1_16_R3.CraftWorld;
 import org.bukkit.entity.ArmorStand;
+import org.bukkit.entity.Item;
 import org.bukkit.inventory.EntityEquipment;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.InventoryHolder;
@@ -136,10 +137,29 @@ public class Minion extends EntityArmorStand implements InventoryHolder {
                 ((ArmorStand)this.getBukkitEntity()).getEquipment().setItemInMainHand(this.inv.getItem(Minion.INVENTORY_SLOTS[this.selectedSlot]));
                 break;
             case THROW:
+                if(this.inv.getItem(Minion.INVENTORY_SLOTS[this.selectedSlot]) != null) {
+                    ItemStack toDrop = this.inv.getItem(Minion.INVENTORY_SLOTS[this.selectedSlot]).clone();
+
+                    int dropAmount = Math.min(Integer.parseInt(instruction.getArg()), toDrop.getAmount());
+                    this.inv.getItem(Minion.INVENTORY_SLOTS[this.selectedSlot]).setAmount(toDrop.getAmount() - dropAmount);
+                    toDrop.setAmount(dropAmount);
+
+                    Item dropped = this.getBukkitEntity().getWorld().dropItem(this.getBukkitEntity().getLocation(), toDrop);
+                    dropped.setVelocity(this.getBukkitEntity().getLocation().getDirection().normalize());
+                }
                 break;
             case CRAFT:
                 break;
             case DROP:
+                if(this.inv.getItem(Minion.INVENTORY_SLOTS[this.selectedSlot]) != null) {
+                    ItemStack toDrop = this.inv.getItem(Minion.INVENTORY_SLOTS[this.selectedSlot]).clone();
+
+                    int dropAmount = Math.min(Integer.parseInt(instruction.getArg()), toDrop.getAmount());
+                    this.inv.getItem(Minion.INVENTORY_SLOTS[this.selectedSlot]).setAmount(toDrop.getAmount() - dropAmount);
+                    toDrop.setAmount(dropAmount);
+
+                    this.getBukkitEntity().getWorld().dropItem(this.getBukkitEntity().getLocation(), toDrop);
+                }
                 break;
             case LEFT:
                 this.setYawPitch(this.yaw - 90.0f, this.pitch);
