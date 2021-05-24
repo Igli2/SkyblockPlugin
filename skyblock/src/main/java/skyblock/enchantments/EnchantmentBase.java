@@ -10,6 +10,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 import skyblock.registries.ItemRegistry;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 public abstract class EnchantmentBase {
@@ -41,7 +42,7 @@ public abstract class EnchantmentBase {
     public int getMaxLevel() {return 0;} // return max enchant level
     public void onAttack(EntityDamageByEntityEvent event, int level) {}
     public void onKill(EntityDeathEvent event, int level) {}
-    public void onBlockBreak(BlockBreakEvent event, int level) {}
+    public Collection<ItemStack> onBlockBreak(Collection<ItemStack> drops, BlockBreakEvent event, int level) { return drops; }
 
     public boolean appliesOn(ItemStack itemStack) {
         return itemStack.getType() == Material.BOOK;

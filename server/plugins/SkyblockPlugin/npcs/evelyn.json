@@ -1,0 +1,14 @@
+{
+  "location":{
+    "world": "lobby",
+    "x": 10.0,
+    "y": 123.0,
+    "z": -36.5,
+    "yaw": 90.0,
+    "pitch": 0.0
+  },
+  "greeting": "The view from here is so great.",
+  "name": "[NPC] Evelyn",
+  "value": "ewogICJ0aW1lc3RhbXAiIDogMTYyMTY3NDM5NzA4NCwKICAicHJvZmlsZUlkIiA6ICI4OGU0YWNiYTQwOTc0YWZkYmE0ZDM1YjdlYzdmNmJmYSIsCiAgInByb2ZpbGVOYW1lIiA6ICJKb2FvMDkxNSIsCiAgInNpZ25hdHVyZVJlcXVpcmVkIiA6IHRydWUsCiAgInRleHR1cmVzIiA6IHsKICAgICJTS0lOIiA6IHsKICAgICAgInVybCIgOiAiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS9jNTlhNzFkYWI0YjYxYTQ3ODNiZTc4NjUwNjUxOGQ0YWM3YmIwMDg1MmY4ZTE1NDQ0OGUyYmQxN2U1YWFkZWMwIgogICAgfQogIH0KfQ==",
+  "signature": "xovbe8NZG6/c5vzjmVlzTCpMeOy3zODencPwSvqg+dXwYmxm23+AdEg+a4Su5TaXHP4lnoJPVORi/jPfhE76Jul+P7EmUAsKYNOXae3Qsg8f1afK6UZ4xoKjwhWeaZ0LKqu/vnm2AHv66fRDnBJKPKMlRRhaxcPxIoUk2u1axBw7DS31ACyLbyRFd4CRJA+hfH3ziMywBNIJxYyUAlBmYDrVl0yDuHM40KdJj9XYm1AUR64YJgHC3G7aFHdbobh9RzykYJas/nJJ33LxfTmZ4lh2s49HbOxJYgXFNus8vC0oGiGwCVisg544s8M2hoGgfpzzvHqMvS2XYgrGQptd1Brr+C13tQOT8FFgg47vyOtJqgNIFo/8JjxuAtNRi5weFwhwg6vL0a5t7OrqCNWWZYXyEFwRHr+eETgWDNEUl5NMIah91kLG6w6rxRf/PdJWVb6AqkzHx9bJ/rIomxTZrQZcJ9rHmK2L02+tEJfPwPTgrqNCmXBeDaPnNl6gz99UVq5nTV+RqxCw5jV8WQdfH1oh+uiu1xfx5t4mC8LaIAT85C87gKY63iZ5mTF2L5q7p3ErrkD5bu87UocXSXLuadV+Q/XWsa8MmLjw00oo5TzahST1d9IUYE6oF2zHemuK4EAyrB66HZV0oT8EsfJQpMa4Z4Fglt7AnUDhIVIA2P8="
+}

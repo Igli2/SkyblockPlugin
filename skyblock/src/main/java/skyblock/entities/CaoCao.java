@@ -2,6 +2,7 @@ package skyblock.entities;
 
 import net.minecraft.server.v1_16_R3.World;
 import net.minecraft.server.v1_16_R3.*;
+import org.bukkit.Material;
 import org.bukkit.*;
 import org.bukkit.boss.BarColor;
 import org.bukkit.boss.BarFlag;
@@ -131,6 +132,11 @@ public class CaoCao extends EntitySkeletonWither {
     protected void dropDeathLoot() {
         org.bukkit.inventory.ItemStack bronzeIngot = SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.BRONZE_INGOT);
         this.getBukkitEntity().getWorld().dropItemNaturally(this.getBukkitEntity().getLocation(), bronzeIngot);
+
+        if (Math.random() < 0.4) {
+            org.bukkit.inventory.ItemStack gapple = new org.bukkit.inventory.ItemStack(Material.ENCHANTED_GOLDEN_APPLE);
+            this.getBukkitEntity().getWorld().dropItemNaturally(this.getBukkitEntity().getLocation(), gapple);
+        }
     }
 
     @Override

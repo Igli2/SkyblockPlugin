@@ -8,6 +8,8 @@ import org.bukkit.inventory.ItemStack;
 import skyblock.SkyblockMain;
 import skyblock.registries.ItemRegistry;
 
+import java.util.Collections;
+
 public class AppleHarvester implements Listener {
     @EventHandler
     public void blockBreakEvent(BlockBreakEvent event) {
@@ -16,13 +18,13 @@ public class AppleHarvester implements Listener {
             if (ItemRegistry.isItemStackEqual(itemHeld, SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.APPLE_HARVESTER))) {
                 if (event.getBlock().getType() == Material.OAK_LEAVES || event.getBlock().getType() == Material.DARK_OAK_LEAVES) {
                     if (Math.random() < 0.15) {
-                        SkyblockMain.instance.getServer().getScheduler().scheduleSyncDelayedTask(SkyblockMain.instance, () -> event.getPlayer().getWorld().dropItem(event.getBlock().getLocation().add(0.5, 0.5, 0.5), new ItemStack(Material.APPLE)), 1);
+                        SkyblockMain.applyBlockBreakEnchantmentsAndDropItems(Collections.singletonList(new ItemStack(Material.APPLE)), event);
                     }
                 }
             } else if (ItemRegistry.isItemStackEqual(itemHeld, SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.REINFORCED_APPLE_HARVESTER))) {
                 if (event.getBlock().getType() == Material.OAK_LEAVES || event.getBlock().getType() == Material.DARK_OAK_LEAVES) {
                     if (Math.random() < 0.35) {
-                        SkyblockMain.instance.getServer().getScheduler().scheduleSyncDelayedTask(SkyblockMain.instance, () -> event.getPlayer().getWorld().dropItem(event.getBlock().getLocation().add(0.5, 0.5, 0.5), new ItemStack(Material.APPLE)), 1);
+                        SkyblockMain.applyBlockBreakEnchantmentsAndDropItems(Collections.singletonList(new ItemStack(Material.APPLE)), event);
                     }
                 }
             }

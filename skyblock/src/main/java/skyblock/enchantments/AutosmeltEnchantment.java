@@ -3,8 +3,8 @@ package skyblock.enchantments;
 import org.bukkit.Material;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.inventory.ItemStack;
-import skyblock.SkyblockMain;
 
+import java.util.Collection;
 import java.util.HashMap;
 
 public class AutosmeltEnchantment extends EnchantmentBase {
@@ -47,14 +47,16 @@ public class AutosmeltEnchantment extends EnchantmentBase {
         return (EnchantmentBase.isPickaxe(itemStack) || EnchantmentBase.isAxe(itemStack) || super.appliesOn(itemStack));
     }
 
-    public void onBlockBreak(BlockBreakEvent event, int level) {
-        Material broken = event.getBlock().getType();
-        for (Material m : smelted.keySet()) {
-            if (broken == m) {
-                event.setDropItems(false);
-                SkyblockMain.instance.getServer().getScheduler().scheduleSyncDelayedTask(SkyblockMain.instance, () -> event.getBlock().getWorld().dropItem(event.getBlock().getLocation().add(0.5, 0.5, 0.5), new ItemStack(smelted.get(m))), 1);
-                return;
+    public Collection<ItemStack> onBlockBreak(Collection<ItemStack> drops, BlockBreakEvent event, int level) {
+        for (ItemStack itemStack : drops) {
+            Material m = itemStack.getType();
+            for (Material m1 : smelted.keySet()) {
+                if (m == m1) {
+                    itemStack.setType(smelted.get(m1));
+                }
             }
         }
+
+        return drops;
     }
 }

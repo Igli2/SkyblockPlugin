@@ -6,20 +6,19 @@ import com.comphenix.protocol.events.PacketAdapter;
 import com.comphenix.protocol.events.PacketEvent;
 import com.comphenix.protocol.wrappers.EnumWrappers;
 import com.mojang.authlib.properties.Property;
-import org.bukkit.Bukkit;
-import org.bukkit.Location;
-import org.bukkit.Material;
-import org.bukkit.World;
+import org.bukkit.*;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.craftbukkit.v1_16_R3.entity.CraftEntity;
 import org.bukkit.entity.ArmorStand;
 import org.bukkit.entity.Entity;
+import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import skyblock.commands.*;
+import skyblock.enchantments.EnchantmentBase;
 import skyblock.enchantments.EnchantmentRegistry;
 import skyblock.entities.Minion;
 import skyblock.listeners.*;
@@ -40,6 +39,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.Collection;
 import java.util.Random;
 
 
@@ -207,6 +207,16 @@ public class SkyblockMain extends JavaPlugin {
             SkyblockMain.npcRegistry.registerNPC(new QuestNPCEntity(mitchell));
             JSONObject darnell = (JSONObject) parser.parse(new FileReader(this.getDataFolder().getAbsolutePath() + "/npcs/darnell.json"));
             SkyblockMain.npcRegistry.registerNPC(new QuestNPCEntity(darnell));
+            JSONObject evelyn = (JSONObject) parser.parse(new FileReader(this.getDataFolder().getAbsolutePath() + "/npcs/evelyn.json"));
+            SkyblockMain.npcRegistry.registerNPC(new QuestNPCEntity(evelyn));
+            JSONObject letitia = (JSONObject) parser.parse(new FileReader(this.getDataFolder().getAbsolutePath() + "/npcs/letitia.json"));
+            SkyblockMain.npcRegistry.registerNPC(new QuestNPCEntity(letitia));
+            JSONObject skylar = (JSONObject) parser.parse(new FileReader(this.getDataFolder().getAbsolutePath() + "/npcs/skylar.json"));
+            SkyblockMain.npcRegistry.registerNPC(new QuestNPCEntity(skylar));
+            JSONObject anderson = (JSONObject) parser.parse(new FileReader(this.getDataFolder().getAbsolutePath() + "/npcs/anderson.json"));
+            SkyblockMain.npcRegistry.registerNPC(new QuestNPCEntity(anderson));
+            JSONObject gordon = (JSONObject) parser.parse(new FileReader(this.getDataFolder().getAbsolutePath() + "/npcs/gordon.json"));
+            SkyblockMain.npcRegistry.registerNPC(new QuestNPCEntity(gordon));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -307,5 +317,27 @@ public class SkyblockMain extends JavaPlugin {
         double y = Double.parseDouble(values[2]);
         double z = Double.parseDouble(values[3]);
         return new Location(world, x, y, z);
+    }
+
+    public static void applyBlockBreakEnchantmentsAndDropItems(Collection<ItemStack> drops, BlockBreakEvent event) {
+        if (event.getPlayer().getGameMode() == GameMode.CREATIVE) { return; }
+        if (!event.isDropItems()) { return; }
+
+        Location blockPos = event.getBlock().getLocation();
+        ItemStack tool = event.getPlayer().getInventory().getItemInMainHand();
+
+        if (blockPos.getWorld() == null) { return; }
+
+        for (EnchantmentBase enchantment : EnchantmentRegistry.enchantments) {
+            if (EnchantmentBase.hasEnchantment(tool, enchantment)) {
+                drops = enchantment.onBlockBreak(drops, event, EnchantmentBase.getEnchantmentLevel(tool, enchantment));
+            }
+        }
+
+        for (ItemStack itemStack : drops) {
+            blockPos.getWorld().dropItem(blockPos.add(0.5, 0.5, 0.5), itemStack);
+        }
+
+        event.setDropItems(false);
     }
 }

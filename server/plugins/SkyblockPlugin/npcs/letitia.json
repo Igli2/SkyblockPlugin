@@ -1,0 +1,14 @@
+{
+  "location":{
+    "world": "lobby",
+    "x": 16.0,
+    "y": 109.0,
+    "z": -41.3,
+    "yaw": 149.0,
+    "pitch": 0.0
+  },
+  "greeting": "Those weeds grow insanely fast here.",
+  "name": "[NPC] Letitia",
+  "value": "ewogICJ0aW1lc3RhbXAiIDogMTYyMTY3MzkwMzY1NCwKICAicHJvZmlsZUlkIiA6ICI5MzZmMTA3MTEzOGM0YjMyYTg0OGY2NmE5Nzc2NDJhMiIsCiAgInByb2ZpbGVOYW1lIiA6ICIwMDAwMDAwMDAwMDAwMDB4IiwKICAic2lnbmF0dXJlUmVxdWlyZWQiIDogdHJ1ZSwKICAidGV4dHVyZXMiIDogewogICAgIlNLSU4iIDogewogICAgICAidXJsIiA6ICJodHRwOi8vdGV4dHVyZXMubWluZWNyYWZ0Lm5ldC90ZXh0dXJlLzY0NmQ4NzhmNDhlNDQ2ODNkYzEyNThlZTNhOTZmZDU1Y2NiYTA0YjlhNDY5ODcyNjUwODcyYmU1NmI0ZmNlNzIiCiAgICB9CiAgfQp9",
+  "signature": "ZcW+yxxlYTo4CX3QW2puGPsriRlfKUMxB1sqx+Nazprq7dUacWYMw8eku5val9aaTH7imGJ6xLi6g2921oHEiVsVCdiQp9kwL9H8eZ4SI2yqBngT0UpyTpW8x0qck+S5tgET252BIvf0r5WwtfKmFoLuvbYalV0/hKdfZ8U2/58yQ9ag+aJqPk/EWPTUB2NZlrqhoZnBsl+GpsJnrusmtpR8q4h9VwaKyFmNkd0pgTbktQpIHuWK6nQUtYqlrc1a1v9X6Zy2NpUmeAodBr02XPgRPO9hUWaftKTTJgWsGrC304D5Jkf4a7V3LPvam98vEhb76h1cgvRZWzluDSibdfWIUlE37vwu7dGQ3hsuY3XPw6WmFK/7LiNtzzsLEJAXsezXRiREmet+h1MwX0TDRYyb0Op7Iw18KOEVeTpduhmWPoibzreCRx6uEbFQ5Z1nShQ4onSlBH10URk+Cn/V89SbVa+4fr/ztCFoUL7ZIDTJ98tDOXsd1aWyXW9T4RjivfeSR+9k3J2YH9iuumO5OdT4XTyj+oeRFjWG6Tvaz+sjQ8we0nL0CIhEqgCC5m3RcgMLtKIWkqDrujjNAgvTbS0dqk+PPfErkPBMTqxokuk/SM0IigmX6XHhYWuYbW4ddKVuLAylqxRKirx/va2ZjwHw+KzpJ8LgcFH+oI6B4cQ="
+}

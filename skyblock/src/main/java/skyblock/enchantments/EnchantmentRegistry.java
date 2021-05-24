@@ -9,5 +9,6 @@ public class EnchantmentRegistry {
         EnchantmentRegistry.enchantments.add(new VenomousEnchantment());
         EnchantmentRegistry.enchantments.add(new ExperienceEnchantment());
         EnchantmentRegistry.enchantments.add(new AutosmeltEnchantment());
+        EnchantmentRegistry.enchantments.add(new ItemMagnetEnchantment());
     }
 }

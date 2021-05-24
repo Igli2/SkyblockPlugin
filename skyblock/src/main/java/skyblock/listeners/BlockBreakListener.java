@@ -1,14 +1,14 @@
 package skyblock.listeners;
 
-import org.bukkit.GameMode;
 import org.bukkit.Location;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.inventory.ItemStack;
-import skyblock.enchantments.EnchantmentBase;
-import skyblock.enchantments.EnchantmentRegistry;
+import skyblock.SkyblockMain;
+
+import java.util.Collections;
 
 public class BlockBreakListener implements Listener {
     @EventHandler(priority = EventPriority.LOWEST)
@@ -24,25 +24,19 @@ public class BlockBreakListener implements Listener {
             Location location = event.getBlock().getLocation();
             ItemStack specialBlock = BlockPlaceListener.specialBlocks.get(location);
             if (specialBlock != null) {
-                event.setDropItems(false);
                 // drop special item instead
-                if (!(event.getPlayer().getGameMode() == GameMode.CREATIVE)) {
-                    event.getBlock().getWorld().dropItem(location, specialBlock);
-                }
+                SkyblockMain.applyBlockBreakEnchantmentsAndDropItems(Collections.singletonList(specialBlock), event);
                 // remove special item from hashmap
                 BlockPlaceListener.specialBlocks.remove(location);
             }
-
-            this.applyEnchantments(event);
         }
     }
 
-    private void applyEnchantments(BlockBreakEvent event) {
-        for (EnchantmentBase enchantment : EnchantmentRegistry.enchantments) {
-            ItemStack tool = event.getPlayer().getInventory().getItemInMainHand();
-            if (EnchantmentBase.hasEnchantment(tool, enchantment)) {
-                enchantment.onBlockBreak(event, EnchantmentBase.getEnchantmentLevel(tool, enchantment));
-            }
+    @EventHandler(priority = EventPriority.HIGHEST)
+    @SuppressWarnings("unused")
+    public void blockBreakEventLast(BlockBreakEvent event) {
+        if (!event.isCancelled()) {
+            SkyblockMain.applyBlockBreakEnchantmentsAndDropItems(event.getBlock().getDrops(event.getPlayer().getInventory().getItemInMainHand(), event.getPlayer()), event);
         }
     }
 }

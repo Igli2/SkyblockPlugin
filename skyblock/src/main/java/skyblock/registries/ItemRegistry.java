@@ -258,6 +258,7 @@ public class ItemRegistry {
         setItemName(appleHarvester, "Apple Harvester");
         makeUnbreakable(appleHarvester);
         specialItems.put(SkyblockItems.APPLE_HARVESTER, appleHarvester);
+        EnchantmentBase.customHoes.add(appleHarvester);
 
         ItemStack treatedWood = createTexturedSkull("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjc1NWYyNDJhNjVhYmRhNDdhZDQ3MDM1OTRiMzMxZTA4YzU2ZjBmODY2MTQ0MmRjNTY1ZjQzZWYzYzkzYTQyMyJ9fX0=",
                 new int[]{4444, -55555, 666666, 7777777});
@@ -353,6 +354,7 @@ public class ItemRegistry {
         setItemName(reinforcedAppleHarvester, "Reinforced Apple Harvester");
         makeUnbreakable(reinforcedAppleHarvester);
         specialItems.put(SkyblockItems.REINFORCED_APPLE_HARVESTER, reinforcedAppleHarvester);
+        EnchantmentBase.customHoes.add(reinforcedAppleHarvester);
 
         ItemStack autoStripper = new ItemStack(Material.DISPENSER);
         setItemName(autoStripper, "Auto Stripper");

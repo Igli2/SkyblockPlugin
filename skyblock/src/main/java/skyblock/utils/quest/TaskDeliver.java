@@ -64,9 +64,7 @@ public class TaskDeliver extends TaskTalk {
             int toRemove = itemStack.getAmount() * this.items.get(itemStack);
             for (int i = 0; i < 36; ++i) {
                 ItemStack itemStack1 = player.getInventory().getItem(i);
-                if (itemStack1 == null) { break; }
-
-                if (ItemRegistry.isItemStackEqual(itemStack1, itemStack)) {
+                if (itemStack1 != null && ItemRegistry.isItemStackEqual(itemStack1, itemStack)) {
                     if (itemStack1.getAmount() >= toRemove) {
                         itemStack1.setAmount(itemStack1.getAmount() - toRemove);
                         int finalI = i;

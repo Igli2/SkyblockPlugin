@@ -1,0 +1,14 @@
+{
+  "location":{
+    "world": "lobby",
+    "x": 17.5,
+    "y": 120.0,
+    "z": -49.5,
+    "yaw": 35.0,
+    "pitch": 0.0
+  },
+  "greeting": "Hey!",
+  "name": "[NPC] Gordon",
+  "value": "ewogICJ0aW1lc3RhbXAiIDogMTYyMTY3NDc5MDI3OSwKICAicHJvZmlsZUlkIiA6ICIwYTUzMDU0MTM4YWI0YjIyOTVhMGNlZmJiMGU4MmFkYiIsCiAgInByb2ZpbGVOYW1lIiA6ICJQX0hpc2lybyIsCiAgInNpZ25hdHVyZVJlcXVpcmVkIiA6IHRydWUsCiAgInRleHR1cmVzIiA6IHsKICAgICJTS0lOIiA6IHsKICAgICAgInVybCIgOiAiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS9iYjA2ZmE0NGVkMjczYWY4ODIzMDYyMWQ1NWEzNjNmMDEwMTRiOTk0Nzc2OGZjN2I2MTliMjliNTA2NWU5ZjM1IgogICAgfQogIH0KfQ==",
+  "signature": "CAc0O/u4521mpvyDttdhMhcf3Ra3JlnLtecRBbIaUU7xVQJ5mZ7tnanQgMox3BF1Hyodz6TyQkVPyj6gVS64zU/dwZEpI0LWggvtasCsXAZfJmFCEjDh6W11zN5ALEL/eews/T1bPOtmx34H/cGDERp5eZqNxduMxEiKtBKCmewi6P//naprKLsiYBpfwVkszYMsQPCgO36XGwa9tdZyErZ/jwf4sBgdI9mRyZ8Ck3TmEv+GmLa9qy2iLO/eu/Eyf+i4p4PKgE5P/6h7/PAKvLWIQY10e55QUwo2w1exbRE0yPrcLHUjwnKeoOMgcesj676s2iuC5dByTxEVnwbL3GTkz1QgrfuCXx2xobuCLdAq4HX5S8g9Gy71Os9DRjjT96xtPfvGeiiGW3mJcaKsyPDnjJleQ1LZtrN9EMl73NyiMJngggf6rZ6fdPvFgGNBpHIugp8ami3evOPVIFe/xEKW3heBmwEJkfGk9vAg18PQ73XW970jEbouMsrX2E5u/hh2AohnTw7L3L9oVrHR8RnNeZkVhZViPEVLuNaOQ92EYYXdIPD3w/F4LPmoDa022tgH3/HqHqotHO0JG5WOBwK/ayLpmQkUB//7J3xek6VV8geH5baKz/4NkYP+/5H1KmtqoXpjXVDSG75GjJHM7vTSke2j98cgO3hWenOdxBk="
+}
