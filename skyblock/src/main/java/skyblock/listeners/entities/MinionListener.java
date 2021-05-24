@@ -18,14 +18,14 @@ public class MinionListener implements Listener {
             net.minecraft.server.v1_16_R3.Entity nmsEntity = ((CraftEntity) event.getRightClicked()).getHandle();
             event.setCancelled(true);
             event.getPlayer().openInventory(((Minion)nmsEntity).getInventory());
-            event.getPlayer().sendMessage("OUCH!");
         }
     }
 
     @EventHandler
     public void onInventoryClose(InventoryCloseEvent event) {
         if(event.getInventory().getHolder() != null && event.getInventory().getHolder() instanceof Minion) {
-            ((Minion)event.getInventory().getHolder()).updateProgram();
+            ((Minion)event.getInventory().getHolder()).update();
+            ((Minion)event.getInventory().getHolder()).saveContent();
         }
     }
 
