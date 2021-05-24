@@ -52,6 +52,25 @@ public class QuestRegistry {
         }}));
         this.quests.put("goldenSlimeQuest", goldenSlimeQuest);
 
+        Quest goldenMelonQuest = new Quest();
+        goldenMelonQuest.addTask(new TaskTalk(Arrays.asList("Welcome on my jungle oasis.", "The weeds and plants here are growing insanely fast.", "That's why I have to be here all day long.", "Could you do me a favor and bring me a new hoe?"), "[NPC] Letitia"));
+        goldenMelonQuest.addTask(new TaskDeliver(Arrays.asList("Now I can finally eliminate those weeds effectively", "You can take a look around if you want.", "People always need help."), "[NPC] Letitia", "Bring me an iron hoe.", new HashMap<ItemStack, Integer>() {{
+            put(new ItemStack(Material.IRON_HOE, 1), 1);
+        }}));
+        goldenMelonQuest.addTask(new TaskTalk(Arrays.asList("Hi, I think I've never seen you here before...", "Whatever, my friend is missing and I can't look for him because my girlfriend needs me.", "My friend is a little lazy...", "And he likes climbing trees.", "It would be nice of you if you looked for him. And tell him he should talk to me."), "[NPC] Gordon"));
+        goldenMelonQuest.addTask(new TaskTalk(Arrays.asList("Gordon is looking for me? But I'm sure I told him that I'm away for a while.", "I climbed this tree to have a better view and look where I would go next.", "And now I'm not able to get down anymore.", "I think I should just stay here and build a small tree house.", "But first talk to Gordon and tell him I won't come back for another month and that he doesn't have to worry about me."), "[NPC] Anderson"));
+        goldenMelonQuest.addTask(new TaskTalk(Arrays.asList("If he really said so...", "Then I shall respect his decision."), "[NPC Gordon]"));
+        goldenMelonQuest.addTask(new TaskTalk(Arrays.asList("While you were talking to Gordon, I made plans for my tree house.", "Now that I know Gordon no longer worries about me, I can start constructing the roof.", "I just need some wood."), "[NPC] Anderson"));
+        goldenMelonQuest.addTask(new TaskDeliver(Arrays.asList("Perfect!", "It will take a few weeks but you can check back anytime you want and visit me.", "I probably need some more stuff sooner or later."), "[NPC] Anderson", "Bring me some stacks of jungle logs.", new HashMap<ItemStack, Integer>() {{
+            put(new ItemStack(Material.JUNGLE_LOG, 64), 8);
+        }}));
+        goldenMelonQuest.addTask(new TaskTalk(Collections.singletonList("It's Evelyn's birthday soon!"), "[NPC] Letitia"));
+        goldenMelonQuest.addTask(new TaskTalk(Arrays.asList("I still need a present for Evelyn.", "I thought of something shiny and cold.", "Just like her beautiful blue eyes.", "Her main hobby is collecting rare artifacts.", "Could you help me get what I just described?"), "[NPC] Gordon"));
+        goldenMelonQuest.addTask(new TaskDeliver(Arrays.asList("Thanks. I'm sure she likes it.", "She will be very happy!"), "[NPC] Gordon", "It's a drop from a mysterious monster that lives in cold areas.", new HashMap<ItemStack, Integer>() {{
+            put(SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.ICE_PEARL), 1);
+        }}));
+        this.quests.put("goldenMelonQuest", goldenMelonQuest);
+
         this.loadData();
     }
 

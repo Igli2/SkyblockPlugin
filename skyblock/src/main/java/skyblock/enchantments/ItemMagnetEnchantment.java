@@ -11,28 +11,34 @@ import java.util.HashMap;
 import java.util.List;
 
 public class ItemMagnetEnchantment extends EnchantmentBase {
+    @Override
     public double getChance() {
         return 0.1;
     }
 
+    @Override
     public String getName() {
         return "Itemmagnet";
     }
 
+    @Override
     public int getMaxLevel() {
         return 1;
     }
 
+    @Override
     public boolean appliesOn(ItemStack itemStack) {
         return (EnchantmentBase.isEnchantable(itemStack) || super.appliesOn(itemStack));
     }
 
+    @Override
     public void onKill(EntityDeathEvent event, int level) {
         Player player = event.getEntity().getKiller();
         giveOrDropItems(player, event.getDrops());
         event.getDrops().clear();
     }
 
+    @Override
     public Collection<ItemStack> onBlockBreak(Collection<ItemStack> drops, BlockBreakEvent event, int level) {
         giveOrDropItems(event.getPlayer(), drops);
         drops = new ArrayList<>();
@@ -43,7 +49,6 @@ public class ItemMagnetEnchantment extends EnchantmentBase {
         for (ItemStack itemStack : drops) {
             HashMap<Integer, ItemStack> excess = player.getInventory().addItem(itemStack);
             for (int id : excess.keySet()) {
-                System.out.println("excess");
                 player.getWorld().dropItem(player.getLocation(), excess.get(id));
             }
         }

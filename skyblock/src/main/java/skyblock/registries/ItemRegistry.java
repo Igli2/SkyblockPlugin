@@ -51,6 +51,7 @@ public class ItemRegistry {
         OCEAN_BIOME_STICK,
         OCEAN_ESSENCE,
         REINFORCED_APPLE_HARVESTER,
+        RIVER_BIOME_STICK,
         SHADOWSTEEL_INGOT,
         SHADOWSTEEL_HELMET,
         SHADOWSTEEL_CHESTPLATE,
@@ -338,6 +339,11 @@ public class ItemRegistry {
         setItemName(jungleBiomeStick, "Jungle Biome Stick");
         setLore(jungleBiomeStick, Arrays.asList("Size: 1 block", "Left click to change"));
         specialItems.put(SkyblockItems.JUNGLE_BIOME_STICK, jungleBiomeStick);
+
+        ItemStack riverBiomeStick = new ItemStack(Material.STICK);
+        setItemName(riverBiomeStick, "River Biome Stick");
+        setLore(riverBiomeStick, Arrays.asList("Size: 1 block", "Left click to change"));
+        specialItems.put(SkyblockItems.RIVER_BIOME_STICK, riverBiomeStick);
 
         ItemStack emeraldStuddedGeode = createTexturedSkull("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMjI4ZGQzZDliODFjYzlmOTZhNGMxMWZlMTNiMDc5NDk0ZjI3ZmM1YjkzM2M0ZjA4MzNmNjU2NDQ3MmVlMTYwOSJ9fX0=",
                 new int[]{3454335, -455689, 33333333, -1010110045});

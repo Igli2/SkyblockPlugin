@@ -165,6 +165,9 @@ public class RecipeRegistry {
         RecipeRegistry.addShapedRecipe(Arrays.asList(new Ingredient(Material.COCOA_BEANS, 64, 'C'), new Ingredient(Material.JUNGLE_SAPLING, 64, 'S'), new Ingredient(SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.MANIPULATION_GEM), 'M')),
                 SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.JUNGLE_BIOME_STICK),
                 new String[]{"C", "S", "M"});
+        RecipeRegistry.addShapedRecipe(Arrays.asList(new Ingredient(Material.WATER_BUCKET, 'W'), new Ingredient(SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.MANIPULATION_GEM), 'M')),
+                SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.RIVER_BIOME_STICK),
+                new String[]{"WWW", "WMW", "WWW"});
         RecipeRegistry.addShapedRecipe(Arrays.asList(new Ingredient(Material.AIR, ' '), new Ingredient(SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.TREATED_WOOD), 'T'), new Ingredient(SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.SHINY_PEBBLE), 'P'), new Ingredient(Material.GOLD_NUGGET, 'G')),
                 SkyblockMain.itemRegistry.getItemStack(ItemRegistry.SkyblockItems.COCOA_PLANTING_GADGET),
                 new String[]{"  P", " G ", "TT "});

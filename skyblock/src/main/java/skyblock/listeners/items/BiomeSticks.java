@@ -27,6 +27,7 @@ public class BiomeSticks implements Listener {
         put(ItemRegistry.SkyblockItems.OCEAN_BIOME_STICK, Biome.OCEAN);
         put(ItemRegistry.SkyblockItems.SNOWY_TAIGA_BIOME_STICK, Biome.SNOWY_TAIGA);
         put(ItemRegistry.SkyblockItems.JUNGLE_BIOME_STICK, Biome.JUNGLE);
+        put(ItemRegistry.SkyblockItems.RIVER_BIOME_STICK, Biome.RIVER);
     }};
 
     @EventHandler
