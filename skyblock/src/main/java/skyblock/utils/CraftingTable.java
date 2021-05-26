@@ -235,7 +235,7 @@ public class CraftingTable {
         }
     }
 
-    private static Recipe getRecipe(ItemStack[][] matrix) {
+    public static Recipe getRecipe(ItemStack[][] matrix) {
         ItemStack[][] trimmedMatrix = CraftingTable.trimMatrix(matrix);
         for (ShapedRecipe recipe : RecipeRegistry.recipes) {
             if (recipe.equals(trimmedMatrix)) {

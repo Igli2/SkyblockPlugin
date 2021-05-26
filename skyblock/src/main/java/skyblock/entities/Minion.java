@@ -1,12 +1,15 @@
 package skyblock.entities;
 
-import net.minecraft.server.v1_16_R3.EntityArmorStand;
-import net.minecraft.server.v1_16_R3.EntityTypes;
 import net.minecraft.server.v1_16_R3.World;
+import net.minecraft.server.v1_16_R3.*;
+import org.bukkit.Material;
 import org.bukkit.*;
 import org.bukkit.craftbukkit.v1_16_R3.CraftWorld;
+import org.bukkit.craftbukkit.v1_16_R3.inventory.CraftItemStack;
 import org.bukkit.entity.ArmorStand;
+import org.bukkit.entity.Entity;
 import org.bukkit.entity.Item;
+import org.bukkit.entity.LivingEntity;
 import org.bukkit.inventory.EntityEquipment;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.InventoryHolder;
@@ -14,6 +17,8 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.BookMeta;
 import org.bukkit.persistence.PersistentDataType;
 import skyblock.SkyblockMain;
+import skyblock.utils.CraftingTable;
+import skyblock.utils.Recipe;
 import skyblock.utils.UtilFunctions;
 import skyblock.utils.minion.*;
 
@@ -128,9 +133,24 @@ public class Minion extends EntityArmorStand implements InventoryHolder {
 
     private void executeInstruction(Instruction instruction) {
         Location front = this.getBukkitEntity().getLocation().add(this.getBukkitEntity().getLocation().getDirection());
+        Location head = this.getBukkitEntity().getLocation().add(0.0, this.getBukkitEntity().getHeight(), 0.0);
 
         switch(instruction.getType()) {
             case USE:
+                {
+                    ItemStack currItem = this.inv.getItem(Minion.INVENTORY_SLOTS[this.selectedSlot]);
+                    if(currItem != null) {
+                        if(currItem.getType() == Material.WOODEN_SWORD || currItem.getType() == Material.STONE_SWORD || currItem.getType() == Material.IRON_SWORD
+                           || currItem.getType() == Material.GOLDEN_SWORD || currItem.getType() == Material.DIAMOND_SWORD || currItem.getType() == Material.NETHERITE_SWORD) {
+                            double attackDamage = CraftItemStack.asNMSCopy(currItem).a(EnumItemSlot.MAINHAND).get(GenericAttributes.ATTACK_DAMAGE).iterator().next().getAmount() * 2;
+                            for(Entity e : this.getBukkitEntity().getNearbyEntities(3.0, 1.0, 3.0)) {
+                                if(e instanceof LivingEntity && e != this.getBukkitEntity()) {
+                                    ((LivingEntity) e).damage(attackDamage, this.getBukkitEntity());
+                                }
+                            }
+                        }
+                    }
+                }
                 break;
             case SELECT:
                 this.selectedSlot = Integer.parseInt(instruction.getArg());
@@ -144,11 +164,22 @@ public class Minion extends EntityArmorStand implements InventoryHolder {
                     this.inv.getItem(Minion.INVENTORY_SLOTS[this.selectedSlot]).setAmount(toDrop.getAmount() - dropAmount);
                     toDrop.setAmount(dropAmount);
 
-                    Item dropped = this.getBukkitEntity().getWorld().dropItem(this.getBukkitEntity().getLocation(), toDrop);
+                    Item dropped = this.getBukkitEntity().getWorld().dropItem(head, toDrop);
                     dropped.setVelocity(this.getBukkitEntity().getLocation().getDirection().normalize());
                 }
                 break;
             case CRAFT:
+                {
+                    ItemStack[][] recipeItems = new ItemStack[][]{
+                            {this.inv.getItem(Minion.CRAFTING_GRID[0]), this.inv.getItem(Minion.CRAFTING_GRID[1]), this.inv.getItem(Minion.CRAFTING_GRID[2])},
+                            {this.inv.getItem(Minion.CRAFTING_GRID[3]), this.inv.getItem(Minion.CRAFTING_GRID[4]), this.inv.getItem(Minion.CRAFTING_GRID[5])},
+                            {this.inv.getItem(Minion.CRAFTING_GRID[6]), this.inv.getItem(Minion.CRAFTING_GRID[7]), this.inv.getItem(Minion.CRAFTING_GRID[8])}
+                    };
+                    Recipe recipe = CraftingTable.getRecipe(recipeItems);
+                    if(recipe != null) {
+                        this.getBukkitEntity().getWorld().dropItem(head, recipe.getResult().clone());
+                    }
+                }
                 break;
             case DROP:
                 if(this.inv.getItem(Minion.INVENTORY_SLOTS[this.selectedSlot]) != null) {
@@ -158,7 +189,7 @@ public class Minion extends EntityArmorStand implements InventoryHolder {
                     this.inv.getItem(Minion.INVENTORY_SLOTS[this.selectedSlot]).setAmount(toDrop.getAmount() - dropAmount);
                     toDrop.setAmount(dropAmount);
 
-                    this.getBukkitEntity().getWorld().dropItem(this.getBukkitEntity().getLocation(), toDrop);
+                    this.getBukkitEntity().getWorld().dropItem(head, toDrop);
                 }
                 break;
             case LEFT:
